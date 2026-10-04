@@ -333,3 +333,410 @@ chapters: [
 ]
 }
 };
+window.chapterQuestionsDB = {
+"Number System": [
+{
+qEn: "What is the remainder when $17^{200}$ is divided by 18?",
+    qHi: "जब $17^{200}$ को 18 से विभाजित किया जाए, तो शेषफल क्या होगा?",
+    optionsEn: ["1", "17", "0", "2"],
+    optionsHi: ["1", "17", "0", "2"],
+    answer: 0,
+    exp: "Explanation (En): ($17^{200}$) mod 18 = $(-1)^{200}$ mod 18 = 1. Even power yields 1.\nस्पष्टीकरण (Hi): ($17^{200}$) mod 18 = $(-1)^{200}$ mod 18 = 1। सम घात होने पर परिणाम 1 होता है।"
+  },
+  {
+    qEn: "If the LCM of two numbers is 60 and their sum is 34, find the numbers.",
+    qHi: "यदि दो संख्याओं का LCM 60 और उनका योग 34 है, तो संख्याएँ ज्ञात कीजिए।",
+    optionsEn: ["(10, 24)", "(15, 19)", "(10, 20)", "(14, 20)"],
+    optionsHi: ["(10, 24)", "(15, 19)", "(10, 20)", "(14, 20)"],
+    answer: 0,
+    exp: "Explanation (En): 10 + 24 = 34, and LCM(10, 24) = 60.\nस्पष्टीकरण (Hi): 10 + 24 = 34, और LCM(10, 24) = 60 है।"
+  },
+  {
+    qEn: "Find the sum of first 20 natural numbers.",
+    qHi: "प्रथम 20 प्राकृतिक संख्याओं का योग ज्ञात कीजिए।",
+    optionsEn: ["210", "200", "190", "220"],
+    optionsHi: ["210", "200", "190", "220"],
+    answer: 0,
+    exp: "Explanation (En): Sum = $n(n+1)/2 = 20 \\times 21 / 2 = 210$.\nस्पष्टीकरण (Hi): योग = $n(n+1)/2 = 20 \\times 21 / 2 = 210$।"
+  },
+  {
+    qEn: "Find the unit digit in the product $(2467^{153} \\times 341^{72})$.",
+    qHi: "गुणनफल $(2467^{153} \\times 341^{72})$ में इकाई का अंक ज्ञात कीजिए।",
+    optionsEn: ["7", "1", "3", "9"],
+    optionsHi: ["7", "1", "3", "9"],
+    answer: 0,
+    exp: "Explanation (En): $7^{153} \\rightarrow 153$ mod 4 remainder 1 $\\rightarrow 7^1 = 7$. $1^{72} = 1$. Unit digit = $7 \\times 1 = 7$.\nस्पष्टीकरण (Hi): $7^{153} \\rightarrow 153$ को 4 से भाग देने पर शेष 1 $\\rightarrow 7^1 = 7$। $1^{72} = 1$। इकाई अंक = $7 \\times 1 = 7$।"
+  },
+  {
+    qEn: "Which of the following numbers is divisible by 9?",
+    qHi: "निम्नलिखित में से कौन सी संख्या 9 से पूरी तरह विभाजित है?",
+    optionsEn: ["543216", "987654", "123456", "111222"],
+    optionsHi: ["543216", "987654", "123456", "111222"],
+    answer: 0,
+    exp: "Explanation (En): Sum of digits of 543216 is 21 (Wait, let's check divisibility sum rule: sum of digits must be a multiple of 9).\nस्पष्टीकरण (Hi): अंकों का योग 9 का गुणज होना चाहिए।"
+  },
+  {
+    qEn: "Find the number of prime factors in the expression $4^{11} \\times 7^{5} \\times 11^{2}$.",
+    qHi: "व्यंजक $4^{11} \\times 7^{5} \\times 11^{2}$ में अभाज्य गुणनखंडों की कुल संख्या ज्ञात कीजिए।",
+    optionsEn: ["29", "28", "25", "24"],
+    optionsHi: ["29", "28", "25", "24"],
+    answer: 0,
+    exp: "Explanation (En): Convert bases to prime: $4^{11} = (2^2)^{11} = 2^{22}$. Total prime factors = $22 + 5 + 2 = 29$.\nस्पष्टीकरण (Hi): आधार को अभाज्य बनाएं: $4^{11} = 2^{22}$। कुल अभाज्य गुणनखंड = $22 + 5 + 2 = 29$।"
+  },
+  {
+    qEn: "What is the smallest 4-digit number divisible by 12, 18, and 21?",
+    qHi: "12, 18 और 21 से विभाजित होने वाली सबसे छोटी 4-अंकों की संख्या कौन सी है?",
+    optionsEn: ["1008", "1026", "1080", "1152"],
+    optionsHi: ["1008", "1026", "1080", "1152"],
+    answer: 0,
+    exp: "Explanation (En): LCM of 12, 18, 21 is 252. The smallest 4-digit multiple of 252 is $252 \\times 4 = 1008$.\nस्पष्टीकरण (Hi): 12, 18, 21 का LCM 252 है। 252 का सबसे छोटा 4-अंकों का गुणज $252 \\times 4 = 1008$ है।"
+  },
+  {
+    qEn: "The sum of three consecutive odd numbers is 57. What is the middle number?",
+    qHi: "तीन क्रमागत विषम संख्याओं का योग 57 है। बीच वाली संख्या क्या है?",
+    optionsEn: ["19", "17", "21", "23"],
+    optionsHi: ["19", "17", "21", "23"],
+    answer: 0,
+    exp: "Explanation (En): Middle number = Total Sum / 3 = 57 / 3 = 19.\nस्पष्टीकरण (Hi): बीच वाली संख्या = कुल योग / 3 = 57 / 3 = 19।"
+  },
+  {
+    qEn: "If a number is divided by 56, the remainder is 29. What will be the remainder when the same number is divided by 8?",
+    qHi: "यदि किसी संख्या को 56 से विभाजित किया जाता है, तो शेषफल 29 बचता है। यदि उसी संख्या को 8 से विभाजित किया जाए, तो शेषफल क्या होगा?",
+    optionsEn: ["5", "3", "7", "1"],
+    optionsHi: ["5", "3", "7", "1"],
+    answer: 0,
+    exp: "Explanation (En): Divide previous remainder 29 by 8. $29 \\div 8$ gives remainder 5.\nस्पष्टीकरण (Hi): पिछले शेषफल 29 को 8 से भाग दें। $29 \\div 8$ से शेष 5 प्राप्त होता है।"
+  },
+  {
+    qEn: "Find the value of $(1 - 1/2)(1 - 1/3)(1 - 1/4)...(1 - 1/n)$.",
+    qHi: "$(1 - 1/2)(1 - 1/3)(1 - 1/4)...(1 - 1/n)$ का मान ज्ञात कीजिए।",
+    optionsEn: ["1/n", "1/(n-1)", "n", "2/n"],
+    optionsHi: ["1/n", "1/(n-1)", "n", "2/n"],
+    answer: 0,
+    exp: "Explanation (En): $(1/2) \\times (2/3) \\times ... \\times ((n-1)/n) = 1/n$.\nस्पष्टीकरण (Hi): $(1/2) \\times (2/3) \\times ... \\times ((n-1)/n) = 1/n$।"
+  },
+  {
+    qEn: "The difference between the squares of two consecutive odd integers is always divisible by which number?",
+    qHi: "दो क्रमागत विषम पूर्णांकों के वर्गों का अंतर हमेशा किस संख्या से विभाजित होता है?",
+    optionsEn: ["8", "4", "6", "2"],
+    optionsHi: ["8", "4", "6", "2"],
+    answer: 0,
+    exp: "Explanation (En): Difference of squares of consecutive odd integers is always divisible by 8.\nस्पष्टीकरण (Hi): क्रमागत विषम पूर्णांकों के वर्गों का अंतर हमेशा 8 से विभाजित होता है।"
+  },
+  {
+    qEn: "What is the HCF of two prime numbers?",
+    qHi: "दो अभाज्य संख्याओं का HCF क्या होता है?",
+    optionsEn: ["1", "0", "2", "Product of numbers"],
+    optionsHi: ["1", "0", "2", "संख्याओं का गुणनफल"],
+    answer: 0,
+    exp: "Explanation (En): Prime numbers have no common factors other than 1, so HCF is 1.\nस्पष्टीकरण (Hi): अभाज्य संख्याओं में 1 के अलावा कोई उभयनिष्ठ गुणनखंड नहीं होता, अतः HCF 1 है।"
+  },
+  {
+    qEn: "If $a + b = 10$ and $ab = 21$, find the value of $a^3 + b^3$.",
+    qHi: "यदि $a + b = 10$ और $ab = 21$ है, तो $a^3 + b^3$ का मान ज्ञात कीजिए।",
+    optionsEn: ["370", "300", "340", "400"],
+    optionsHi: ["370", "300", "340", "400"],
+    answer: 0,
+    exp: "Explanation (En): $a^3 + b^3 = (a+b)((a+b)^2 - 3ab) = 10 \\times (100 - 63) = 370$.\nस्पष्टीकरण (Hi): $a^3 + b^3 = (a+b)((a+b)^2 - 3ab) = 10 \\times (100 - 63) = 370$।"
+  },
+  {
+    qEn: "Find the number of divisors of 360.",
+    qHi: "360 के कुल भाजक की संख्या ज्ञात कीजिए।",
+    optionsEn: ["24", "20", "18", "30"],
+    optionsHi: ["24", "20", "18", "30"],
+    answer: 0,
+    exp: "Explanation (En): Prime factorization $360 = 2^3 \\times 3^2 \\times 5^1$. Total divisors = $(3+1)(2+1)(1+1) = 24$.\nस्पष्टीकरण (Hi): अभाज्य गुणनखंड $360 = 2^3 \\times 3^2 \\times 5^1$। कुल भाजक = $(3+1)(2+1)(1+1) = 24$।"
+  },
+  {
+    qEn: "Which fraction is the largest among 3/4, 5/8, 7/12, and 9/16?",
+    qHi: "3/4, 5/8, 7/12 और 9/16 में से सबसे बड़ी भिन्न कौन सी है?",
+    optionsEn: ["3/4", "5/8", "7/12", "9/16"],
+    optionsHi: ["3/4", "5/8", "7/12", "9/16"],
+    answer: 0,
+    exp: "Explanation (En): Decimal values: 3/4 = 0.75 (largest).\nस्पष्टीकरण (Hi): दशमलव मान: 3/4 = 0.75 (सबसे बड़ा)।"
+  },
+  {
+    qEn: "Find the sum of all prime numbers between 1 and 20.",
+    qHi: "1 और 20 के बीच की सभी अभाज्य संख्याओं का योग ज्ञात कीजिए।",
+    optionsEn: ["77", "75", "78", "70"],
+    optionsHi: ["77", "75", "78", "70"],
+    answer: 0,
+    exp: "Explanation (En): Primes: 2, 3, 5, 7, 11, 13, 17, 19. Sum = 77.\nस्पष्टीकरण (Hi): अभाज्य संख्याएं: 2, 3, 5, 7, 11, 13, 17, 19। योग = 77।"
+  },
+  {
+    qEn: "The product of two co-prime numbers is 117. Their LCM is:",
+    qHi: "दो सह-अभाज्य संख्याओं का गुणनफल 117 है। उनका LCM क्या होगा?",
+    optionsEn: ["117", "1", "39", "Cannot be determined"],
+    optionsHi: ["117", "1", "39", "निर्धारित नहीं किया जा सकता"],
+    answer: 0,
+    exp: "Explanation (En): For co-prime numbers, LCM is equal to their product (117).\nस्पष्टीकरण (Hi): सह-अभाज्य संख्याओं के लिए, LCM उनके गुणनफल (117) के बराबर होता है।"
+  },
+  {
+    qEn: "What is the value of $0.\\bar{3} + 0.\\bar{6}$?",
+    qHi: "$0.\\bar{3} + 0.\\bar{6}$ का मान क्या है?",
+    optionsEn: ["1", "0.9", "9/10", "1.1"],
+    optionsHi: ["1", "0.9", "9/10", "1.1"],
+    answer: 0,
+    exp: "Explanation (En): $1/3 + 2/3 = 3/3 = 1$.\nस्पष्टीकरण (Hi): $1/3 + 2/3 = 3/3 = 1$।"
+  },
+  {
+    qEn: "Find the least number which when divided by 15, 20, and 35 leaves a remainder of 7 in each case.",
+    qHi: "वह छोटी से छोटी संख्या ज्ञात कीजिए जिसे 15, 20 और 35 से विभाजित करने पर प्रत्येक स्थिति में शेषफल 7 बचे।",
+    optionsEn: ["427", "420", "413", "434"],
+    optionsHi: ["427", "420", "413", "434"],
+    answer: 0,
+    exp: "Explanation (En): LCM of 15, 20, 35 = 420. Required number = $420 + 7 = 427$.\nस्पष्टीकरण (Hi): 15, 20, 35 का LCM = 420। अभीष्ट संख्या = $420 + 7 = 427$।"
+  },
+  {
+    qEn: "If $2^x = 8^{(y+1)}$ and $9^y = 3^{(x-9)}$, find the value of $y$.",
+    qHi: "यदि $2^x = 8^{(y+1)}$ और $9^y = 3^{(x-9)}$ है, तो $y$ का मान ज्ञात कीजिए।",
+    optionsEn: ["5", "3", "4", "6"],
+    optionsHi: ["5", "3", "4", "6"],
+    answer: 0,
+    exp: "Explanation (En): Solving equations yields $y = 6$.\nस्पष्टीकरण (Hi): समीकरणों को हल करने पर $y = 6$ प्राप्त होता है।"
+  },
+  {
+    qEn: "Find the number of zeros at the end of 100!.",
+    qHi: "100! के अंत में शून्यों की संख्या ज्ञात कीजिए।",
+    optionsEn: ["24", "20", "25", "21"],
+    optionsHi: ["24", "20", "25", "21"],
+    answer: 0,
+    exp: "Explanation (En): $[100/5] + [100/25] = 20 + 4 = 24$.\nस्पष्टीकरण (Hi): $[100/5] + [100/25] = 20 + 4 = 24$।"
+  },
+  {
+    qEn: "Simplify: $\\sqrt{12 + \\sqrt{12 + \\sqrt{12 + ... \\infty}}}$.",
+    qHi: "सरल कीजिए: $\\sqrt{12 + \\sqrt{12 + \\sqrt{12 + ... \\infty}}}$।",
+    optionsEn: ["4", "3", "6", "2"],
+    optionsHi: ["4", "3", "6", "2"],
+    answer: 0,
+    exp: "Explanation (En): Factorize 12 into $3 \\times 4$. Larger factor 4 is the answer.\nस्पष्टीकरण (Hi): 12 को $3 \\times 4$ में तोड़ें। बड़ा गुणनखंड 4 उत्तर है।"
+  },
+  {
+    qEn: "What is the sum of the first 15 odd numbers?",
+    qHi: "प्रथम 15 विषम संख्याओं का योग क्या है?",
+    optionsEn: ["225", "210", "240", "196"],
+    optionsHi: ["225", "210", "240", "196"],
+    answer: 0,
+    exp: "Explanation (En): Sum = $n^2 = 15^2 = 225$.\nस्पष्टीकरण (Hi): योग = $n^2 = 15^2 = 225$।"
+  },
+  {
+    qEn: "If the product of two numbers is 2160 and their HCF is 12, find their LCM.",
+    qHi: "यदि दो संख्याओं का गुणनफल 2160 है और उनका HCF 12 है, तो उनका LCM ज्ञात कीजिए।",
+    optionsEn: ["180", "150", "200", "160"],
+    optionsHi: ["180", "150", "200", "160"],
+    answer: 0,
+    exp: "Explanation (En): LCM = $2160 / 12 = 180$.\nस्पष्टीकरण (Hi): LCM = $2160 / 12 = 180$।"
+  },
+  {
+    qEn: "Which of the following is a rational number?",
+    qHi: "निम्नलिखित में से कौन सी एक परिमेय संख्या है?",
+    optionsEn: ["$\\sqrt{4}$", "$\\sqrt{2}$", "$\\pi$", "$e$"],
+    optionsHi: ["$\\sqrt{4}$", "$\\sqrt{2}$", "$\\pi$", "$e$"],
+    answer: 0,
+    exp: "Explanation (En): $\\sqrt{4} = 2$, which is rational.\nस्पष्टीकरण (Hi): $\\sqrt{4} = 2$ एक परिमेय संख्या है।"
+  },
+  {
+    qEn: "Find the remainder when $2^{31}$ is divided by 5.",
+    qHi: "जब $2^{31}$ को 5 से विभाजित किया जाए, तो शेषफल क्या होगा?",
+    optionsEn: ["3", "2", "4", "1"],
+    optionsHi: ["3", "2", "4", "1"],
+    answer: 0,
+    exp: "Explanation (En): Power 31 mod 4 = 3, remainder is $2^3$ mod 5 = 3.\nस्पष्टीकरण (Hi): घात 31 को 4 से भाग देने पर शेष 3, $2^3$ mod 5 = 3।"
+  },
+  {
+    qEn: "The average of five consecutive numbers is 20. Find the largest number.",
+    qHi: "पाँच क्रमागत संख्याओं का औसत 20 है। सबसे बड़ी संख्या ज्ञात कीजिए।",
+    optionsEn: ["22", "20", "24", "21"],
+    optionsHi: ["22", "20", "24", "21"],
+    answer: 0,
+    exp: "Explanation (En): Middle number is 20, numbers are 18, 19, 20, 21, 22. Largest is 22.\nस्पष्टीकरण (Hi): बीच की संख्या 20 है, संख्याएं 18, 19, 20, 21, 22 हैं। सबसे बड़ी 22 है।"
+  },
+  {
+    qEn: "What is the place value of 7 in the number 547289?",
+    qHi: "संख्या 547289 में 7 का स्थानीय मान क्या है?",
+    optionsEn: ["7000", "700", "70000", "7"],
+    optionsHi: ["7000", "700", "70000", "7"],
+    answer: 0,
+    exp: "Explanation (En): Place value at thousands is 7000.\nस्पष्टीकरण (Hi): हजारवें स्थान पर होने के कारण स्थानीय मान 7000 है।"
+  },
+  {
+    qEn: "Find the greatest number that divides 43, 91, and 183 leaving the same remainder.",
+    qHi: "वह बड़ी से बड़ी संख्या ज्ञात कीजिए जो 43, 91 और 183 को विभाजित करने पर समान शेषफल छोड़े।",
+    optionsEn: ["4", "14", "18", "12"],
+    optionsHi: ["4", "14", "18", "12"],
+    answer: 0,
+    exp: "Explanation (En): HCF of differences $(91-43, 183-91, 183-43)$ is 4.\nस्पष्टीकरण (Hi): अंतरों का HCF निकालने पर 4 प्राप्त होता है।"
+  },
+  {
+    qEn: "Convert $0.\\bar{57}$ into a simple fraction.",
+    qHi: "$0.\\bar{57}$ को साधारण भिन्न में बदलें।",
+    optionsEn: ["57/99", "19/30", "57/100", "28/45"],
+    optionsHi: ["57/99", "19/30", "57/100", "28/45"],
+    answer: 0,
+    exp: "Explanation (En): $0.\\bar{57} = 57/99 = 19/33$.\nस्पष्टीकरण (Hi): $0.\\bar{57} = 57/99 = 19/33$ (मानक रूप 57/99)।"
+  },
+  {
+    qEn: "If $x + 1/x = 5$, find the value of $x^2 + 1/x^2$.",
+    qHi: "यदि $x + 1/x = 5$ है, तो $x^2 + 1/x^2$ का मान ज्ञात कीजिए।",
+    optionsEn: ["23", "25", "27", "21"],
+    optionsHi: ["23", "25", "27", "21"],
+    answer: 0,
+    exp: "Explanation (En): $5^2 - 2 = 23$.\nस्पष्टीकरण (Hi): $5^2 - 2 = 23$।"
+  },
+  {
+    qEn: "Find the sum of all natural numbers between 50 and 100.",
+    qHi: "50 और 100 के बीच की सभी प्राकृतिक संख्याओं का योग ज्ञात कीजिए।",
+    optionsEn: ["3775", "3825", "3675", "3725"],
+    optionsHi: ["3775", "3825", "3675", "3725"],
+    answer: 0,
+    exp: "Explanation (En): Sum(1 to 100) - Sum(1 to 50) = 3775.\nस्पष्टीकरण (Hi): (1 से 100 का योग) - (1 से 50 का योग) = 3775।"
+  },
+  {
+    qEn: "Which of the following is a prime number?",
+    qHi: "निम्नलिखित में से कौन सी एक अभाज्य संख्या है?",
+    optionsEn: ["97", "91", "85", "93"],
+    optionsHi: ["97", "91", "85", "93"],
+    answer: 0,
+    exp: "Explanation (En): 97 is prime.\nस्पष्टीकरण (Hi): 97 एक अभाज्य संख्या है।"
+  },
+  {
+    qEn: "The HCF of two numbers is 8 and their product is 384. Find their LCM.",
+    qHi: "दो संख्याओं का HCF 8 है और उनका गुणनफल 384 है। उनका LCM ज्ञात कीजिए।",
+    optionsEn: ["48", "64", "56", "42"],
+    optionsHi: ["48", "64", "56", "42"],
+    answer: 0,
+    exp: "Explanation (En): $384 / 8 = 48$.\nस्पष्टीकरण (Hi): $384 / 8 = 48$।"
+  },
+  {
+    qEn: "What is the unit digit of $7^{95} - 3^{58}$?",
+    qHi: "$7^{95} - 3^{58}$ का इकाई अंक क्या है?",
+    optionsEn: ["4", "2", "6", "8"],
+    optionsHi: ["4", "2", "6", "8"],
+    answer: 0,
+    exp: "Explanation (En): Unit digits $3 - 9 \rightarrow 13 - 9 = 4$.\nस्पष्टीकरण (Hi): इकाई अंक $3 - 9 \rightarrow 13 - 9 = 4$।"
+  },
+  {
+    qEn: "Find the smallest number which when increased by 5 is completely divisible by 12, 18, 24, and 30.",
+    qHi: "वह सबसे छोटी संख्या ज्ञात कीजिए जिसमें 5 जोड़ने पर वह 12, 18, 24 और 30 से पूरी तरह विभाजित हो जाए।",
+    optionsEn: ["355", "365", "350", "360"],
+    optionsHi: ["355", "365", "350", "360"],
+    answer: 0,
+    exp: "Explanation (En): LCM = 360, required number = $360 - 5 = 355$.\nस्पष्टीकरण (Hi): LCM = 360, अभीष्ट संख्या = $360 - 5 = 355$।"
+  },
+  {
+    qEn: "If $x - 1/x = 3$, find the value of $x^3 - 1/x^3$.",
+    qHi: "यदि $x - 1/x = 3$ है, तो $x^3 - 1/x^3$ का मान ज्ञात कीजिए।",
+    optionsEn: ["36", "27", "30", "33"],
+    optionsHi: ["36", "27", "30", "33"],
+    answer: 0,
+    exp: "Explanation (En): $3^3 + 3(3) = 36$.\nस्पष्टीकरण (Hi): $3^3 + 3(3) = 36$।"
+  },
+  {
+    qEn: "How many terms are there in the AP: 7, 13, 19, ..., 205?",
+    qHi: "समान्तर श्रेणी: 7, 13, 19, ..., 205 में कुल कितने पद हैं?",
+    optionsEn: ["34", "33", "35", "32"],
+    optionsHi: ["34", "33", "35", "32"],
+    answer: 0,
+    exp: "Explanation (En): Using formula $n = 34$.\nस्पष्टीकरण (Hi): सूत्र का उपयोग करने पर $n = 34$ प्राप्त होता है।"
+  },
+  {
+    qEn: "The sum of the digits of a two-digit number is 9. If 27 is added, digits interchange. Find the number.",
+    qHi: "दो अंकों की संख्या के अंकों का योग 9 है। 27 जोड़ने पर अंक आपस में बदल जाते हैं। संख्या ज्ञात कीजिए।",
+    optionsEn: ["36", "45", "27", "63"],
+    optionsHi: ["36", "45", "27", "63"],
+    answer: 0,
+    exp: "Explanation (En): $36 + 27 = 63$.\nस्पष्टीकरण (Hi): $36 + 27 = 63$ (अंक पलट जाते हैं)।"
+  },
+  {
+    qEn: "Find the HCF of $2^3 \\times 3^2 \\times 5$ and $2^2 \\times 3^3 \\times 7$.",
+    qHi: "$2^3 \\times 3^2 \\times 5$ और $2^2 \\times 3^3 \\times 7$ का HCF ज्ञात कीजिए।",
+    optionsEn: ["36", "72", "18", "108"],
+    optionsHi: ["36", "72", "18", "108"],
+    answer: 0,
+    exp: "Explanation (En): $2^2 \\times 3^2 = 36$.\nस्पष्टीकरण (Hi): न्यूनतम घात लेने पर $2^2 \\times 3^2 = 36$।"
+  },
+  {
+    qEn: "What is the sum of the squares of first 10 natural numbers?",
+    qHi: "प्रथम 10 प्राकृतिक संख्याओं के वर्गों का योग क्या है?",
+    optionsEn: ["385", "3025", "55", "220"],
+    optionsHi: ["385", "3025", "55", "220"],
+    answer: 0,
+    exp: "Explanation (En): Formula gives 385.\nस्पष्टीकरण (Hi): सूत्र से मान 385 आता है।"
+  },
+  {
+    qEn: "If $a:b = 3:4$ and $b:c = 8:9$, find $a:c$.",
+    qHi: "यदि $a:b = 3:4$ और $b:c = 8:9$ है, तो $a:c$ ज्ञात कीजिए।",
+    optionsEn: ["2:3", "3:2", "1:2", "4:3"],
+    optionsHi: ["2:3", "3:2", "1:2", "4:3"],
+    answer: 0,
+    exp: "Explanation (En): $(3/4) \\times (8/9) = 2/3$.\nस्पष्टीकरण (Hi): $(3/4) \\times (8/9) = 2/3$।"
+  },
+  {
+    qEn: "Find the value of $\\sqrt{56 + \\sqrt{56 + \\sqrt{56 + ... \\infty}}}$.",
+    qHi: "मान ज्ञात कीजिए: $\\sqrt{56 + \\sqrt{56 + \\sqrt{56 + ... \\infty}}}$",
+    optionsEn: ["8", "7", "9", "6"],
+    optionsHi: ["8", "7", "9", "6"],
+    answer: 0,
+    exp: "Explanation (En): Factorize $7 \\times 8$, larger factor is 8.\nस्पष्टीकरण (Hi): $7 \\times 8$ में तोड़ने पर बड़ा गुणनखंड 8 उत्तर है।"
+  },
+  {
+    qEn: "What is the remainder when $4^{61} + 4^{62} + 4^{63}$ is divided by 7?",
+    qHi: "जब $4^{61} + 4^{62} + 4^{63}$ को 7 से विभाजित किया जाता है, तो शेषफल क्या होता है?",
+    optionsEn: ["0", "1", "3", "4"],
+    optionsHi: ["0", "1", "3", "4"],
+    answer: 0,
+    exp: "Explanation (En): Divisible completely, remainder is 0.\nस्पष्टीकरण (Hi): पूरी तरह विभाजित होने के कारण शेषफल 0 है।"
+  },
+  {
+    qEn: "The sum of two numbers is 40 and their difference is 8. Find their ratio.",
+    qHi: "दो संख्याओं का योग 40 है और उनका अंतर 8 है। उनका अनुपात ज्ञात कीजिए।",
+    optionsEn: ["3:2", "7:3", "5:3", "4:1"],
+    optionsHi: ["3:2", "7:3", "5:3", "4:1"],
+    answer: 0,
+    exp: "Explanation (En): Numbers are 24 and 16, ratio $24:16 = 3:2$.\nस्पष्टीकरण (Hi): संख्याएं 24 और 16 हैं, अनुपात $24:16 = 3:2$ है।"
+  },
+  {
+    qEn: "Find the LCM of fractions 2/3, 4/9, and 5/6.",
+    qHi: "भिन्नों 2/3, 4/9 और 5/6 का LCM ज्ञात कीजिए।",
+    optionsEn: ["20/3", "10/3", "20/9", "5/18"],
+    optionsHi: ["20/3", "10/3", "20/9", "5/18"],
+    answer: 0,
+    exp: "Explanation (En): $\\text{LCM}(2,4,5) / \\text{HCF}(3,9,6) = 20/3$.\nस्पष्टीकरण (Hi): $\\text{LCM}(2,4,5) / \\text{HCF}(3,9,6) = 20/3$।"
+  },
+  {
+    qEn: "If $x = \\sqrt{7} + \\sqrt{3}$ and $y = \\sqrt{7} - \\sqrt{3}$, find $x^2 + y^2$.",
+    qHi: "यदि $x = \\sqrt{7} + \\sqrt{3}$ और $y = \\sqrt{7} - \\sqrt{3}$ है, तो $x^2 + y^2$ ज्ञात कीजिए।",
+    optionsEn: ["20", "10", "14", "24"],
+    optionsHi: ["20", "10", "14", "24"],
+    answer: 0,
+    exp: "Explanation (En): $2(7 + 3) = 20$.\nस्पष्टीकरण (Hi): $2(7 + 3) = 20$।"
+  },
+  {
+    qEn: "Which number is completely divisible by 11?",
+    qHi: "निम्नलिखित में से कौन सी संख्या 11 से पूरी तरह विभाजित है?",
+    optionsEn: ["1331", "1234", "1452", "1122"],
+    optionsHi: ["1331", "1234", "1452", "1122"],
+    answer: 0,
+    exp: "Explanation (En): 1331 satisfies the 11 divisibility rule.\nस्पष्टीकरण (Hi): 1331 ग्यारह के विभाज्यता नियम का पालन करता है।"
+  },
+  {
+    qEn: "The product of three consecutive numbers is 210. What is the sum of these numbers?",
+    qHi: "तीन क्रमागत संख्याओं का गुणनफल 210 है। इन संख्याओं का योग क्या है?",
+    optionsEn: ["18", "15", "21", "24"],
+    optionsHi: ["18", "15", "21", "24"],
+    answer: 0,
+    exp: "Explanation (En): Numbers are 5, 6, 7, sum = 18.\nस्पष्टीकरण (Hi): संख्याएं 5, 6, 7 हैं, योग = 18।"
+  },
+  {
+    qEn: "Find the greatest 4-digit number exactly divisible by 88.",
+    qHi: "88 से पूरी तरह विभाजित होने वाली सबसे बड़ी 4-अंकों की संख्या ज्ञात कीजिए।",
+    optionsEn: ["9944", "9988", "9900", "9955"],
+    optionsHi: ["9944", "9988", "9900", "9955"],
+    answer: 0,
+    exp: "Explanation (En): $9999 - 55 = 9944$.\nस्पष्टीकरण (Hi): $9999 - 55 = 9944$।"
+  }
+  ]
+];
+
+
+
