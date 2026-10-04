@@ -736,7 +736,7 @@ qEn: "What is the remainder when $17^{200}$ is divided by 18?",
     exp: "Explanation (En): $9999 - 55 = 9944$.\nस्पष्टीकरण (Hi): $9999 - 55 = 9944$।"
   }
   ]
-];
+};
 
 
 
