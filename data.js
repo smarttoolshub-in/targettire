@@ -735,7 +735,409 @@ qEn: "What is the remainder when $17^{200}$ is divided by 18?",
     answer: 0,
     exp: "Explanation (En): $9999 - 55 = 9944$.\nस्पष्टीकरण (Hi): $9999 - 55 = 9944$।"
   }
-  ]
+  ],
+    ["Simplification"] = [
+  {
+    qEn: "Evaluate: $15 + 12 \\div 3 \\times 2 - 5$",
+    qHi: "मान ज्ञात कीजिए: $15 + 12 \\div 3 \\times 2 - 5$",
+    optionsEn: ["18", "16", "20", "14"],
+    optionsHi: ["18", "16", "20", "14"],
+    answer: 0,
+    exp: "Explanation (En): Using BODMAS rule: $15 + 8 - 5 = 18$.\nस्पष्टीकरण (Hi): BODMAS नियम का उपयोग करके: $15 + 8 - 5 = 18$।"
+  },
+  {
+    qEn: "Simplify: $[36 - \\{18 - (14 - \\overline{15 - 4})\\}] \\div [2 \\times 3]$",
+    qHi: "सरल कीजिए: $[36 - \\{18 - (14 - \\overline{15 - 4})\\}] \\div [2 \\times 3]$",
+    optionsEn: ["3.5", "4", "5", "6"],
+    optionsHi: ["3.5", "4", "5", "6"],
+    answer: 0,
+    exp: "Explanation (En): Step-by-step solving gives $21 / 6 = 3.5$.\nस्पष्टीकरण (Hi): चरण-दर-चरण हल करने पर $21 / 6 = 3.5$ प्राप्त होता है।"
+  },
+  {
+    qEn: "Find the value of: $\\frac{0.2 \\times 0.2 + 0.3 \\times 0.3 - 0.2 \\times 0.3}{0.2 \\times 0.2 \\times 0.2 + 0.3 \\times 0.3 \\times 0.3}$",
+    qHi: "मान ज्ञात कीजिए: $\\frac{0.2 \\times 0.2 + 0.3 \\times 0.3 - 0.2 \\times 0.3}{0.2 \\times 0.2 \\times 0.2 + 0.3 \\times 0.3 \\times 0.3}$",
+    optionsEn: ["2", "0.5", "5", "1"],
+    optionsHi: ["2", "0.5", "5", "1"],
+    answer: 0,
+    exp: "Explanation (En): Simplifies to $1 / (a+b) = 1 / 0.5 = 2$.\nस्पष्टीकरण (Hi): सरल होकर $1 / (a+b) = 1 / 0.5 = 2$ बनता है।"
+  },
+  {
+    qEn: "Simplify: $\\left(1 + \\frac{1}{2}\\right)\\left(1 + \\frac{1}{3}\\right)\\dots \\left(1 + \\frac{1}{n}\\right)$",
+    qHi: "सरल कीजिए: $\\left(1 + \\frac{1}{2}\\right)\\left(1 + \\frac{1}{3}\\right)\\dots \\left(1 + \\frac{1}{n}\\right)$",
+    optionsEn: ["(n+1)/2", "n", "(n-1)/2", "1/n"],
+    optionsHi: ["(n+1)/2", "n", "(n-1)/2", "1/n"],
+    answer: 0,
+    exp: "Explanation (En): Terms cancel out to leave $(n+1)/2$.\nस्पष्टीकरण (Hi): पद कट जाते हैं और $(n+1)/2$ बचता है।"
+  },
+  {
+    qEn: "If $x = 3 + 2\\sqrt{2}$, find the value of $\\sqrt{x} + \\frac{1}{\\sqrt{x}}$.",
+    qHi: "यदि $x = 3 + 2\\sqrt{2}$ है, तो $\\sqrt{x} + \\frac{1}{\\sqrt{x}}$ का मान ज्ञात कीजिए।",
+    optionsEn: ["$2\\sqrt{2}$", "$2$", "$3$", "$\\sqrt{2}$"],
+    optionsHi: ["$2\\sqrt{2}$", "$2$", "$3$", "$\\sqrt{2}$"],
+    answer: 0,
+    exp: "Explanation (En): $(\\sqrt{2}+1) + (\\sqrt{2}-1) = 2\\sqrt{2}$.\nस्पष्टीकरण (Hi): $(\\sqrt{2}+1) + (\\sqrt{2}-1) = 2\\sqrt{2}$।"
+  },
+  {
+    qEn: "Evaluate: $\\sqrt{30 + \\sqrt{30 + \\sqrt{30 + \\dots \\infty}}}$",
+    qHi: "मान ज्ञात कीजिए: $\\sqrt{30 + \\sqrt{30 + \\sqrt{30 + \\dots \\infty}}}$",
+    optionsEn: ["6", "5", "7", "4"],
+    optionsHi: ["6", "5", "7", "4"],
+    answer: 0,
+    exp: "Explanation (En): Factorize $5 \\times 6$, larger factor is 6.\nस्पष्टीकरण (Hi): $5 \\times 6$ में तोड़ने पर बड़ा गुणनखंड 6 उत्तर है।"
+  },
+  {
+    qEn: "What is the value of $(999\\frac{1}{7} + \\dots + 999\\frac{6}{7})$?",
+    qHi: "$(999\\frac{1}{7} + \\dots + 999\\frac{6}{7})$ का मान क्या है?",
+    optionsEn: ["5997", "6000", "5994", "5991"],
+    optionsHi: ["5997", "6000", "5994", "5991"],
+    answer: 0,
+    exp: "Explanation (En): $5994 + 3 = 5997$.\nस्पष्टीकरण (Hi): $5994 + 3 = 5997$।"
+  },
+  {
+    qEn: "Simplify: $\\frac{7.5 \\times 7.5 + 2.5 \\times 2.5 + 2 \\times 7.5 \\times 2.5}{10 \\times 10}$",
+    qHi: "सरल कीजिए: $\\frac{7.5 \\times 7.5 + 2.5 \\times 2.5 + 2 \\times 7.5 \\times 2.5}{10 \\times 10}$",
+    optionsEn: ["1", "0.1", "10", "0.01"],
+    optionsHi: ["1", "0.1", "10", "0.01"],
+    answer: 0,
+    exp: "Explanation (En): $100 / 100 = 1$.\nस्पष्टीकरण (Hi): $100 / 100 = 1$।"
+  },
+  {
+    qEn: "Find the value of $1 - \\frac{1}{1 + \\frac{1}{1 - \\frac{1}{2}}}$",
+    qHi: "$1 - \\frac{1}{1 + \\frac{1}{1 - \\frac{1}{2}}}$ का मान ज्ञात कीजिए।",
+    optionsEn: ["2/3", "1", "-1", "1/2"],
+    optionsHi: ["2/3", "1", "-1", "1/2"],
+    answer: 0,
+    exp: "Explanation (En): Solving from bottom gives $2/3$.\nस्पष्टीकरण (Hi): नीचे से हल करने पर $2/3$ प्राप्त होता है।"
+  },
+  {
+    qEn: "If $x + \\frac{1}{x} = 3$, find the value of $x^4 + \\frac{1}{x^4}$.",
+    qHi: "यदि $x + \\frac{1}{x} = 3$ है, तो $x^4 + \\frac{1}{x^4}$ का मान ज्ञात कीजिए।",
+    optionsEn: ["47", "49", "51", "45"],
+    optionsHi: ["47", "49", "51", "45"],
+    answer: 0,
+    exp: "Explanation (En): $7^2 - 2 = 47$.\nस्पष्टीकरण (Hi): $7^2 - 2 = 47$।"
+  },
+  {
+    qEn: "Evaluate: $\\frac{(0.96)^3 - (0.1)^3}{(0.96)^2 + 0.096 + (0.1)^2}$",
+    qHi: "मान ज्ञात कीजिए: $\\frac{(0.96)^3 - (0.1)^3}{(0.96)^2 + 0.096 + (0.1)^2}$",
+    optionsEn: ["0.86", "1.06", "0.96", "0.76"],
+    optionsHi: ["0.86", "1.06", "0.96", "0.76"],
+    answer: 0,
+    exp: "Explanation (En): $0.96 - 0.1 = 0.86$.\nस्पष्टीकरण (Hi): $0.96 - 0.1 = 0.86$।"
+  },
+  {
+    qEn: "What is the value of $\\sqrt{12 + \\sqrt{12 + \\sqrt{12 + \\dots \\infty}}}$?",
+    qHi: "$\\sqrt{12 + \\sqrt{12 + \\sqrt{12 + \\dots \\infty}}}$ का मान क्या है?",
+    optionsEn: ["4", "3", "6", "2"],
+    optionsHi: ["4", "3", "6", "2"],
+    answer: 0,
+    exp: "Explanation (En): Factorize $3 \\times 4$, larger factor is 4.\nस्पष्टीकरण (Hi): $3 \\times 4$ में तोड़ने पर बड़ा गुणनखंड 4 है।"
+  },
+  {
+    qEn: "Simplify: $56 \\div 7 \\times 2 + 4 - 3 \\times 2$",
+    qHi: "सरल कीजिए: $56 \\div 7 \\times 2 + 4 - 3 \\times 2$",
+    optionsEn: ["14", "16", "12", "10"],
+    optionsHi: ["14", "16", "12", "10"],
+    answer: 0,
+    exp: "Explanation (En): $16 + 4 - 6 = 14$.\nस्पष्टीकरण (Hi): $16 + 4 - 6 = 14$।"
+  },
+  {
+    qEn: "If $2^x = 32$, find the value of $x^3$.",
+    qHi: "यदि $2^x = 32$ है, तो $x^3$ का मान ज्ञात कीजिए।",
+    optionsEn: ["125", "64", "216", "27"],
+    optionsHi: ["125", "64", "216", "27"],
+    answer: 0,
+    exp: "Explanation (En): $x = 5 \\Rightarrow 5^3 = 125$.\nस्पष्टीकरण (Hi): $x = 5 \\Rightarrow 5^3 = 125$।"
+  },
+  {
+    qEn: "Find the value of $\\left(1 - \\frac{1}{3}\\right)\\left(1 - \\frac{1}{4}\\right)\\dots \\left(1 - \\frac{1}{n}\\right)$",
+    qHi: "मान ज्ञात कीजिए: $\\left(1 - \\frac{1}{3}\\right)\\left(1 - \\frac{1}{4}\\right)\\dots \\left(1 - \\frac{1}{n}\\right)$",
+    optionsEn: ["2/n", "1/n", "1/(n-1)", "3/n"],
+    optionsHi: ["2/n", "1/n", "1/(n-1)", "3/n"],
+    answer: 0,
+    exp: "Explanation (En): Simplifies to $2/n$.\nस्पष्टीकरण (Hi): सरल होकर $2/n$ बनता है।"
+  },
+  {
+    qEn: "Evaluate: $0.\\bar{36} + 0.\\bar{63}$",
+    qHi: "मान ज्ञात कीजिए: $0.\\bar{36} + 0.\\bar{63}$",
+    optionsEn: ["1", "0.99", "99/100", "0.9"],
+    optionsHi: ["1", "0.99", "99/100", "0.9"],
+    answer: 0,
+    exp: "Explanation (En): $4/11 + 7/11 = 1$.\nस्पष्टीकरण (Hi): $4/11 + 7/11 = 1$।"
+  },
+  {
+    qEn: "Simplify: $\\sqrt{72 - \\sqrt{72 - \\sqrt{72 - \\dots \\infty}}}$",
+    qHi: "सरल कीजिए: $\\sqrt{72 - \\sqrt{72 - \\sqrt{72 - \\dots \\infty}}}$",
+    optionsEn: ["8", "9", "7", "6"],
+    optionsHi: ["8", "9", "7", "6"],
+    answer: 0,
+    exp: "Explanation (En): Factorize $8 \\times 9$, smaller factor is 8.\nस्पष्टीकरण (Hi): $8 \\times 9$ में तोड़ने पर छोटा गुणनखंड 8 उत्तर है।"
+  },
+  {
+    qEn: "If $\\frac{x}{y} = \\frac{3}{4}$, find the value of $\\frac{4x + 2y}{4x - 2y}$",
+    qHi: "यदि $\\frac{x}{y} = \\frac{3}{4}$ है, तो $\\frac{4x + 2y}{4x - 2y}$ का मान ज्ञात कीजिए।",
+    optionsEn: ["5", "4", "3", "2"],
+    optionsHi: ["5", "4", "3", "2"],
+    answer: 0,
+    exp: "Explanation (En): $(12 + 8) / (12 - 8) = 5$.\nस्पष्टीकरण (Hi): $(12 + 8) / (12 - 8) = 5$।"
+  },
+  {
+    qEn: "Evaluate: $(12)^{2} \\div (4)^{2} \\times (3)^{3}$",
+    qHi: "मान ज्ञात कीजिए: $(12)^{2} \\div (4)^{2} \\times (3)^{3}$",
+    optionsEn: ["243", "81", "729", "108"],
+    optionsHi: ["243", "81", "729", "108"],
+    answer: 0,
+    exp: "Explanation (En): $9 \\times 27 = 243$.\nस्पष्टीकरण (Hi): $9 \\times 27 = 243$।"
+  },
+  {
+    qEn: "If $a + b + c = 0$, find the value of $\\frac{a^2}{bc} + \\frac{b^2}{ca} + \\frac{c^2}{ab}$",
+    qHi: "यदि $a + b + c = 0$ है, तो $\\frac{a^2}{bc} + \\frac{b^2}{ca} + \\frac{c^2}{ab}$ का मान ज्ञात कीजिए।",
+    optionsEn: ["3", "0", "1", "-3"],
+    optionsHi: ["3", "0", "1", "-3"],
+    answer: 0,
+    exp: "Explanation (En): $3abc / abc = 3$.\nस्पष्टीकरण (Hi): $3abc / abc = 3$।"
+  },
+  {
+    qEn: "Simplify: $3 \\frac{1}{3} + 3 \\frac{1}{6} + 3 \\frac{1}{9} + 3 \\frac{1}{18}$",
+    qHi: "सरल कीजिए: $3 \\frac{1}{3} + 3 \\frac{1}{6} + 3 \\frac{1}{9} + 3 \\frac{1}{18}$",
+    optionsEn: ["13", "12", "14", "15"],
+    optionsHi: ["13", "12", "14", "15"],
+    answer: 0,
+    exp: "Explanation (En): Integer sum + fraction sum yields 13.\nस्पष्टीकरण (Hi): पूर्णांक योग और भिन्न योग से 13 प्राप्त होता है।"
+  },
+  {
+    qEn: "Find the value of $x$ if $5^{x-1} + 5^{x+1} = 650$",
+    qHi: "यदि $5^{x-1} + 5^{x+1} = 650$ है, तो $x$ का मान ज्ञात कीजिए।",
+    optionsEn: ["3", "2", "4", "5"],
+    optionsHi: ["3", "2", "4", "5"],
+    answer: 0,
+    exp: "Explanation (En): $5^{x-1}(26) = 650 \\Rightarrow x = 3$.\nस्पष्टीकरण (Hi): $5^{x-1}(26) = 650 \\Rightarrow x = 3$।"
+  },
+  {
+    qEn: "Evaluate: $\\sqrt{56 + \\sqrt{56 + \\sqrt{56 + \\dots \\infty}}}$",
+    qHi: "मान ज्ञात कीजिए: $\\sqrt{56 + \\sqrt{56 + \\sqrt{56 + \\dots \\infty}}}$",
+    optionsEn: ["8", "7", "9", "6"],
+    optionsHi: ["8", "7", "9", "6"],
+    answer: 0,
+    exp: "Explanation (En): Factorize $7 \\times 8$, larger factor is 8.\nस्पष्टीकरण (Hi): $7 \\times 8$ में तोड़ने पर बड़ा गुणनखंड 8 है।"
+  },
+  {
+    qEn: "Simplify: $\\frac{(4.5)^2 - (1.5)^2}{4.5 + 1.5}$",
+    qHi: "सरल कीजिए: $\\frac{(4.5)^2 - (1.5)^2}{4.5 + 1.5}$",
+    optionsEn: ["3", "6", "1.5", "4.5"],
+    optionsHi: ["3", "6", "1.5", "4.5"],
+    answer: 0,
+    exp: "Explanation (En): $4.5 - 1.5 = 3$.\nस्पष्टीकरण (Hi): $4.5 - 1.5 = 3$।"
+  },
+  {
+    qEn: "If $x - \\frac{1}{x} = 4$, find the value of $x^2 + \\frac{1}{x^2}$",
+    qHi: "यदि $x - \\frac{1}{x} = 4$ है, तो $x^2 + \\frac{1}{x^2}$ का मान ज्ञात कीजिए।",
+    optionsEn: ["18", "16", "14", "20"],
+    optionsHi: ["18", "16", "14", "20"],
+    answer: 0,
+    exp: "Explanation (En): $4^2 + 2 = 18$.\nस्पष्टीकरण (Hi): $4^2 + 2 = 18$।"
+  },
+  {
+    qEn: "Evaluate: $25 - [20 - \\{15 - (10 - 5)\\}]$",
+    qHi: "मान ज्ञात कीजिए: $25 - [20 - \\{15 - (10 - 5)\\}]$",
+    optionsEn: ["15", "10", "5", "0"],
+    optionsHi: ["15", "10", "5", "0"],
+    answer: 0,
+    exp: "Explanation (En): $25 - 10 = 15$.\nस्पष्टीकरण (Hi): $25 - 10 = 15$।"
+  },
+  {
+    qEn: "Simplify: $\\frac{0.03 \\times 0.03 - 0.01 \\times 0.01}{0.03 + 0.01}$",
+    qHi: "सरल कीजिए: $\\frac{0.03 \\times 0.03 - 0.01 \\times 0.01}{0.03 + 0.01}$",
+    optionsEn: ["0.02", "0.04", "0.01", "0.03"],
+    optionsHi: ["0.02", "0.04", "0.01", "0.03"],
+    answer: 0,
+    exp: "Explanation (En): $0.03 - 0.01 = 0.02$.\nस्पष्टीकरण (Hi): $0.03 - 0.01 = 0.02$।"
+  },
+  {
+    qEn: "If $3^{x+1} = 27^{x-1}$, find the value of $x$.",
+    qHi: "यदि $3^{x+1} = 27^{x-1}$ है, तो $x$ का मान ज्ञात कीजिए।",
+    optionsEn: ["2", "3", "1", "4"],
+    optionsHi: ["2", "3", "1", "4"],
+    answer: 0,
+    exp: "Explanation (En): $x + 1 = 3(x - 1) \\Rightarrow x = 2$.\nस्पष्टीकरण (Hi): $x + 1 = 3(x - 1) \\Rightarrow x = 2$।"
+  },
+  {
+    qEn: "Find the value of $\\sqrt{56 - \\sqrt{56 - \\sqrt{56 - \\dots \\infty}}}$",
+    qHi: "मान ज्ञात कीजिए: $\\sqrt{56 - \\sqrt{56 - \\sqrt{56 - \\dots \\infty}}}$",
+    optionsEn: ["7", "8", "6", "9"],
+    optionsHi: ["7", "8", "6", "9"],
+    answer: 0,
+    exp: "Explanation (En): Factorize $7 \\times 8$, smaller factor is 7.\nस्पष्टीकरण (Hi): $7 \\times 8$ में तोड़ने पर छोटा गुणनखंड 7 है।"
+  },
+  {
+    qEn: "Evaluate: $\\left(1 + \\frac{1}{x}\\right)\\left(1 + \\frac{1}{x+1}\\right)\\left(1 + \\frac{1}{x+2}\\right)\\left(1 + \\frac{1}{x+3}\\right)$",
+    qHi: "मान ज्ञात कीजिए: $\\left(1 + \\frac{1}{x}\\right)\\left(1 + \\frac{1}{x+1}\\right)\\left(1 + \\frac{1}{x+2}\\right)\\left(1 + \\frac{1}{x+3}\\right)$",
+    optionsEn: ["(x+4)/x", "(x+1)/x", "(x+3)/x", "(x+4)/(x+1)"],
+    optionsHi: ["(x+4)/x", "(x+1)/x", "(x+3)/x", "(x+4)/(x+1)"],
+    answer: 0,
+    exp: "Explanation (En): Cancels to $(x+4)/x$.\nस्पष्टीकरण (Hi): कटने के बाद $(x+4)/x$ बचता है।"
+  },
+  {
+    qEn: "If $x + \\frac{1}{x} = 4$, find the value of $x^3 + \\frac{1}{x^3}$",
+    qHi: "यदि $x + \\frac{1}{x} = 4$ है, तो $x^3 + \\frac{1}{x^3}$ का मान ज्ञात कीजिए।",
+    optionsEn: ["52", "64", "48", "60"],
+    optionsHi: ["52", "64", "48", "60"],
+    answer: 0,
+    exp: "Explanation (En): $4^3 - 3(4) = 52$.\nस्पष्टीकरण (Hi): $4^3 - 3(4) = 52$।"
+  },
+  {
+    qEn: "Simplify: $\\frac{0.5 \\times 0.5 + 0.5 \\times 0.4 + 0.4 \\times 0.4}{0.5 \\times 0.5 \\times 0.5 - 0.4 \\times 0.4 \\times 0.4}$",
+    qHi: "सरल कीजिए: $\\frac{0.5 \\times 0.5 + 0.5 \\times 0.4 + 0.4 \\times 0.4}{0.5 \\times 0.5 \\times 0.5 - 0.4 \\times 0.4 \\times 0.4}$",
+    optionsEn: ["10", "1", "0.1", "100"],
+    optionsHi: ["10", "1", "0.1", "100"],
+    answer: 0,
+    exp: "Explanation (En): $1 / 0.1 = 10$.\nस्पष्टीकरण (Hi): $1 / 0.1 = 10$।"
+  },
+  {
+    qEn: "Evaluate: $\\sqrt{12 + \\sqrt{12 + \\sqrt{12}}}$ (up to 3 roots)",
+    qHi: "मान ज्ञात कीजिए: $\\sqrt{12 + \\sqrt{12 + \\sqrt{12}}}$ (3 पदों तक)",
+    optionsEn: ["3.99", "4", "3", "3.87"],
+    optionsHi: ["3.99", "4", "3", "3.87"],
+    answer: 0,
+    exp: "Explanation (En): Approximate calculation yields ~3.99.\nस्पष्टीकरण (Hi): लगभग गणना करने पर ~3.99 प्राप्त होता है।"
+  },
+  {
+    qEn: "If $a = 11$ and $b = 9$, find the value of $\\frac{a^2 + b^2 + ab}{a^3 - b^3}$",
+    qHi: "यदि $a = 11$ और $b = 9$ है, तो $\\frac{a^2 + b^2 + ab}{a^3 - b^3}$ का मान ज्ञात कीजिए।",
+    optionsEn: ["1/2", "2", "1/20", "20"],
+    optionsHi: ["1/2", "2", "1/20", "20"],
+    answer: 0,
+    exp: "Explanation (En): $1 / (11 - 9) = 1/2$.\nस्पष्टीकरण (Hi): $1 / (11 - 9) = 1/2$।"
+  },
+  {
+    qEn: "Simplify: $100 + 50 \\div 5 - 2 \\times 10$",
+    qHi: "सरल कीजिए: $100 + 50 \\div 5 - 2 \\times 10$",
+    optionsEn: ["90", "110", "100", "120"],
+    optionsHi: ["90", "110", "100", "120"],
+    answer: 0,
+    exp: "Explanation (En): $100 + 10 - 20 = 90$.\nस्पष्टीकरण (Hi): $100 + 10 - 20 = 90$।"
+  },
+  {
+    qEn: "If $x - \\frac{1}{x} = 5$, find the value of $x^3 - \\frac{1}{x^3}$",
+    qHi: "यदि $x - \\frac{1}{x} = 5$ है, तो $x^3 - \\frac{1}{x^3}$ का मान ज्ञात कीजिए।",
+    optionsEn: ["140", "125", "110", "150"],
+    optionsHi: ["140", "125", "110", "150"],
+    answer: 0,
+    exp: "Explanation (En): $5^3 + 3(5) = 140$.\nस्पष्टीकरण (Hi): $5^3 + 3(5) = 140$।"
+  },
+  {
+    qEn: "Evaluate: $\\frac{85 \\times 85 \\times 85 - 15 \\times 15 \\times 15}{85 \\times 85 + 85 \\times 15 + 15 \\times 15}$",
+    qHi: "मान ज्ञात कीजिए: $\\frac{85 \\times 85 \\times 85 - 15 \\times 15 \\times 15}{85 \\times 85 + 85 \\times 15 + 15 \\times 15}$",
+    optionsEn: ["70", "100", "50", "85"],
+    optionsHi: ["70", "100", "50", "85"],
+    answer: 0,
+    exp: "Explanation (En): $85 - 15 = 70$.\nस्पष्टीकरण (Hi): $85 - 15 = 70$।"
+  },
+  {
+    qEn: "Simplify: $\\left(2 - \\frac{1}{3}\\right)\\left(2 - \\frac{3}{5}\\right)\\dots \\left(2 - \\frac{999}{1001}\\right)$",
+    qHi: "सरल कीजिए: $\\left(2 - \\frac{1}{3}\\right)\\left(2 - \\frac{3}{5}\\right)\\dots \\left(2 - \\frac{999}{1001}\\right)$",
+    optionsEn: ["1003/3", "1001/3", "999/3", "1"],
+    optionsHi: ["1003/3", "1001/3", "999/3", "1"],
+    answer: 0,
+    exp: "Explanation (En): Cancels to $1003/3$.\nस्पष्टीकरण (Hi): हल होकर $1003/3$ बचता है।"
+  },
+  {
+    qEn: "If $4^x = 2^y$ and $2(y-x) = 6$, find the value of $x$.",
+    qHi: "यदि $4^x = 2^y$ और $2(y-x) = 6$ है, तो $x$ का मान ज्ञात कीजिए।",
+    optionsEn: ["3", "2", "4", "1"],
+    optionsHi: ["3", "2", "4", "1"],
+    answer: 0,
+    exp: "Explanation (En): $y = 2x \\Rightarrow 2x = 6 \\Rightarrow x = 3$.\nस्पष्टीकरण (Hi): $y = 2x \\Rightarrow 2x = 6 \\Rightarrow x = 3$।"
+  },
+  {
+    qEn: "Evaluate: $0.\\bar{6} + 0.\\bar{3} + 0.\\bar{1}$",
+    qHi: "मान ज्ञात कीजिए: $0.\\bar{6} + 0.\\bar{3} + 0.\\bar{1}$",
+    optionsEn: ["10/9", "1", "11/9", "12/9"],
+    optionsHi: ["10/9", "1", "11/9", "12/9"],
+    answer: 0,
+    exp: "Explanation (En): $6/9 + 3/9 + 1/9 = 10/9$.\nस्पष्टीकरण (Hi): $6/9 + 3/9 + 1/9 = 10/9$।"
+  },
+  {
+    qEn: "Simplify: $\\sqrt{20 + \\sqrt{20 + \\sqrt{20 + \\dots \\infty}}}$",
+    qHi: "सरल कीजिए: $\\sqrt{20 + \\sqrt{20 + \\sqrt{20 + \\dots \\infty}}}$",
+    optionsEn: ["5", "4", "6", "3"],
+    optionsHi: ["5", "4", "6", "3"],
+    answer: 0,
+    exp: "Explanation (En): Factorize $4 \\times 5$, larger factor is 5.\nस्पष्टीकरण (Hi): $4 \\times 5$ में तोड़ने पर बड़ा गुणनखंड 5 है।"
+  },
+  {
+    qEn: "If $x + \\frac{1}{x} = 5$, find the value of $\\frac{x}{x^2 - 3x + 1}$",
+    qHi: "यदि $x + \\frac{1}{x} = 5$ है, तो $\\frac{x}{x^2 - 3x + 1}$ का मान ज्ञात कीजिए।",
+    optionsEn: ["1/2", "1/3", "1/5", "1/4"],
+    optionsHi: ["1/2", "1/3", "1/5", "1/4"],
+    answer: 0,
+    exp: "Explanation (En): $x / 2x = 1/2$.\nस्पष्टीकरण (Hi): $x / 2x = 1/2$।"
+  },
+  {
+    qEn: "Evaluate: $(0.11)^3 + (0.22)^3 - (0.33)^3 + 3 \\times 0.11 \\times 0.22 \\times 0.33$",
+    qHi: "मान ज्ञात कीजिए: $(0.11)^3 + (0.22)^3 - (0.33)^3 + 3 \\times 0.11 \\times 0.22 \\times 0.33$",
+    optionsEn: ["0", "1", "0.33", "-1"],
+    optionsHi: ["0", "1", "0.33", "-1"],
+    answer: 0,
+    exp: "Explanation (En): Since $a+b+c = 0$, $a^3+b^3+c^3 - 3abc = 0$.\nस्पष्टीकरण (Hi): चूंकि $a+b+c = 0$ है, इसलिए परिणाम 0 होगा।"
+  },
+  {
+    qEn: "Simplify: $\\frac{2.3^3 - 0.027}{2.3^2 + 0.69 + 0.09}$",
+    qHi: "सरल कीजिए: $\\frac{2.3^3 - 0.027}{2.3^2 + 0.69 + 0.09}$",
+    optionsEn: ["2", "2.6", "2.03", "1.7"],
+    optionsHi: ["2", "2.6", "2.03", "1.7"],
+    answer: 0,
+    exp: "Explanation (En): $2.3 - 0.3 = 2$.\nस्पष्टीकरण (Hi): $2.3 - 0.3 = 2$।"
+  },
+  {
+    qEn: "If $2^x \\times 4^{x} = 8^{1/3}$, find the value of $x$.",
+    qHi: "यदि $2^x \\times 4^{x} = 8^{1/3}$ है, तो $x$ का मान ज्ञात कीजिए।",
+    optionsEn: ["1/3", "1/2", "2/3", "1"],
+    optionsHi: ["1/3", "1/2", "2/3", "1"],
+    answer: 0,
+    exp: "Explanation (En): $3x = 1 \\Rightarrow x = 1/3$.\nस्पष्टीकरण (Hi): $3x = 1 \\Rightarrow x = 1/3$।"
+  },
+  {
+    qEn: "Evaluate: $\\sqrt{42 - \\sqrt{42 - \\sqrt{42 - \\dots \\infty}}}$",
+    qHi: "मान ज्ञात कीजिए: $\\sqrt{42 - \\sqrt{42 - \\sqrt{42 - \\dots \\infty}}}$",
+    optionsEn: ["6", "7", "5", "8"],
+    optionsHi: ["6", "7", "5", "8"],
+    answer: 0,
+    exp: "Explanation (En): Factorize $6 \\times 7$, smaller factor is 6.\nस्पष्टीकरण (Hi): $6 \\times 7$ में तोड़ने पर छोटा गुणनखंड 6 है।"
+  },
+  {
+    qEn: "If $x + \\frac{1}{x} = 6$, find the value of $x^2 + \\frac{1}{x^2}$",
+    qHi: "यदि $x + \\frac{1}{x} = 6$ है, तो $x^2 + \\frac{1}{x^2}$ का मान ज्ञात कीजिए।",
+    optionsEn: ["34", "36", "32", "38"],
+    optionsHi: ["34", "36", "32", "38"],
+    answer: 0,
+    exp: "Explanation (En): $6^2 - 2 = 34$.\nस्पष्टीकरण (Hi): $6^2 - 2 = 34$।"
+  },
+  {
+    qEn: "Simplify: $\\frac{3}{1^2 \\cdot 2^2} + \\frac{5}{2^2 \\cdot 3^2} + \\frac{7}{3^2 \\cdot 4^2}$",
+    qHi: "सरल कीजिए: $\\frac{3}{1^2 \\cdot 2^2} + \\frac{5}{2^2 \\cdot 3^2} + \\frac{7}{3^2 \\cdot 4^2}$",
+    optionsEn: ["15/16", "1", "3/4", "7/8"],
+    optionsHi: ["15/16", "1", "3/4", "7/8"],
+    answer: 0,
+    exp: "Explanation (En): $1 - 1/16 = 15/16$.\nस्पष्टीकरण (Hi): $1 - 1/16 = 15/16$।"
+  },
+  {
+    qEn: "If $a^2 + b^2 + c^2 = 20$ and $ab + bc + ca = 8$, find $a + b + c$.",
+    qHi: "यदि $a^2 + b^2 + c^2 = 20$ और $ab + bc + ca = 8$ है, तो $a + b + c$ ज्ञात कीजिए।",
+    optionsEn: ["$\\pm 6$", "$6$", "$8$", "$\\pm 4$"],
+    optionsHi: ["$\\pm 6$", "$6$", "$8$", "$\\pm 4$"],
+    answer: 0,
+    exp: "Explanation (En): $\\sqrt{20 + 16} = \\pm 6$.\nस्पष्टीकरण (Hi): $\\sqrt{20 + 16} = \\pm 6$।"
+  },
+  {
+    qEn: "Evaluate: $\\left(1 - \\frac{1}{2^2}\\right)\\left(1 - \\frac{1}{3^2}\\right)\\dots \\left(1 - \\frac{1}{10^2}\\right)$",
+    qHi: "मान ज्ञात कीजिए: $\\left(1 - \\frac{1}{2^2}\\right)\\left(1 - \\frac{1}{3^2}\\right)\\dots \\left(1 - \\frac{1}{10^2}\\right)$",
+    optionsEn: ["11/20", "9/20", "1/2", "10/21"],
+    optionsHi: ["11/20", "9/20", "1/2", "10/21"],
+    answer: 0,
+    exp: "Explanation (En): $(1/2) \\times (11/10) = 11/20$.\nस्पष्टीकरण (Hi): $(1/2) \\times (11/10) = 11/20$।"
+  }
+]
 };
 
 
