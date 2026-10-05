@@ -11005,5 +11005,247 @@ exp: "Explanation (En): Leading zeros are not significant. Trailing zeros betwee
       answer: 0,
       exp: "Explanation (En): Wetlands filter pollutants, absorb storm surges, recharge groundwater, and support immense bird and aquatic life.\nस्पष्टीकरण (Hi): आर्द्रभूमियां (जैसे झीलें और दलदल) प्राकृतिक स्पंज की तरह पानी साफ करती हैं, बाढ़ रोकती हैं और पक्षियों का आवास होती हैं।"
     }
+  ],
+    "Environmental Policies, Laws, and Ethics": [
+    {
+      qEn: "When was the Environment (Protection) Act passed in India?",
+      qHi: "भारत में पर्यावरण (संरक्षण) अधिनियम कब पारित किया गया था?",
+      optionsEn: ["1986", "1972", "1980", "2002"],
+      optionsHi: ["1986", "1972", "1980", "2002"],
+      answer: 0,
+      exp: "Explanation (En): Following the Bhopal disaster, the Indian Parliament enacted the comprehensive Environment Protection Act in 1986 under Article 253.\nस्पष्टीकरण (Hi): भोपाल गैस त्रासदी के बाद भारत सरकार ने पर्यावरण की सुरक्षा और सुधार के लिए 1986 में यह व्यापक अधिनियम पारित किया था।"
+    },
+    {
+      qEn: "When was the Wildlife (Protection) Act enacted in India?",
+      qHi: "भारत में वन्यजीव (संरक्षण) अधिनियम कब अधिनियमित किया गया था?",
+      optionsEn: ["1972", "1986", "1988", "1992"],
+      optionsHi: ["1972", "1986", "1988", "1992"],
+      answer: 0,
+      exp: "Explanation (En): The Wild Life (Protection) Act was passed in 1972 to provide protection to wild animals, birds, and plants and manage sanctuaries.\nस्पष्टीकरण (Hi): देश के जंगली जानवरों, पक्षियों और पौधों के संरक्षण के लिए वन्यजीव संरक्षण अधिनियम 1972 मेंलाया गया था।"
+    },
+    {
+      qEn: "When was the Water (Prevention and Control of Pollution) Act passed in India?",
+      qHi: "भारत में जल (प्रदूषण निवारण और नियंत्रण) अधिनियम कब पारित किया गया था?",
+      optionsEn: ["1974", "1981", "1986", "2000"],
+      optionsHi: ["1974", "1981", "1986", "2000"],
+      answer: 0,
+      exp: "Explanation (En): The Water Act was enacted in 1974 to provide for the prevention and control of water pollution and the maintenance of water wholesomeness.\nस्पष्टीकरण (Hi): जल स्रोतों को प्रदूषण से बचाने और उनकी शुद्धता बनाए रखने के लिए जल प्रदूषण नियंत्रण अधिनियम 1974 में पारित हुआ था।"
+    },
+    {
+      qEn: "When was the Air (Prevention and Control of Pollution) Act enacted in India?",
+      qHi: "भारत में वायु (प्रदूषण निवारण और नियंत्रण) अधिनियम कब पारित किया गया था?",
+      optionsEn: ["1981", "1974", "1986", "1995"],
+      optionsHi: ["1981", "1974", "1986", "1995"],
+      answer: 0,
+      exp: "Explanation (En): The Air Act was passed in 1981 (amended in 1987) to combat air pollution and establish pollution control boards.\nस्पष्टीकरण (Hi): वायु प्रदूषण को रोकने और नियंत्रित करने के लिए भारत में वायु प्रदूषण नियंत्रण अधिनियम 1981 में लागू किया गया था।"
+    },
+    {
+      qEn: "When was the Forest (Conservation) Act enacted in India?",
+      qHi: "भारत में वन (संरक्षण) अधिनियम कब अधिनियमित किया गया था?",
+      optionsEn: ["1980", "1972", "1986", "1927"],
+      optionsHi: ["1980", "1972", "1986", "1927"],
+      answer: 0,
+      exp: "Explanation (En): The Forest (Conservation) Act was enacted in 1980 to check deforestation and regulate the diversion of forest land for non-forest uses.\nस्पष्टीकरण (Hi): वनों की अंधाधुंध कटाई को रोकने और वन भूमि के गैर-वन उपयोग को नियंत्रित करने के लिए 1980 में यह कानून बना था।"
+    },
+    {
+      qEn: "When was the Biological Diversity Act passed in India?",
+      qHi: "भारत में जैविक विविधता अधिनियम (Biological Diversity Act) कब पारित किया गया था?",
+      optionsEn: ["2002", "1986", "1992", "2010"],
+      optionsHi: ["2002", "1986", "1992", "2010"],
+      answer: 0,
+      exp: "Explanation (En): The Biological Diversity Act was passed in 2002 to implement the UN Convention on Biological Diversity (CBD) at the national level.\nस्पष्टीकरण (Hi): देश की जैव विविधता के संरक्षण और उसके संसाधनों के न्यायसंगत उपयोग के लिए जैव विविधता अधिनियम 2002 में पारित किया गया था।"
+    },
+    {
+      qEn: "What is environmental ethics?",
+      qHi: "पर्यावरणीय नैतिकता (Environmental ethics) किसे कहते हैं?",
+      optionsEn: ["A branch of philosophy that studies the moral relationship of human beings to the environment and its non-human contents", "The business profits from mining", "Government tax policies on factories", "Rules for driving electric cars"],
+      optionsHi: ["दर्शनशास्त्र की वह शाखा जो पर्यावरण और उसके गैर-मानवीय घटकों के साथ मनुष्यों के नैतिक संबंधों का अध्ययन करती है", "खनन से होने वाला व्यापारिक लाभ", "कारखानों पर सरकार की कर नीतियां", "इलेक्ट्रिक कार चलाने के नियम"],
+      answer: 0,
+      exp: "Explanation (En): Environmental ethics provides moral grounds for protecting nature, arguing that humans have a duty of stewardship toward the Earth.\nस्पष्टीकरण (Hi): पर्यावरणीय नैतिकता वह नैतिक दृष्टिकोण है जो यह सिखाता है कि प्रकृति और जीवों के प्रति इंसानों के कुछ कर्तव्य और नैतिक जिम्मेदारियां हैं।"
+    },
+    {
+      qEn: "What is the 'polluter pays principle'?",
+      qHi: "'प्रदूषक भुगतान सिद्धांत' (Polluter pays principle) का क्या अर्थ है?",
+      optionsEn: ["The principle that those who produce pollution should bear the costs of managing it to prevent or rectify damage", "Taxing citizens for breathing fresh air", "Paying factories to pollute rivers", "Government paying fines for citizens"],
+      optionsHi: ["वह सिद्धांत जिसके अनुसार प्रदूषण फैलाने वालों को ही नुकसान को रोकने या ठीक करने के प्रबंधन की लागत उठानी चाहिए", "ताजी हवा में सांस लेने के लिए नागरिकों पर कर लगाना", "नदियों को प्रदूषित करने के लिए कारखानों को भुगतान करना", "सरकार द्वारा नागरिकों के लिए जुर्माना भरना"],
+      answer: 0,
+      exp: "Explanation (En): The polluter pays principle makes polluters financially responsible for environmental remediation and harm prevention.\nस्पष्टीकरण (Hi): इस सिद्धांत के तहत जो व्यक्ति या उद्योग प्रदूषण फैलाता है, पर्यावरण को हुए नुकसान की भरपाई और सफाई का खर्च भी उसी को उठाना पड़ता है।"
+    },
+    {
+      qEn: "What is the 'precautionary principle' in environmental law?",
+      qHi: "पर्यावरण कानून में 'एहतियाती सिद्धांत' (Precautionary principle) क्या कहता है?",
+      optionsEn: ["If an action or policy has a suspected risk of causing severe harm to the public or environment, protective action should be taken even without scientific certainty", "Wait until complete environmental disaster happens before acting", "Never test new technologies", "Ignore minor pollution risks"],
+      optionsHi: ["यदि किसी कार्य या नीति से पर्यावरण को गंभीर नुकसान होने का संदेह है, तो पूर्ण वैज्ञानिक निश्चितता न होने पर भी सुरक्षात्मक कार्रवाई की जानी चाहिए", " कार्रवाई करने से पहले पूर्ण पर्यावरणीय आपदा होने का इंतजार करें", "नई तकनीकों का परीक्षण कभी न करें", "मामूली प्रदूषण के जोखिमों को नजरअंदाज करें"],
+      answer: 0,
+      exp: "Explanation (En): The precautionary principle dictates that lack of full scientific certainty should not delay preventive measures against environmental degradation.\nस्पष्टीकरण (Hi): इसके अनुसार यदि किसी गतिविधि से पर्यावरण को भारी नुकसान की आशंका है, तो वैज्ञानिक प्रमाण पूरी तरह न होने पर भी पहले से सावधानी बरतनी चाहिए।"
+    },
+    {
+      qEn: "What is sustainable development defined as in landmark global reports?",
+      qHi: "प्रमुख वैश्विक रिपोर्टों में सतत विकास (Sustainable development) की सबसे प्रसिद्ध परिभाषा क्या है?",
+      optionsEn: ["Meeting the needs of the present without compromising the ability of future generations to meet their own needs", "Rapid depletion of resources for current luxury", "Stopping all economic growth", "Building concrete mega-cities"],
+      optionsHi: ["भविष्य की पीढ़ियों की जरूरतों से समझौता किए बिना वर्तमान की जरूरतों को पूरा करना", "वर्तमान विलासिता के लिए संसाधनों का तीव्र दोषण", "सभी आर्थिक विकास को रोकना", "कंक्रीट के मेगा-शहर बनाना"],
+      answer: 0,
+      exp: "Explanation (En): Coined in the 1987 Brundtland Report, sustainable development balances current human needs with ecological preservation.\nस्पष्टीकरण (Hi): 1987 की ब्रंटलैंड रिपोर्ट में दी गई इस परिभाषा का अर्थ है कि आज विकास करें पर आने वाली पीढ़ी के हक को सुरक्षित रखते हुए।"
+    },
+    {
+      qEn: "What was the Brundtland Report (1987) officially titled?",
+      qHi: "ब्रंटलैंड रिपोर्ट (1987) का आधिकारिक शीर्षक क्या था?",
+      optionsEn: ["Our Common Future", "The Green Planet", "Limits to Growth", "Silent Spring"],
+      optionsHi: ["आवर कॉमन फ्यूचर (Our Common Future)", "द ग्रीन प्लैनेट", "लिमिट्स टू ग्रोथ", "साइलेंट स्प्रिंग"],
+      answer: 0,
+      exp: "Explanation (En): The World Commission on Environment and Development report, titled 'Our Common Future', popularized sustainable development.\nस्पष्टीकरण (Hi): विश्व पर्यावरण और विकास आयोग की इस रिपोर्ट का नाम 'आवर कॉमन फ्यूचर' था जिसने सतत विकास को पूरी दुनिया में लोकप्रिय बनाया।"
+    },
+    {
+      qEn: "Who wrote the groundbreaking 1962 book 'Silent Spring' that sparked the modern environmental movement?",
+      qHi: "1962 की प्रसिद्ध पुस्तक 'साइलेंट स्प्रिंग' (Silent Spring) किसने लिखी थी जिसने आधुनिक पर्यावरण आंदोलन की शुरुआत की थी?",
+      optionsEn: ["Rachel Carson", "Garrett Hardin", "Aldo Leopold", "E.O. Wilson"],
+      optionsHi: ["रचेल कार्सन (Rachel Carson)", "गैरेट हार्डिन", "अल्डो लियोपल्ड", "ई.ओ. विल्सन"],
+      answer: 0,
+      exp: "Explanation (En): Rachel Carson's 'Silent Spring' exposed the environmental hazards of synthetic pesticides like DDT, launching the modern green movement.\nस्पष्टीकरण (Hi): रचेल कार्सन की पुस्तक 'साइलेंट स्प्रिंग' ने डीडीटी जैसे कीटनाशकों के खतरों को उजागर किया था, जिससे आधुनिक पर्यावरण चेतना जगी।"
+    },
+    {
+      qEn: "What is the 'Tragedy of the Commons' essay by Garrett Hardin about?",
+      qHi: "गैरेट हार्डिन का निबंध 'कॉमन्स की त्रासदी' (Tragedy of the commons) मुख्य रूप से किसके बारे में है?",
+      optionsEn: ["How rational individuals sharing a common resource will deplete it for personal gain, destroying it for everyone", "The benefits of public parks", "How to plant trees in community land", "The history of global climate treaties"],
+      optionsHi: ["कैसे साझा संसाधन का उपयोग करने वाले व्यक्ति व्यक्तिगत लाभ के लिए उसका अत्यधिक दोषण करते हैं और अंततः उसे नष्ट कर देते हैं", "सार्वजनिक पार्कों के लाभ", "सामुदायिक भूमि पर पेड़ कैसे लगाएं", "वैश्विक जलवायु संधियों का इतिहास"],
+      answer: 0,
+      exp: "Explanation (En): Hardin's essay illustrates why shared resources like fisheries or pastures face overexploitation without strict regulation or property rights.\nस्पष्टीकरण (Hi): यह निबंध समझाता है कि जब कोई संसाधन साझा होता है, तो व्यक्तिगत लालच के कारण सभी उसका इतना दोषण करते हैं कि वह खत्म हो जाता है।"
+    },
+    {
+      qEn: "What is the National Green Tribunal (NGT) of India?",
+      qHi: "भारत का राष्ट्रीय हरित अधिकरण (National Green Tribunal - NGT) क्या है?",
+      optionsEn: ["A specialized judicial body established in 2010 for effective and expeditious disposal of cases relating to environmental protection", "A wildlife hunting club", "An industrial manufacturing board", "A ministry of agriculture department"],
+      optionsHi: ["पर्यावरण संरक्षण से जुड़े मामलों के प्रभावी और त्वरित निपटान के लिए 2010 में स्थापित एक विशेष न्यायिक निकाय", "एक वन्यजीव शिकार क्लब", "एक औद्योगिक विनिर्माण बोर्ड", "कृषि मंत्रालय का एक विभाग"],
+      answer: 0,
+      exp: "Explanation (En): The NGT was established under the National Green Tribunal Act 2010 to handle civil cases involving environmental issues and forest conservation.\nस्पष्टीकरण (Hi): पर्यावरण और वनों से जुड़े मामलों की तीव्र सुनवाई और न्याय के लिए भारत सरकार ने 2010 में NGT की स्थापना की थी।"
+    },
+    {
+      qEn: "What is Article 48A of the Indian Constitution related to?",
+      qHi: "भारतीय संविधान का अनुच्छेद 48A किससे संबंधित है?",
+      optionsEn: ["Protection and improvement of environment and safeguarding of forests and wildlife", "Right to education", "Uniform civil code", "Freedom of speech"],
+      optionsHi: ["पर्यावरण का संरक्षण और संवर्धन तथा वनों और वन्यजीवों की रक्षा करना", "शिक्षा का अधिकार", "समान नागरिक संहिता", "भाषण की स्वतंत्रता"],
+      answer: 0,
+      exp: "Explanation (En): Added by the 42nd Amendment, Article 48A (Directive Principles) directs the State to protect and improve the environment.\nस्पष्टीकरण (Hi): संविधान के नीति निर्देशक तत्वों में शामिल अनुच्छेद 48A राज्य को पर्यावरण, वनों और वन्यजीवों की रक्षा करने का निर्देश देता है।"
+    },
+    {
+      qEn: "What is Article 51A(g) of the Indian Constitution regarding the environment?",
+      qHi: "पर्यावरण के संबंध में भारतीय संविधान का अनुच्छेद 51A(g) क्या कर्तव्य निर्धारित करता है?",
+      optionsEn: ["It states that it is the fundamental duty of every citizen to protect and improve the natural environment, including forests, lakes, rivers, and wildlife", "It gives right to cut trees", "It mandates factory construction", "It regulates water taxes"],
+      optionsHi: ["यह प्रत्येक नागरिक का मौलिक कर्तव्य बताता है कि वह वनों, झीलों, नदियों और वन्यजीवों सहित प्राकृतिक पर्यावरण की रक्षा करे", "यह पेड़ काटने का अधिकार देता है", "यह कारखाना निर्माण अनिवार्य करता है", "यह जल करों को विनियमित करता है"],
+      answer: 0,
+      exp: "Explanation (En): Article 51A(g) makes environmental protection a fundamental duty for every Indian citizen.\nस्पष्टीकरण (Hi): यह अनुच्छेद देश के हर नागरिक का मौलिक कर्तव्य तय करता है कि वह जंगलों, नदियों और वन्यजीवों सहित प्राकृतिक पर्यावरण की रक्षा करे।"
+    },
+    {
+      qEn: "What is an Environmental Impact Assessment (EIA)?",
+      qHi: "पर्यावरणीय प्रभाव आकलन (Environmental Impact Assessment - EIA) क्या है?",
+      optionsEn: ["A formal process to predict and evaluate the environmental consequences of a proposed industrial or development project before decision making", "An audit of factory financial profits", "A test for air temperature", "A measurement of ocean salinity"],
+      optionsHi: ["किसी प्रस्तावित औद्योगिक या विकास परियोजना के निर्णय लेने से पहले उसके पर्यावरणीय परिणामों का अनुमान लगाने और मूल्यांकन करने की औपचारिक प्रक्रिया", "कारखाने के वित्तीय मुनाफे का लेखा-परीक्षण", "वायु तापमान के लिए एक परीक्षण", "समुद्री लवणता का मापन"],
+      answer: 0,
+      exp: "Explanation (En): EIA evaluates potential ecological, social, and economic impacts of projects to ensure sustainable development before approval.\nस्पष्टीकरण (Hi): किसी भी बड़े प्रोजेक्ट (जैसे बांध या फैक्ट्री) को मंजूरी मिलने से पहले पर्यावरण पर उसके संभावित अच्छे-बुरे असर का आकलन EIA कहलाता है।"
+    },
+    {
+      qEn: "What is public hearing in the context of EIA in India?",
+      qHi: "भारत में EIA के संदर्भ में 'जनसुनवाई' (Public hearing) का क्या उद्देश्य है?",
+      optionsEn: ["To consult local affected communities and stakeholders and record their views regarding a proposed development project", "To hold a political election", "To discuss tax rates", "To trial environmental criminals"],
+      optionsHi: ["स्थानीय प्रभावित समुदायों और हितधारकों से परामर्श करना और प्रस्तावित विकास परियोजना पर उनके विचार दर्ज करना", "राजनीतिक चुनाव आयोजित करना", "कर दरों पर चर्चा करना", "पर्यावरण अपराधियों पर मुकदमा चलाना"],
+      answer: 0,
+      exp: "Explanation (En): Public hearings ensure democratic participation, allowing local residents to voice environmental concerns about proposed projects.\nस्पष्टीकरण (Hi): जनसुनवाई के जरिए स्थानीय लोगों को अपनी बात रखने और परियोजना से होने वाले पर्यावरण संकट पर आपत्ति जताने का अधिकार मिलता है।"
+    },
+    {
+      qEn: "What was the outcome of the 1992 Rio Earth Summit (UNCED)?",
+      qHi: "1992 के रियो पृथ्वी सम्मेलन (UNCED) के क्या प्रमुख परिणाम थे?",
+      optionsEn: ["Adoption of Agenda 21, Rio Declaration, and opening for signature of UNFCCC and Convention on Biological Diversity", "Banning all fossil fuels worldwide", "Creation of Paris Agreement", "Establishment of Kyoto Protocol"],
+      optionsHi: ["ए एजेंडा 21, रियो घोषणा को अपनाना और UNFCCC तथा जैव विविधता कन्वेंशन पर हस्ताक्षर खोलना", "दुनिया भर में सभी जीवाश्म ईंधन पर प्रतिबंध", "पेरिस समझौते का सृजन", "क्योटो प्रोटोकॉल की स्थापना"],
+      answer: 0,
+      exp: "Explanation (En): The 1992 Rio Earth Summit marked a milestone for global environmental governance, birthing major biodiversity and climate conventions.\nस्पष्टीकरण (Hi): 1992 के रियो सम्मेलन में 'ए एजेंडा 21' और जलवायु व जैव विविधता से जुड़ी ऐतिहासिक संधियां अस्तित्व में आई थीं।"
+    },
+    {
+      qEn: "What is 'Agenda 21' adopted at the 1992 Earth Summit?",
+      qHi: "1992 के पृथ्वी सम्मेलन में अपनाया गया 'एजेंडा 21' (Agenda 21) क्या है?",
+      optionsEn: ["A non-binding action plan of the United Nations regarding sustainable development for the 21st century", "A list of 21 endangered animals", "A 21-point factory tax law", "An agreement on ocean mining"],
+      optionsHi: ["21वीं सदी के लिए सतत विकास के संबंध में संयुक्त राष्ट्र की एक गैर-बाध्यकारी कार्य योजना", "21 संकटग्रस्त जानवरों की सूची", "21 सूत्रीय फैक्ट्री कर कानून", "समुद्री खनन पर समझौता"],
+      answer: 0,
+      exp: "Explanation (En): Agenda 21 is a comprehensive blueprint of action to be taken globally, nationally, and locally by UN organizations and governments.\nस्पष्टीकरण (Hi): एजेंडा 21 इक्कीसवीं सदी में सतत विकास हासिल करने के लिए सरकारों और संस्थाओं के लिए एक एक्शन प्लान था।"
+    },
+    {
+      qEn: "What is the Stockholm Convention (2001) focused on?",
+      qHi: "स्टॉकहोम कन्वेंशन (2001) का मुख्य फोकस किस पर है?",
+      optionsEn: ["Eliminating or restricting the production and use of Persistent Organic Pollutants (POPs)", "Protecting marine whales", "Reducing greenhouse gas emissions", "Preventing ozone depletion"],
+      optionsHi: ["स्थायी कार्बनिक प्रदूषकों (POPs) के उत्पादन और उपयोग को समाप्त करना या प्रतिबंधित करना", "समुद्री व्हेल की रक्षा करना", "ग्रीनहाउस गैस उत्सर्जन कम करना", "ओजोन क्षरण रोकना"],
+      answer: 0,
+      exp: "Explanation (En): The Stockholm Convention is a global treaty targeting toxic POPs that accumulate in living tissue and resist degradation.\nस्पष्टीकरण (Hi): यह कन्वेंशन पर्यावरण में लंबे समय तक टिकने वाले खतरनाक ऑर्गेनिक प्रदूषकों (POPs) को प्रतिबंधित करने के लिए है।"
+    },
+    {
+      qEn: "What is the Basel Convention focused on?",
+      qHi: "बासल कन्वेंशन (Basel Convention) मुख्य रूप से किससे संबंधित है?",
+      optionsEn: ["Controlling the transboundary movement of hazardous wastes and their disposal", "Protecting migratory birds", "Regulating international fishing", "Banning nuclear weapons testing"],
+      optionsHi: ["खतरनाक कचरे के सीमा पार संचलन और उनके निपटान को नियंत्रित करना", "प्रवासी पक्षियों की रक्षा करना", "अंतरराष्ट्रीय मछली पकड़ने को विनियमित करना", "परमाणु हथियार परीक्षण पर प्रतिबंध"],
+      answer: 0,
+      exp: "Explanation (En): The Basel Convention prevents developed nations from dumping hazardous toxic wastes into developing countries.\nस्पष्टीकरण (Hi): बासल कन्वेंशन खतरनाक कचरे के एक देश से दूसरे देश में अवैध अंतरराष्ट्रीय परिवहन और डंपिंग को रोकता है।"
+    },
+    {
+      qEn: "What is the Nagoya Protocol associated with?",
+      qHi: "नागोया प्रोटोकॉल (Nagoya Protocol) किससे संबंधित है?",
+      optionsEn: ["Fair and equitable sharing of benefits arising from the utilization of genetic resources", "Reduction of carbon dioxide emissions", "Protection of ozone layer", "Wetland conservation"],
+      optionsHi: ["आनुवंशिक संसाधनों के उपयोग से उत्पन्न होने वाले लाभों का निष्पक्ष और न्यायसंगत साझाकरण", "कार्बन डाइऑक्साइड उत्सर्जन में कमी", "ओजोन परत की रक्षा", "आर्द्रभूमि संरक्षण"],
+      answer: 0,
+      exp: "Explanation (En): The Nagoya Protocol is a supplementary agreement to the CBD, ensuring fair sharing of genetic resource benefits.\nस्पष्टीकरण (Hi): यह प्रोटोकॉल जैव विविधता और आनुवंशिक संसाधनों के उपयोग से मिलने वाले फायदों को स्थानीय समुदायों के साथ न्यायसंगत रूप से बांटने से जुड़ा है।"
+    },
+    {
+      qEn: "What is eco-labeling?",
+      qHi: "इको-लेबलिंग (Eco-labeling) क्या है?",
+      optionsEn: ["A voluntary method of environmental performance certification and labeling practiced around the world", "Painting government buildings green", "Putting warning labels on cigarette packs", "A tax on plastic bags"],
+      optionsHi: ["दुनिया भर में प्रचलित पर्यावरण प्रदर्शन प्रमाणन और लेबलिंग की एक स्वैच्छिक पद्धति", "सरकारी इमारतों को हरा रंग करना", "सिगरेट के पैकेटों पर चेतावनी लेबल लगाना", "प्लास्टिक बैग पर कर"],
+      answer: 0,
+      exp: "Explanation (En): Eco-labels identify products proven environmentally preferable overall within a specific product category.\nस्पष्टीकरण (Hi): यह उत्पादों पर लगाया जाने वाला वह चिन्ह है जो यह प्रमाणित करता है कि वह उत्पाद पर्यावरण के अनुकूल तरीके से बनाया गया है।"
+    },
+    {
+      qEn: "What is corporate social responsibility (CSR) in environmental context?",
+      qHi: "पर्यावरण के संदर्भ में 'कॉपोर्रेट सामाजिक जिम्मेदारी' (CSR) का क्या अर्थ है?",
+      optionsEn: ["A business model by which companies integrate social and environmental concerns in their business operations and interactions with stakeholders", "Paying government bribes", "Avoiding all tax payments", "Maximizing pollution for profit"],
+      optionsHi: ["एक व्यावसायिक मॉडल जिसके तहत कंपनियां अपने संचालन और हितधारकों के साथ सामाजिक और पर्यावरणीय चिंताओं को एकीकृत करती हैं", "सरकार को रिश्वत देना", "सभी कर भुगतानों से बचना", "मुनाफे के लिए प्रदूषण अधिकतम करना"],
+      answer: 0,
+      exp: "Explanation (En): CSR encourages corporate accountability, prompting companies to invest in green initiatives, community welfare, and pollution reduction.\nस्पष्टीकरण (Hi): इसके तहत बड़ी कंपनियों को अपने मुनाफे का एक हिस्सा पर्यावरण संरक्षण और सामाजिक कल्याण के कार्यों में लगाना अनिवार्य होता है।"
+    },
+    {
+      qEn: "What is anthropocentrism in environmental ethics?",
+      qHi: "पर्यावरणीय नैतिकता में 'मानव-केंद्रित दृष्टिकोण' (Anthropocentrism) क्या है?",
+      optionsEn: ["An ethical framework that considers human beings as the central or most significant entity in the universe", "The belief that all animals have equal rights to humans", "Plant worship", "Deep ecology preservation"],
+      optionsHi: ["एक नैतिक ढांचा जो मनुष्यों को ब्रह्मांड में केंद्रीय या सबसे महत्वपूर्ण इकाई मानता है", "यह विश्वास कि सभी जानवरों को इंसानों के समान अधिकार हैं", "पौधों की पूजा", "गहन पारिस्थितिकी संरक्षण"],
+      answer: 0,
+      exp: "Explanation (En): Anthropocentrism values nature primarily for its utility and instrumental value to human beings.\nस्पष्टीकरण (Hi): मानव-केंद्रित दृष्टिकोण के अनुसार प्रकृति और पर्यावरण का मूल्य केवल इसलिए है क्योंकि वे इंसानों की जरूरतें पूरी करते हैं।"
+    },
+    {
+      qEn: "What is ecocentrism in environmental ethics?",
+      qHi: "पर्यावरणीय नैतिकता में 'पारिस्थितिक-केंद्रित दृष्टिकोण' (Ecocentrism) क्या है?",
+      optionsEn: ["A point of view that recognizes intrinsic value in all ecosystems and living organisms, placing nature at the center", "The belief that humans own all earth resources", "Industrial resource exploitation", "Urban concrete planning"],
+      optionsHi: ["वह दृष्टिकोण जो सभी पारिस्थितिकी तंत्रों और जीवों में आंतरिक मूल्य को पहचानता है और प्रकृति को केंद्र में रखता है", "यह विश्वास कि इंसानों के पास सभी पृथ्वी संसाधन हैं", "औद्योगिक संसाधन दोषण", "शहरी कंक्रीट योजना"],
+      answer: 0,
+      exp: "Explanation (En): Ecocentrism argues that nature and all living beings have intrinsic moral value independent of human usefulness.\nस्पष्टीकरण (Hi): पारिस्थितिक-केंद्रित दृष्टिकोण मानता है कि प्रकृति और हर जीव का अपना स्वतंत्र आंतरिक मूल्य है, चाहे वे इंसानों के काम आएं या न आएं।"
+    },
+    {
+      qEn: "What is deep ecology?",
+      qHi: "गहन पारिस्थितिकी (Deep ecology) का सिद्धांत क्या है?",
+      optionsEn: ["An environmental philosophy that advocates for the inherent worth of living beings regardless of their instrumental utility to human needs", "Deep sea oil drilling exploration", "Underground cave mining", "Deep soil farming"],
+      optionsHi: ["एक पर्यावरणीय दर्शन जो मानव आवश्यकताओं के लिए उनकी उपयोगिता की परवाह किए बिना जीवित प्राणियों के अंतर्निहित मूल्य की वकालत करता है", "गहरे समुद्र में तेल ड्रिलिंग अन्वेषण", "भूमिगत गुफा खनन", "गहरी मिट्टी की खेती"],
+      answer: 0,
+      exp: "Explanation (En): Developed by Arne Naess, deep ecology calls for a radical rethinking of human relationships with the natural world.\nस्पष्टीकरण (Hi): अर्ने नेस द्वारा प्रतिपादित यह दर्शन प्रकृति के साथ इंसानों के संबंधों को मौलिक रूप से बदलने और हर जीव के अधिकार का समर्थन करता है।"
+    },
+    {
+      qEn: "What is environmental justice?",
+      qHi: "पर्यावरणीय न्याय (Environmental justice) से क्या तात्पर्य है?",
+      optionsEn: ["The fair treatment and meaningful involvement of all people regardless of race or income with respect to environmental laws and policies", "Punishing green activists", "Building luxury golf courses in forests", "Ignoring toxic waste dumps in slums"],
+      optionsHi: ["पर्यावरणीय कानूनों और नीतियों के संबंध में जाति या आय की परवाह किए बिना सभी लोगों का निष्पक्ष उपचार और सार्थक भागीदारी", "हरे कार्यकर्ताओं को सजा देना", "जंगलों में लक्जरी गोल्फ कोर्स बनाना", "झुग्गी-झोपड़ियों में जहरीले कचरे के ढेर की उपेक्षा करना"],
+      answer: 0,
+      exp: "Explanation (En): Environmental justice ensures that no community bears a disproportionate share of negative environmental consequences from industrial pollution.\nस्पष्टीकरण (Hi): इसका उद्देश्य यह सुनिश्चित करना है कि किसी भी गरीब या कमजोर समुदाय पर प्रदूषण और पर्यावरणीय खतरों का बोझ न डाला जाए।"
+    },
+    {
+      qEn: "What is the significance of the Public Liability Insurance Act (1991) in India?",
+      qHi: "भारत में लोक दायित्व बीमा अधिनियम (Public Liability Insurance Act, 1991) का क्या महत्व है?",
+      optionsEn: ["To provide immediate relief to persons affected by accidents while handling hazardous substances", "To insure car accidents on highways", "To provide medical insurance for government staff", "To fund factory construction"],
+      optionsHi: ["खतरनाक पदार्थों को संभालते समय दुर्घटनाओं से प्रभावित व्यक्तियों को तत्काल राहत प्रदान करना", "राजमार्गों पर कार दुर्घटनाओं का बीमा करना", "सरकारी कर्मचारियों के लिए चिकित्सा बीमा प्रदान करना", "कारखाने के निर्माण को वित्तपोषित करना"],
+      answer: 0,
+      exp: "Explanation (En): This act mandates operators handling hazardous chemicals to take out insurance policies to compensate victims of industrial accidents instantly.\nस्पष्टीकरण (Hi): खतरनाक रसायनों के कारखानों में दुर्घटना होने पर पीड़ितों को तुरंत मुआवजा देने के लिए यह बीमा अधिनियम बनाया गया था।"
+    }
   ]
 };
