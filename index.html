@@ -8,8 +8,15 @@
 <link rel="manifest" href="manifest.json">
 <meta name="theme-color" content="#6366f1">
 <script src="https://cdn.tailwindcss.com"></script>
-<!-- External Data Module Links -->
-<script src="data.js"></script>
+<!-- External Subject-Wise Modular Data Links (Including Current Affairs) -->
+<script src="math-data.js"></script>
+<script src="reasoning-data.js"></script>
+<script src="science-data.js"></script>
+<script src="social-science-data.js"></script>
+<script src="computer-data.js"></script>
+<script src="english-data.js"></script>
+<script src="current-affairs-data.js"></script>
+<!-- Other Hub Data Modules -->
 <script src="exams-data.js"></script>
 <script src="pyq-data.js"></script>
 <script src="mocks-data.js"></script>
@@ -160,7 +167,7 @@ user-select: text;
 <div class="flex items-center gap-3">
 <span class="bg-teal-500 text-slate-900 font-bold text-[10px] uppercase px-2.5 py-1 rounded-full animate-pulse">🔥 Live CA</span>
 <p class="text-xs font-medium text-slate-200">
-<strong>Daily Current Affairs (2026):</strong> Government exams special bulletin loaded locally (Lightning Fast).
+<strong>Daily & Monthly Current Affairs (2026):</strong> Government exams special bulletin loaded via modular files.
 </p>
 </div>
 <button onclick="openCurrentAffairsModal()" class="bg-indigo-600 hover:bg-indigo-500 text-white font-semibold text-[11px] px-4 py-1.5 rounded-lg shadow transition cursor-pointer whitespace-nowrap">
@@ -180,13 +187,13 @@ user-select: text;
 <button onclick="openAuthModal()" class="bg-indigo-600 hover:bg-indigo-500 text-white font-bold text-[11px] px-4 py-2 rounded-xl whitespace-nowrap shadow cursor-pointer">Login Now</button>
 </div>
 <div class="inline-flex items-center gap-2 bg-indigo-500/10 border border-indigo-500/20 text-indigo-600 dark:text-indigo-300 text-xs font-medium px-3.5 py-1.5 rounded-full mb-6">
-<i class="fa-solid fa-bolt text-teal-600 dark:text-teal-400"></i> <span data-i18n="heroBadge">Super-Fast Secured Architecture 2026</span>
+<i class="fa-solid fa-bolt text-teal-600 dark:text-teal-400"></i> <span data-i18n="heroBadge">Super-Fast Secured Modular Architecture 2026</span>
 </div>
 <h1 class="text-3xl sm:text-5xl font-extrabold tracking-tight leading-tight mb-6 text-slate-900 dark:text-white transition-colors">
 <span data-i18n="heroTitlePre">Master Competitive Tiers with</span> <span class="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-teal-600 dark:from-indigo-400 dark:to-teal-400" data-i18n="heroTitleHighlight">Calm Precision</span>
 </h1>
 <p class="text-slate-600 dark:text-slate-400 text-sm sm:text-base mb-8 leading-relaxed max-w-2xl transition-colors" data-i18n="heroDesc">
-TargetTire evaluates your speed, accuracy, and chapter-wise mastery in real-time with randomized question & option shuffles across Mathematics, Reasoning, Science, Social Science, Computer, and English.
+TargetTire evaluates your speed, accuracy, and chapter-wise mastery in real-time with randomized question & option shuffles across Mathematics, Reasoning, Science, Social Science, Computer, English, and Monthly Current Affairs.
 </p>
 <div class="bg-white dark:bg-[#131b2e] border border-indigo-500/30 p-6 rounded-2xl shadow-xl mb-8 flex flex-col sm:flex-row items-center justify-between gap-4">
 <div>
@@ -210,9 +217,9 @@ Practice Hub
 <div class="bg-white dark:bg-[#131b2e] border border-indigo-500/30 p-6 rounded-2xl shadow-xl relative">
 <div class="flex items-center justify-between mb-4 pb-3 border-b border-slate-200 dark:border-slate-800">
 <h3 class="text-sm font-bold flex items-center gap-2 text-slate-900 dark:text-white">
-<i class="fa-solid fa-bolt text-amber-500"></i> Daily Current Affairs Widget
+<i class="fa-solid fa-bolt text-amber-500"></i> Daily & Monthly Current Affairs Widget
 </h3>
-<span class="text-[10px] bg-teal-500/10 text-teal-600 dark:text-teal-400 font-bold px-2 py-0.5 rounded">Local File Engine</span>
+<span class="text-[10px] bg-teal-500/10 text-teal-600 dark:text-teal-400 font-bold px-2 py-0.5 rounded">Modular File Engine</span>
 </div>
 <div id="dashboard-ca-points-preview" class="space-y-3 text-xs text-slate-600 dark:text-slate-300 mb-4">
 <p class="font-semibold text-slate-900 dark:text-white">• Loading bulletin locally...</p>
@@ -376,6 +383,7 @@ This examination is one of the most prestigious competitive recruitment tests co
 <button onclick="selectPracticeSubjectStream('social_science')" id="practice-subj-social_science" class="practice-subject-btn px-3.5 py-2 text-xs font-semibold rounded-xl bg-white dark:bg-slate-900 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-slate-800 transition cursor-pointer">Social Science</button>
 <button onclick="selectPracticeSubjectStream('computer')" id="practice-subj-computer" class="practice-subject-btn px-3.5 py-2 text-xs font-semibold rounded-xl bg-white dark:bg-slate-900 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-slate-800 transition cursor-pointer">Computer</button>
 <button onclick="selectPracticeSubjectStream('english')" id="practice-subj-english" class="practice-subject-btn px-3.5 py-2 text-xs font-semibold rounded-xl bg-white dark:bg-slate-900 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-slate-800 transition cursor-pointer">English</button>
+<button onclick="selectPracticeSubjectStream('current_affairs')" id="practice-subj-current_affairs" class="practice-subject-btn px-3.5 py-2 text-xs font-semibold rounded-xl bg-white dark:bg-slate-900 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-slate-800 transition cursor-pointer">Current Affairs</button>
 </div>
 <div id="practice-container-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"></div>
 </div>
@@ -535,6 +543,7 @@ Return to Practice Hub
 <button onclick="selectVaultSubjectStream('social_science')" id="vault-subj-social_science" class="vault-subject-btn px-3.5 py-2 text-xs font-semibold rounded-xl bg-white dark:bg-slate-900 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-slate-800 transition cursor-pointer">Social Science</button>
 <button onclick="selectVaultSubjectStream('computer')" id="vault-subj-computer" class="vault-subject-btn px-3.5 py-2 text-xs font-semibold rounded-xl bg-white dark:bg-slate-900 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-slate-800 transition cursor-pointer">Computer</button>
 <button onclick="selectVaultSubjectStream('english')" id="vault-subj-english" class="vault-subject-btn px-3.5 py-2 text-xs font-semibold rounded-xl bg-white dark:bg-slate-900 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-slate-800 transition cursor-pointer">English</button>
+<button onclick="selectVaultSubjectStream('current_affairs')" id="vault-subj-current_affairs" class="vault-subject-btn px-3.5 py-2 text-xs font-semibold rounded-xl bg-white dark:bg-slate-900 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-slate-800 transition cursor-pointer">Current Affairs</button>
 </div>
 <div id="vault-container-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"></div>
 </div>
@@ -752,14 +761,14 @@ Return to Mock Vault
 </div>
 <div class="flex-grow overflow-y-auto space-y-4 pr-2 text-xs sm:text-sm text-slate-700 dark:text-slate-300 leading-relaxed">
 <div class="p-4 bg-slate-50 dark:bg-[#0b0f19] rounded-xl border border-slate-200 dark:border-slate-800">
-<span id="modal-ca-date" class="text-[10px] font-bold bg-indigo-500/10 text-indigo-600 dark:text-indigo-400 px-2.5 py-1 rounded">1 October 2026</span>
+<span id="modal-ca-date" class="text-[10px] font-bold bg-indigo-500/10 text-indigo-600 dark:text-indigo-400 px-2.5 py-1 rounded">5 October 2026</span>
 <h4 id="modal-ca-title" class="font-bold text-slate-900 dark:text-white mt-2 mb-1">राष्ट्रीय एवं अंतर्राष्ट्रीय करेंट अफेयर्स</h4>
-<div id="modal-ca-points-list" class="space-y-2 pl-4 list-disc">
-</div>
+<ul id="modal-ca-points-list" class="space-y-2 pl-4 list-disc">
+</ul>
 </div>
 <div class="p-4 bg-slate-50 dark:bg-[#0b0f19] rounded-xl border border-slate-200 dark:border-slate-800">
-<span class="text-[10px] font-bold bg-teal-500/10 text-teal-600 dark:text-teal-400 px-2.5 py-1 rounded">Daily CA Practice Quiz</span>
-<div id="modal-ca-quiz-container" class="mt-3 space-y-2">
+<span class="text-[10px] font-bold bg-teal-500/10 text-teal-600 dark:text-teal-400 px-2.5 py-1 rounded">Daily CA Practice Quiz (5 Questions)</span>
+<div id="modal-ca-quiz-container" class="mt-3 space-y-3">
 </div>
 </div>
 </div>
@@ -803,6 +812,7 @@ Done
 <option value="social_science">Social Science</option>
 <option value="computer">Computer</option>
 <option value="english">English</option>
+<option value="current_affairs">Current Affairs</option>
 </select>
 </div>
 <div>
@@ -827,7 +837,7 @@ Done
 </div>
 <div class="flex bg-slate-100 dark:bg-slate-900 p-1 rounded-xl mb-5">
 <button onclick="switchAuthMode('login')" id="auth-tab-login" class="flex-1 py-2 text-xs font-bold rounded-lg bg-indigo-600 text-white transition cursor-pointer">Sign In</button>
-<button onclick="switchAuthMode('register')" id="auth-tab-register" class="flex-1 py-2 text-xs font-semibold rounded-lg text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition cursor-pointer">Register</button>
+<button onclick="switchAuthMode('register')" id="auth-tab-register" class="flex-1 py-2 text-xs font-semibold rounded-lg text-slate-600 dark:text-slate-400 hover:text-slate-900 transition cursor-pointer">Register</button>
 </div>
 
 <form id="auth-form-login" onsubmit="handleLoginSubmit(event)" class="space-y-4">
@@ -910,10 +920,21 @@ Resend Verification Email
 
 <div id="toast" class="fixed bottom-6 right-6 bg-white dark:bg-[#131b2e] border border-slate-200 dark:border-slate-800 text-slate-900 dark:text-slate-300 px-4 py-3 rounded-xl shadow-xl transform translate-y-24 opacity-0 transition-all duration-300 z-50 flex items-center gap-3">
 <i class="fa-solid fa-circle-check text-teal-500 text-sm"></i>
-<span id="toast-message" class="text-xs font-medium">Telemetry updated successfully.</span>
+<span id="toast-message" class="text-xs font-medium">Modular telemetry updated successfully.</span>
 </div>
 
 <script>
+// --- CURRICULUM INTEGRATION FROM MODULAR FILES (INCLUDING CURRENT AFFAIRS) ---
+window.curriculumData = {
+  mathematics: window.mathData,
+  reasoning: window.reasoningData,
+  science: window.scienceData,
+  social_science: window.socialScienceData,
+  computer: window.computerData,
+  english: window.englishData,
+  current_affairs: window.currentAffairsData
+};
+
 const firebaseConfig = {
 apiKey: "AIzaSyC3ar3PmMmglXlBZA3zP05uXorPNt37GKE",
 authDomain: "targettire.firebaseapp.com",
@@ -954,10 +975,10 @@ updateHeaderAuthUI();
 
 function loadCurrentAffairsFromGist() {
 const ca = window.TARGETTIRE_CA_DATABASE || {
-date: "1 October 2026",
-bulletinTitle: "राष्ट्रीय एवं अंतर्राष्ट्रीय करेंट अफेयर्स बुलेटिन",
+date: "5 October 2026",
+bulletinTitle: "राष्ट्रीय एवं अंतर्राष्ट्रीय करेंट अफेयर्स विशेष बुलेटिन",
 points: ["डेटा लोड हो रहा है..."],
-quiz: { question: "प्रश्न लोड हो रहा है?", options: ["A", "B", "C", "D"], answer: 0, explanation: "विवरण" }
+quizList: []
 };
 
 const previewContainer = document.getElementById('dashboard-ca-points-preview');
@@ -976,31 +997,44 @@ const quizContainer = document.getElementById('modal-ca-quiz-container');
 
 if(dateEl) dateEl.innerText = ca.date || "Today";
 if(titleEl) titleEl.innerText = ca.bulletinTitle || "Daily Bulletin";
+
 if(pointsList && ca.points) {
 let plist = '';
 ca.points.forEach(p => plist += `<li>${p}</li>`);
 pointsList.innerHTML = plist;
 }
 
-if(quizContainer && ca.quiz) {
-const q = ca.quiz;
-let qHtml = `<p class="font-bold text-slate-900 dark:text-white mb-2">${q.question}</p><div class="space-y-1.5">`;
-q.options.forEach((opt, idx) => {
-qHtml += `<label class="flex items-center gap-2 text-xs cursor-pointer p-2 bg-white dark:bg-[#131b2e] rounded border border-slate-200 dark:border-slate-800"><input type="radio" name="ca-quiz-opt" value="${idx}" onchange="checkCAQuizAnswer(${idx}, ${q.answer})"> <span>${opt}</span></label>`;
+if(quizContainer && ca.quizList && ca.quizList.length > 0) {
+let qHtml = `<div class="space-y-4">`;
+ca.quizList.forEach((q, qIdx) => {
+qHtml += `
+<div class="p-3 bg-white dark:bg-[#131b2e] rounded-xl border border-slate-200 dark:border-slate-800">
+<p class="font-bold text-slate-900 dark:text-white mb-2 text-xs sm:text-sm">${q.qEn}<br><span class="text-indigo-400 font-normal">(${q.qHi})</span></p>
+<div class="space-y-1.5 mb-2">`;
+q.optionsEn.forEach((optEn, optIdx) => {
+const optHi = q.optionsHi[optIdx];
+qHtml += `
+<label class="flex items-center gap-2 text-xs cursor-pointer p-2 bg-slate-50 dark:bg-[#0b0f19] rounded border border-slate-200 dark:border-slate-800 hover:border-indigo-500 transition">
+<input type="radio" name="ca-quiz-${qIdx}" value="${optIdx}" onchange="checkMultiCAQuizAnswer(${qIdx}, ${optIdx}, ${q.answer})"> 
+<span>${optEn} <span class="text-slate-400 font-normal">/ ${optHi}</span></span>
+</label>`;
 });
-qHtml += `</div><div id="ca-quiz-result" class="text-xs font-semibold mt-2"></div>`;
+qHtml += `</div><div id="ca-quiz-result-${qIdx}" class="text-xs font-semibold mt-1"></div></div>`;
+});
+qHtml += `</div>`;
 quizContainer.innerHTML = qHtml;
 }
 }
 
-function checkCAQuizAnswer(selected, correct) {
-const res = document.getElementById('ca-quiz-result');
+function checkMultiCAQuizAnswer(qIndex, selected, correct) {
+const res = document.getElementById(`ca-quiz-result-${qIndex}`);
 if (!res) return;
 const ca = window.TARGETTIRE_CA_DATABASE;
+const q = ca.quizList[qIndex];
 if (selected === correct) {
-res.innerHTML = `<span class="text-teal-500 font-bold">✓ Correct! ${ca.quiz.explanation}</span>`;
+res.innerHTML = `<span class="text-teal-500 font-bold">✓ Correct! ${q.exp}</span>`;
 } else {
-res.innerHTML = `<span class="text-rose-500 font-bold">✗ Incorrect. ${ca.quiz.explanation}</span>`;
+res.innerHTML = `<span class="text-rose-500 font-bold">✗ Incorrect. Correct option was: ${q.optionsEn[correct]}. ${q.exp}</span>`;
 }
 }
 
@@ -1847,40 +1881,6 @@ let pendingMockTitle = "";
 let pendingMockQs = 50;
 let pendingMockMins = 30;
 
-function playSuccessSound() {
-    try {
-        const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-        const oscillator = audioCtx.createOscillator();
-        const gainNode = audioCtx.createGain();
-        oscillator.type = 'sine';
-        oscillator.frequency.setValueAtTime(587.33, audioCtx.currentTime);
-        oscillator.frequency.exponentialRampToValueAtTime(880, audioCtx.currentTime + 0.15);
-        gainNode.gain.setValueAtTime(0.15, audioCtx.currentTime);
-        gainNode.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.3);
-        oscillator.connect(gainNode);
-        gainNode.connect(audioCtx.destination);
-        oscillator.start();
-        oscillator.stop(audioCtx.currentTime + 0.3);
-    } catch(e) {}
-}
-
-function playErrorSound() {
-    try {
-        const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-        const oscillator = audioCtx.createOscillator();
-        const gainNode = audioCtx.createGain();
-        oscillator.type = 'triangle';
-        oscillator.frequency.setValueAtTime(180, audioCtx.currentTime);
-        oscillator.frequency.exponentialRampToValueAtTime(120, audioCtx.currentTime + 0.2);
-        gainNode.gain.setValueAtTime(0.1, audioCtx.currentTime);
-        gainNode.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.25);
-        oscillator.connect(gainNode);
-        gainNode.connect(audioCtx.destination);
-        oscillator.start();
-        oscillator.stop(audioCtx.currentTime + 0.25);
-    } catch(e) {}
-}
-
 function shuffleArray(array) {
 let arr = [...array];
 for (let i = arr.length - 1; i > 0; i--) {
@@ -1890,12 +1890,10 @@ const j = Math.floor(Math.random() * (i + 1));
 return arr;
 }
 
-// --- Robust Question Fetcher linking external chapterQuestionsDB & curriculumData ---
 function getQuestionsForChapter(chapterTitle, subjectName) {
     const db = window.chapterQuestionsDB || {};
     let rawQuestions = [];
     
-    // 1. Search in chapterQuestionsDB using partial matching
     for (let key in db) {
         if (chapterTitle.toLowerCase().includes(key.toLowerCase()) || key.toLowerCase().includes(chapterTitle.toLowerCase())) {
             rawQuestions = db[key];
@@ -1903,7 +1901,6 @@ function getQuestionsForChapter(chapterTitle, subjectName) {
         }
     }
 
-    // 2. If not found, try searching inside curriculumData across all sections & subjects
     if (!rawQuestions || rawQuestions.length === 0) {
         const curriculum = window.curriculumData || {};
         for (let subjKey in curriculum) {
@@ -1912,7 +1909,7 @@ function getQuestionsForChapter(chapterTitle, subjectName) {
                 for (let sec of subj.sections) {
                     if (sec.chapters) {
                         for (let ch of sec.chapters) {
-                            if (ch.title && (chapterTitle.toLowerCase().includes(ch.title.toLowerCase()) || ch.title.toLowerCase().includes(chapterTitle.toLowerCase().split('(')[0].trim()))) {
+                            if (ch.title && (chapterTitle.toLowerCase().includes(ch.title.toLowerCase()) || ch.title.toLowerCase().includes(ch.title.toLowerCase().split('(')[0].trim()))) {
                                 if (db[ch.title]) {
                                     rawQuestions = db[ch.title];
                                     break;
@@ -1926,7 +1923,6 @@ function getQuestionsForChapter(chapterTitle, subjectName) {
         }
     }
 
-    // 3. Fallback to generic math/reasoning questions if still empty
     if (!rawQuestions || rawQuestions.length === 0) {
         for (let key in db) {
             rawQuestions = db[key];
@@ -2141,7 +2137,6 @@ document.getElementById('runner-prev-btn').disabled = (pIndex === 0);
 document.getElementById('runner-next-btn').innerText = (pIndex === practiceQuestions.length - 1) ? "Finish Session" : "Next";
 startTimer();
 renderQuestionPalette();
-saveCurrentPracticeProgress();
 }
 
 function startTimer() {
@@ -2164,7 +2159,7 @@ loadPracticeQuestion();
 }
 
 function selectPracticeOption(idx) {
-clearInterval(timerInterval); // Stops timer instantly when option is selected
+clearInterval(timerInterval);
 userAnswers[pIndex] = idx;
 savePracticeProgress();
 showExplanationState(idx, practiceQuestions[pIndex]);
@@ -2814,11 +2809,10 @@ loadCurrentAffairsFromGist();
             ctx.resume();
         }
         let now = ctx.currentTime;
-        // एक बहुत ही प्यारी और कभी न रुकने वाली रिफ्रेशिंग विक्ट्री ट्यून
         [523.25, 659.25, 783.99, 1046.50, 1318.51].forEach((freq, idx) => {
             let osc = ctx.createOscillator();
             let gain = ctx.createGain();
-            osc.type = 'triangle'; // प्रीमियम स्मूथ साउंड के लिए
+            osc.type = 'triangle';
             osc.frequency.setValueAtTime(freq, now + (idx * 0.06));
             gain.gain.setValueAtTime(0.15, now + (idx * 0.06));
             gain.gain.exponentialRampToValueAtTime(0.0001, now + (idx * 0.06) + 0.35);
@@ -2827,9 +2821,7 @@ loadCurrentAffairsFromGist();
             osc.start(now + (idx * 0.06));
             osc.stop(now + (idx * 0.06) + 0.35);
         });
-    } catch(err) {
-        console.log("Audio error:", err);
-    }
+    } catch(err) {}
 }
 
 function playBrandNewErrorTune() {
@@ -2848,7 +2840,7 @@ function playBrandNewErrorTune() {
         gain.gain.setValueAtTime(0.1, now);
         gain.gain.exponentialRampToValueAtTime(0.0001, now + 0.25);
         osc.connect(gain);
-        osc.connect(ctx.destination);
+        gain.connect(ctx.destination);
         osc.start(now);
         osc.stop(now + 0.25);
     } catch(err) {}
