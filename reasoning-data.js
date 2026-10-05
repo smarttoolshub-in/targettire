@@ -48,7 +48,7 @@ window.reasoningData = {
     }
   ]
 };
-window.chapterQuestionsDB = {
+Object.assign(window.chapterQuestionsDB, {
  "Coding-Decoding": [
     {
       qEn: "If in a certain code, 'ROSE' is written as 'TQUG', how is 'BCDE' written in that code?",
@@ -6815,4 +6815,4 @@ window.chapterQuestionsDB = {
       exp: "Explanation (En): The seismic tremor striking the region (II) caused sudden panic and led residents to rush to rooftops (I).\nस्पष्टीकरण (Hi): भूकंपीय झटका आना (II) मुख्य कारण है, जिसके चलते लोग दहशत में छतों पर भागे (I)।"
     }
   ]
-};
+});
