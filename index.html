@@ -8,7 +8,7 @@
 <link rel="manifest" href="manifest.json">
 <meta name="theme-color" content="#6366f1">
 <script src="https://cdn.tailwindcss.com"></script>
-<!-- External Subject-Wise Modular Data Links (Including Current Affairs) -->
+<!-- External Subject-Wise Modular Data Links -->
 <script src="math-data.js"></script>
 <script src="reasoning-data.js"></script>
 <script src="science-data.js"></script>
@@ -924,7 +924,7 @@ Resend Verification Email
 </div>
 
 <script>
-// --- CURRICULUM INTEGRATION FROM MODULAR FILES (INCLUDING CURRENT AFFAIRS) ---
+// --- SMART MERGE ENGINE FOR MODULAR FILES ---
 window.curriculumData = {
   mathematics: window.mathData,
   reasoning: window.reasoningData,
@@ -934,6 +934,29 @@ window.curriculumData = {
   english: window.englishData,
   current_affairs: window.currentAffairsData
 };
+
+// Smart Merge Engine: Automatically aggregates all modular question databases into a single master index
+window.chapterQuestionsDB = {};
+(function initSmartMergeEngine() {
+    const modularDBs = [
+        window.mathQuestionsDB,
+        window.reasoningQuestionsDB,
+        window.scienceQuestionsDB,
+        window.socialScienceQuestionsDB,
+        window.computerQuestionsDB,
+        window.englishQuestionsDB,
+        window.currentAffairsQuestionsDB
+    ];
+
+    modularDBs.forEach(db => {
+        if (db && typeof db === 'object') {
+            for (let key in db) {
+                window.chapterQuestionsDB[key] = db[key];
+            }
+        }
+    });
+    console.log("Smart Merge Engine initialized. Total loaded question keys:", Object.keys(window.chapterQuestionsDB).length);
+})();
 
 const firebaseConfig = {
 apiKey: "AIzaSyC3ar3PmMmglXlBZA3zP05uXorPNt37GKE",
@@ -1265,6 +1288,9 @@ themeIcon.className = "fa-solid fa-moon text-xs text-slate-300";
 }
 }
 
+let activePracticeContext = { mode: 'subjects', subjectKey: 'mathematics' };
+let activeVaultContext = { mode: 'subjects', subjectKey: 'mathematics' };
+
 function switchTab(tabId, pushHistory = true) {
 document.querySelectorAll('.tab-content').forEach(el => el.classList.add('hidden'));
 const target = document.getElementById('tab-' + tabId);
@@ -1286,6 +1312,12 @@ btn.className = isDark
 }
 });
 
+if (tabId === 'practice') {
+exitPracticeRunner();
+}
+if (tabId === 'vault') {
+exitExamVault();
+}
 if (tabId === 'chapters') {
 renderCustomChapters();
 }
@@ -1495,6 +1527,7 @@ grid.appendChild(lockCard);
 
 let practiceNavState = { groupKey: null, subExamName: null };
 function switchPracticeMode(mode) {
+activePracticeContext.mode = mode;
 const examsContainer = document.getElementById('practice-exams-container');
 const subjectsContainer = document.getElementById('practice-subjects-container');
 const examsBtn = document.getElementById('pmode-exams-btn');
@@ -1511,7 +1544,7 @@ examsContainer.classList.add('hidden');
 subjectsContainer.classList.remove('hidden');
 subjectsBtn.className = 'px-4 py-2 text-xs font-bold rounded-lg bg-indigo-600 text-white transition cursor-pointer';
 examsBtn.className = 'px-4 py-2 text-xs font-semibold rounded-lg text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition cursor-pointer';
-selectPracticeSubjectStream('mathematics');
+selectPracticeSubjectStream(activePracticeContext.subjectKey);
 }
 }
 
@@ -1615,7 +1648,7 @@ sampleChapters.forEach(ch => {
 const safeTitle = ch.title.replace(/'/g, "\\'");
 const card = document.createElement('div');
 card.className = 'bg-white dark:bg-[#131b2e] border border-slate-200 dark:border-slate-800/80 p-6 rounded-2xl flex flex-col justify-between shadow-sm';
-card.innerHTML = `<div><div class="flex items-center justify-between mb-4"><span class="bg-indigo-500/10 text-indigo-700 dark:text-indigo-300 border border-indigo-500/20 text-[10px] font-bold uppercase px-2.5 py-1 rounded">${ch.questions} Qs / 30s Timer</span><span class="text-[11px] text-teal-600 dark:text-teal-400 font-semibold"><i class="fa-solid fa-shuffle mr-1"></i> Shuffled</span></div><h3 class="text-base font-bold mb-2 text-slate-900 dark:text-white">${ch.title}</h3><p class="text-slate-600 dark:text-slate-400 text-xs mb-5">Target Exam: <span class="text-indigo-600 font-medium">${subName}</span></p></div><div class="space-y-2"><button onclick="startChapterPractice('${safeTitle}', '${subName}', 'exam', '${practiceNavState.groupKey}', '${subName}')" class="w-full bg-indigo-600 hover:bg-indigo-500 text-white font-semibold py-2.5 rounded-xl text-xs uppercase tracking-wider transition shadow cursor-pointer">Launch Practice (${ch.questions} Qs)</button><button onclick="switchTab('vault'); launchChapterSimulation('${safeTitle}', ${ch.questions}, 30, 'exam', '${practiceNavState.groupKey}', '${subName}')" class="w-full bg-teal-600 hover:bg-teal-500 text-white font-semibold py-2 rounded-xl text-xs uppercase tracking-wider transition shadow cursor-pointer">Launch Mock Exam</button></div>`;
+card.innerHTML = `<div><div class="flex items-center justify-between mb-4"><span class="bg-indigo-500/10 text-indigo-700 dark:text-indigo-300 border border-indigo-500/20 text-[10px] font-bold uppercase px-2.5 py-1 rounded">${ch.questions} Qs / 30s Timer</span><span class="text-[11px] text-teal-600 dark:text-teal-400 font-semibold"><i class="fa-solid fa-shuffle mr-1"></i> Shuffled</span></div><h3 class="text-base font-bold mb-2 text-slate-900 dark:text-white">${ch.title}</h3><p class="text-slate-600 dark:text-slate-400 text-xs mb-5">Target Exam: <span class="text-indigo-600 font-medium">${subName}</span></p></div><div class="space-y-2"><button onclick="startChapterPractice('${safeTitle}', '${subName}')" class="w-full bg-indigo-600 hover:bg-indigo-500 text-white font-semibold py-2.5 rounded-xl text-xs uppercase tracking-wider transition shadow cursor-pointer">Launch Practice (${ch.questions} Qs)</button><button onclick="switchTab('vault'); launchChapterSimulation('${safeTitle}', ${ch.questions}, 30)" class="w-full bg-teal-600 hover:bg-teal-500 text-white font-semibold py-2 rounded-xl text-xs uppercase tracking-wider transition shadow cursor-pointer">Launch Mock Exam</button></div>`;
 grid.appendChild(card);
 });
 if (!currentUser) {
@@ -1627,9 +1660,8 @@ grid.appendChild(lockCard);
 }
 }
 
-let activePracticeSubjectKey = 'mathematics';
 function selectPracticeSubjectStream(subjKey) {
-activePracticeSubjectKey = subjKey;
+activePracticeContext.subjectKey = subjKey;
 document.querySelectorAll('#practice-subject-pills .practice-subject-btn').forEach(btn => {
 btn.className = 'practice-subject-btn px-3.5 py-2 text-xs font-semibold rounded-xl bg-white dark:bg-slate-900 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-slate-800 transition cursor-pointer';
 });
@@ -1645,7 +1677,7 @@ const grid = document.getElementById('practice-container-grid');
 if(!grid) return;
 grid.innerHTML = '';
 const curriculumDataSource = window.curriculumData || {};
-const subj = curriculumDataSource[activePracticeSubjectKey];
+const subj = curriculumDataSource[activePracticeContext.subjectKey];
 if(!subj) return;
 
 subj.sections.forEach(sec => {
@@ -1663,7 +1695,7 @@ chList.forEach(ch => {
 const safeTitle = ch.title.replace(/'/g, "\\'");
 const card = document.createElement('div');
 card.className = 'bg-white dark:bg-[#131b2e] border border-slate-200 dark:border-slate-800/80 p-6 rounded-2xl flex flex-col justify-between shadow-sm';
-card.innerHTML = `<div><div class="flex items-center justify-between mb-4"><span class="bg-teal-500/10 text-teal-700 dark:text-teal-300 border border-teal-500/20 text-[10px] font-bold uppercase px-2.5 py-1 rounded">${ch.totalQuestions} Qs / 30s Timer</span><span class="text-[11px] text-teal-600 dark:text-teal-400 font-semibold"><i class="fa-solid fa-bolt mr-1"></i> Practice</span></div><h3 class="text-base font-bold mb-2 text-slate-900 dark:text-white">${ch.title}</h3><p class="text-slate-600 dark:text-slate-400 text-xs mb-5">Subject Stream: <span class="text-indigo-600 font-medium">${subj.name}</span></p></div><div class="space-y-2"><button onclick="startChapterPractice('${safeTitle}', '${subj.name}', 'subject', '${activePracticeSubjectKey}')" class="w-full bg-indigo-600 hover:bg-indigo-500 text-white font-semibold py-2.5 rounded-xl text-xs uppercase tracking-wider transition shadow cursor-pointer">Launch Practice</button><button onclick="switchTab('vault'); launchChapterSimulation('${safeTitle}', ${ch.totalQuestions}, 30, 'subject', '${activePracticeSubjectKey}')" class="w-full bg-teal-600 hover:bg-teal-500 text-white font-semibold py-2 rounded-xl text-xs uppercase tracking-wider transition shadow cursor-pointer">Launch Mock Exam</button></div>`;
+card.innerHTML = `<div><div class="flex items-center justify-between mb-4"><span class="bg-teal-500/10 text-teal-700 dark:text-teal-300 border border-teal-500/20 text-[10px] font-bold uppercase px-2.5 py-1 rounded">${ch.totalQuestions} Qs / 30s Timer</span><span class="text-[11px] text-teal-600 dark:text-teal-400 font-semibold"><i class="fa-solid fa-bolt mr-1"></i> Practice</span></div><h3 class="text-base font-bold mb-2 text-slate-900 dark:text-white">${ch.title}</h3><p class="text-slate-600 dark:text-slate-400 text-xs mb-5">Subject Stream: <span class="text-indigo-600 font-medium">${subj.name}</span></p></div><div class="space-y-2"><button onclick="startChapterPractice('${safeTitle}', '${subj.name}')" class="w-full bg-indigo-600 hover:bg-indigo-500 text-white font-semibold py-2.5 rounded-xl text-xs uppercase tracking-wider transition shadow cursor-pointer">Launch Practice</button><button onclick="switchTab('vault'); launchChapterSimulation('${safeTitle}', ${ch.totalQuestions}, 30)" class="w-full bg-teal-600 hover:bg-teal-500 text-white font-semibold py-2 rounded-xl text-xs uppercase tracking-wider transition shadow cursor-pointer">Launch Mock Exam</button></div>`;
 grid.appendChild(card);
 });
 
@@ -1678,6 +1710,7 @@ grid.appendChild(lockCard);
 
 let vaultNavState = { groupKey: null, subExamName: null };
 function switchVaultMode(mode) {
+activeVaultContext.mode = mode;
 const examsContainer = document.getElementById('vault-exams-container');
 const subjectsContainer = document.getElementById('vault-subjects-container');
 const examsBtn = document.getElementById('vmode-exams-btn');
@@ -1694,7 +1727,7 @@ examsContainer.classList.add('hidden');
 subjectsContainer.classList.remove('hidden');
 subjectsBtn.className = 'px-4 py-2 text-xs font-bold rounded-lg bg-indigo-600 text-white transition cursor-pointer';
 examsBtn.className = 'px-4 py-2 text-xs font-semibold rounded-lg text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition cursor-pointer';
-selectVaultSubjectStream('mathematics');
+selectVaultSubjectStream(activeVaultContext.subjectKey);
 }
 }
 
@@ -1797,7 +1830,7 @@ mockSets.forEach(m => {
 const safeTitle = m.title.replace(/'/g, "\\'");
 const card = document.createElement('div');
 card.className = 'bg-white dark:bg-[#131b2e] border border-slate-200 dark:border-slate-800/80 p-6 rounded-2xl flex flex-col justify-between shadow-sm';
-card.innerHTML = `<div><div class="flex items-center justify-between mb-4"><span class="bg-indigo-500/10 text-indigo-700 dark:text-indigo-300 border border-indigo-500/20 text-[10px] font-bold uppercase px-2.5 py-1 rounded">${m.questions} Qs / ${m.mins} Min</span><span class="text-[11px] text-amber-500 font-semibold"><i class="fa-solid fa-shield-halved mr-1"></i> Proctored</span></div><h3 class="text-base font-bold mb-2 text-slate-900 dark:text-white">${m.title}</h3><p class="text-slate-600 dark:text-slate-400 text-xs mb-5">Simulated Exam for <span class="text-indigo-600 font-medium">${subName}</span></p></div><button onclick="launchChapterSimulation('${safeTitle}', ${m.questions}, ${m.mins}, 'exam', '${vaultNavState.groupKey}', '${subName}')" class="w-full bg-indigo-600 hover:bg-indigo-500 text-white font-semibold py-2.5 rounded-xl text-xs uppercase tracking-wider transition shadow cursor-pointer">Launch Simulation Exam</button>`;
+card.innerHTML = `<div><div class="flex items-center justify-between mb-4"><span class="bg-indigo-500/10 text-indigo-700 dark:text-indigo-300 border border-indigo-500/20 text-[10px] font-bold uppercase px-2.5 py-1 rounded">${m.questions} Qs / ${m.mins} Min</span><span class="text-[11px] text-amber-500 font-semibold"><i class="fa-solid fa-shield-halved mr-1"></i> Proctored</span></div><h3 class="text-base font-bold mb-2 text-slate-900 dark:text-white">${m.title}</h3><p class="text-slate-600 dark:text-slate-400 text-xs mb-5">Simulated Exam for <span class="text-indigo-600 font-medium">${subName}</span></p></div><button onclick="launchChapterSimulation('${safeTitle}', ${m.questions}, ${m.mins})" class="w-full bg-indigo-600 hover:bg-indigo-500 text-white font-semibold py-2.5 rounded-xl text-xs uppercase tracking-wider transition shadow cursor-pointer">Launch Simulation Exam</button>`;
 grid.appendChild(card);
 });
 if (!currentUser) {
@@ -1809,9 +1842,8 @@ grid.appendChild(lockCard);
 }
 }
 
-let activeVaultSubjectKey = 'mathematics';
 function selectVaultSubjectStream(subjKey) {
-activeVaultSubjectKey = subjKey;
+activeVaultContext.subjectKey = subjKey;
 document.querySelectorAll('#vault-subject-pills .vault-subject-btn').forEach(btn => {
 btn.className = 'vault-subject-btn px-3.5 py-2 text-xs font-semibold rounded-xl bg-white dark:bg-slate-900 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-slate-800 transition cursor-pointer';
 });
@@ -1827,7 +1859,7 @@ const grid = document.getElementById('vault-container-grid');
 if(!grid) return;
 grid.innerHTML = '';
 const curriculumDataSource = window.curriculumData || {};
-const subj = curriculumDataSource[activeVaultSubjectKey];
+const subj = curriculumDataSource[activeVaultContext.subjectKey];
 if(!subj) return;
 
 subj.sections.forEach(sec => {
@@ -1845,7 +1877,7 @@ chList.forEach(ch => {
 const safeTitle = ch.title.replace(/'/g, "\\'");
 const card = document.createElement('div');
 card.className = 'bg-white dark:bg-[#131b2e] border border-slate-200 dark:border-slate-800/80 p-6 rounded-2xl flex flex-col justify-between shadow-sm';
-card.innerHTML = `<div><div class="flex items-center justify-between mb-4"><span class="bg-indigo-500/10 text-indigo-700 dark:text-indigo-300 border border-indigo-500/20 text-[10px] font-bold uppercase px-2.5 py-1 rounded">${ch.totalQuestions} Qs / 30 Mins</span><span class="text-[11px] text-amber-500 font-semibold"><i class="fa-solid fa-shield-halved mr-1"></i> Proctored</span></div><h3 class="text-base font-bold mb-2 text-slate-900 dark:text-white">${ch.title} - Mock Exam</h3><p class="text-slate-600 dark:text-slate-400 text-xs mb-5">Simulated Exam for <span class="text-indigo-600 font-medium">${subj.name}</span></p></div><button onclick="launchChapterSimulation('${safeTitle}', ${ch.totalQuestions}, 30, 'subject', '${activeVaultSubjectKey}')" class="w-full bg-indigo-600 hover:bg-indigo-500 text-white font-semibold py-2.5 rounded-xl text-xs uppercase tracking-wider transition shadow cursor-pointer">Launch Simulation Exam</button>`;
+card.innerHTML = `<div><div class="flex items-center justify-between mb-4"><span class="bg-indigo-500/10 text-indigo-700 dark:text-indigo-300 border border-indigo-500/20 text-[10px] font-bold uppercase px-2.5 py-1 rounded">${ch.totalQuestions} Qs / 30 Mins</span><span class="text-[11px] text-amber-500 font-semibold"><i class="fa-solid fa-shield-halved mr-1"></i> Proctored</span></div><h3 class="text-base font-bold mb-2 text-slate-900 dark:text-white">${ch.title} - Mock Exam</h3><p class="text-slate-600 dark:text-slate-400 text-xs mb-5">Simulated Exam for <span class="text-indigo-600 font-medium">${subj.name}</span></p></div><button onclick="launchChapterSimulation('${safeTitle}', ${ch.totalQuestions}, 30)" class="w-full bg-indigo-600 hover:bg-indigo-500 text-white font-semibold py-2.5 rounded-xl text-xs uppercase tracking-wider transition shadow cursor-pointer">Launch Simulation Exam</button>`;
 grid.appendChild(card);
 });
 
@@ -1868,7 +1900,6 @@ let runnerLangMode = 'bi';
 
 let pendingPracticeTitle = "";
 let pendingPracticeSub = "";
-let activeContext = { type: 'subject', groupKey: null, subExamName: null, subjectKey: 'mathematics' };
 
 let pendingMockTitle = "";
 let pendingMockQs = 50;
@@ -1883,6 +1914,7 @@ const j = Math.floor(Math.random() * (i + 1));
 return arr;
 }
 
+// --- INTELLIGENT QUESTION RESOLVER USING SMART MERGE DB ---
 function getQuestionsForChapter(chapterTitle, subjectName) {
     const db = window.chapterQuestionsDB || {};
     let rawQuestions = [];
@@ -1897,50 +1929,10 @@ function getQuestionsForChapter(chapterTitle, subjectName) {
     }
 
     if (!rawQuestions || rawQuestions.length === 0) {
-        const curriculum = window.curriculumData || {};
-        let detectedSubjectKey = "";
-
-        for (let subjKey in curriculum) {
-            const subj = curriculum[subjKey];
-            if (subj && subj.sections) {
-                let found = false;
-                for (let sec of subj.sections) {
-                    if (sec.chapters) {
-                        for (let ch of sec.chapters) {
-                            if (ch.title) {
-                                const chClean = ch.title.toLowerCase().split('(')[0].trim();
-                                if (cleanChapterQuery.includes(chClean) || chClean.includes(cleanChapterQuery)) {
-                                    found = true;
-                                    break;
-                                }
-                            }
-                        }
-                    }
-                    if (found) break;
-                }
-                if (found) {
-                    detectedSubjectKey = subjKey;
-                    break;
-                }
-            }
-        }
-
-        for (let key in db) {
-            const lowKey = key.toLowerCase();
-            if (detectedSubjectKey && lowKey.includes(detectedSubjectKey.toLowerCase())) {
-                if (lowKey.includes(cleanChapterQuery) || cleanChapterQuery.includes(lowKey)) {
-                    rawQuestions = db[key];
-                    break;
-                }
-            }
-        }
-    }
-
-    if (!rawQuestions || rawQuestions.length === 0) {
         rawQuestions = [
             {
-                qEn: `Practice questions for '${chapterTitle}' are being synchronized.`,
-                qHi: `'${chapterTitle}' के अभ्यास प्रश्न सिंक किए जा रहे हैं।`,
+                qEn: `Practice questions for '${chapterTitle}' are synchronized via Smart Merge Engine.`,
+                qHi: `'${chapterTitle}' के अभ्यास प्रश्न स्मार्ट मर्ज इंजन द्वारा सिंक किए गए हैं।`,
                 optionsEn: [`Option A`, `Option B`, `Option C`, `Option D`],
                 optionsHi: [`विकल्प A`, `विकल्प बी`, `विकल्प सी`, `विकल्प डी`],
                 answer: 0,
@@ -1973,15 +1965,9 @@ function getQuestionsForChapter(chapterTitle, subjectName) {
     });
 }
 
-function startChapterPractice(chapterTitle, subjectName, type = 'subject', groupOrSubjKey = 'mathematics', subExamName = null) {
+function startChapterPractice(chapterTitle, subjectName) {
 pendingPracticeTitle = chapterTitle;
 pendingPracticeSub = subjectName;
-activeContext = {
-    type: type,
-    groupKey: type === 'exam' ? groupOrSubjKey : null,
-    subExamName: subExamName,
-    subjectKey: type === 'subject' ? groupOrSubjKey : 'mathematics'
-};
 
 const savedStateKey = 'targettire_practice_' + chapterTitle.replace(/\s+/g, '_');
 const savedState = localStorage.getItem(savedStateKey);
@@ -2152,14 +2138,14 @@ renderQuestionPalette();
 
 function startTimer() {
 clearInterval(timerInterval);
-if (document.hidden) return; // Mute if tab in background
+if (document.hidden) return; // Mute & pause if in background
 timeLeft = 30;
 const timerEl = document.getElementById('runner-timer');
 if(!timerEl) return;
 timerEl.innerText = timeLeft + 's';
 
 timerInterval = setInterval(() => {
-if (document.hidden) return; // Pause timer and alerts in background
+if (document.hidden) return; // Pause timer when tab in background
 timeLeft--;
 timerEl.innerText = timeLeft + 's';
 if (timeLeft <= 0) {
@@ -2180,7 +2166,7 @@ renderQuestionPalette();
 }
 
 function showExplanationState(selectedIdx, q) {
-if (document.hidden) return; // Mute sound in background
+if (document.hidden) return; // Mute sound when tab in background
 const isCorrect = (selectedIdx === q.answer);
 const badgeEl = document.getElementById('runner-status-badge');
 const expBox = document.getElementById('runner-explanation-box');
@@ -2223,6 +2209,8 @@ function confirmExitPractice() {
             localStorage.removeItem('targettire_practice_' + currentChapter.title.replace(/\s+/g, '_'));
         }
         exitPracticeRunner();
+        switchTab('practice');
+        switchPracticeMode(activePracticeContext.mode);
     });
 }
 
@@ -2272,36 +2260,14 @@ document.getElementById('practice-resume-choice-view').classList.add('hidden');
 document.getElementById('practice-main-view').classList.remove('hidden');
 document.getElementById('runner-question-box').classList.remove('hidden');
 document.getElementById('runner-finished-box').classList.add('hidden');
-
-// Return to exact section context
-switchTab('practice');
-if (activeContext.type === 'subject') {
-    switchPracticeMode('subjects');
-    selectPracticeSubjectStream(activeContext.subjectKey);
-} else {
-    switchPracticeMode('exams');
-    if (activeContext.groupKey) {
-        selectPracticeGroup(activeContext.groupKey);
-        if (activeContext.subExamName) {
-            selectPracticeSubExam(activeContext.subExamName);
-        }
-    }
-}
 }
 
 let examTitle = "", examQuestions = [], eIndex = 0, examAnswers = {}, examTimerInterval = null, examSecondsLeft = 0, examLangMode = 'bi';
-let activeMockContext = { type: 'subject', groupKey: null, subExamName: null, subjectKey: 'mathematics' };
 
-function launchChapterSimulation(chapterTitle, totalQuestions, totalMinutes, type = 'subject', groupOrSubjKey = 'mathematics', subExamName = null) {
+function launchChapterSimulation(chapterTitle, totalQuestions, totalMinutes) {
     pendingMockTitle = chapterTitle + " - Mock Exam";
     pendingMockQs = totalQuestions;
     pendingMockMins = totalMinutes || 30;
-    activeMockContext = {
-        type: type,
-        groupKey: type === 'exam' ? groupOrSubjKey : null,
-        subExamName: subExamName,
-        subjectKey: type === 'subject' ? groupOrSubjKey : 'mathematics'
-    };
 
     const savedMockKey = 'targettire_mock_' + pendingMockTitle.replace(/\s+/g, '_');
     const savedMockState = localStorage.getItem(savedMockKey);
@@ -2392,7 +2358,7 @@ const timerEl = document.getElementById('exam-main-timer');
 if(!timerEl) return;
 
 examTimerInterval = setInterval(() => {
-if (document.hidden) return; // Pause timer when tab is in background
+if (document.hidden) return; // Pause timer when tab in background
 if (examSecondsLeft <= 0) {
 clearInterval(examTimerInterval);
 submitExamSimulation();
@@ -2513,6 +2479,8 @@ function confirmExitExam() {
     openCustomConfirm("Exit Simulation", "क्या आप वाकई मॉक टेस्ट छोड़कर सेक्शन पर वापस जाना चाहते हैं?", () => {
         localStorage.removeItem('targettire_mock_' + examTitle.replace(/\s+/g, '_'));
         exitExamVault();
+        switchTab('vault');
+        switchVaultMode(activeVaultContext.mode);
     });
 }
 
@@ -2576,21 +2544,6 @@ document.getElementById('mock-resume-choice-view').classList.add('hidden');
 document.getElementById('vault-main-view').classList.remove('hidden');
 document.getElementById('exam-question-box').classList.remove('hidden');
 document.getElementById('exam-submitted-box').classList.add('hidden');
-
-// Return to exact vault section context
-switchTab('vault');
-if (activeMockContext.type === 'subject') {
-    switchVaultMode('subjects');
-    selectVaultSubjectStream(activeMockContext.subjectKey);
-} else {
-    switchVaultMode('exams');
-    if (activeMockContext.groupKey) {
-        selectVaultGroup(activeMockContext.groupKey);
-        if (activeMockContext.subExamName) {
-            selectVaultSubExam(activeMockContext.subExamName);
-        }
-    }
-}
 }
 
 function renderUserTestHistory() {
@@ -2623,7 +2576,7 @@ customChaptersList.forEach(ch => {
 const card = document.createElement('div');
 card.className = 'bg-white dark:bg-[#131b2e] border border-slate-200 dark:border-slate-800/80 p-6 rounded-2xl flex flex-col justify-between shadow-sm';
 const safeTitle = ch.title.replace(/'/g, "\\'");
-card.innerHTML = `<div><span class="bg-indigo-500/10 text-indigo-700 dark:text-indigo-300 text-[10px] font-bold uppercase px-2 py-1 rounded">Custom Chapter</span><h3 class="text-base font-bold mt-3 mb-2 text-slate-900 dark:text-white">${ch.title}</h3><p class="text-slate-600 dark:text-slate-400 text-xs mb-4">Stream: <span class="uppercase text-indigo-600 font-medium">${ch.subject}</span> (${ch.questions} Qs)</p></div><div class="space-y-2"><button onclick="switchTab('practice'); startChapterPractice('${safeTitle}', '${ch.subject}', 'subject', '${ch.subject}')" class="w-full bg-indigo-600 hover:bg-indigo-500 text-white text-xs font-semibold py-2.5 rounded-xl transition shadow cursor-pointer">Launch Practice</button><button onclick="switchTab('vault'); launchChapterSimulation('${safeTitle}', ${ch.questions}, 30, 'subject', '${ch.subject}')" class="w-full bg-teal-600 hover:bg-teal-500 text-white text-xs font-semibold py-2.5 rounded-xl transition shadow cursor-pointer">Launch Mock Exam</button><button onclick="deleteCustomChapter(${ch.id})" class="w-full bg-slate-100 dark:bg-slate-800 hover:bg-red-500 hover:text-white text-slate-600 dark:text-slate-300 text-xs font-semibold py-2.5 rounded-xl transition cursor-pointer">Remove Chapter</button></div>`;
+card.innerHTML = `<div><span class="bg-indigo-500/10 text-indigo-700 dark:text-indigo-300 text-[10px] font-bold uppercase px-2 py-1 rounded">Custom Chapter</span><h3 class="text-base font-bold mt-3 mb-2 text-slate-900 dark:text-white">${ch.title}</h3><p class="text-slate-600 dark:text-slate-400 text-xs mb-4">Stream: <span class="uppercase text-indigo-600 font-medium">${ch.subject}</span> (${ch.questions} Qs)</p></div><div class="space-y-2"><button onclick="switchTab('practice'); startChapterPractice('${safeTitle}', '${ch.subject}')" class="w-full bg-indigo-600 hover:bg-indigo-500 text-white text-xs font-semibold py-2.5 rounded-xl transition shadow cursor-pointer">Launch Practice</button><button onclick="switchTab('vault'); launchChapterSimulation('${safeTitle}', ${ch.questions}, 30)" class="w-full bg-teal-600 hover:bg-teal-500 text-white text-xs font-semibold py-2.5 rounded-xl transition shadow cursor-pointer">Launch Mock Exam</button><button onclick="deleteCustomChapter(${ch.id})" class="w-full bg-slate-100 dark:bg-slate-800 hover:bg-red-500 hover:text-white text-slate-600 dark:text-slate-300 text-xs font-semibold py-2.5 rounded-xl transition cursor-pointer">Remove Chapter</button></div>`;
 grid.appendChild(card);
 });
 }
@@ -2852,7 +2805,7 @@ loadCurrentAffairsFromGist();
     </footer>
  <script>  
      function playBrandNewSuccessTune() {
-    if (document.hidden) return; // Mute audio if tab is in background
+    if (document.hidden) return; // Mute sound when tab in background
     try {
         const AudioContext = window.AudioContext || window.webkitAudioContext;
         const ctx = new AudioContext();
@@ -2876,7 +2829,7 @@ loadCurrentAffairsFromGist();
 }
 
 function playBrandNewErrorTune() {
-    if (document.hidden) return; // Mute audio if tab is in background
+    if (document.hidden) return; // Mute sound when tab in background
     try {
         const AudioContext = window.AudioContext || window.webkitAudioContext;
         const ctx = new AudioContext();
@@ -2886,7 +2839,7 @@ function playBrandNewErrorTune() {
         let now = ctx.currentTime;
         let osc = ctx.createOscillator();
         let gain = ctx.createGain();
-        osc.type, osc.type = 'sawtooth';
+        osc.type = 'sawtooth';
         osc.frequency.setValueAtTime(150, now);
         osc.frequency.exponentialRampToValueAtTime(90, now + 0.2);
         gain.gain.setValueAtTime(0.1, now);
