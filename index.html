@@ -1890,23 +1890,24 @@ const j = Math.floor(Math.random() * (i + 1));
 return arr;
 }
 
-// --- FULLY AUTOMATIC SMART getQuestionsForChapter (No Manual Subject Name Needed) ---
+// --- FULLY AUTOMATIC & BULLETPROOF getQuestionsForChapter (Supports Practice & Mock Both) ---
 function getQuestionsForChapter(chapterTitle, subjectName) {
     const db = window.chapterQuestionsDB || {};
     let rawQuestions = [];
     
-    const cleanChapterQuery = chapterTitle.replace(" - Mock Exam", "").trim().toLowerCase();
+    // चैप्टर के नाम को पूरी तरह साफ करें (साफ और लोअरकेस बनाएं)
+    const cleanChapterQuery = chapterTitle.replace(" - Mock Exam", "").replace(/[\(\)].*$/, "").trim().toLowerCase();
 
-    // 1. सबसे पहले सीधे डेटाबेस की key से मैच करें
+    // 1. डेटाबेस की हर की (Key) को चेक करें कि क्या वह चैप्टर के नाम से मैच हो रही है
     for (let key in db) {
-        const cleanKey = key.toLowerCase();
+        const cleanKey = key.replace(/[\(\)].*$/, "").trim().toLowerCase();
         if (cleanChapterQuery.includes(cleanKey) || cleanKey.includes(cleanChapterQuery)) {
             rawQuestions = db[key];
             break;
         }
     }
 
-    // 2. अगर सीधे नहीं मिला, तो खुद curriculumData को स्कैन करके पता लगाएं कि यह चैप्टर किस विषय का है
+    // 2. यदि सीधे डेटाबेस में नहीं मिला, तो curriculumData को स्कैन करें
     if (!rawQuestions || rawQuestions.length === 0) {
         const curriculum = window.curriculumData || {};
         let detectedSubjectKey = "";
@@ -1936,7 +1937,6 @@ function getQuestionsForChapter(chapterTitle, subjectName) {
             }
         }
 
-        // 3. सही विषय मिलने पर सिर्फ उसी विषय के डेटाबेस से सवाल उठाएं
         for (let key in db) {
             const lowKey = key.toLowerCase();
             if (detectedSubjectKey && lowKey.includes(detectedSubjectKey.toLowerCase())) {
@@ -1946,37 +1946,18 @@ function getQuestionsForChapter(chapterTitle, subjectName) {
                 }
             }
         }
-
-        // अगर फिर भी की-आधारित मैच न हो, तो उस विषय का पहला उपलब्ध चैप्टर डेटा उठा लें ताकि क्रॉस-कंटामिनेशन न हो
-        if ((!rawQuestions || rawQuestions.length === 0) && detectedSubjectKey) {
-            const subj = curriculum[detectedSubjectKey];
-            if (subj && subj.sections) {
-                for (let sec of subj.sections) {
-                    if (sec.chapters) {
-                        for (let ch of sec.chapters) {
-                            if (db[ch.title]) {
-                                rawQuestions = db[ch.title];
-                                break;
-                            }
-                        }
-                    }
-                    if (rawQuestions.length > 0) break;
-                }
-            }
-        }
     }
 
-    // 4. यदि अभी भी कोई सवाल न मिले, तो सुरक्षित डमी संदेश दें (दूसरे विषय के सवाल कभी नहीं आएंगे)
+    // 3. अगर फिर भी डेटा न मिले, तो सुरक्षित फॉलबॅक ताकि लोडिंग पर कभी न अटके
     if (!rawQuestions || rawQuestions.length === 0) {
-        const cleanTitle = cleanChapterQuery.split('(')[0].trim();
         rawQuestions = [
             {
-                qEn: `Q1. Questions for '${cleanTitle}' will be available soon.`,
-                qHi: `प्रश्न 1: '${cleanTitle}' के प्रश्न जल्द उपलब्ध होंगे।`,
+                qEn: `Practice questions for '${chapterTitle}' are being synchronized.`,
+                qHi: `'${chapterTitle}' के अभ्यास प्रश्न सिंक किए जा रहे हैं।`,
                 optionsEn: [`Option A`, `Option B`, `Option C`, `Option D`],
                 optionsHi: [`विकल्प A`, `विकल्प बी`, `विकल्प सी`, `विकल्प डी`],
                 answer: 0,
-                exp: `Standard evaluation for ${cleanTitle}`
+                exp: `Standard explanation for ${chapterTitle}`
             }
         ];
     }
@@ -1984,7 +1965,7 @@ function getQuestionsForChapter(chapterTitle, subjectName) {
     return rawQuestions.map(q => {
         let sourceCorrect = (q.answer !== undefined) ? q.answer : 0;
         let optsEn = q.optionsEn || q.options || ["A", "B", "C", "D"];
-        let optsHi = q.optionsHi || q.options || ["विकल्प A", "विकल्प B", "विकल्प C", "विकल्प D"];
+        let optsHi = q.optionsHi || q.options || ["विकल्प A", "विकल्प बी", "विकल्प सी", "विकल्प डी"];
 
         let indexedOpts = optsEn.map((opt, idx) => ({ 
             optEn: opt, 
@@ -2571,7 +2552,7 @@ function exitExamVault() {
 clearInterval(examTimerInterval);
 document.getElementById('main-site-header').classList.remove('hidden');
 const footerEl = document.querySelector('footer');
-if(footerEl) footerEl.classList.add('hidden');
+if(footerEl) footerEl.classList.remove('hidden');
 
 document.getElementById('vault-runner-view').classList.add('hidden');
 document.getElementById('mock-resume-choice-view').classList.add('hidden');
@@ -2883,9 +2864,5 @@ function playBrandNewErrorTune() {
     } catch(err) {}
 }
  </script>
-  <!-- Mobile DevTools Console (Eruda) -->
-<script src="https://cdn.jsdelivr.net/npm/eruda"></script>
-<script>eruda.init();</script>
-
     </body>
 </html>
