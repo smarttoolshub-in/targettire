@@ -520,7 +520,7 @@ window.chapterQuestionsDB = {
       qEn: "What is a 'Network Topology' in computer networking?",
       qHi: "कंप्यूटर नेटवर्किंग में 'नेटवर्क टोपोलॉजी' (Network Topology) से क्या तात्पर्य है?",
       optionsEn: ["The arrangement or geometric layout of various elements (links, nodes, devices) in a computer network", "The speed of internet downloading", "The brand name of router cables", "The security password of Wi-Fi"],
-      optionsHi: ["कंप्यूटर नेटवर्क में विभिन्न तत्वों (लिंक, नोड्स, डिवाइस) की व्यवस्था या ज्यामितीय लेआउट", "इंटरनेट डाउनलोड की गति",िन राउटर केबल का ब्रांड नाम", "वाई-फाई का सुरक्षा पासवर्ड"],
+      optionsHi: ["कंप्यूटर नेटवर्क में विभिन्न तत्वों (लिंक, नोड्स, डिवाइस) की व्यवस्था या ज्यामितीय लेआउट", "इंटरनेट डाउनलोड की गति"," िन राउटर केबल का ब्रांड नाम", "वाई-फाई का सुरक्षा पासवर्ड"],
       answer: 0,
       exp: "Explanation (En): Topology defines how devices are interconnected, with common types including Star, Bus, Ring, Mesh, and Tree.\nस्पष्टीकरण (Hi): नेटवर्क टोपोलॉजी यह तय करती है कि नेटवर्क में कंप्यूटर और डिवाइस आपस में किस ज्यामितीय पैटर्न (जैसे स्टार, बस, रिंग) में जुड़े हैं।"
     },
