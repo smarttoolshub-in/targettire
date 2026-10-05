@@ -49,7 +49,7 @@ window.reasoningData = {
   ]
 };
 window.chapterQuestionsDB = {
- "Coding-Decoding": [
+ "Coding-Decoding (कोडिंग-डिकोडिंग)": [
     {
       qEn: "If in a certain code, 'ROSE' is written as 'TQUG', how is 'BCDE' written in that code?",
       qHi: "यदि एक निश्चित कोड में, 'ROSE' को 'TQUG' लिखा जाता है, तो उस कोड में 'BCDE' कैसे लिखा जाएगा?",
