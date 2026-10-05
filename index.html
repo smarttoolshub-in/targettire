@@ -1894,6 +1894,7 @@ function getQuestionsForChapter(chapterTitle, subjectName) {
     const db = window.chapterQuestionsDB || {};
     let rawQuestions = [];
     
+    // 1. सबसे पहले सटीक चैप्टर नाम से डेटाबेस में खोजें
     for (let key in db) {
         if (chapterTitle.toLowerCase().includes(key.toLowerCase()) || key.toLowerCase().includes(chapterTitle.toLowerCase())) {
             rawQuestions = db[key];
@@ -1901,9 +1902,14 @@ function getQuestionsForChapter(chapterTitle, subjectName) {
         }
     }
 
+    // 2. अगर सीधे नहीं मिला, तो curriculumData के माध्यम से सही चैप्टर ढूंढें
     if (!rawQuestions || rawQuestions.length === 0) {
         const curriculum = window.curriculumData || {};
         for (let subjKey in curriculum) {
+            // अगर subjectName पास हुआ है, तो केवल उसी विषय के अंदर खोजें (क्रॉस-कंटामिनेशन रोकने के लिए)
+            if (subjectName && subjKey.toLowerCase() !== subjectName.toLowerCase()) {
+                continue; 
+            }
             const subj = curriculum[subjKey];
             if (subj && subj.sections) {
                 for (let sec of subj.sections) {
@@ -1923,21 +1929,15 @@ function getQuestionsForChapter(chapterTitle, subjectName) {
         }
     }
 
-    if (!rawQuestions || rawQuestions.length === 0) {
-        for (let key in db) {
-            rawQuestions = db[key];
-            break;
-        }
-    }
-
+    // 3. अगर किसी भी डेटाबेस में सवाल नहीं मिले, तो केवल एक जेनेरिक डमी/डिफ़ॉल्ट सवाल बनाएं (गलत विषय के सवाल कभी न उठाएं)
     if (!rawQuestions || rawQuestions.length === 0) {
         const cleanTitle = chapterTitle.split('(')[0].trim();
         rawQuestions = [
             {
-                qEn: `Q1. What is the core foundational concept of '${cleanTitle}'?`,
-                qHi: `प्रश्न 1: '${cleanTitle}' का मुख्य वैचारिक नियम क्या है?`,
-                optionsEn: [`Fundamental law`, `Inverse proportion`, `Asymptotic equilibrium`, `None`],
-                optionsHi: [`मूल नियम`, `व्युत्क्रमानुपाती`, `संतुलन`, `इनमें से कोई नहीं`],
+                qEn: `Q1. Practice questions for '${cleanTitle}' will be updated soon.`,
+                qHi: `प्रश्न 1: '${cleanTitle}' के अभ्यास प्रश्न जल्द ही अपडेट किए जाएंगे।`,
+                optionsEn: [`Option A`, `Option B`, `Option C`, `Option D`],
+                optionsHi: [`विकल्प A`, `विकल्प बी`, `विकल्प सी`, `विकल्प डी`],
                 answer: 0,
                 exp: `Explanation for ${cleanTitle}`
             }
