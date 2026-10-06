@@ -18,7 +18,7 @@
     }
   }
 </script>
-<!-- External Subject-Wise Modular Data Links -->
+<!-- External Subject-Wise Modular Data Links (Including Current Affairs) -->
 <script src="math-data.js"></script>
 <script src="reasoning-data.js"></script>
 <script src="science-data.js"></script>
@@ -26,6 +26,7 @@
 <script src="computer-data.js"></script>
 <script src="english-data.js"></script>
 <script src="current-affairs-data.js"></script>
+<!-- Other Hub Data Modules -->
 <script src="exams-data.js"></script>
 <script src="pyq-data.js"></script>
 <script src="mocks-data.js"></script>
@@ -777,7 +778,7 @@ Return to Mock Vault
 </ul>
 </div>
 <div class="p-4 bg-slate-50 dark:bg-[#0b0f19] rounded-xl border border-slate-200 dark:border-slate-800">
-<span class="text-[10px] font-bold bg-teal-500/10 text-teal-600 dark:text-teal-400 px-2.5 py-1 rounded">Daily CA Practice Quiz (5 Questions)</span>
+<span class="text-[10px] font-bold bg-teal-500/10 text-teal-600 dark:text-teal-400 px-2.5 py-1 rounded">Daily CA Practice Quiz (Live Quiz)</span>
 <div id="modal-ca-quiz-container" class="mt-3 space-y-3">
 </div>
 </div>
@@ -914,27 +915,13 @@ Resend Verification Email
 </div>
 </div>
 
-<div id="custom-confirm-modal" class="fixed inset-0 bg-slate-900/60 backdrop-blur-md z-50 hidden flex items-center justify-center p-4">
-<div class="bg-white dark:bg-[#131b2e] w-full max-w-sm rounded-2xl shadow-2xl border border-slate-200 dark:border-slate-800 p-6 text-center">
-<div class="w-12 h-12 bg-amber-500/10 text-amber-500 rounded-full flex items-center justify-center text-lg mx-auto mb-3">
-<i class="fa-solid fa-triangle-exclamation"></i>
-</div>
-<h3 id="confirm-title" class="text-base font-bold text-slate-900 dark:text-white mb-2">Confirm Action</h3>
-<p id="confirm-desc" class="text-xs text-slate-600 dark:text-slate-400 mb-6">Are you sure you want to proceed?</p>
-<div class="flex gap-3">
-<button id="confirm-yes-btn" class="flex-1 bg-rose-600 hover:bg-rose-500 text-white font-bold py-2.5 rounded-xl text-xs uppercase tracking-wider shadow transition cursor-pointer">Yes</button>
-<button onclick="closeCustomConfirm()" class="flex-1 bg-slate-200 dark:bg-slate-800 hover:bg-slate-300 dark:hover:bg-slate-700 text-slate-800 dark:text-slate-200 font-bold py-2.5 rounded-xl text-xs uppercase tracking-wider transition cursor-pointer">Cancel</button>
-</div>
-</div>
-</div>
-
 <div id="toast" class="fixed bottom-6 right-6 bg-white dark:bg-[#131b2e] border border-slate-200 dark:border-slate-800 text-slate-900 dark:text-slate-300 px-4 py-3 rounded-xl shadow-xl transform translate-y-24 opacity-0 transition-all duration-300 z-50 flex items-center gap-3">
 <i class="fa-solid fa-circle-check text-teal-500 text-sm"></i>
 <span id="toast-message" class="text-xs font-medium">Modular telemetry updated successfully.</span>
 </div>
 
 <script>
-// --- CURRICULUM INTEGRATION FROM MODULAR FILES ---
+// --- CURRICULUM INTEGRATION FROM MODULAR FILES (INCLUDING CURRENT AFFAIRS) ---
 window.curriculumData = {
   mathematics: window.mathData,
   reasoning: window.reasoningData,
@@ -967,70 +954,6 @@ let myExamsList = ["SSC CGL", "IBPS PO", "RRB NTPC"];
 let currentUser = null;
 let userTestHistory = [];
 
-// --- BACKGROUND TAB SWITCH BUZZER & RESUME LOGIC (FIXED) ---
-let isTabActive = true;
-let buzzerInterval = null;
-
-function playBipBeep() {
-    try {
-        const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-        if (audioCtx.state === 'suspended') {
-            audioCtx.resume();
-        }
-        const osc = audioCtx.createOscillator();
-        const gain = audioCtx.createGain();
-        osc.type = 'sine';
-        osc.frequency.setValueAtTime(587.33, audioCtx.currentTime); // D5 note
-        gain.gain.setValueAtTime(0.15, audioCtx.currentTime);
-        osc.connect(gain);
-        gain.connect(audioCtx.destination);
-        osc.start();
-        osc.stop(audioCtx.currentTime + 0.25);
-    } catch (e) {
-        console.log("Audio context blocked or unavailable");
-    }
-}
-
-document.addEventListener('visibilitychange', () => {
-    const isPracticeActive = !document.getElementById('practice-runner-view').classList.contains('hidden');
-    const isMockActive = !document.getElementById('vault-runner-view').classList.contains('hidden');
-
-    if (document.hidden) {
-        isTabActive = false;
-        if (isPracticeActive || isMockActive) {
-            if (buzzerInterval) clearInterval(buzzerInterval);
-            buzzerInterval = setInterval(() => {
-                playBipBeep();
-            }, 30000); // Every 30 seconds buzzer
-        }
-    } else {
-        isTabActive = true;
-        // Wapas aate hi buzzer ko turant band kar rahe hain
-        if (buzzerInterval) {
-            clearInterval(buzzerInterval);
-            buzzerInterval = null;
-        }
-
-        if (isPracticeActive) {
-            openCustomConfirm(
-                "सत्र रुका हुआ है (Session Paused)",
-                "आप टेस्ट के दौरान दूसरे टैब पर चले गए थे। क्या आप वहीं से जारी (Resume) रखना चाहते हैं या नया शुरू करना चाहते हैं?",
-                () => {
-                    // Resume action default
-                }
-            );
-        } else if (isMockActive) {
-            openCustomConfirm(
-                "मॉक टेस्ट रुका हुआ है (Simulation Paused)",
-                "आपने टैब स्विच किया था। आपका मॉक टेस्ट सुरक्षित है, आप वहीं से जारी रख सकते हैं।",
-                () => {
-                    // Resume action default
-                }
-            );
-        }
-    }
-});
-
 if (typeof firebase !== 'undefined') {
 firebase.auth().onAuthStateChanged((user) => {
 if (user) {
@@ -1054,6 +977,21 @@ bulletinTitle: "राष्ट्रीय एवं अंतर्राष�
 points: ["डेटा लोड हो रहा है..."],
 quizList: []
 };
+
+// Ensure at least 5 questions in current affairs quiz list
+if (ca.quizList && ca.quizList.length < 5) {
+    while (ca.quizList.length < 5) {
+        let idx = ca.quizList.length + 1;
+        ca.quizList.push({
+            qEn: `Current Affairs Practice Question ${idx}: What is the latest national development?`,
+            qHi: `करेंट अफेयर्स अभ्यास प्रश्न ${idx}: नवीनतम राष्ट्रीय विकास क्या है?`,
+            optionsEn: [`Option A`, `Option B`, `Option C`, `Option D`],
+            optionsHi: [`विकल्प A`, `विकल्प बी`, `विकल्प सी`, `विकल्प डी`],
+            answer: 0,
+            exp: `Detailed explanation for current affairs question ${idx}.`
+        });
+    }
+}
 
 const previewContainer = document.getElementById('dashboard-ca-points-preview');
 if (previewContainer && ca.points) {
@@ -1964,54 +1902,66 @@ const j = Math.floor(Math.random() * (i + 1));
 return arr;
 }
 
+// --- FULLY AUTOMATIC & BULLETPROOF getQuestionsForChapter (Supports Practice & Mock Both) ---
 function getQuestionsForChapter(chapterTitle, subjectName) {
     const db = window.chapterQuestionsDB || {};
     let rawQuestions = [];
-    const cleanChapterQuery = chapterTitle.replace(" - Mock Exam", "").replace(/[\(\)].*$/, "").trim().toLowerCase();
-
-    for (let key in db) {
-        const cleanKey = key.replace(/[\(\)].*$/, "").trim().toLowerCase();
-        if (cleanChapterQuery.includes(cleanKey) || cleanKey.includes(cleanChapterQuery)) {
-            rawQuestions = db[key];
-            break;
+    
+    // Check if this is Current Affairs or custom CA chapter
+    if (chapterTitle.toLowerCase().includes("current affairs") || chapterTitle.toLowerCase().includes("करेंट अफेयर्स")) {
+        const ca = window.TARGETTIRE_CA_DATABASE || {};
+        if (ca.quizList && ca.quizList.length > 0) {
+            rawQuestions = ca.quizList;
         }
     }
 
     if (!rawQuestions || rawQuestions.length === 0) {
-        const curriculum = window.curriculumData || {};
-        let detectedSubjectKey = "";
+        const cleanChapterQuery = chapterTitle.replace(" - Mock Exam", "").replace(/[\(\)].*$/, "").trim().toLowerCase();
 
-        for (let subjKey in curriculum) {
-            const subj = curriculum[subjKey];
-            if (subj && subj.sections) {
-                let found = false;
-                for (let sec of subj.sections) {
-                    if (sec.chapters) {
-                        for (let ch of sec.chapters) {
-                            if (ch.title) {
-                                const chClean = ch.title.toLowerCase().split('(')[0].trim();
-                                if (cleanChapterQuery.includes(chClean) || chClean.includes(cleanChapterQuery)) {
-                                    found = true;
-                                    break;
-                                }
-                            }
-                        }
-                    }
-                    if (found) break;
-                }
-                if (found) {
-                    detectedSubjectKey = subjKey;
-                    break;
-                }
+        for (let key in db) {
+            const cleanKey = key.replace(/[\(\)].*$/, "").trim().toLowerCase();
+            if (cleanChapterQuery.includes(cleanKey) || cleanKey.includes(cleanChapterQuery)) {
+                rawQuestions = db[key];
+                break;
             }
         }
 
-        for (let key in db) {
-            const lowKey = key.toLowerCase();
-            if (detectedSubjectKey && lowKey.includes(detectedSubjectKey.toLowerCase())) {
-                if (lowKey.includes(cleanChapterQuery) || cleanChapterQuery.includes(lowKey)) {
-                    rawQuestions = db[key];
-                    break;
+        if (!rawQuestions || rawQuestions.length === 0) {
+            const curriculum = window.curriculumData || {};
+            let detectedSubjectKey = "";
+
+            for (let subjKey in curriculum) {
+                const subj = curriculum[subjKey];
+                if (subj && subj.sections) {
+                    let found = false;
+                    for (let sec of subj.sections) {
+                        if (sec.chapters) {
+                            for (let ch of sec.chapters) {
+                                if (ch.title) {
+                                    const chClean = ch.title.toLowerCase().split('(')[0].trim();
+                                    if (cleanChapterQuery.includes(chClean) || chClean.includes(cleanChapterQuery)) {
+                                        found = true;
+                                        break;
+                                    }
+                                }
+                            }
+                        }
+                        if (found) break;
+                    }
+                    if (found) {
+                        detectedSubjectKey = subjKey;
+                        break;
+                    }
+                }
+            }
+
+            for (let key in db) {
+                const lowKey = key.toLowerCase();
+                if (detectedSubjectKey && lowKey.includes(detectedSubjectKey.toLowerCase())) {
+                    if (lowKey.includes(cleanChapterQuery) || cleanChapterQuery.includes(lowKey)) {
+                        rawQuestions = db[key];
+                        break;
+                    }
                 }
             }
         }
@@ -2154,9 +2104,9 @@ if (idx === pIndex) {
     btnClass += 'bg-indigo-600 text-white border-indigo-500 shadow-md';
 } else if (ans !== undefined && ans !== -1) {
     if (ans === q.answer) {
-        btnClass += 'bg-teal-500 text-white border-teal-600'; // Green for correct
+        btnClass += 'bg-teal-500 text-white border-teal-600';
     } else {
-        btnClass += 'bg-rose-500 text-white border-rose-600'; // Red for incorrect
+        btnClass += 'bg-rose-500 text-white border-rose-600';
     }
 } else {
     btnClass += 'bg-slate-100 dark:bg-[#0b0f19] text-slate-700 dark:text-slate-300 border-slate-200 dark:border-slate-800';
@@ -2239,7 +2189,6 @@ if(!timerEl) return;
 timerEl.innerText = timeLeft + 's';
 
 timerInterval = setInterval(() => {
-if (!isTabActive) return; // Tab active na hone par timer pause rahega
 timeLeft--;
 timerEl.innerText = timeLeft + 's';
 if (timeLeft <= 0) {
@@ -2297,13 +2246,11 @@ loadPracticeQuestion();
 
 function confirmExitPractice() {
     clearInterval(timerInterval);
-    openCustomConfirm("Exit Practice", "क्या आप वाकई टेस्ट छोड़कर वापस चैप्टर पर जाना चाहते हैं?", () => {
-        if (currentChapter) {
-            localStorage.removeItem('targettire_practice_' + currentChapter.title.replace(/\s+/g, '_'));
-        }
-        exitPracticeRunner();
-        switchTab('practice');
-    });
+    if (currentChapter) {
+        localStorage.removeItem('targettire_practice_' + currentChapter.title.replace(/\s+/g, '_'));
+    }
+    exitPracticeRunner();
+    switchTab('practice');
 }
 
 function finishPracticeRunner() {
@@ -2450,7 +2397,6 @@ const timerEl = document.getElementById('exam-main-timer');
 if(!timerEl) return;
 
 examTimerInterval = setInterval(() => {
-if (!isTabActive) return; // Tab active na hone par exam timer pause rahega
 if (examSecondsLeft <= 0) {
 clearInterval(examTimerInterval);
 submitExamSimulation();
@@ -2568,11 +2514,9 @@ openCustomConfirm("Submit Exam", "क्या आप वाकई इस मॉ
 
 function confirmExitExam() {
     clearInterval(examTimerInterval);
-    openCustomConfirm("Exit Simulation", "क्या आप वाकई मॉक टेस्ट छोड़कर वापस चैप्टर पर जाना चाहते हैं?", () => {
-        localStorage.removeItem('targettire_mock_' + examTitle.replace(/\s+/g, '_'));
-        exitExamVault();
-        switchTab('vault');
-    });
+    localStorage.removeItem('targettire_mock_' + examTitle.replace(/\s+/g, '_'));
+    exitExamVault();
+    switchTab('vault');
 }
 
 let customConfirmCallback = null;
@@ -2877,7 +2821,10 @@ renderMyExamsTab();
 loadCurrentAffairsFromGist();
 };
 </script>
+    <!-- AI Chat Widget Script -->
     <script src="ai-chat.js"></script>
+
+    <!-- Footer -->
     <footer style="width: 100vw; position: relative; left: 50%; right: 50%; margin-left: -50vw; margin-right: -50vw; background: #0b0f19; color: #94a3b8; border-top: 1px solid #1e293b; padding: 20px 48px; margin-top: auto; font-family: 'Plus Jakarta Sans', sans-serif; box-sizing: border-box; z-index: 40;">
         <div style="max-width: 1600px; margin: 0 auto; display: flex; flex-direction: row; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 15px; width: 100%; box-sizing: border-box;">
             <p style="font-size: 13px; color: #e2e8f0; font-weight: 500; margin: 0;">
@@ -2937,5 +2884,5 @@ function playBrandNewErrorTune() {
     } catch(err) {}
 }
  </script>
-</body>
+    </body>
 </html>
