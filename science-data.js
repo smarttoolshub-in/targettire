@@ -3303,7 +3303,7 @@ exp: "Explanation (En): Leading zeros are not significant. Trailing zeros betwee
       qEn: "What are the elements in Group 17 of the periodic table called?",
       qHi: "आवर्त सारणी के समूह 17 के तत्वों को क्या कहा जाता है?",
       optionsEn: ["Halogens", "Noble gases", "Chalcogens", "Lanthanides"],
-      optionsHi: ["हैोजन (Halogens)", "उत्कृष्ट गैसें", "चैलकोजन", लैनथेनाइड्स],
+      optionsHi: ["हैोजन (Halogens)", "उत्कृष्ट गैसें", "चैलकोजन", "लैनथेनाइड्स"],
       answer: 0,
       exp: "Explanation (En): Group 17 elements are called halogens (meaning 'salt-formers') because they react with metals to form salts.\nस्पष्टीकरण (Hi): समूह 17 के तत्वों को हैलोजन (अर्थात 'लवण बनाने वाले') कहा जाता है क्योंकि ये धातुओं के साथ मिलकर लवण बनाते हैं।"
     },
