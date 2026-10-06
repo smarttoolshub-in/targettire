@@ -1,53 +1,54 @@
 window.TARGETTIRE_CA_DATABASE = {
-  date: "5 October 2026",
-  bulletinTitle: "राष्ट्रीय एवं अंतर्राष्ट्रीय करेंट अफेयर्स बुलेटिन (October 2026 - Special Set)",
+  date: "7 October 2026",
+  bulletinTitle: "राष्ट्रीय एवं अंतर्राष्ट्रीय करेंट अफेयर्स विशेष बुलेटिन (6-7 अक्टूबर 2026)",
   points: [
-    "भारत सरकार ने आगामी प्रतियोगी परीक्षाओं के लिए देश भर में डिजिटल एडाप्टिव टेस्टिंग (DAT) और एआई-संचालित मूल्यांकन प्रणाली को और अधिक व्यापक बनाने की घोषणा की है।",
-    "भारतीय रिजर्व बैंक (RBI) ने मौद्रिक नीति समीक्षा में रेपो रेट को स्थिर रखते हुए डिजिटल भुगतान सुरक्षा मानकों को और कड़ा कर दिया है।",
-    "अंतर्राष्ट्रीय अंतरिक्ष अनुसंधान के क्षेत्र में, गगनयान मिशन के मानव रहित परीक्षण चरणों के अगले पड़ाव की सफलतापूर्वक पुष्टि कर दी गई है।",
-    "पर्यावरण और जलवायु परिवर्तन मंत्रालय द्वारा नवीकरणीय ऊर्जा और सौर विनिर्माण के क्षेत्र में नए प्रोत्साहन पैकेजों की घोषणा की गई है।",
-    "हाल ही में संपन्न वैश्विक नवाचार सूचकांक (Global Innovation Index 2026) में भारत ने अपनी स्थिति मजबूत करते हुए शीर्ष स्थान प्राप्त करने वाले देशों में उल्लेखनीय सुधार दर्ज किया है।"
+    "भारतीय अंतरिक्ष अनुसंधान संगठन (ISRO) ने अंतरिक्ष में कचरे की समस्या से निपटने के लिए 'प्रोजेक्ट नेत्र' के तहत नए रडार सिस्टम का सफल परीक्षण किया है[span_0](start_span)[span_0](end_span).",
+    "हाल ही में वैश्विक नवाचार सूचकांक (Global Innovation Index 2026) में भारत ने अपनी स्थिति मजबूत करते हुए शीर्ष 40 देशों में स्थान प्राप्त किया है[span_1](start_span)[span_1](end_span).",
+    "बिहार सरकार ने राज्य के युवाओं को तकनीकी रूप से सक्षम बनाने के लिए 'एआई और रोबोटिक्स स्किल हब' की स्थापना हेतु विशेष बजट का ऐलान किया है[span_2](start_span)[span_2](end_span).",
+    "अंतर्राष्ट्रीय सौर गठबंधन (ISA) की आगामी मंत्रिस्तरीय बैठक नई दिल्ली में आयोजित की जाएगी, जिसमें हरित ऊर्जा पर जोर दिया जाएगा[span_3](start_span)[span_3](end_span).",
+    "देश की अंतरिक्ष अवसंरचना को सुरक्षित रखने और बाहरी खतरों से निपटने के लिए अंतरिक्ष सुरक्षा के क्षेत्र में इस सप्ताह कई महत्वपूर्ण तकनीकी साझेदारियों पर भी विचार किया गया है[span_4](start_span)[span_4](end_span).",
+    "मंत्रिमंडल की बैठक में तकनीकी शिक्षा और कौशल विकास को बढ़ावा देने के लिए डिजिटल लर्निंग प्लेटफॉर्म्स के विस्तार को मंजूरी दी गई है।"
   ],
-  quizzes: [
+  quizList: [
     {
-      qEn: "Q1. Which institution recently announced promoting the 'Digital Adaptive Testing' framework for competitive exams?",
-      qHi: "प्रश्न 1: हाल ही में किस संस्था ने प्रतियोगी परीक्षाओं के लिए 'डिजिटल एडाप्टिव टेस्टिंग' फ्रेमवर्क को बढ़ावा देने की घोषणा की है?",
-      optionsEn: ["NITI Aayog", "Reserve Bank of India", "Government of India / Ministry of Education", "Union Public Service Commission"],
-      optionsHi: ["नीति आयोग (NITI Aayog)", "भारतीय रिजर्व बैंक (RBI)", "भारत सरकार / शिक्षा मंत्रालय", "केंद्रीय लोक सेवा आयोग (UPSC)"],
-      answer: 2,
-      exp: "Explanation (En): Government of India is promoting adaptive testing to modernize the examination system.\nस्पष्टीकरण (Hi): भारत सरकार द्वारा शिक्षा और डिजिटल परीक्षा प्रणाली को आधुनिक बनाने के लिए एडाप्टिव टेस्टिंग को बढ़ावा दिया जा रहा है।"
+      qEn: "Which space agency successfully tested new radar systems under 'Project Netra' to combat space debris?",
+      qHi: "अंतरिक्ष में कचरे की समस्या से निपटने के लिए किस एजेंसी ने 'प्रोजेक्ट नेत्र' के तहत नए रडार सिस्टम का परीक्षण किया है?",
+      optionsEn: ["SpaceX", "NASA", "ISRO", "ESA"],
+      optionsHi: ["स्पेसएक्स", "नासा", "इसरो", "ईएसए"],
+      answer: 2, 
+      exp: "ISRO has successfully tested new radar systems under Project Netra to monitor and track space debris[span_5](start_span)[span_5](end_span)."
     },
     {
-      qEn: "Q2. Which security standard was tightened by RBI in its recent monetary policy review?",
-      qHi: "प्रश्न 2: भारतीय रिजर्व बैंक (RBI) ने हाल की मौद्रिक नीति समीक्षा में सुरक्षा के किस मानक को कड़ा किया है?",
-      optionsEn: ["Digital payment security standards", "Traditional banking fees", "Gold import regulations", "Agricultural loan criteria"],
-      optionsHi: ["डिजिटल भुगतान सुरक्षा मानक", "पारंपरिक बैंकिंग शुल्क", "सोने के आयात के नियम", "कृषि ऋण मापदंड"],
-      answer: 0,
-      exp: "Explanation (En): RBI strengthened digital payment security standards to prevent online fraud.\nस्पष्टीकरण (Hi): RBI ने ऑनलाइन फ्रॉड को रोकने के लिए डिजिटल भुगतान सुरक्षा मानकों को और अधिक सख्त कर दिया है।"
+      qEn: "What is India's position tier range in the Global Innovation Index 2026?",
+      qHi: "वैश्विक नवाचार सूचकांक (Global Innovation Index 2026) में भारत ने किस श्रेणी में स्थान प्राप्त किया है?",
+      optionsEn: ["Top 40 countries", "Top 60 countries", "Top 80 countries", "Top 20 countries"],
+      optionsHi: ["शीर्ष 40 देशों में", "शीर्ष 60 देशों में", "शीर्ष 80 देशों में", "शीर्ष 20 देशों में"],
+      answer: 0, 
+      exp: "India has secured its position within the top 40 countries in the Global Innovation Index 2026[span_6](start_span)[span_6](end_span)."
     },
     {
-      qEn: "Q3. Which Indian space mission's unmanned test phases' next milestone was recently confirmed?",
-      qHi: "प्रश्न 3: भारत के किस अंतरिक्ष मिशन के मानव रहित परीक्षण चरणों के अगले पड़ाव की हाल ही में पुष्टि हुई है?",
-      optionsEn: ["Chandrayaan-4", "Gaganyaan Mission", "Mangalyaan-2", "Aditya-L2"],
-      optionsHi: ["चंद्रयान-4", "गगनयान मिशन", "मंगलयान-2", "आदित्य-L2"],
-      answer: 1,
-      exp: "Explanation (En): The successful confirmation of the unmanned test phases of the Gaganyaan mission was announced.\nस्पष्टीकरण (Hi): गगनयान मिशन के मानव रहित परीक्षण चरणों की सफलता की पुष्टि की गई है।"
+      qEn: "Which state government recently announced an 'AI and Robotics Skill Hub' for youth?",
+      qHi: "हाल ही में किस राज्य सरकार ने युवाओं के लिए 'एआई और रोबोटिक्स स्किल हब' स्थापित करने की घोषणा की है?",
+      optionsEn: ["Karnataka", "Bihar", "Maharashtra", "Uttar Pradesh"],
+      optionsHi: ["कर्नाटक", "बिहार", "महाराष्ट्र", "उत्तर प्रदेश"],
+      answer: 1, 
+      exp: "The Bihar government has announced the setting up of an AI and Robotics Skill Hub for state youth[span_7](start_span)[span_7](end_span)."
     },
     {
-      qEn: "Q4. The Ministry of Environment and Climate Change announced new incentive packages for which sector?",
-      qHi: "प्रश्न 4: पर्यावरण और जलवायु परिवर्तन मंत्रालय ने किस क्षेत्र के लिए नए प्रोत्साहन पैकेजों की घोषणा की है?",
-      optionsEn: ["Coal mining", "Renewable energy and solar manufacturing", "Plastic recycling", "Nuclear energy"],
-      optionsHi: ["कोयला खनन", "नवीकरणीय ऊर्जा और सौर विनिर्माण", "प्लास्टिक रीसाइक्लिंग", "परमाणु ऊर्जा"],
-      answer: 1,
-      exp: "Explanation (En): Incentive packages were announced for renewable energy and solar manufacturing to boost green energy.\nस्पष्टीकरण (Hi): देश में ग्रीन एनर्जी को बढ़ावा देने के लिए नवीकरणीय ऊर्जा और सौर विनिर्माण को प्रोत्साहित किया जा रहा है।"
+      qEn: "Where is the upcoming ministerial meeting of the International Solar Alliance (ISA) scheduled to be held?",
+      qHi: "अंतर्राष्ट्रीय सौर गठबंधन (ISA) की आगामी मंत्रिस्तरीय बैठक कहाँ आयोजित होने जा रही है?",
+      optionsEn: ["Paris", "New Delhi", "Geneva", "Tokyo"],
+      optionsHi: ["पेरिस", "नई दिल्ली", "जेनेवा", "टोक्यो"],
+      answer: 1, 
+      exp: "The upcoming ministerial meeting of the International Solar Alliance is scheduled in New Delhi[span_8](start_span)[span_8](end_span)."
     },
     {
-      qEn: "Q5. What was India's performance in the 'Global Innovation Index 2026'?",
-      qHi: "प्रश्न 5: 'वैश्विक नवाचार सूचकांक (Global Innovation Index 2026)' में भारत ने क्या प्रदर्शन किया है?",
-      optionsEn: ["India dropped out of the list", "India strengthened its position with notable improvements", "No change observed", "India ranked last"],
-      optionsHi: ["भारत सूची से बाहर हो गया", "भारत की स्थिति मजबूत हुई और उल्लेखनीय सुधार दर्ज हुआ", "कोई बदलाव नहीं हुआ", "भारत अंतिम स्थान पर रहा"],
-      answer: 1,
-      exp: "Explanation (En): India strengthened its position and recorded notable improvements in the Global Innovation Index 2026.\nस्पष्टीकरण (Hi): वैश्विक नवाचार सूचकांक 2026 में भारत ने अपनी स्थिति मजबूत करते हुए उल्लेखनीय सुधार दर्ज किया है।"
+      qEn: "What is the primary focus of the newly tested 'Project Netra' systems?",
+      qHi: "हाल ही में परीक्षित 'प्रोजेक्ट नेत्र' प्रणाली का मुख्य उद्देश्य क्या है?",
+      optionsEn: ["Weather forecasting", "Space debris tracking and protection", "Deep sea exploration", "Lunar mapping"],
+      optionsHi: ["मौसम की भविष्यवाणी", "अंतरिक्ष मलबे की ट्रैकिंग और सुरक्षा", "गहरे समुद्र की खोज", "चंद्र मैपिंग"],
+      answer: 1, 
+      exp: "Project Netra is aimed at tracking space debris and protecting space assets[span_9](start_span)[span_9](end_span)."
     }
   ]
 };
