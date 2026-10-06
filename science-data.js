@@ -79,7 +79,7 @@ window.scienceData = {
     }
   ]
 };
-window.chapterQuestionsDB = {
+registerQuestions({
 "Units and Measurement (मात्रक और मापन)": [
 {
 qEn: "What is the SI unit of electric current?",
@@ -11006,4 +11006,4 @@ exp: "Explanation (En): Leading zeros are not significant. Trailing zeros betwee
       exp: "Explanation (En): Wetlands filter pollutants, absorb storm surges, recharge groundwater, and support immense bird and aquatic life.\nस्पष्टीकरण (Hi): आर्द्रभूमियां (जैसे झीलें और दलदल) प्राकृतिक स्पंज की तरह पानी साफ करती हैं, बाढ़ रोकती हैं और पक्षियों का आवास होती हैं।"
     }
   ]
-};
+});
