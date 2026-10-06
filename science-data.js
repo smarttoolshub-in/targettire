@@ -11005,5 +11005,247 @@ exp: "Explanation (En): Leading zeros are not significant. Trailing zeros betwee
       answer: 0,
       exp: "Explanation (En): Wetlands filter pollutants, absorb storm surges, recharge groundwater, and support immense bird and aquatic life.\nस्पष्टीकरण (Hi): आर्द्रभूमियां (जैसे झीलें और दलदल) प्राकृतिक स्पंज की तरह पानी साफ करती हैं, बाढ़ रोकती हैं और पक्षियों का आवास होती हैं।"
     }
+  ],
+    "Environmental Policies, Laws, and Ethics": [
+    {
+      qEn: "When was the Environment Protection Act enacted in India?",
+      qHi: "भारत में पर्यावरण संरक्षण अधिनियम (Environment Protection Act) किस वर्ष पारित किया गया था?",
+      optionsEn: ["1986", "1972", "1980", "1981"],
+      optionsHi: ["1986", "1972", "1980", "1981"],
+      answer: 0,
+      exp: "Explanation (En): The Environment Protection Act was enacted in 1986 under Article 253 of the Constitution, in the wake of the Bhopal gas tragedy.\nस्पष्टीकरण (Hi): भोपाल गैस त्रासदी के बाद भारत सरकार ने संविधान के अनुच्छेद 253 के तहत 1986 में पर्यावरण संरक्षण अधिनियम पारित किया।"
+    },
+    {
+      qEn: "The Wildlife Protection Act was passed in India in which year?",
+      qHi: "भारत में वन्यजीव संरक्षण अधिनियम (Wildlife Protection Act) किस वर्ष पारित किया गया था?",
+      optionsEn: ["1972", "1986", "1992", "2002"],
+      optionsHi: ["1972", "1986", "1992", "2002"],
+      answer: 0,
+      exp: "Explanation (En): The Wildlife Protection Act was enacted in 1972 to provide protection to wild animals, birds, and plants.\nस्पष्टीकरण (Hi): जंगली जानवरों, पक्षियों और पौधों को सुरक्षा प्रदान करने के लिए 1972 में वन्यजीव संरक्षण अधिनियम पारित किया गया था।"
+    },
+    {
+      qEn: "When was the Forest (Conservation) Act enacted in India?",
+      qHi: "भारत में वन (संरक्षण) अधिनियम किस वर्ष पारित किया गया था?",
+      optionsEn: ["1980", "1972", "1986", "1927"],
+      optionsHi: ["1980", "1972", "1986", "1927"],
+      answer: 0,
+      exp: "Explanation (En): The Forest Conservation Act was enacted in 1980 to check deforestation and conserve forests.\nस्पष्टीकरण (Hi): वनों की कटाई को रोकने और वनों के संरक्षण के लिए 1980 में वन संरक्षण अधिनियम लागू किया गया।"
+    },
+    {
+      qEn: "The National Green Tribunal (NGT) was established in India in which year?",
+      qHi: "भारत में राष्ट्रीय हरित अधिकरण (NGT) की स्थापना किस वर्ष की गई थी?",
+      optionsEn: ["2010", "2008", "2012", "2015"],
+      optionsHi: ["2010", "2008", "2012", "2015"],
+      answer: 0,
+      exp: "Explanation (En): The National Green Tribunal (NGT) was established in 2010 under the NGT Act for effective and expeditious disposal of cases relating to environmental protection.\nस्पष्टीकरण (Hi): पर्यावरण से जुड़े मामलों के त्वरित निपटारे के लिए एनजीटी (NGT) की स्थापना 2010 में की गई थी।"
+    },
+    {
+      qEn: "Which article of the Indian Constitution specifically deals with the protection and improvement of environment?",
+      qHi: "भारतीय संविधान का कौन सा अनुच्छेद विशेष रूप से पर्यावरण के संरक्षण और संवर्धन से संबंधित है?",
+      optionsEn: ["Article 48A", "Article 21", "Article 51A(g)", "Both A and C"],
+      optionsHi: ["अनुच्छेद 48क (Article 48A)", "अनुच्छेद 21", "अनुच्छेद 51A(g)", "A और C दोनों"],
+      answer: 3,
+      exp: "Explanation (En): Both Article 48A (Directive Principles) and Article 51A(g) (Fundamental Duties) deal with environment protection.\nस्पष्टीकरण (Hi): नीति निर्देशक तत्व का अनुच्छेद 48A और मौलिक कर्तव्य का अनुच्छेद 51A(g) दोनों पर्यावरण संरक्षण से जुड़े हैं।"
+    },
+    {
+      qEn: "When was the Water (Prevention and Control of Pollution) Act passed?",
+      qHi: "जल (प्रदूषण निवारण एवं नियंत्रण) अधिनियम किस वर्ष पारित किया गया था?",
+      optionsEn: ["1974", "1981", "1972", "1986"],
+      optionsHi: ["1974", "1981", "1972", "1986"],
+      answer: 0,
+      exp: "Explanation (En): The Water Act was enacted in 1974 to provide for the prevention and control of water pollution.\nस्पष्टीकरण (Hi): जल प्रदूषण को रोकने और नियंत्रित करने के लिए जल अधिनियम 1974 में पारित किया गया था।"
+    },
+    {
+      qEn: "The Air (Prevention and Control of Pollution) Act was enacted in:",
+      qHi: "वायु (प्रदूषण निवारण एवं नियंत्रण) अधिनियम किस वर्ष पारित किया गया था?",
+      optionsEn: ["1981", "1974", "1986", "1991"],
+      optionsHi: ["1981", "1974", "1986", "1991"],
+      answer: 0,
+      exp: "Explanation (En): The Air Act was passed in 1981 to combat air pollution in India.\nस्पष्टीकरण (Hi): भारत में वायु प्रदूषण से निपटने के लिए 1981 में वायु अधिनियम पारित किया गया था।"
+    },
+    {
+      qEn: "When was the Biological Diversity Act passed in India?",
+      qHi: "भारत में जैविक विविधता अधिनियम (Biological Diversity Act) किस वर्ष पारित किया गया था?",
+      optionsEn: ["2002", "1992", "2006", "2010"],
+      optionsHi: ["2002", "1992", "2006", "2010"],
+      answer: 0,
+      exp: "Explanation (En): The Biological Diversity Act was enacted in 2002 to preserve biological diversity in India.\nस्पष्टीकरण (Hi): देश में जैव विविधता के संरक्षण के लिए जैविक विविधता अधिनियम 2002 में पारित किया गया।"
+    },
+    {
+      qEn: "What is environmental ethics?",
+      qHi: "पर्यावरणीय नैतिकता (Environmental Ethics) क्या है?",
+      optionsEn: ["Study of ethical relationship between human beings and the environment", "Law to punish polluters", "Economics of natural resources", "Scientific study of ecosystems"],
+      optionsHi: ["मानव और पर्यावरण के बीच नैतिक संबंधों का अध्ययन", "प्रदूषकों को दंडित करने का कानून", "प्राकृतिक संसाधनों का अर्थशास्त्र", "पारिस्थितिकी तंत्र का वैज्ञानिक अध्ययन"],
+      answer: 0,
+      exp: "Explanation (En): Environmental ethics is the part of environmental philosophy which considers extending the traditional boundaries of ethics from solely humans to include the non-human world.\nस्पष्टीकरण (Hi): पर्यावरणीय नैतिकता मानव और पर्यावरण के बीच के नैतिक संबंधों और कर्तव्यों का अध्ययन है।"
+    },
+    {
+      qEn: "The Montreal Protocol is related to:",
+      qHi: "मॉन्ट्रियल प्रोटोकॉल किससे संबंधित है?",
+      optionsEn: ["Protection of the ozone layer", "Global warming", "Biodiversity conservation", "Wetland protection"],
+      optionsHi: ["ओजोन परत का संरक्षण", "ग्लोबल वार्मिंग", "जैव विविधता संरक्षण", "वेटलैंड संरक्षण"],
+      answer: 0,
+      exp: "Explanation (En): The Montreal Protocol (1987) is an international treaty designed to protect the ozone layer by phasing out ozone-depleting substances.\nस्पष्टीकरण (Hi): ओजोन परत को नुकसान पहुँचाने वाले पदार्थों को चरणबद्ध तरीके से हटाने के लिए 1987 का मॉन्ट्रियल प्रोटोकॉल संबंधित है।"
+    },
+    {
+      qEn: "Kyoto Protocol is primarily associated with:",
+      qHi: "क्योटो प्रोटोकॉल मुख्य रूप से किससे जुड़ा है?",
+      optionsEn: ["Reduction of greenhouse gases", "Ozone depletion", "Plastic waste management", "Tiger conservation"],
+      optionsHi: ["ग्रीनहाउस गैसों में कमी", "ओजोन क्षरण", "प्लास्टिक कचरा प्रबंधन", "बाघ संरक्षण"],
+      answer: 0,
+      exp: "Explanation (En): The Kyoto Protocol (1997) operationalizes the UNFCCC by committing industrialized countries to limit and reduce greenhouse gas emissions.\nस्पष्टीकरण (Hi): क्योटो प्रोटोकॉल (1997) ग्रीनहाउस गैसों के उत्सर्जन को कम करने से संबंधित है।"
+    },
+    {
+      qEn: "When was Project Tiger launched in India?",
+      qHi: "भारत में 'प्रोजेक्ट टाइगर' किस वर्ष शुरू किया गया था?",
+      optionsEn: ["1973", "1972", "1980", "1992"],
+      optionsHi: ["1973", "1972", "1980", "1992"],
+      answer: 0,
+      exp: "Explanation (En): Project Tiger was launched in April 1973 to ensure the maintenance of a viable population of tigers in India.\nस्पष्टीकरण (Hi): भारत में बाघों की आबादी को बचाने के लिए अप्रैल 1973 में प्रोजेक्ट टाइगर लॉन्च किया गया था।"
+    },
+    {
+      qEn: "Project Elephant was launched in India in:",
+      qHi: "भारत में 'प्रोजेक्ट एलिफेंट' की शुरुआत किस वर्ष हुई थी?",
+      optionsEn: ["1992", "1973", "1988", "2001"],
+      optionsHi: ["1992", "1973", "1988", "2001"],
+      answer: 0,
+      exp: "Explanation (En): Project Elephant was launched by the Ministry of Environment and Forests in February 1992.\nस्पष्टीकरण (Hi): हाथियों और उनके आवासों के संरक्षण के लिए फरवरी 1992 में प्रोजेक्ट एलिफेंट शुरू किया गया था।"
+    },
+    {
+      qEn: "The Chipko Movement started in which state?",
+      qHi: "चिपको आंदोलन की शुरुआत किस राज्य से हुई थी?",
+      optionsEn: ["Uttarakhand (then UP)", "Kerala", "Karnataka", "Assam"],
+      optionsHi: ["उत्तराखंड (तत्कालीन उत्तर प्रदेश)", "केरल", "कर्नाटक", "असम"],
+      answer: 0,
+      exp: "Explanation (En): The Chipko movement was a forest conservation movement in India that began in 1973 in Uttarakhand (then part of Uttar Pradesh).\nस्पष्टीकरण (Hi): चिपको आंदोलन 1973 में उत्तराखंड (तत्कालीन यूपी) के चमोली जिले से पेड़ों को बचाने के लिए शुरू हुआ था।"
+    },
+    {
+      qEn: "Appiko Movement, a forest-based conservation movement, took place in:",
+      qHi: "अप्पिको आंदोलन (जो वन संरक्षण से जुड़ा है) किस राज्य में हुआ था?",
+      optionsEn: ["Karnataka", "Uttarakhand", "Odisha", "Madhya Pradesh"],
+      optionsHi: ["कर्नाटक", "उत्तराखंड", "ओडिशा", "मध्य प्रदेश"],
+      answer: 0,
+      exp: "Explanation (En): The Appiko movement was a grassroots movement in the Uttara Kannada district of Karnataka in the Western Ghats (1983).\nस्पष्टीकरण (Hi): अप्पिको आंदोलन 1983 में कर्नाटक के पश्चिमी घाट में वनों की रक्षा के लिए चलाया गया था।"
+    },
+    {
+      qEn: "What is the primary objective of the Paris Agreement (2015)?",
+      qHi: "पेरिस समझौता (2015) का मुख्य उद्देश्य क्या है?",
+      optionsEn: ["To limit global temperature rise well below 2°C", "To ban plastic completely", "To protect marine life", "To eliminate nuclear weapons"],
+      optionsHi: ["वैश्विक तापमान वृद्धि को 2°C से काफी नीचे सीमित करना", "प्लास्टिक पर पूरी तरह प्रतिबंध लगाना", "समुद्री जीवन की रक्षा करना", "परमाणु हथियारों को समाप्त करना"],
+      answer: 0,
+      exp: "Explanation (En): The Paris Agreement is a legally binding international treaty on climate change, aiming to limit global warming to well below 2°C.\nस्पष्टीकरण (Hi): पेरिस समझौते का मुख्य लक्ष्य वैश्विक तापमान वृद्धि को पूर्व-औद्योगिक स्तर से 2 डिग्री सेल्सियस से नीचे रखना है।"
+    },
+    {
+      qEn: "The 'Bishnoi' community of Rajasthan is well known for their commitment to:",
+      qHi: "राजस्थान का 'बिश्नोई' समुदाय किसके प्रति अपनी प्रतिबद्धता के लिए प्रसिद्ध है?",
+      optionsEn: ["Protection of trees and wildlife", "Water harvesting", "Organic farming", "Solar energy usage"],
+      optionsHi: ["पेड़ों और वन्यजीवों की रक्षा", "जल संचयन", "जैविक खेती", "सौर ऊर्जा का उपयोग"],
+      answer: 0,
+      exp: "Explanation (En): The Bishnoi community is famous for protecting trees (like Khejri) and wildlife, rooted in their religious faith.\nस्पष्टीकरण (Hi): बिश्नोई समाज खेजड़ी के पेड़ों और काले हिरण जैसे वन्यजीवों की रक्षा के लिए दुनिया भर में प्रसिद्ध है।"
+    },
+    {
+      qEn: "What does 'EPR' stand for in environmental management and laws?",
+      qHi: "पर्यावरण प्रबंधन और कानूनों में 'EPR' का पूर्ण रूप क्या है?",
+      optionsEn: ["Extended Producer Responsibility", "Environmental Pollution Rate", "Ecological Protection Regulation", "Energy Policy Research"],
+      optionsHi: ["Extended Producer Responsibility (उत्पादक की विस्तारित जिम्मेदारी)", "Environmental Pollution Rate", "Ecological Protection Regulation", "Energy Policy Research"],
+      answer: 0,
+      exp: "Explanation (En): Extended Producer Responsibility (EPR) is a policy approach under which producers are given a significant responsibility for the treatment or disposal of post-consumer products.\nस्पष्टीकरण (Hi): EPR का मतलब 'Extended Producer Responsibility' है, जिसके तहत निर्माता अपने उत्पाद के कचरे के प्रबंधन के लिए जिम्मेदार होते हैं।"
+    },
+    {
+      qEn: "When was the National Action Plan on Climate Change (NAPCC) launched in India?",
+      qHi: "भारत में जलवायु परिवर्तन पर राष्ट्रीय कार्य योजना (NAPCC) किस वर्ष शुरू की गई थी?",
+      optionsEn: ["2008", "2010", "2005", "2012"],
+      optionsHi: ["2008", "2010", "2005", "2012"],
+      answer: 0,
+      exp: "Explanation (En): NAPCC was launched in June 2008 by the Prime Minister's Council on Climate Change to raise awareness on climate mitigation.\nस्पष्टीकरण (Hi): भारत सरकार द्वारा जलवायु परिवर्तन से निपटने के लिए जून 2008 में NAPCC लॉन्च की गई थी।"
+    },
+    {
+      qEn: "The concept of 'Sustainable Development' was popularized by which report?",
+      qHi: "'सतत विकास' (Sustainable Development) की अवधारणा को किस रिपोर्ट द्वारा लोकप्रिय बनाया गया था?",
+      optionsEn: ["Brundtland Report (Our Common Future)", "Silent Spring", "Limits to Growth", "Rio Declaration"],
+      optionsHi: ["ब्रंटलैंड रिपोर्ट (Our Common Future)", "साइलेंट स्प्रिंग", "लिमिट्स टू ग्रोथ", "रियो घोषणा"],
+      answer: 0,
+      exp: "Explanation (En): The Brundtland Report, titled 'Our Common Future' (1987), defined and popularized the concept of sustainable development.\nस्पष्टीकरण (Hi): 1987 की 'ब्रंटलैंड रिपोर्ट' (हमारा साझा भविष्य) ने सतत विकास की परिभाषा को दुनिया भर में लोकप्रिय किया।"
+    },
+    {
+      qEn: "Which international summit is also known as the 'Earth Summit'?",
+      qHi: "किस अंतरराष्ट्रीय सम्मेलन को 'पृथ्वी शिखर सम्मेलन' (Earth Summit) के रूप में भी जाना जाता है?",
+      optionsEn: ["1992 Rio Conference", "1972 Stockholm Conference", "2015 Paris Climate Conference", "1997 Kyoto Conference"],
+      optionsHi: ["1992 रियो सम्मेलन", "1972 स्टॉकहोम सम्मेलन", "2015 पेरिस जलवायु सम्मेलन", "1997 क्योटो सम्मेलन"],
+      answer: 0,
+      exp: "Explanation (En): The United Nations Conference on Environment and Development (UNCED), held in Rio de Janeiro in 1992, is known as the Earth Summit.\nस्पष्टीकरण (Hi): 1992 में रियो डी जेनेरियो में आयोजित रियो सम्मेलन को 'अर्थ समिट' कहा जाता है।"
+    },
+    {
+      qEn: "The Stockholm Conference on Human Environment was held in:",
+      qHi: "मानव पर्यावरण पर स्टॉकहोम सम्मेलन किस वर्ष आयोजित किया गया था?",
+      optionsEn: ["1972", "1982", "1992", "2002"],
+      optionsHi: ["1972", "1982", "1992", "2002"],
+      answer: 0,
+      exp: "Explanation (En): The United Nations Conference on the Human Environment was held in Stockholm, Sweden, in 1972, marking the beginning of global environmental politics.\nस्पष्टीकरण (Hi): स्टॉकहोम सम्मेलन 1972 में हुआ था, जिसे वैश्विक पर्यावरण राजनीति की शुरुआत माना जाता है (इसी दिन 5 जून को विश्व पर्यावरण दिवस घोषित किया गया)।"
+    },
+    {
+      qEn: "What is 'Anthropocentrism' in environmental ethics?",
+      qHi: "पर्यावरणीय नैतिकता में 'मानवतेंद्रियता' (Anthropocentrism) का क्या अर्थ है?",
+      optionsEn: ["Human-centered view where humans are the central or most important element", "Nature-centered view", "Equal value to all living species", "Spiritual connection with nature"],
+      optionsHi: ["मानव-केंद्रित दृष्टिकोण जिसमें मनुष्य को सबसे महत्वपूर्ण माना जाता है", "प्रकृति-केंद्रित दृष्टिकोण", "सभी जीवित प्रजातियों को समान मूल्य देना", "प्रकृति के साथ आध्यात्मिक संबंध"],
+      answer: 0,
+      exp: "Explanation (En): Anthropocentrism assigns moral standing solely to humans, viewing nature as a resource for human use.\nस्पष्टीकरण (Hi): एंथ्रोपोसेंट्रिज़्म (मानव-केंद्रित दृष्टिकोण) वह विचार है जिसमें मनुष्य को ब्रह्मांड का केंद्र और सर्वोच्च माना जाता है।"
+    },
+    {
+      qEn: "Biocentrism in environmental ethics maintains that:",
+      qHi: "पर्यावरणीय नैतिकता में 'जैव-केंद्रित' (Biocentrism) दृष्टिकोण का क्या मानना है?",
+      optionsEn: ["All living things have inherent value and rights", "Only humans have rights", "Only animals with high intelligence matter", "Plants have no ethical significance"],
+      optionsHi: ["सभी जीवित प्राणियों का अंतर्निहित मूल्य और अधिकार है", "केवल इंसानों को अधिकार हैं", "केवल उच्च बुद्धि वाले जानवर मायने रखते हैं", "पौधों का कोई नैतिक महत्व नहीं है"],
+      answer: 0,
+      exp: "Explanation (En): Biocentrism extends inherent value to all living organisms, not just humans.\nस्पष्टीकरण (Hi): बायोकेंट्रिज़्म (जैव-केंद्रित) के अनुसार पृथ्वी पर मौजूद हर जीवित प्राणी का अपना नैतिक महत्व और जीने का अधिकार है।"
+    },
+    {
+      qEn: "The Public Liability Insurance Act in India was enacted in:",
+      qHi: "भारत में लोक दायित्व बीमा अधिनियम (Public Liability Insurance Act) किस वर्ष पारित किया गया था?",
+      optionsEn: ["1991", "1986", "1974", "2005"],
+      optionsHi: ["1991", "1986", "1974", "2005"],
+      answer: 0,
+      exp: "Explanation (En): The Public Liability Insurance Act was enacted in 1991 to provide immediate relief to persons affected by accidents while handling hazardous substances.\nस्पष्टीकरण (Hi): खतरनाक पदार्थों से होने वाली दुर्घटनाओं के पीड़ितों को तुरंत राहत देने के लिए 1991 में यह अधिनियम लाया गया था।"
+    },
+    {
+      qEn: "Which principle states that the polluter should bear the cost of pollution?",
+      qHi: "कौन सा सिद्धांत यह कहता है कि प्रदूषण फैलाने वाले को ही प्रदूषण की लागत (सफाई का खर्च) उठानी चाहिए?",
+      optionsEn: ["Polluter Pays Principle", "Precautionary Principle", "Intergenerational Equity", "Sustainable Principle"],
+      optionsHi: ["प्रदूषक भुगतान सिद्धांत (Polluter Pays Principle)", "पूर्वापर सावधानी का सिद्धांत", "अंतर-पीढ़ीगत समता", "सतत सिद्धांत"],
+      answer: 0,
+      exp: "Explanation (En): The Polluter Pays Principle mandates that those who produce pollution should bear the costs of managing it to prevent damage.\nस्पष्टीकरण (Hi): 'प्रदूषक भुगतान सिद्धांत' के अनुसार पर्यावरण को नुकसान पहुँचाने वाले व्यक्ति या उद्योग को ही उसकी भरपाई का खर्च उठाना चाहिए।"
+    },
+    {
+      qEn: "The Precautionary Principle in environmental law implies that:",
+      qHi: "पर्यावरण कानून में 'सावधानी का सिद्धांत' (Precautionary Principle) क्या संकेत देता है?",
+      optionsEn: ["Lack of full scientific certainty should not be used as a reason to postpone cost-effective measures to prevent environmental degradation", "Wait for complete disaster before acting", "Stop all industrial activities", "Only act when pollution reaches maximum limit"],
+      optionsHi: ["पर्यावरण को नुकसान से बचाने के लिए पूर्ण वैज्ञानिक निश्चितता न होने पर भी निवारक कदम उठाए जाने चाहिए", "आपदा आने का इंतजार करें", "सभी औद्योगिक गतिविधियां रोक दें", "केवल अधिकतम सीमा पर ही कार्य करें"],
+      answer: 0,
+      exp: "Explanation (En): The Precautionary Principle dictates taking preventive action even if cause-and-effect relationships are not fully established scientifically.\nस्पष्टीकरण (Hi): इसके तहत यदि किसी गतिविधि से पर्यावरण को गंभीर नुकसान की आशंका है, तो पूरी वैज्ञानिक पुष्टि न होने पर भी पहले से सावधानी बरतनी चाहिए।"
+    },
+    {
+      qEn: "What is 'Intergenerational Equity'?",
+      qHi: "'अंतर-पीढ़ीगत समता' (Intergenerational Equity) का क्या अर्थ है?",
+      optionsEn: ["Fairness between current and future generations regarding resource use", "Equality among people of the same generation", "Equal distribution of wealth", "Equal rights for animals"],
+      optionsHi: ["संसाधनों के उपयोग के संबंध में वर्तमान और भविष्य की पीढ़ियों के बीच न्याय", "एक ही पीढ़ी के लोगों के बीच समानता", "धन का समान वितरण", "जानवरों के लिए समान अधिकार"],
+      answer: 0,
+      exp: "Explanation (En): Intergenerational equity means meeting the needs of the present without compromising the ability of future generations to meet their own needs.\nस्पष्टीकरण (Hi): इसका अर्थ है कि प्राकृतिक संसाधनों का उपयोग इस तरह किया जाए कि वर्तमान पीढ़ी के साथ-साथ आने वाली भावी पीढ़ियों के अधिकार भी सुरक्षित रहें।"
+    },
+    {
+      qEn: "The Wildlife (Protection) Amendment Act of India was recently enacted in which year to strengthen wildlife governance?",
+      qHi: "वन्यजीव प्रशासन को मजबूत करने के लिए हाल ही में वन्यजीव (संरक्षण) संशोधन अधिनियम किस वर्ष पारित किया गया था?",
+      optionsEn: ["2022", "2018", "2020", "2015"],
+      optionsHi: ["2022", "2018", "2020", "2015"],
+      answer: 0,
+      exp: "Explanation (En): The Wild Life (Protection) Amendment Act, 2022 was passed to increase the species protected under the law and implement CITES effectively in India.\nस्पष्टीकरण (Hi): भारत में वन्यजीव संरक्षण को और अधिक सख्त बनाने के लिए 2022 में संशोधन अधिनियम पारित किया गया।"
+    },
+    {
+      qEn: "The 3 R's principle in environmental ethics and waste management stands for:",
+      qHi: "पर्यावरणीय नैतिकता और अपशिष्ट प्रबंधन में '3 R' सिद्धांत का क्या अर्थ है?",
+      optionsEn: ["Reduce, Reuse, Recycle", "Read, Record, Revise", "Remove, Replace, Restore", "Respect, Regulate, Recover"],
+      optionsHi: ["कम करें, पुनः उपयोग करें, पुनर्चक्रण करें (Reduce, Reuse, Recycle)", "पढ़ें, रिकॉर्ड करें, संशोधित करें", "हटाएं, बदलें, पुनर्स्थापित करें", "आदर करें, विनियमित करें, पुनर्प्राप्त करें"],
+      answer: 0,
+      exp: "Explanation (En): Reduce, Reuse, and Recycle are the core waste management strategies designed to minimize environmental impact.\nस्पष्टीकरण (Hi): कचरे को कम करने और पर्यावरण बचाने के लिए Reduce (कम उपयोग), Reuse (पुनः उपयोग) और Recycle (पुनर्चक्रण) मुख्य सिद्धांत हैं।"
+    }
   ]
 });
