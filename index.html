@@ -2195,6 +2195,15 @@ renderQuestionPalette();
 }
 
 function showExplanationState(selectedIdx, q) {
+ // आपकी अपनी थीम के अनुसार पैलेट का रंग बदलने का सुरक्षित तरीका:
+    const paletteBtn = document.querySelectorAll('#question-palette-grid button')[pIndex];
+    if (paletteBtn) {
+        if (isCorrect) {
+            paletteBtn.className = 'w-9 h-9 rounded-xl font-bold text-xs flex items-center justify-center transition border bg-teal-500 text-white border-teal-500';
+        } else {
+            paletteBtn.className = 'w-9 h-9 rounded-xl font-bold text-xs flex items-center justify-center transition border bg-red-600 text-white border-red-600';
+        }
+    }
 const isCorrect = (selectedIdx === q.answer);
 const badgeEl = document.getElementById('runner-status-badge');
 const expBox = document.getElementById('runner-explanation-box');
@@ -2232,11 +2241,18 @@ loadPracticeQuestion();
 
 function confirmExitPractice() {
     clearInterval(timerInterval);
-    openCustomConfirm("Exit Practice", "क्या आप वाकई टेस्ट छोड़कर डैशबोर्ड पर जाना चाहते हैं?", () => {
+    openCustomConfirm("Exit Practice", "क्या आप वाकई टेस्ट छोड़कर अभ्यास सूची पर जाना चाहते हैं?", () => {
         if (currentChapter) {
             localStorage.removeItem('targettire_practice_' + currentChapter.title.replace(/\s+/g, '_'));
         }
         exitPracticeRunner();
+        
+        // यहाँ मुख्य प्रैक्टिस व्यू को वापस दिखाना और टैब सेट करना
+        const practiceMain = document.getElementById('practice-main-view');
+        const practiceRunner = document.getElementById('practice-runner-view');
+        if(practiceRunner) practiceRunner.classList.add('hidden');
+        if(practiceMain) practiceMain.classList.remove('hidden');
+        
         switchTab('practice');
     });
 }
@@ -2502,9 +2518,18 @@ openCustomConfirm("Submit Exam", "क्या आप वाकई इस मॉ
 
 function confirmExitExam() {
     clearInterval(examTimerInterval);
-    openCustomConfirm("Exit Simulation", "क्या आप वाकई मॉक टेस्ट छोड़कर डैशबोर्ड पर जाना चाहते हैं?", () => {
-        localStorage.removeItem('targettire_mock_' + examTitle.replace(/\s+/g, '_'));
+    openCustomConfirm("Exit Simulation", "क्या आप वाकई मॉक टेस्ट छोड़कर सूची पर जाना चाहते हैं?", () => {
+        if (examTitle) {
+            localStorage.removeItem('targettire_mock_' + examTitle.replace(/\s+/g, '_'));
+        }
         exitExamVault();
+        
+        // यहाँ मॉक वॉल्ट के मुख्य व्यू को वापस दिखाना
+        const vaultMain = document.getElementById('vault-main-view');
+        const vaultRunner = document.getElementById('vault-runner-view');
+        if(vaultRunner) vaultRunner.classList.add('hidden');
+        if(vaultMain) vaultMain.classList.remove('hidden');
+        
         switchTab('vault');
     });
 }
@@ -2873,6 +2898,17 @@ function playBrandNewErrorTune() {
         osc.stop(now + 0.25);
     } catch(err) {}
 }
+// --- बैकग्राउंड या दूसरा टैब खोलने पर टाइमर और बीप/साउंड को रोकने के लिए (Visibility API) ---
+document.addEventListener("visibilitychange", function() {
+    if (document.hidden) {
+        // जैसे ही यूजर ऐप या टैब को बैकग्राउंड में भेजेगा, टाइमर तुरंत थम जाएंगे
+        if (typeof timerInterval !== 'undefined') clearInterval(timerInterval);
+        if (typeof examTimerInterval !== 'undefined') clearInterval(examTimerInterval);
+        
+        // यदि कोई बीप या ऑडियो लूप चल रहा हो, उसे यहाँ रोक सकते हैं:
+        // if (typeof stopAudioBeep === 'function') stopAudioBeep();
+    }
+});
  </script>
     </body>
 </html>
