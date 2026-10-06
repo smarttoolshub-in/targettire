@@ -18,7 +18,7 @@
     }
   }
 </script>
-<!-- External Subject-Wise Modular Data Links (Including Current Affairs) -->
+<!-- External Subject-Wise Modular Data Links -->
 <script src="math-data.js"></script>
 <script src="reasoning-data.js"></script>
 <script src="science-data.js"></script>
@@ -26,7 +26,6 @@
 <script src="computer-data.js"></script>
 <script src="english-data.js"></script>
 <script src="current-affairs-data.js"></script>
-<!-- Other Hub Data Modules -->
 <script src="exams-data.js"></script>
 <script src="pyq-data.js"></script>
 <script src="mocks-data.js"></script>
@@ -432,7 +431,8 @@ This examination is one of the most prestigious competitive recruitment tests co
 <div id="question-palette-grid" class="grid grid-cols-5 gap-2 max-h-80 overflow-y-auto pr-1"></div>
 <div class="mt-4 pt-3 border-t border-slate-200 dark:border-slate-800 space-y-1.5 text-[10px] text-slate-500 dark:text-slate-400">
 <div class="flex items-center gap-2"><span class="w-3 h-3 rounded bg-indigo-600 inline-block"></span> Current Question</div>
-<div class="flex items-center gap-2"><span class="w-3 h-3 rounded bg-teal-500 inline-block"></span> Answered</div>
+<div class="flex items-center gap-2"><span class="w-3 h-3 rounded bg-teal-500 inline-block"></span> Correct Answer</div>
+<div class="flex items-center gap-2"><span class="w-3 h-3 rounded bg-rose-500 inline-block"></span> Incorrect Answer</div>
 <div class="flex items-center gap-2"><span class="w-3 h-3 rounded bg-slate-200 dark:bg-slate-800 inline-block"></span> Unattempted</div>
 </div>
 </div>
@@ -511,7 +511,7 @@ Next <i class="fa-solid fa-arrow-right ml-1"></i>
 <button id="runner-launch-mock-btn" class="bg-teal-600 hover:bg-teal-500 text-white font-semibold px-6 py-3 rounded-xl text-xs uppercase tracking-wider transition shadow cursor-pointer">
 <i class="fa-solid fa-shield-halved mr-1"></i> Give Mock Test Now
 </button>
-<button onclick="exitPracticeRunner(); switchTab('dashboard');" class="bg-slate-200 hover:bg-slate-300 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-800 dark:text-slate-200 font-semibold px-6 py-3 rounded-xl text-xs uppercase tracking-wider transition cursor-pointer">
+<button onclick="exitPracticeRunner(); switchTab('practice');" class="bg-slate-200 hover:bg-slate-300 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-800 dark:text-slate-200 font-semibold px-6 py-3 rounded-xl text-xs uppercase tracking-wider transition cursor-pointer">
 Return to Practice Hub
 </button>
 </div>
@@ -934,7 +934,7 @@ Resend Verification Email
 </div>
 
 <script>
-// --- CURRICULUM INTEGRATION FROM MODULAR FILES (INCLUDING CURRENT AFFAIRS) ---
+// --- CURRICULUM DATA INTEGRATION ---
 window.curriculumData = {
   mathematics: window.mathData,
   reasoning: window.reasoningData,
@@ -966,6 +966,69 @@ let currentLang = 'en';
 let myExamsList = ["SSC CGL", "IBPS PO", "RRB NTPC"];
 let currentUser = null;
 let userTestHistory = [];
+
+// --- BACKGROUND TAB SWITCH BUZZER & RESUME LOGIC ---
+let isTabActive = true;
+let buzzerInterval = null;
+
+function playBipBeep() {
+    try {
+        const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+        if (audioCtx.state === 'suspended') {
+            audioCtx.resume();
+        }
+        const osc = audioCtx.createOscillator();
+        const gain = audioCtx.createGain();
+        osc.type = 'sine';
+        osc.frequency.setValueAtTime(587.33, audioCtx.currentTime); // D5 note
+        gain.gain.setValueAtTime(0.15, audioCtx.currentTime);
+        osc.connect(gain);
+        gain.connect(audioCtx.destination);
+        osc.start();
+        osc.stop(audioCtx.currentTime + 0.25);
+    } catch (e) {
+        console.log("Audio context blocked or unavailable");
+    }
+}
+
+document.addEventListener('visibilitychange', () => {
+    const isPracticeActive = !document.getElementById('practice-runner-view').classList.contains('hidden');
+    const isMockActive = !document.getElementById('vault-runner-view').classList.contains('hidden');
+
+    if (document.hidden) {
+        isTabActive = false;
+        if (isPracticeActive || isMockActive) {
+            if (buzzerInterval) clearInterval(buzzerInterval);
+            buzzerInterval = setInterval(() => {
+                playBipBeep();
+            }, 30000); // Every 30 seconds buzzer
+        }
+    } else {
+        isTabActive = true;
+        if (buzzerInterval) {
+            clearInterval(buzzerInterval);
+            buzzerInterval = null;
+        }
+
+        if (isPracticeActive) {
+            openCustomConfirm(
+                "सत्र暂停 (Session Paused)",
+                "आप टेस्ट के दौरान दूसरे टैब पर चले गए थे। क्या आप वहीं से जारी (Resume) रखना चाहते हैं या नया शुरू करना चाहते हैं?",
+                () => {
+                    // Resume action default
+                }
+            );
+        } else if (isMockActive) {
+            openCustomConfirm(
+                "मॉक टेस्ट暂停 (Simulation Paused)",
+                "आपने टैब स्विच किया था। आपका मॉक टेस्ट सुरक्षित है, आप वहीं से जारी रख सकते हैं।",
+                () => {
+                    // Resume action default
+                }
+            );
+        }
+    }
+});
 
 if (typeof firebase !== 'undefined') {
 firebase.auth().onAuthStateChanged((user) => {
@@ -1900,15 +1963,11 @@ const j = Math.floor(Math.random() * (i + 1));
 return arr;
 }
 
-// --- FULLY AUTOMATIC & BULLETPROOF getQuestionsForChapter (Supports Practice & Mock Both) ---
 function getQuestionsForChapter(chapterTitle, subjectName) {
     const db = window.chapterQuestionsDB || {};
     let rawQuestions = [];
-    
-    // चैप्टर के नाम को पूरी तरह साफ करें (साफ और लोअरकेस बनाएं)
     const cleanChapterQuery = chapterTitle.replace(" - Mock Exam", "").replace(/[\(\)].*$/, "").trim().toLowerCase();
 
-    // 1. डेटाबेस की हर की (Key) को चेक करें कि क्या वह चैप्टर के नाम से मैच हो रही है
     for (let key in db) {
         const cleanKey = key.replace(/[\(\)].*$/, "").trim().toLowerCase();
         if (cleanChapterQuery.includes(cleanKey) || cleanKey.includes(cleanChapterQuery)) {
@@ -1917,7 +1976,6 @@ function getQuestionsForChapter(chapterTitle, subjectName) {
         }
     }
 
-    // 2. यदि सीधे डेटाबेस में नहीं मिला, तो curriculumData को स्कैन करें
     if (!rawQuestions || rawQuestions.length === 0) {
         const curriculum = window.curriculumData || {};
         let detectedSubjectKey = "";
@@ -1958,7 +2016,6 @@ function getQuestionsForChapter(chapterTitle, subjectName) {
         }
     }
 
-    // 3. अगर फिर भी डेटा न मिले, तो सुरक्षित फॉलबॅक ताकि लोडिंग पर कभी न अटके
     if (!rawQuestions || rawQuestions.length === 0) {
         rawQuestions = [
             {
@@ -2087,15 +2144,21 @@ const paletteGrid = document.getElementById('question-palette-grid');
 if(!paletteGrid) return;
 paletteGrid.innerHTML = '';
 
-practiceQuestions.forEach((_, idx) => {
+practiceQuestions.forEach((q, idx) => {
 const btn = document.createElement('button');
 let btnClass = 'w-9 h-9 rounded-xl font-bold text-xs flex items-center justify-center transition border cursor-pointer ';
+const ans = userAnswers[idx];
+
 if (idx === pIndex) {
-btnClass += 'bg-indigo-600 text-white border-indigo-500 shadow-md';
-} else if (userAnswers[idx] !== undefined) {
-btnClass += 'bg-teal-500/20 text-teal-700 dark:text-teal-300 border-teal-500/40';
+    btnClass += 'bg-indigo-600 text-white border-indigo-500 shadow-md';
+} else if (ans !== undefined && ans !== -1) {
+    if (ans === q.answer) {
+        btnClass += 'bg-teal-500 text-white border-teal-600'; // Green for correct
+    } else {
+        btnClass += 'bg-rose-500 text-white border-rose-600'; // Red specifically for wrong attempts!
+    }
 } else {
-btnClass += 'bg-slate-100 dark:bg-[#0b0f19] text-slate-700 dark:text-slate-300 border-slate-200 dark:border-slate-800';
+    btnClass += 'bg-slate-100 dark:bg-[#0b0f19] text-slate-700 dark:text-slate-300 border-slate-200 dark:border-slate-800';
 }
 btn.className = btnClass;
 btn.innerText = idx + 1;
@@ -2195,15 +2258,6 @@ renderQuestionPalette();
 }
 
 function showExplanationState(selectedIdx, q) {
- // आपकी अपनी थीम के अनुसार पैलेट का रंग बदलने का सुरक्षित तरीका:
-    const paletteBtn = document.querySelectorAll('#question-palette-grid button')[pIndex];
-    if (paletteBtn) {
-        if (isCorrect) {
-            paletteBtn.className = 'w-9 h-9 rounded-xl font-bold text-xs flex items-center justify-center transition border bg-teal-500 text-white border-teal-500';
-        } else {
-            paletteBtn.className = 'w-9 h-9 rounded-xl font-bold text-xs flex items-center justify-center transition border bg-red-600 text-white border-red-600';
-        }
-    }
 const isCorrect = (selectedIdx === q.answer);
 const badgeEl = document.getElementById('runner-status-badge');
 const expBox = document.getElementById('runner-explanation-box');
@@ -2241,18 +2295,11 @@ loadPracticeQuestion();
 
 function confirmExitPractice() {
     clearInterval(timerInterval);
-    openCustomConfirm("Exit Practice", "क्या आप वाकई टेस्ट छोड़कर अभ्यास सूची पर जाना चाहते हैं?", () => {
+    openCustomConfirm("Exit Practice", "क्या आप वाकई टेस्ट छोड़कर वापस चैप्टर पर जाना चाहते हैं?", () => {
         if (currentChapter) {
             localStorage.removeItem('targettire_practice_' + currentChapter.title.replace(/\s+/g, '_'));
         }
         exitPracticeRunner();
-        
-        // यहाँ मुख्य प्रैक्टिस व्यू को वापस दिखाना और टैब सेट करना
-        const practiceMain = document.getElementById('practice-main-view');
-        const practiceRunner = document.getElementById('practice-runner-view');
-        if(practiceRunner) practiceRunner.classList.add('hidden');
-        if(practiceMain) practiceMain.classList.remove('hidden');
-        
         switchTab('practice');
     });
 }
@@ -2518,18 +2565,9 @@ openCustomConfirm("Submit Exam", "क्या आप वाकई इस मॉ
 
 function confirmExitExam() {
     clearInterval(examTimerInterval);
-    openCustomConfirm("Exit Simulation", "क्या आप वाकई मॉक टेस्ट छोड़कर सूची पर जाना चाहते हैं?", () => {
-        if (examTitle) {
-            localStorage.removeItem('targettire_mock_' + examTitle.replace(/\s+/g, '_'));
-        }
+    openCustomConfirm("Exit Simulation", "क्या आप वाकई मॉक टेस्ट छोड़कर वापस मॉक वॉल्ट पर जाना चाहते हैं?", () => {
+        localStorage.removeItem('targettire_mock_' + examTitle.replace(/\s+/g, '_'));
         exitExamVault();
-        
-        // यहाँ मॉक वॉल्ट के मुख्य व्यू को वापस दिखाना
-        const vaultMain = document.getElementById('vault-main-view');
-        const vaultRunner = document.getElementById('vault-runner-view');
-        if(vaultRunner) vaultRunner.classList.add('hidden');
-        if(vaultMain) vaultMain.classList.remove('hidden');
-        
         switchTab('vault');
     });
 }
@@ -2836,10 +2874,7 @@ renderMyExamsTab();
 loadCurrentAffairsFromGist();
 };
 </script>
-    <!-- AI Chat Widget Script -->
     <script src="ai-chat.js"></script>
-
-    <!-- Footer -->
     <footer style="width: 100vw; position: relative; left: 50%; right: 50%; margin-left: -50vw; margin-right: -50vw; background: #0b0f19; color: #94a3b8; border-top: 1px solid #1e293b; padding: 20px 48px; margin-top: auto; font-family: 'Plus Jakarta Sans', sans-serif; box-sizing: border-box; z-index: 40;">
         <div style="max-width: 1600px; margin: 0 auto; display: flex; flex-direction: row; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 15px; width: 100%; box-sizing: border-box;">
             <p style="font-size: 13px; color: #e2e8f0; font-weight: 500; margin: 0;">
@@ -2898,17 +2933,6 @@ function playBrandNewErrorTune() {
         osc.stop(now + 0.25);
     } catch(err) {}
 }
-// --- बैकग्राउंड या दूसरा टैब खोलने पर टाइमर और बीप/साउंड को रोकने के लिए (Visibility API) ---
-document.addEventListener("visibilitychange", function() {
-    if (document.hidden) {
-        // जैसे ही यूजर ऐप या टैब को बैकग्राउंड में भेजेगा, टाइमर तुरंत थम जाएंगे
-        if (typeof timerInterval !== 'undefined') clearInterval(timerInterval);
-        if (typeof examTimerInterval !== 'undefined') clearInterval(examTimerInterval);
-        
-        // यदि कोई बीप या ऑडियो लूप चल रहा हो, उसे यहाँ रोक सकते हैं:
-        // if (typeof stopAudioBeep === 'function') stopAudioBeep();
-    }
-});
  </script>
-    </body>
+</body>
 </html>
