@@ -29,7 +29,7 @@ window.mathData = {
     }
   ]
 };
-window.chapterQuestionsDB = {
+registerQuestions({
 "Number System": [
 {
 qEn: "What is the remainder when 17^{200} is divided by 18?",
@@ -8372,4 +8372,4 @@ exp: "Explanation (En): Net change for 2D area: 10 + 10 + (10 \times 10)/100 = 2
       exp: "Explanation (En): Both white or both red = (^6C_2 + ^4C_2) / ^{10}C_2 = (15 + 6) / 45 = 21 / 45 = 7 / 15.\nस्पष्टीकरण (Hi): प्रायिकता = 21 / 45 = 7 / 15।"
     }
   ]
-};
+});
