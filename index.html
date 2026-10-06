@@ -1,4 +1,3 @@
-```html
 <!DOCTYPE html>
 <html lang="en" class="dark scroll-smooth">
 <head>
@@ -9,7 +8,17 @@
 <link rel="manifest" href="manifest.json">
 <meta name="theme-color" content="#6366f1">
 <script src="https://cdn.tailwindcss.com"></script>
-<!-- External Subject-Wise Modular Data Links -->
+<script>
+  window.chapterQuestionsDB = window.chapterQuestionsDB || {};
+  function registerQuestions(incomingData) {
+    if (incomingData && typeof incomingData === 'object') {
+      for (let chapterName in incomingData) {
+        window.chapterQuestionsDB[chapterName] = incomingData[chapterName];
+      }
+    }
+  }
+</script>
+<!-- External Subject-Wise Modular Data Links (Including Current Affairs) -->
 <script src="math-data.js"></script>
 <script src="reasoning-data.js"></script>
 <script src="science-data.js"></script>
@@ -502,8 +511,8 @@ Next <i class="fa-solid fa-arrow-right ml-1"></i>
 <button id="runner-launch-mock-btn" class="bg-teal-600 hover:bg-teal-500 text-white font-semibold px-6 py-3 rounded-xl text-xs uppercase tracking-wider transition shadow cursor-pointer">
 <i class="fa-solid fa-shield-halved mr-1"></i> Give Mock Test Now
 </button>
-<button onclick="exitPracticeRunner();" class="bg-slate-200 hover:bg-slate-300 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-800 dark:text-slate-200 font-semibold px-6 py-3 rounded-xl text-xs uppercase tracking-wider transition cursor-pointer">
-Return to Section
+<button onclick="exitPracticeRunner(); switchTab('dashboard');" class="bg-slate-200 hover:bg-slate-300 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-800 dark:text-slate-200 font-semibold px-6 py-3 rounded-xl text-xs uppercase tracking-wider transition cursor-pointer">
+Return to Practice Hub
 </button>
 </div>
 </div>
@@ -651,8 +660,8 @@ Next <i class="fa-solid fa-arrow-right ml-1"></i>
 <p id="exam-summary-unattempted" class="text-lg font-bold text-slate-400">0</p>
 </div>
 </div>
-<button onclick="exitExamVault();" class="bg-indigo-600 hover:bg-indigo-500 text-white font-semibold px-6 py-3 rounded-xl text-xs uppercase tracking-wider transition cursor-pointer">
-Return to Section
+<button onclick="exitExamVault(); switchTab('dashboard');" class="bg-indigo-600 hover:bg-indigo-500 text-white font-semibold px-6 py-3 rounded-xl text-xs uppercase tracking-wider transition cursor-pointer">
+Return to Mock Vault
 </button>
 </div>
 </div>
@@ -925,7 +934,7 @@ Resend Verification Email
 </div>
 
 <script>
-// --- SMART MERGE ENGINE FOR MODULAR FILES ---
+// --- CURRICULUM INTEGRATION FROM MODULAR FILES (INCLUDING CURRENT AFFAIRS) ---
 window.curriculumData = {
   mathematics: window.mathData,
   reasoning: window.reasoningData,
@@ -935,28 +944,6 @@ window.curriculumData = {
   english: window.englishData,
   current_affairs: window.currentAffairsData
 };
-
-window.chapterQuestionsDB = {};
-(function initSmartMergeEngine() {
-    const modularDBs = [
-        window.mathQuestionsDB,
-        window.reasoningQuestionsDB,
-        window.scienceQuestionsDB,
-        window.socialScienceQuestionsDB,
-        window.computerQuestionsDB,
-        window.englishQuestionsDB,
-        window.currentAffairsQuestionsDB
-    ];
-
-    modularDBs.forEach(db => {
-        if (db && typeof db === 'object') {
-            for (let key in db) {
-                window.chapterQuestionsDB[key] = db[key];
-            }
-        }
-    });
-    console.log("Smart Merge Engine initialized. Total loaded question keys:", Object.keys(window.chapterQuestionsDB).length);
-})();
 
 const firebaseConfig = {
 apiKey: "AIzaSyC3ar3PmMmglXlBZA3zP05uXorPNt37GKE",
@@ -1311,9 +1298,11 @@ btn.className = isDark
 
 if (tabId === 'practice') {
 exitPracticeRunner();
+switchPracticeMode('exams');
 }
 if (tabId === 'vault') {
 exitExamVault();
+switchVaultMode('exams');
 }
 if (tabId === 'chapters') {
 renderCustomChapters();
@@ -1510,7 +1499,7 @@ pyqSets.forEach(p => {
 const safeTitle = p.title.replace(/'/g, "\\'");
 const card = document.createElement('div');
 card.className = 'bg-white dark:bg-[#131b2e] border border-slate-200 dark:border-slate-800/80 p-6 rounded-2xl flex flex-col justify-between shadow-sm';
-card.innerHTML = `<div><div class="flex items-center justify-between mb-4"><span class="bg-indigo-500/10 text-indigo-700 dark:text-indigo-300 border border-indigo-500/20 text-[10px] font-bold uppercase px-2.5 py-1 rounded">${p.questions} Qs / ${p.mins} Mins</span><span class="text-[11px] text-teal-600 dark:text-teal-400 font-semibold"><i class="fa-solid fa-file-lines mr-1"></i> Official PYQ</span></div><h3 class="text-base font-bold mb-2 text-slate-900 dark:text-white">${p.title}</h3><p class="text-slate-600 dark:text-slate-400 text-xs mb-5">Solve shift paper with instant scoring and explanation for <span class="text-indigo-600 font-medium">${subName}</span>.</p></div><button onclick="switchTab('vault'); launchChapterSimulation('${safeTitle}', ${p.questions}, ${p.mins}, 'exam', '${pyqNavState.groupKey}', '${subName}')" class="w-full bg-indigo-600 hover:bg-indigo-500 text-white font-semibold py-2.5 rounded-xl text-xs uppercase tracking-wider transition shadow cursor-pointer">Solve PYQ Paper Now</button>`;
+card.innerHTML = `<div><div class="flex items-center justify-between mb-4"><span class="bg-indigo-500/10 text-indigo-700 dark:text-indigo-300 border border-indigo-500/20 text-[10px] font-bold uppercase px-2.5 py-1 rounded">${p.questions} Qs / ${p.mins} Mins</span><span class="text-[11px] text-teal-600 dark:text-teal-400 font-semibold"><i class="fa-solid fa-file-lines mr-1"></i> Official PYQ</span></div><h3 class="text-base font-bold mb-2 text-slate-900 dark:text-white">${p.title}</h3><p class="text-slate-600 dark:text-slate-400 text-xs mb-5">Solve shift paper with instant scoring and explanation for <span class="text-indigo-600 font-medium">${subName}</span>.</p></div><button onclick="switchTab('vault'); launchChapterSimulation('${safeTitle}', ${p.questions}, ${p.mins})" class="w-full bg-indigo-600 hover:bg-indigo-500 text-white font-semibold py-2.5 rounded-xl text-xs uppercase tracking-wider transition shadow cursor-pointer">Solve PYQ Paper Now</button>`;
 grid.appendChild(card);
 });
 if (!currentUser) {
@@ -1644,7 +1633,7 @@ sampleChapters.forEach(ch => {
 const safeTitle = ch.title.replace(/'/g, "\\'");
 const card = document.createElement('div');
 card.className = 'bg-white dark:bg-[#131b2e] border border-slate-200 dark:border-slate-800/80 p-6 rounded-2xl flex flex-col justify-between shadow-sm';
-card.innerHTML = `<div><div class="flex items-center justify-between mb-4"><span class="bg-indigo-500/10 text-indigo-700 dark:text-indigo-300 border border-indigo-500/20 text-[10px] font-bold uppercase px-2.5 py-1 rounded">${ch.questions} Qs / 30s Timer</span><span class="text-[11px] text-teal-600 dark:text-teal-400 font-semibold"><i class="fa-solid fa-shuffle mr-1"></i> Shuffled</span></div><h3 class="text-base font-bold mb-2 text-slate-900 dark:text-white">${ch.title}</h3><p class="text-slate-600 dark:text-slate-400 text-xs mb-5">Target Exam: <span class="text-indigo-600 font-medium">${subName}</span></p></div><div class="space-y-2"><button onclick="startChapterPractice('${safeTitle}', '${subName}', 'exam', '${practiceNavState.groupKey}', '${subName}')" class="w-full bg-indigo-600 hover:bg-indigo-500 text-white font-semibold py-2.5 rounded-xl text-xs uppercase tracking-wider transition shadow cursor-pointer">Launch Practice (${ch.questions} Qs)</button><button onclick="switchTab('vault'); launchChapterSimulation('${safeTitle}', ${ch.questions}, 30, 'exam', '${practiceNavState.groupKey}', '${subName}')" class="w-full bg-teal-600 hover:bg-teal-500 text-white font-semibold py-2 rounded-xl text-xs uppercase tracking-wider transition shadow cursor-pointer">Launch Mock Exam</button></div>`;
+card.innerHTML = `<div><div class="flex items-center justify-between mb-4"><span class="bg-indigo-500/10 text-indigo-700 dark:text-indigo-300 border border-indigo-500/20 text-[10px] font-bold uppercase px-2.5 py-1 rounded">${ch.questions} Qs / 30s Timer</span><span class="text-[11px] text-teal-600 dark:text-teal-400 font-semibold"><i class="fa-solid fa-shuffle mr-1"></i> Shuffled</span></div><h3 class="text-base font-bold mb-2 text-slate-900 dark:text-white">${ch.title}</h3><p class="text-slate-600 dark:text-slate-400 text-xs mb-5">Target Exam: <span class="text-indigo-600 font-medium">${subName}</span></p></div><div class="space-y-2"><button onclick="startChapterPractice('${safeTitle}', '${subName}')" class="w-full bg-indigo-600 hover:bg-indigo-500 text-white font-semibold py-2.5 rounded-xl text-xs uppercase tracking-wider transition shadow cursor-pointer">Launch Practice (${ch.questions} Qs)</button><button onclick="switchTab('vault'); launchChapterSimulation('${safeTitle}', ${ch.questions}, 30)" class="w-full bg-teal-600 hover:bg-teal-500 text-white font-semibold py-2 rounded-xl text-xs uppercase tracking-wider transition shadow cursor-pointer">Launch Mock Exam</button></div>`;
 grid.appendChild(card);
 });
 if (!currentUser) {
@@ -1692,7 +1681,7 @@ chList.forEach(ch => {
 const safeTitle = ch.title.replace(/'/g, "\\'");
 const card = document.createElement('div');
 card.className = 'bg-white dark:bg-[#131b2e] border border-slate-200 dark:border-slate-800/80 p-6 rounded-2xl flex flex-col justify-between shadow-sm';
-card.innerHTML = `<div><div class="flex items-center justify-between mb-4"><span class="bg-teal-500/10 text-teal-700 dark:text-teal-300 border border-teal-500/20 text-[10px] font-bold uppercase px-2.5 py-1 rounded">${ch.totalQuestions} Qs / 30s Timer</span><span class="text-[11px] text-teal-600 dark:text-teal-400 font-semibold"><i class="fa-solid fa-bolt mr-1"></i> Practice</span></div><h3 class="text-base font-bold mb-2 text-slate-900 dark:text-white">${ch.title}</h3><p class="text-slate-600 dark:text-slate-400 text-xs mb-5">Subject Stream: <span class="text-indigo-600 font-medium">${subj.name}</span></p></div><div class="space-y-2"><button onclick="startChapterPractice('${safeTitle}', '${subj.name}', 'subject', '${activePracticeSubjectKey}')" class="w-full bg-indigo-600 hover:bg-indigo-500 text-white font-semibold py-2.5 rounded-xl text-xs uppercase tracking-wider transition shadow cursor-pointer">Launch Practice</button><button onclick="switchTab('vault'); launchChapterSimulation('${safeTitle}', ${ch.totalQuestions}, 30, 'subject', '${activePracticeSubjectKey}')" class="w-full bg-teal-600 hover:bg-teal-500 text-white font-semibold py-2 rounded-xl text-xs uppercase tracking-wider transition shadow cursor-pointer">Launch Mock Exam</button></div>`;
+card.innerHTML = `<div><div class="flex items-center justify-between mb-4"><span class="bg-teal-500/10 text-teal-700 dark:text-teal-300 border border-teal-500/20 text-[10px] font-bold uppercase px-2.5 py-1 rounded">${ch.totalQuestions} Qs / 30s Timer</span><span class="text-[11px] text-teal-600 dark:text-teal-400 font-semibold"><i class="fa-solid fa-bolt mr-1"></i> Practice</span></div><h3 class="text-base font-bold mb-2 text-slate-900 dark:text-white">${ch.title}</h3><p class="text-slate-600 dark:text-slate-400 text-xs mb-5">Subject Stream: <span class="text-indigo-600 font-medium">${subj.name}</span></p></div><div class="space-y-2"><button onclick="startChapterPractice('${safeTitle}', '${subj.name}')" class="w-full bg-indigo-600 hover:bg-indigo-500 text-white font-semibold py-2.5 rounded-xl text-xs uppercase tracking-wider transition shadow cursor-pointer">Launch Practice</button><button onclick="switchTab('vault'); launchChapterSimulation('${safeTitle}', ${ch.totalQuestions}, 30)" class="w-full bg-teal-600 hover:bg-teal-500 text-white font-semibold py-2 rounded-xl text-xs uppercase tracking-wider transition shadow cursor-pointer">Launch Mock Exam</button></div>`;
 grid.appendChild(card);
 });
 
@@ -1806,7 +1795,7 @@ groupSpan.innerText = g.name;
 groupSpan.className = "hover:text-indigo-600 dark:hover:text-indigo-400 cursor-pointer";
 groupSpan.onclick = () => resetVaultExamNav();
 }
-if(sep2) sep2.classList.remove('hidden');
+if(sep2) sep2.classList.add('hidden');
 if(subSpan) {
 subSpan.classList.remove('hidden');
 subSpan.innerText = subName;
@@ -1826,7 +1815,7 @@ mockSets.forEach(m => {
 const safeTitle = m.title.replace(/'/g, "\\'");
 const card = document.createElement('div');
 card.className = 'bg-white dark:bg-[#131b2e] border border-slate-200 dark:border-slate-800/80 p-6 rounded-2xl flex flex-col justify-between shadow-sm';
-card.innerHTML = `<div><div class="flex items-center justify-between mb-4"><span class="bg-indigo-500/10 text-indigo-700 dark:text-indigo-300 border border-indigo-500/20 text-[10px] font-bold uppercase px-2.5 py-1 rounded">${m.questions} Qs / ${m.mins} Min</span><span class="text-[11px] text-amber-500 font-semibold"><i class="fa-solid fa-shield-halved mr-1"></i> Proctored</span></div><h3 class="text-base font-bold mb-2 text-slate-900 dark:text-white">${m.title}</h3><p class="text-slate-600 dark:text-slate-400 text-xs mb-5">Simulated Exam for <span class="text-indigo-600 font-medium">${subName}</span></p></div><button onclick="launchChapterSimulation('${safeTitle}', ${m.questions}, ${m.mins}, 'exam', '${vaultNavState.groupKey}', '${subName}')" class="w-full bg-indigo-600 hover:bg-indigo-500 text-white font-semibold py-2.5 rounded-xl text-xs uppercase tracking-wider transition shadow cursor-pointer">Launch Simulation Exam</button>`;
+card.innerHTML = `<div><div class="flex items-center justify-between mb-4"><span class="bg-indigo-500/10 text-indigo-700 dark:text-indigo-300 border border-indigo-500/20 text-[10px] font-bold uppercase px-2.5 py-1 rounded">${m.questions} Qs / ${m.mins} Min</span><span class="text-[11px] text-amber-500 font-semibold"><i class="fa-solid fa-shield-halved mr-1"></i> Proctored</span></div><h3 class="text-base font-bold mb-2 text-slate-900 dark:text-white">${m.title}</h3><p class="text-slate-600 dark:text-slate-400 text-xs mb-5">Simulated Exam for <span class="text-indigo-600 font-medium">${subName}</span></p></div><button onclick="launchChapterSimulation('${safeTitle}', ${m.questions}, ${m.mins})" class="w-full bg-indigo-600 hover:bg-indigo-500 text-white font-semibold py-2.5 rounded-xl text-xs uppercase tracking-wider transition shadow cursor-pointer">Launch Simulation Exam</button>`;
 grid.appendChild(card);
 });
 if (!currentUser) {
@@ -1874,7 +1863,7 @@ chList.forEach(ch => {
 const safeTitle = ch.title.replace(/'/g, "\\'");
 const card = document.createElement('div');
 card.className = 'bg-white dark:bg-[#131b2e] border border-slate-200 dark:border-slate-800/80 p-6 rounded-2xl flex flex-col justify-between shadow-sm';
-card.innerHTML = `<div><div class="flex items-center justify-between mb-4"><span class="bg-indigo-500/10 text-indigo-700 dark:text-indigo-300 border border-indigo-500/20 text-[10px] font-bold uppercase px-2.5 py-1 rounded">${ch.totalQuestions} Qs / 30 Mins</span><span class="text-[11px] text-amber-500 font-semibold"><i class="fa-solid fa-shield-halved mr-1"></i> Proctored</span></div><h3 class="text-base font-bold mb-2 text-slate-900 dark:text-white">${ch.title} - Mock Exam</h3><p class="text-slate-600 dark:text-slate-400 text-xs mb-5">Simulated Exam for <span class="text-indigo-600 font-medium">${subj.name}</span></p></div><button onclick="launchChapterSimulation('${safeTitle}', ${ch.totalQuestions}, 30, 'subject', '${activeVaultSubjectKey}')" class="w-full bg-indigo-600 hover:bg-indigo-500 text-white font-semibold py-2.5 rounded-xl text-xs uppercase tracking-wider transition shadow cursor-pointer">Launch Simulation Exam</button>`;
+card.innerHTML = `<div><div class="flex items-center justify-between mb-4"><span class="bg-indigo-500/10 text-indigo-700 dark:text-indigo-300 border border-indigo-500/20 text-[10px] font-bold uppercase px-2.5 py-1 rounded">${ch.totalQuestions} Qs / 30 Mins</span><span class="text-[11px] text-amber-500 font-semibold"><i class="fa-solid fa-shield-halved mr-1"></i> Proctored</span></div><h3 class="text-base font-bold mb-2 text-slate-900 dark:text-white">${ch.title} - Mock Exam</h3><p class="text-slate-600 dark:text-slate-400 text-xs mb-5">Simulated Exam for <span class="text-indigo-600 font-medium">${subj.name}</span></p></div><button onclick="launchChapterSimulation('${safeTitle}', ${ch.totalQuestions}, 30)" class="w-full bg-indigo-600 hover:bg-indigo-500 text-white font-semibold py-2.5 rounded-xl text-xs uppercase tracking-wider transition shadow cursor-pointer">Launch Simulation Exam</button>`;
 grid.appendChild(card);
 });
 
@@ -1897,12 +1886,10 @@ let runnerLangMode = 'bi';
 
 let pendingPracticeTitle = "";
 let pendingPracticeSub = "";
-let activeContext = { type: 'subject', groupKey: null, subExamName: null, subjectKey: 'mathematics' };
 
 let pendingMockTitle = "";
 let pendingMockQs = 50;
 let pendingMockMins = 30;
-let activeMockContext = { type: 'subject', groupKey: null, subExamName: null, subjectKey: 'mathematics' };
 
 function shuffleArray(array) {
 let arr = [...array];
@@ -1913,48 +1900,70 @@ const j = Math.floor(Math.random() * (i + 1));
 return arr;
 }
 
-// --- ADVANCED FUZZY CHAPTER RESOLVER & SMART MERGE ENGINE ---
+// --- FULLY AUTOMATIC & BULLETPROOF getQuestionsForChapter (Supports Practice & Mock Both) ---
 function getQuestionsForChapter(chapterTitle, subjectName) {
     const db = window.chapterQuestionsDB || {};
     let rawQuestions = [];
     
-    const cleanChapterQuery = chapterTitle
-        .replace(" - Mock Exam", "")
-        .replace(/[\(\)].*$/, "")
-        .replace(/[^\w\s]/gi, '')
-        .trim()
-        .toLowerCase();
+    // चैप्टर के नाम को पूरी तरह साफ करें (साफ और लोअरकेस बनाएं)
+    const cleanChapterQuery = chapterTitle.replace(" - Mock Exam", "").replace(/[\(\)].*$/, "").trim().toLowerCase();
 
+    // 1. डेटाबेस की हर की (Key) को चेक करें कि क्या वह चैप्टर के नाम से मैच हो रही है
     for (let key in db) {
-        const cleanKey = key
-            .replace(/[\(\)].*$/, "")
-            .replace(/[^\w\s]/gi, '')
-            .trim()
-            .toLowerCase();
-            
-        if (cleanChapterQuery === cleanKey || cleanChapterQuery.includes(cleanKey) || cleanKey.includes(cleanChapterQuery)) {
+        const cleanKey = key.replace(/[\(\)].*$/, "").trim().toLowerCase();
+        if (cleanChapterQuery.includes(cleanKey) || cleanKey.includes(cleanChapterQuery)) {
             rawQuestions = db[key];
             break;
         }
     }
 
+    // 2. यदि सीधे डेटाबेस में नहीं मिला, तो curriculumData को स्कैन करें
     if (!rawQuestions || rawQuestions.length === 0) {
-        const queryKeywords = cleanChapterQuery.split(/\s+/).filter(w => w.length > 2);
+        const curriculum = window.curriculumData || {};
+        let detectedSubjectKey = "";
+
+        for (let subjKey in curriculum) {
+            const subj = curriculum[subjKey];
+            if (subj && subj.sections) {
+                let found = false;
+                for (let sec of subj.sections) {
+                    if (sec.chapters) {
+                        for (let ch of sec.chapters) {
+                            if (ch.title) {
+                                const chClean = ch.title.toLowerCase().split('(')[0].trim();
+                                if (cleanChapterQuery.includes(chClean) || chClean.includes(cleanChapterQuery)) {
+                                    found = true;
+                                    break;
+                                }
+                            }
+                        }
+                    }
+                    if (found) break;
+                }
+                if (found) {
+                    detectedSubjectKey = subjKey;
+                    break;
+                }
+            }
+        }
+
         for (let key in db) {
             const lowKey = key.toLowerCase();
-            let matchCount = queryKeywords.filter(word => lowKey.includes(word)).length;
-            if (matchCount > 0) {
-                rawQuestions = db[key];
-                break;
+            if (detectedSubjectKey && lowKey.includes(detectedSubjectKey.toLowerCase())) {
+                if (lowKey.includes(cleanChapterQuery) || cleanChapterQuery.includes(lowKey)) {
+                    rawQuestions = db[key];
+                    break;
+                }
             }
         }
     }
 
+    // 3. अगर फिर भी डेटा न मिले, तो सुरक्षित फॉलबॅक ताकि लोडिंग पर कभी न अटके
     if (!rawQuestions || rawQuestions.length === 0) {
         rawQuestions = [
             {
-                qEn: `Practice questions for '${chapterTitle}' are synchronized.`,
-                qHi: `'${chapterTitle}' के अभ्यास प्रश्न सिंक किए गए हैं।`,
+                qEn: `Practice questions for '${chapterTitle}' are being synchronized.`,
+                qHi: `'${chapterTitle}' के अभ्यास प्रश्न सिंक किए जा रहे हैं।`,
                 optionsEn: [`Option A`, `Option B`, `Option C`, `Option D`],
                 optionsHi: [`विकल्प A`, `विकल्प बी`, `विकल्प सी`, `विकल्प डी`],
                 answer: 0,
@@ -1987,15 +1996,9 @@ function getQuestionsForChapter(chapterTitle, subjectName) {
     });
 }
 
-function startChapterPractice(chapterTitle, subjectName, type = 'subject', groupOrSubjKey = 'mathematics', subExamName = null) {
+function startChapterPractice(chapterTitle, subjectName) {
 pendingPracticeTitle = chapterTitle;
 pendingPracticeSub = subjectName;
-activeContext = {
-    type: type,
-    groupKey: type === 'exam' ? groupOrSubjKey : null,
-    subExamName: subExamName,
-    subjectKey: type === 'subject' ? groupOrSubjKey : 'mathematics'
-};
 
 const savedStateKey = 'targettire_practice_' + chapterTitle.replace(/\s+/g, '_');
 const savedState = localStorage.getItem(savedStateKey);
@@ -2166,14 +2169,12 @@ renderQuestionPalette();
 
 function startTimer() {
 clearInterval(timerInterval);
-if (document.hidden) return;
 timeLeft = 30;
 const timerEl = document.getElementById('runner-timer');
 if(!timerEl) return;
 timerEl.innerText = timeLeft + 's';
 
 timerInterval = setInterval(() => {
-if (document.hidden) return;
 timeLeft--;
 timerEl.innerText = timeLeft + 's';
 if (timeLeft <= 0) {
@@ -2194,7 +2195,6 @@ renderQuestionPalette();
 }
 
 function showExplanationState(selectedIdx, q) {
-if (document.hidden) return;
 const isCorrect = (selectedIdx === q.answer);
 const badgeEl = document.getElementById('runner-status-badge');
 const expBox = document.getElementById('runner-explanation-box');
@@ -2232,11 +2232,12 @@ loadPracticeQuestion();
 
 function confirmExitPractice() {
     clearInterval(timerInterval);
-    openCustomConfirm("Exit Practice", "क्या आप वाकई टेस्ट छोड़कर सेक्शन पर वापस जाना चाहते हैं?", () => {
+    openCustomConfirm("Exit Practice", "क्या आप वाकई टेस्ट छोड़कर डैशबोर्ड पर जाना चाहते हैं?", () => {
         if (currentChapter) {
             localStorage.removeItem('targettire_practice_' + currentChapter.title.replace(/\s+/g, '_'));
         }
         exitPracticeRunner();
+        switchTab('practice');
     });
 }
 
@@ -2286,34 +2287,14 @@ document.getElementById('practice-resume-choice-view').classList.add('hidden');
 document.getElementById('practice-main-view').classList.remove('hidden');
 document.getElementById('runner-question-box').classList.remove('hidden');
 document.getElementById('runner-finished-box').classList.add('hidden');
-
-switchTab('practice');
-if (activeContext.type === 'subject') {
-    switchPracticeMode('subjects');
-    selectPracticeSubjectStream(activeContext.subjectKey);
-} else {
-    switchPracticeMode('exams');
-    if (activeContext.groupKey) {
-        selectPracticeGroup(activeContext.groupKey);
-        if (activeContext.subExamName) {
-            selectPracticeSubExam(activeContext.subExamName);
-        }
-    }
-}
 }
 
 let examTitle = "", examQuestions = [], eIndex = 0, examAnswers = {}, examTimerInterval = null, examSecondsLeft = 0, examLangMode = 'bi';
 
-function launchChapterSimulation(chapterTitle, totalQuestions, totalMinutes, type = 'subject', groupOrSubjKey = 'mathematics', subExamName = null) {
+function launchChapterSimulation(chapterTitle, totalQuestions, totalMinutes) {
     pendingMockTitle = chapterTitle + " - Mock Exam";
     pendingMockQs = totalQuestions;
     pendingMockMins = totalMinutes || 30;
-    activeMockContext = {
-        type: type,
-        groupKey: type === 'exam' ? groupOrSubjKey : null,
-        subExamName: subExamName,
-        subjectKey: type === 'subject' ? groupOrSubjKey : 'mathematics'
-    };
 
     const savedMockKey = 'targettire_mock_' + pendingMockTitle.replace(/\s+/g, '_');
     const savedMockState = localStorage.getItem(savedMockKey);
@@ -2404,7 +2385,6 @@ const timerEl = document.getElementById('exam-main-timer');
 if(!timerEl) return;
 
 examTimerInterval = setInterval(() => {
-if (document.hidden) return;
 if (examSecondsLeft <= 0) {
 clearInterval(examTimerInterval);
 submitExamSimulation();
@@ -2522,9 +2502,10 @@ openCustomConfirm("Submit Exam", "क्या आप वाकई इस मॉ
 
 function confirmExitExam() {
     clearInterval(examTimerInterval);
-    openCustomConfirm("Exit Simulation", "क्या आप वाकई मॉक टेस्ट छोड़कर सेक्शन पर वापस जाना चाहते हैं?", () => {
+    openCustomConfirm("Exit Simulation", "क्या आप वाकई मॉक टेस्ट छोड़कर डैशबोर्ड पर जाना चाहते हैं?", () => {
         localStorage.removeItem('targettire_mock_' + examTitle.replace(/\s+/g, '_'));
         exitExamVault();
+        switchTab('vault');
     });
 }
 
@@ -2588,20 +2569,6 @@ document.getElementById('mock-resume-choice-view').classList.add('hidden');
 document.getElementById('vault-main-view').classList.remove('hidden');
 document.getElementById('exam-question-box').classList.remove('hidden');
 document.getElementById('exam-submitted-box').classList.add('hidden');
-
-switchTab('vault');
-if (activeMockContext.type === 'subject') {
-    switchVaultMode('subjects');
-    selectVaultSubjectStream(activeMockContext.subjectKey);
-} else {
-    switchVaultMode('exams');
-    if (activeMockContext.groupKey) {
-        selectVaultGroup(activeMockContext.groupKey);
-        if (activeMockContext.subExamName) {
-            selectVaultSubExam(activeMockContext.subExamName);
-        }
-    }
-}
 }
 
 function renderUserTestHistory() {
@@ -2634,7 +2601,7 @@ customChaptersList.forEach(ch => {
 const card = document.createElement('div');
 card.className = 'bg-white dark:bg-[#131b2e] border border-slate-200 dark:border-slate-800/80 p-6 rounded-2xl flex flex-col justify-between shadow-sm';
 const safeTitle = ch.title.replace(/'/g, "\\'");
-card.innerHTML = `<div><span class="bg-indigo-500/10 text-indigo-700 dark:text-indigo-300 text-[10px] font-bold uppercase px-2 py-1 rounded">Custom Chapter</span><h3 class="text-base font-bold mt-3 mb-2 text-slate-900 dark:text-white">${ch.title}</h3><p class="text-slate-600 dark:text-slate-400 text-xs mb-4">Stream: <span class="uppercase text-indigo-600 font-medium">${ch.subject}</span> (${ch.questions} Qs)</p></div><div class="space-y-2"><button onclick="switchTab('practice'); startChapterPractice('${safeTitle}', '${ch.subject}', 'subject', '${ch.subject}')" class="w-full bg-indigo-600 hover:bg-indigo-500 text-white text-xs font-semibold py-2.5 rounded-xl transition shadow cursor-pointer">Launch Practice</button><button onclick="switchTab('vault'); launchChapterSimulation('${safeTitle}', ${ch.questions}, 30, 'subject', '${ch.subject}')" class="w-full bg-teal-600 hover:bg-teal-500 text-white text-xs font-semibold py-2.5 rounded-xl transition shadow cursor-pointer">Launch Mock Exam</button><button onclick="deleteCustomChapter(${ch.id})" class="w-full bg-slate-100 dark:bg-slate-800 hover:bg-red-500 hover:text-white text-slate-600 dark:text-slate-300 text-xs font-semibold py-2.5 rounded-xl transition cursor-pointer">Remove Chapter</button></div>`;
+card.innerHTML = `<div><span class="bg-indigo-500/10 text-indigo-700 dark:text-indigo-300 text-[10px] font-bold uppercase px-2 py-1 rounded">Custom Chapter</span><h3 class="text-base font-bold mt-3 mb-2 text-slate-900 dark:text-white">${ch.title}</h3><p class="text-slate-600 dark:text-slate-400 text-xs mb-4">Stream: <span class="uppercase text-indigo-600 font-medium">${ch.subject}</span> (${ch.questions} Qs)</p></div><div class="space-y-2"><button onclick="switchTab('practice'); startChapterPractice('${safeTitle}', '${ch.subject}')" class="w-full bg-indigo-600 hover:bg-indigo-500 text-white text-xs font-semibold py-2.5 rounded-xl transition shadow cursor-pointer">Launch Practice</button><button onclick="switchTab('vault'); launchChapterSimulation('${safeTitle}', ${ch.questions}, 30)" class="w-full bg-teal-600 hover:bg-teal-500 text-white text-xs font-semibold py-2.5 rounded-xl transition shadow cursor-pointer">Launch Mock Exam</button><button onclick="deleteCustomChapter(${ch.id})" class="w-full bg-slate-100 dark:bg-slate-800 hover:bg-red-500 hover:text-white text-slate-600 dark:text-slate-300 text-xs font-semibold py-2.5 rounded-xl transition cursor-pointer">Remove Chapter</button></div>`;
 grid.appendChild(card);
 });
 }
@@ -2863,7 +2830,6 @@ loadCurrentAffairsFromGist();
     </footer>
  <script>  
      function playBrandNewSuccessTune() {
-    if (document.hidden) return;
     try {
         const AudioContext = window.AudioContext || window.webkitAudioContext;
         const ctx = new AudioContext();
@@ -2887,7 +2853,6 @@ loadCurrentAffairsFromGist();
 }
 
 function playBrandNewErrorTune() {
-    if (document.hidden) return;
     try {
         const AudioContext = window.AudioContext || window.webkitAudioContext;
         const ctx = new AudioContext();
@@ -2911,4 +2876,3 @@ function playBrandNewErrorTune() {
  </script>
     </body>
 </html>
-```
