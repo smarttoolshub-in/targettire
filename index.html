@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="en" class="dark scroll-smooth">
 <head>
@@ -935,7 +936,6 @@ window.curriculumData = {
   current_affairs: window.currentAffairsData
 };
 
-// Smart Merge Engine: Automatically aggregates all modular question databases into a single master index
 window.chapterQuestionsDB = {};
 (function initSmartMergeEngine() {
     const modularDBs = [
@@ -1510,7 +1510,7 @@ pyqSets.forEach(p => {
 const safeTitle = p.title.replace(/'/g, "\\'");
 const card = document.createElement('div');
 card.className = 'bg-white dark:bg-[#131b2e] border border-slate-200 dark:border-slate-800/80 p-6 rounded-2xl flex flex-col justify-between shadow-sm';
-card.innerHTML = `<div><div class="flex items-center justify-between mb-4"><span class="bg-indigo-500/10 text-indigo-700 dark:text-indigo-300 border border-indigo-500/20 text-[10px] font-bold uppercase px-2.5 py-1 rounded">${p.questions} Qs / ${p.mins} Mins</span><span class="text-[11px] text-teal-600 dark:text-teal-400 font-semibold"><i class="fa-solid fa-file-lines mr-1"></i> Official PYQ</span></div><h3 class="text-base font-bold mb-2 text-slate-900 dark:text-white">${p.title}</h3><p class="text-slate-600 dark:text-slate-400 text-xs mb-5">Solve shift paper with instant scoring and explanation for <span class="text-indigo-600 font-medium">${subName}</span>.</p></div><button onclick="switchTab('vault'); launchChapterSimulation('${safeTitle}', ${p.questions}, ${p.mins})" class="w-full bg-indigo-600 hover:bg-indigo-500 text-white font-semibold py-2.5 rounded-xl text-xs uppercase tracking-wider transition shadow cursor-pointer">Solve PYQ Paper Now</button>`;
+card.innerHTML = `<div><div class="flex items-center justify-between mb-4"><span class="bg-indigo-500/10 text-indigo-700 dark:text-indigo-300 border border-indigo-500/20 text-[10px] font-bold uppercase px-2.5 py-1 rounded">${p.questions} Qs / ${p.mins} Mins</span><span class="text-[11px] text-teal-600 dark:text-teal-400 font-semibold"><i class="fa-solid fa-file-lines mr-1"></i> Official PYQ</span></div><h3 class="text-base font-bold mb-2 text-slate-900 dark:text-white">${p.title}</h3><p class="text-slate-600 dark:text-slate-400 text-xs mb-5">Solve shift paper with instant scoring and explanation for <span class="text-indigo-600 font-medium">${subName}</span>.</p></div><button onclick="switchTab('vault'); launchChapterSimulation('${safeTitle}', ${p.questions}, ${p.mins}, 'exam', '${pyqNavState.groupKey}', '${subName}')" class="w-full bg-indigo-600 hover:bg-indigo-500 text-white font-semibold py-2.5 rounded-xl text-xs uppercase tracking-wider transition shadow cursor-pointer">Solve PYQ Paper Now</button>`;
 grid.appendChild(card);
 });
 if (!currentUser) {
@@ -1902,6 +1902,7 @@ let activeContext = { type: 'subject', groupKey: null, subExamName: null, subjec
 let pendingMockTitle = "";
 let pendingMockQs = 50;
 let pendingMockMins = 30;
+let activeMockContext = { type: 'subject', groupKey: null, subExamName: null, subjectKey: 'mathematics' };
 
 function shuffleArray(array) {
 let arr = [...array];
@@ -1912,29 +1913,36 @@ const j = Math.floor(Math.random() * (i + 1));
 return arr;
 }
 
-// --- ADVANCED FUZZY CHAPTER RESOLVER (Handles Hindi/English Mixed & Bracket Mismatches) ---
+// --- ADVANCED FUZZY CHAPTER RESOLVER & SMART MERGE ENGINE ---
 function getQuestionsForChapter(chapterTitle, subjectName) {
     const db = window.chapterQuestionsDB || {};
     let rawQuestions = [];
     
-    // Clean chapter query: remove brackets, extra spaces, lowercase
-    const cleanChapterQuery = chapterTitle.replace(" - Mock Exam", "").replace(/[\(\)].*$/, "").trim().toLowerCase();
+    const cleanChapterQuery = chapterTitle
+        .replace(" - Mock Exam", "")
+        .replace(/[\(\)].*$/, "")
+        .replace(/[^\w\s]/gi, '')
+        .trim()
+        .toLowerCase();
 
-    // 1. Exact or Partial Key Match in DB
     for (let key in db) {
-        const cleanKey = key.replace(/[\(\)].*$/, "").trim().toLowerCase();
-        if (cleanChapterQuery.includes(cleanKey) || cleanKey.includes(cleanChapterQuery) || cleanChapterQuery === cleanKey) {
+        const cleanKey = key
+            .replace(/[\(\)].*$/, "")
+            .replace(/[^\w\s]/gi, '')
+            .trim()
+            .toLowerCase();
+            
+        if (cleanChapterQuery === cleanKey || cleanChapterQuery.includes(cleanKey) || cleanKey.includes(cleanChapterQuery)) {
             rawQuestions = db[key];
             break;
         }
     }
 
-    // 2. Fallback: Search by extracting first significant keyword (e.g. Number System)
     if (!rawQuestions || rawQuestions.length === 0) {
-        const queryKeywords = cleanChapterQuery.split(/\s+/);
+        const queryKeywords = cleanChapterQuery.split(/\s+/).filter(w => w.length > 2);
         for (let key in db) {
             const lowKey = key.toLowerCase();
-            let matchCount = queryKeywords.filter(word => word.length > 2 && lowKey.includes(word)).length;
+            let matchCount = queryKeywords.filter(word => lowKey.includes(word)).length;
             if (matchCount > 0) {
                 rawQuestions = db[key];
                 break;
@@ -1942,7 +1950,6 @@ function getQuestionsForChapter(chapterTitle, subjectName) {
         }
     }
 
-    // 3. Ultimate Fallback: Safe sample questions if nothing matches
     if (!rawQuestions || rawQuestions.length === 0) {
         rawQuestions = [
             {
@@ -2159,14 +2166,14 @@ renderQuestionPalette();
 
 function startTimer() {
 clearInterval(timerInterval);
-if (document.hidden) return; // Mute sound/timer if tab in background
+if (document.hidden) return;
 timeLeft = 30;
 const timerEl = document.getElementById('runner-timer');
 if(!timerEl) return;
 timerEl.innerText = timeLeft + 's';
 
 timerInterval = setInterval(() => {
-if (document.hidden) return; // Pause timer if in background
+if (document.hidden) return;
 timeLeft--;
 timerEl.innerText = timeLeft + 's';
 if (timeLeft <= 0) {
@@ -2187,7 +2194,7 @@ renderQuestionPalette();
 }
 
 function showExplanationState(selectedIdx, q) {
-if (document.hidden) return; // Mute audio if in background
+if (document.hidden) return;
 const isCorrect = (selectedIdx === q.answer);
 const badgeEl = document.getElementById('runner-status-badge');
 const expBox = document.getElementById('runner-explanation-box');
@@ -2280,7 +2287,6 @@ document.getElementById('practice-main-view').classList.remove('hidden');
 document.getElementById('runner-question-box').classList.remove('hidden');
 document.getElementById('runner-finished-box').classList.add('hidden');
 
-// Return to exact section context
 switchTab('practice');
 if (activeContext.type === 'subject') {
     switchPracticeMode('subjects');
@@ -2297,7 +2303,6 @@ if (activeContext.type === 'subject') {
 }
 
 let examTitle = "", examQuestions = [], eIndex = 0, examAnswers = {}, examTimerInterval = null, examSecondsLeft = 0, examLangMode = 'bi';
-let activeMockContext = { type: 'subject', groupKey: null, subExamName: null, subjectKey: 'mathematics' };
 
 function launchChapterSimulation(chapterTitle, totalQuestions, totalMinutes, type = 'subject', groupOrSubjKey = 'mathematics', subExamName = null) {
     pendingMockTitle = chapterTitle + " - Mock Exam";
@@ -2399,7 +2404,7 @@ const timerEl = document.getElementById('exam-main-timer');
 if(!timerEl) return;
 
 examTimerInterval = setInterval(() => {
-if (document.hidden) return; // Pause timer when tab in background
+if (document.hidden) return;
 if (examSecondsLeft <= 0) {
 clearInterval(examTimerInterval);
 submitExamSimulation();
@@ -2584,7 +2589,6 @@ document.getElementById('vault-main-view').classList.remove('hidden');
 document.getElementById('exam-question-box').classList.remove('hidden');
 document.getElementById('exam-submitted-box').classList.add('hidden');
 
-// Return to exact vault section context
 switchTab('vault');
 if (activeMockContext.type === 'subject') {
     switchVaultMode('subjects');
@@ -2859,7 +2863,7 @@ loadCurrentAffairsFromGist();
     </footer>
  <script>  
      function playBrandNewSuccessTune() {
-    if (document.hidden) return; // Mute sound if tab in background
+    if (document.hidden) return;
     try {
         const AudioContext = window.AudioContext || window.webkitAudioContext;
         const ctx = new AudioContext();
@@ -2883,7 +2887,7 @@ loadCurrentAffairsFromGist();
 }
 
 function playBrandNewErrorTune() {
-    if (document.hidden) return; // Mute sound if tab in background
+    if (document.hidden) return;
     try {
         const AudioContext = window.AudioContext || window.webkitAudioContext;
         const ctx = new AudioContext();
@@ -2907,3 +2911,4 @@ function playBrandNewErrorTune() {
  </script>
     </body>
 </html>
+```
