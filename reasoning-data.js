@@ -48,7 +48,7 @@ window.reasoningData = {
     }
   ]
 };
-window.chapterQuestionsDB = {
+registerQuestions({
  "Coding-Decoding": [
     {
       qEn: "If in a certain code, 'ROSE' is written as 'TQUG', how is 'BCDE' written in that code?",
@@ -3411,4 +3411,4 @@ window.chapterQuestionsDB = {
       exp: "Explanation (En): 'REST' can be formed directly from INTEREST.\nस्पष्टीकरण (Hi): 'REST' शब्द 'INTEREST' से बनाया जा सकता है।"
     }
   ]
-};
+});
