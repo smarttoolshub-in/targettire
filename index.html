@@ -511,7 +511,7 @@ Next <i class="fa-solid fa-arrow-right ml-1"></i>
 <button id="runner-launch-mock-btn" class="bg-teal-600 hover:bg-teal-500 text-white font-semibold px-6 py-3 rounded-xl text-xs uppercase tracking-wider transition shadow cursor-pointer">
 <i class="fa-solid fa-shield-halved mr-1"></i> Give Mock Test Now
 </button>
-<button onclick="exitPracticeRunner(); switchTab('practice');" class="bg-slate-200 hover:bg-slate-300 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-800 dark:text-slate-200 font-semibold px-6 py-3 rounded-xl text-xs uppercase tracking-wider transition cursor-pointer">
+<button onclick="exitPracticeRunner(); switchTab('dashboard');" class="bg-slate-200 hover:bg-slate-300 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-800 dark:text-slate-200 font-semibold px-6 py-3 rounded-xl text-xs uppercase tracking-wider transition cursor-pointer">
 Return to Practice Hub
 </button>
 </div>
@@ -934,7 +934,7 @@ Resend Verification Email
 </div>
 
 <script>
-// --- CURRICULUM DATA INTEGRATION ---
+// --- CURRICULUM INTEGRATION FROM MODULAR FILES ---
 window.curriculumData = {
   mathematics: window.mathData,
   reasoning: window.reasoningData,
@@ -967,7 +967,7 @@ let myExamsList = ["SSC CGL", "IBPS PO", "RRB NTPC"];
 let currentUser = null;
 let userTestHistory = [];
 
-// --- BACKGROUND TAB SWITCH BUZZER & RESUME LOGIC ---
+// --- BACKGROUND TAB SWITCH BUZZER & RESUME LOGIC (FIXED) ---
 let isTabActive = true;
 let buzzerInterval = null;
 
@@ -1005,6 +1005,7 @@ document.addEventListener('visibilitychange', () => {
         }
     } else {
         isTabActive = true;
+        // Wapas aate hi buzzer ko turant band kar rahe hain
         if (buzzerInterval) {
             clearInterval(buzzerInterval);
             buzzerInterval = null;
@@ -1012,7 +1013,7 @@ document.addEventListener('visibilitychange', () => {
 
         if (isPracticeActive) {
             openCustomConfirm(
-                "सत्र暂停 (Session Paused)",
+                "सत्र रुका हुआ है (Session Paused)",
                 "आप टेस्ट के दौरान दूसरे टैब पर चले गए थे। क्या आप वहीं से जारी (Resume) रखना चाहते हैं या नया शुरू करना चाहते हैं?",
                 () => {
                     // Resume action default
@@ -1020,7 +1021,7 @@ document.addEventListener('visibilitychange', () => {
             );
         } else if (isMockActive) {
             openCustomConfirm(
-                "मॉक टेस्ट暂停 (Simulation Paused)",
+                "मॉक टेस्ट रुका हुआ है (Simulation Paused)",
                 "आपने टैब स्विच किया था। आपका मॉक टेस्ट सुरक्षित है, आप वहीं से जारी रख सकते हैं।",
                 () => {
                     // Resume action default
@@ -2155,7 +2156,7 @@ if (idx === pIndex) {
     if (ans === q.answer) {
         btnClass += 'bg-teal-500 text-white border-teal-600'; // Green for correct
     } else {
-        btnClass += 'bg-rose-500 text-white border-rose-600'; // Red specifically for wrong attempts!
+        btnClass += 'bg-rose-500 text-white border-rose-600'; // Red for incorrect
     }
 } else {
     btnClass += 'bg-slate-100 dark:bg-[#0b0f19] text-slate-700 dark:text-slate-300 border-slate-200 dark:border-slate-800';
@@ -2238,6 +2239,7 @@ if(!timerEl) return;
 timerEl.innerText = timeLeft + 's';
 
 timerInterval = setInterval(() => {
+if (!isTabActive) return; // Tab active na hone par timer pause rahega
 timeLeft--;
 timerEl.innerText = timeLeft + 's';
 if (timeLeft <= 0) {
@@ -2448,6 +2450,7 @@ const timerEl = document.getElementById('exam-main-timer');
 if(!timerEl) return;
 
 examTimerInterval = setInterval(() => {
+if (!isTabActive) return; // Tab active na hone par exam timer pause rahega
 if (examSecondsLeft <= 0) {
 clearInterval(examTimerInterval);
 submitExamSimulation();
@@ -2565,7 +2568,7 @@ openCustomConfirm("Submit Exam", "क्या आप वाकई इस मॉ
 
 function confirmExitExam() {
     clearInterval(examTimerInterval);
-    openCustomConfirm("Exit Simulation", "क्या आप वाकई मॉक टेस्ट छोड़कर वापस मॉक वॉल्ट पर जाना चाहते हैं?", () => {
+    openCustomConfirm("Exit Simulation", "क्या आप वाकई मॉक टेस्ट छोड़कर वापस चैप्टर पर जाना चाहते हैं?", () => {
         localStorage.removeItem('targettire_mock_' + examTitle.replace(/\s+/g, '_'));
         exitExamVault();
         switchTab('vault');
