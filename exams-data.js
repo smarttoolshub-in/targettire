@@ -5,12 +5,13 @@ window.examGroupsData = {
     icon: "fa-building-columns",
     subExams: [
       { 
-        name: "SSC CGL", 
-        desc: "Combined Graduate Level Tier-I & Tier-II", 
-        totalChapters: 50,
-        overviewText: "SSC CGL is a premier national-level competitive recruitment test conducted annually for aspirants seeking elite Group B and Group C officer positions in various central government ministries and departments.",
-        examInfoText: "Tier Structure: Conducted in multiple tiers (Tier-I Objective CBT & Tier-II Advanced Quantitative, English, Reasoning, Computer & Data Entry Test).\nMarking Scheme: +2 marks for correct answers, -0.50 negative marking for incorrect attempts in Tier-II."
-      },
+        {
+  name: "SSC CGL",
+  desc: "Combined Graduate Level Tier-I & Tier-II Examination",
+  totalChapters: 50,
+  overviewText: "SSC CGL (Staff Selection Commission - Combined Graduate Level) is a prestigious national-level competitive exam conducted in India to recruit candidates for Group 'B' and 'C' Gazetted and Non-Gazetted posts in various ministries, departments, and organizations of the Government of India. / एसएससी सीजीएल (कर्मचारी चयन आयोग - संयुक्त स्नातक स्तर परीक्षा) भारत सरकार के विभिन्न मंत्रालयों, विभागों और संगठनों में ग्रुप 'बी' और 'सी' के पदों पर भर्ती के लिए आयोजित होने वाली देश की सबसे प्रतिष्ठित राष्ट्रीय स्तर की प्रतियोगी परीक्षा है।",
+  examInfoText: "Exam Pattern & Selection Process: 1) Mode: Conducted entirely online via Computer Based Examination (CBT). 2) Tiers: The selection involves Tier-I (Objective Computer-Based Test) and Tier-II (Mandatory computer-based sessions with multiple modules like Mathematical Abilities, Reasoning, English, General Awareness, and Computer Knowledge). 3) Negative Marking: Yes, there is negative marking for wrong answers in both Tiers (typically 0.50 marks for Tier-I and 1 mark for Tier-II per incorrect answer). 4) Final Stages: After clearing the written exams, candidates undergo Document Verification (DV), and for specific posts (like Inspector/Sub-Inspector), medical examination and physical standards tests are also conducted. / परीक्षा पैटर्न और चयन प्रक्रिया: 1) मोड: यह परीक्षा पूरी तरह से ऑनलाइन कंप्यूटर आधारित परीक्षा (CBT) के रूप में होती है। 2) चरण (Tiers): इसमें मुख्य रूप से टियर-1 (ऑब्जेक्टिव सीबीटी) और टियर-2 (कंप्यूटर आधारित टेस्ट जिसमें गणित, रीजनिंग, अंग्रेजी, सामान्य ज्ञान और कंप्यूटर ज्ञान शामिल है) देने होते हैं। 3) नेगेटिव मार्किंग: हाँ, दोनों चरणों में गलत उत्तरों के लिए नेगेटिव मार्किंग होती है (आमतौर पर टियर-1 में 0.50 और टियर-2 में प्रत्येक गलत उत्तर पर 1 अंक काटा जाता है)। 4) अंतिम चरण: लिखित परीक्षा पास करने के बाद डॉक्यूमेंट वेरिफिकेशन (दस्तावेज़ सत्यापन) होता है, और कुछ खास पदों (जैसे इंस्पेक्टर/सब-इंस्पेक्टर) के लिए मेडिकल परीक्षा और शारीरिक मानक परीक्षण (Physical Standards Test) भी लिया जाता है।"
+},
       { 
         name: "SSC CHSL", 
         desc: "Higher Secondary (10+2) LDC, DEO", 
