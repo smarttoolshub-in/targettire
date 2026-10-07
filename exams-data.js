@@ -5,7 +5,7 @@ window.examGroupsData = {
     icon: "fa-building-columns",
     subExams: [
       { 
-        {
+        
   name: "SSC CGL",
   desc: "Combined Graduate Level Tier-I & Tier-II Examination",
   totalChapters: 50,
