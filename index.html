@@ -1253,7 +1253,7 @@ function renderMobileExamMenu() {
                 if (!currentUser && sub.children.length > 1) {
                     const lock = document.createElement('div');
                     lock.className = 'px-4 py-1 pl-12 text-[10px] text-amber-500 italic';
-                    lock.textContent = `+ ${sub.children.length - 1} Bihar exams locked (Login to unlock)`;
+                    lock.textContent = `+ ${sub.children.length - 1} ${sub.name} exams locked (Login to unlock)`;
                     list.appendChild(lock);
                 }
             } else {
@@ -1491,7 +1491,7 @@ subList.forEach(sub => {
       const safeName = String(child.name).replace(/'/g, "\\'");
       subLinks += `<a href="javascript:void(0)" onclick="selectExamCategory('${safeName}')" class="block pl-12 pr-4 py-1.5 text-[11px] text-slate-600 dark:text-slate-300 hover:text-indigo-600 transition">• ${child.name}</a>`;
     });
-    if (!currentUser && sub.children.length > 1) subLinks += `<div class="px-12 py-1 text-[10px] text-amber-500 italic">+ ${sub.children.length - 1} Bihar exams locked (Login to unlock)</div>`;
+    if (!currentUser && sub.children.length > 1) subLinks += `<div class="px-12 py-1 text-[10px] text-amber-500 italic">+ ${sub.children.length - 1} ${sub.name} exams locked (Login to unlock)</div>`;
   } else {
     const safeName = String(sub.name).replace(/'/g, "\\'");
     subLinks += `<a href="javascript:void(0)" onclick="selectExamCategory('${safeName}')" class="block px-8 py-1.5 text-xs text-slate-600 dark:text-slate-300 hover:text-indigo-600 transition">• ${sub.name}</a>`;
