@@ -1,16 +1,17 @@
-// exams-data.js - TargetTire Complete External Exams Data with State & Bihar Specific Sections
+// exams-data.js - TargetTire Complete External Exams Data with Overview & Info
 window.examGroupsData = {
   "SSC": {
     name: "SSC Exams (कर्मचारी चयन आयोग)",
     icon: "fa-building-columns",
     subExams: [
-      {
-        name: "SSC CGL",
-        desc: "Combined Graduate Level Tier-I & Tier-II",
-        totalChapters: 50,
-        overviewText: "SSC CGL is a premier national-level competitive recruitment test conducted for various Group B and C posts.",
-        examInfoText: "Exam Pattern: Tier-I Computer Based Examination followed by Tier-II Advanced Objective Modules."
-      },
+      { 
+        
+  name: "SSC CGL",
+  desc: "Combined Graduate Level Tier-I & Tier-II Examination",
+  totalChapters: 50,
+  overviewText: "SSC CGL (Staff Selection Commission - Combined Graduate Level) is a prestigious national-level competitive exam conducted in India to recruit candidates for Group 'B' and 'C' Gazetted and Non-Gazetted posts in various ministries, departments, and organizations of the Government of India. / एसएससी सीजीएल (कर्मचारी चयन आयोग - संयुक्त स्नातक स्तर परीक्षा) भारत सरकार के विभिन्न मंत्रालयों, विभागों और संगठनों में ग्रुप 'बी' और 'सी' के पदों पर भर्ती के लिए आयोजित होने वाली देश की सबसे प्रतिष्ठित राष्ट्रीय स्तर की प्रतियोगी परीक्षा है।",
+  examInfoText: "Exam Pattern & Selection Process: 1) Mode: Conducted entirely online via Computer Based Examination (CBT). 2) Tiers: The selection involves Tier-I (Objective Computer-Based Test) and Tier-II (Mandatory computer-based sessions with multiple modules like Mathematical Abilities, Reasoning, English, General Awareness, and Computer Knowledge). 3) Negative Marking: Yes, there is negative marking for wrong answers in both Tiers (typically 0.50 marks for Tier-I and 1 mark for Tier-II per incorrect answer). 4) Final Stages: After clearing the written exams, candidates undergo Document Verification (DV), and for specific posts (like Inspector/Sub-Inspector), medical examination and physical standards tests are also conducted. / परीक्षा पैटर्न और चयन प्रक्रिया: 1) मोड: यह परीक्षा पूरी तरह से ऑनलाइन कंप्यूटर आधारित परीक्षा (CBT) के रूप में होती है। 2) चरण (Tiers): इसमें मुख्य रूप से टियर-1 (ऑब्जेक्टिव सीबीटी) और टियर-2 (कंप्यूटर आधारित टेस्ट जिसमें गणित, रीजनिंग, अंग्रेजी, सामान्य ज्ञान और कंप्यूटर ज्ञान शामिल है) देने होते हैं। 3) नेगेटिव मार्किंग: हाँ, दोनों चरणों में गलत उत्तरों के लिए नेगेटिव मार्किंग होती है (आमतौर पर टियर-1 में 0.50 और टियर-2 में प्रत्येक गलत उत्तर पर 1 अंक काटा जाता है)। 4) अंतिम चरण: लिखित परीक्षा पास करने के बाद डॉक्यूमेंट वेरिफिकेशन (दस्तावेज़ सत्यापन) होता है, और कुछ खास पदों (जैसे इंस्पेक्टर/सब-इंस्पेक्टर) के लिए मेडिकल परीक्षा और शारीरिक मानक परीक्षण (Physical Standards Test) भी लिया जाता है।"
+},
       { 
         name: "SSC CHSL", 
         desc: "Higher Secondary (10+2) LDC, DEO", 
@@ -179,63 +180,8 @@ window.examGroupsData = {
       }
     ]
   },
-  "StateExams": {
-    name: "State Exams & Bihar Special (राज्य स्तरीय परीक्षाएं)",
-    icon: "fa-map-location-dot",
-    subExams: [
-      {
-        name: "Bihar Combined (BPSC CCE)",
-        desc: "Bihar Public Service Commission Combined Competitive Exam",
-        totalChapters: 60,
-        overviewText: "BPSC CCE is conducted by the Bihar Public Service Commission to recruit administrative officers, police officers, and other executive posts in Bihar state administration.",
-        examInfoText: "Exam Pattern: Prelims (Objective General Studies), Mains (Descriptive Papers including Essay and Optional), followed by Personality Test (Interview)."
-      },
-      {
-        name: "Bihar SSC (BSSC CGL / Inter Level)",
-        desc: "Staff Selection Commission Bihar Secretariat & Clerk Exams",
-        totalChapters: 45,
-        overviewText: "BSSC conducts recruitment examinations for secretariat assistants, lower division clerks, and various state government department positions in Bihar.",
-        examInfoText: "Exam Pattern: Preliminary Exam, Main Exam, followed by Typing/Skill Test or Document Verification."
-      },
-      {
-        name: "Bihar Police (SI & Constable)",
-        desc: "Bihar Police Sub-ordinate Services Commission & CSBC",
-        totalChapters: 40,
-        overviewText: "Recruitment exams for Sub-Inspector (SI), Sergeant, and Constable positions under Bihar Police and Home Guard departments.",
-        examInfoText: "Exam Pattern: Written Test (Prelims & Mains), Physical Efficiency Test (PET), and Medical Examination."
-      },
-      {
-        name: "Bihar Teacher (BPSC TRE)",
-        desc: "School Teacher Recruitment Examination (Primary to PGT)",
-        totalChapters: 50,
-        overviewText: "BPSC Teacher Recruitment Examination (TRE) for hiring teachers across Primary, Middle, Secondary, and Higher Secondary government schools in Bihar.",
-        examInfoText: "Exam Pattern: Single or multi-part objective test covering Language proficiency, General Studies, and Subject-specific knowledge."
-      },
-      {
-        name: "Bihar Technical Service (BTSC JE / Staff Nurse)",
-        desc: "BTSC Engineering, Medical & Technical Recruitment",
-        totalChapters: 40,
-        overviewText: "Bihar Technical Service Commission (BTSC) examinations for Junior Engineers, medical staff, and technical personnel in state departments.",
-        examInfoText: "Exam Pattern: Written CBT or academic/experience-based merit evaluation followed by document verification."
-      },
-      {
-        name: "UPPSC / UPSSSC (Uttar Pradesh Exams)",
-        desc: "Uttar Pradesh Public Service Commission & Subordinate Services",
-        totalChapters: 50,
-        overviewText: "State-level administrative and subordinate service examinations conducted in Uttar Pradesh for PCS, RO/ARO, and PET.",
-        examInfoText: "Exam Pattern: Preliminary exam, Main descriptive exam, and Interview."
-      },
-      {
-        name: "MPPSC / Vyapam (Madhya Pradesh Exams)",
-        desc: "Madhya Pradesh Public Service Commission & Professional Exam Board",
-        totalChapters: 45,
-        overviewText: "Recruitment examinations for state civil services, police, and professional boards in Madhya Pradesh.",
-        examInfoText: "Exam Pattern: Prelims objective test, Mains written exam, and Interview."
-      }
-    ]
-  },
   "CivilService": {
-    name: "UPSC & Defense Exams",
+    name: "UPSC, Defense & State Exams",
     icon: "fa-scale-balanced",
     subExams: [
       { 
@@ -253,6 +199,20 @@ window.examGroupsData = {
         examInfoText: "Exam Pattern: Written examination followed by SSB Interview and medical testing."
       },
       { 
+        name: "State Government & PCS Exams", 
+        desc: "BPSC, UPPSC, MPPSC and State recruitment", 
+        totalChapters: 50,
+        overviewText: "State Public Service Commission exams (BPSC, UPPSC, MPPSC, etc.) for administrative and executive state positions.",
+        examInfoText: "Exam Pattern: Prelims, Mains, and Interview patterned after civil service models."
+      },
+      { 
+        name: "Police Exam (SI & Constable)", 
+        desc: "State police recruitment board test papers", 
+        totalChapters: 40,
+        overviewText: "State Police Sub-Inspector and Constable recruitment board tests for law and order enforcement.",
+        examInfoText: "Exam Pattern: Written CBT, Physical Measurement, and Efficiency tests."
+      },
+      { 
         name: "Other Government Exams", 
         desc: "LIC, FCI, EPFO and autonomous bodies", 
         totalChapters: 40,
@@ -262,3 +222,385 @@ window.examGroupsData = {
     ]
   }
 };
+
+
+// Bihar nested exam menu: State Government Exams → Bihar → individual examinations.
+(function(){
+  const state = window.examGroupsData && window.examGroupsData["State Government & PCS Exams"];
+  if (!state) return;
+  state.name = "State Government Exams (राज्य सरकारी परीक्षाएं)";
+  const bihar = {
+  "name": "Bihar Government Exams (बिहार सरकारी परीक्षाएं)",
+  "desc": "BPSC, BSSC, BTSC, BPSSC, CSBC and other Bihar state recruitment exams",
+  "totalChapters": 100,
+  "overviewText": "Bihar government recruitment exams across BPSC, BSSC, BTSC, BPSSC, CSBC, courts, legislature, health and other state departments.",
+  "examInfoText": "Open Bihar to see separate commission/post-wise exams and technical streams.",
+  "children": [
+    {
+      "name": "BPSC CCE",
+      "desc": "BPSC Combined Competitive Examination (CCE)",
+      "totalChapters": 32,
+      "overviewText": "BPSC Combined Competitive Examination (CCE). Bihar state government recruitment exam; see the latest official notification for exact eligibility and vacancies.",
+      "examInfoText": "Qualification: Graduate. Selection: Prelims → Mains → Interview."
+    },
+    {
+      "name": "BPSC Teacher Recruitment Examination (TRE)",
+      "desc": "BPSC Teacher Recruitment Examination (TRE)",
+      "totalChapters": 20,
+      "overviewText": "BPSC Teacher Recruitment Examination (TRE). Bihar state government recruitment exam; see the latest official notification for exact eligibility and vacancies.",
+      "examInfoText": "Qualification: Primary / Middle / Secondary / Higher Secondary Teacher. Selection: Written Examination → Document Verification."
+    },
+    {
+      "name": "BPSC Assistant Section Officer",
+      "desc": "BPSC Assistant Section Officer (ASO)",
+      "totalChapters": 24,
+      "overviewText": "BPSC Assistant Section Officer (ASO). Bihar state government recruitment exam; see the latest official notification for exact eligibility and vacancies.",
+      "examInfoText": "Qualification: Graduate. Selection: Prelims → Mains."
+    },
+    {
+      "name": "BPSC Bihar Judicial Services",
+      "desc": "Bihar Judicial Services Examination",
+      "totalChapters": 28,
+      "overviewText": "Bihar Judicial Services Examination. Bihar state government recruitment exam; see the latest official notification for exact eligibility and vacancies.",
+      "examInfoText": "Qualification: Law Graduate. Selection: Prelims → Mains → Interview."
+    },
+    {
+      "name": "BPSC Prosecution Officer",
+      "desc": "BPSC Prosecution Officer",
+      "totalChapters": 28,
+      "overviewText": "BPSC Prosecution Officer. Bihar state government recruitment exam; see the latest official notification for exact eligibility and vacancies.",
+      "examInfoText": "Qualification: Law / prescribed qualification. Selection: Prelims → Mains → Interview."
+    },
+    {
+      "name": "BPSC Auditor",
+      "desc": "BPSC Auditor / Audit-related recruitment",
+      "totalChapters": 24,
+      "overviewText": "BPSC Auditor / Audit-related recruitment. Bihar state government recruitment exam; see the latest official notification for exact eligibility and vacancies.",
+      "examInfoText": "Qualification: As per notification. Selection: Written/Prelims-Mains as prescribed."
+    },
+    {
+      "name": "BPSC Assistant Engineer Civil",
+      "desc": "BPSC Assistant Engineer – Civil",
+      "totalChapters": 20,
+      "overviewText": "BPSC Assistant Engineer – Civil. Bihar state government recruitment exam; see the latest official notification for exact eligibility and vacancies.",
+      "examInfoText": "Qualification: Engineering degree/diploma as notified. Selection: Written/Competitive examination as notified."
+    },
+    {
+      "name": "BPSC Assistant Engineer Mechanical",
+      "desc": "BPSC Assistant Engineer – Mechanical",
+      "totalChapters": 20,
+      "overviewText": "BPSC Assistant Engineer – Mechanical. Bihar state government recruitment exam; see the latest official notification for exact eligibility and vacancies.",
+      "examInfoText": "Qualification: Engineering qualification as notified. Selection: Written/Competitive examination as notified."
+    },
+    {
+      "name": "BPSC Assistant Engineer Electrical",
+      "desc": "BPSC Assistant Engineer – Electrical",
+      "totalChapters": 20,
+      "overviewText": "BPSC Assistant Engineer – Electrical. Bihar state government recruitment exam; see the latest official notification for exact eligibility and vacancies.",
+      "examInfoText": "Qualification: Engineering qualification as notified. Selection: Written/Competitive examination as notified."
+    },
+    {
+      "name": "BPSC Stenographer",
+      "desc": "BPSC Stenographer",
+      "totalChapters": 20,
+      "overviewText": "BPSC Stenographer. Bihar state government recruitment exam; see the latest official notification for exact eligibility and vacancies.",
+      "examInfoText": "Qualification: As per notification. Selection: Written/CBT → Skill Test as notified."
+    },
+    {
+      "name": "BSSC 4th Graduate Level",
+      "desc": "BSSC 4th Graduate Level Combined Competitive Examination",
+      "totalChapters": 28,
+      "overviewText": "BSSC 4th Graduate Level Combined Competitive Examination. Bihar state government recruitment exam; see the latest official notification for exact eligibility and vacancies.",
+      "examInfoText": "Qualification: Graduate. Selection: Prelims/CBT → Mains/skill stages as notified."
+    },
+    {
+      "name": "BSSC Inter Level (10+2)",
+      "desc": "BSSC Second Inter Level Combined Competitive Examination",
+      "totalChapters": 32,
+      "overviewText": "BSSC Second Inter Level Combined Competitive Examination. Bihar state government recruitment exam; see the latest official notification for exact eligibility and vacancies.",
+      "examInfoText": "Qualification: Intermediate / 10+2. Selection: Prelims/CBT → Mains/skill stages as notified."
+    },
+    {
+      "name": "BSSC Office Attendant (10th Level)",
+      "desc": "BSSC Office Attendant / Attendant (Special) Combined Competitive Examination",
+      "totalChapters": 20,
+      "overviewText": "BSSC Office Attendant / Attendant (Special) Combined Competitive Examination. Bihar state government recruitment exam; see the latest official notification for exact eligibility and vacancies.",
+      "examInfoText": "Qualification: Matriculation / 10th level. Selection: Written examination as notified."
+    },
+    {
+      "name": "BSSC Stenographer / Steno Typist",
+      "desc": "BSSC Stenographer / Steno Typist Grade-III",
+      "totalChapters": 24,
+      "overviewText": "BSSC Stenographer / Steno Typist Grade-III. Bihar state government recruitment exam; see the latest official notification for exact eligibility and vacancies.",
+      "examInfoText": "Qualification: As per notification. Selection: Written/CBT → Stenography/Typing skill."
+    },
+    {
+      "name": "BSSC Field Assistant",
+      "desc": "BSSC Field Assistant (Agriculture Department)",
+      "totalChapters": 24,
+      "overviewText": "BSSC Field Assistant (Agriculture Department). Bihar state government recruitment exam; see the latest official notification for exact eligibility and vacancies.",
+      "examInfoText": "Qualification: As per notification. Selection: Written examination."
+    },
+    {
+      "name": "BSSC Sports Trainer",
+      "desc": "BSSC Sports Trainer",
+      "totalChapters": 20,
+      "overviewText": "BSSC Sports Trainer. Bihar state government recruitment exam; see the latest official notification for exact eligibility and vacancies.",
+      "examInfoText": "Qualification: As per notification. Selection: Written examination / skill as notified."
+    },
+    {
+      "name": "BTSC Junior Engineer Civil",
+      "desc": "BTSC Junior Engineer – Civil",
+      "totalChapters": 20,
+      "overviewText": "BTSC Junior Engineer – Civil. Bihar state government recruitment exam; see the latest official notification for exact eligibility and vacancies.",
+      "examInfoText": "Qualification: Diploma/Degree in Civil Engineering as notified. Selection: Written/CBT as notified."
+    },
+    {
+      "name": "BTSC Junior Engineer Mechanical",
+      "desc": "BTSC Junior Engineer – Mechanical",
+      "totalChapters": 20,
+      "overviewText": "BTSC Junior Engineer – Mechanical. Bihar state government recruitment exam; see the latest official notification for exact eligibility and vacancies.",
+      "examInfoText": "Qualification: Diploma/Degree in Mechanical Engineering as notified. Selection: Written/CBT as notified."
+    },
+    {
+      "name": "BTSC Junior Engineer Electrical",
+      "desc": "BTSC Junior Engineer – Electrical",
+      "totalChapters": 20,
+      "overviewText": "BTSC Junior Engineer – Electrical. Bihar state government recruitment exam; see the latest official notification for exact eligibility and vacancies.",
+      "examInfoText": "Qualification: Diploma/Degree in Electrical Engineering as notified. Selection: Written/CBT as notified."
+    },
+    {
+      "name": "BTSC Staff Nurse",
+      "desc": "BTSC Staff Nurse",
+      "totalChapters": 28,
+      "overviewText": "BTSC Staff Nurse. Bihar state government recruitment exam; see the latest official notification for exact eligibility and vacancies.",
+      "examInfoText": "Qualification: Nursing qualification as notified. Selection: Written/CBT + document verification as notified."
+    },
+    {
+      "name": "BTSC ANM",
+      "desc": "BTSC Auxiliary Nurse Midwifery (ANM)",
+      "totalChapters": 24,
+      "overviewText": "BTSC Auxiliary Nurse Midwifery (ANM). Bihar state government recruitment exam; see the latest official notification for exact eligibility and vacancies.",
+      "examInfoText": "Qualification: ANM qualification as notified. Selection: Written/CBT as notified."
+    },
+    {
+      "name": "BTSC Laboratory Assistant – Science",
+      "desc": "BTSC Laboratory Assistant – Science",
+      "totalChapters": 24,
+      "overviewText": "BTSC Laboratory Assistant – Science. Bihar state government recruitment exam; see the latest official notification for exact eligibility and vacancies.",
+      "examInfoText": "Qualification: As per notification. Selection: Written/CBT as notified."
+    },
+    {
+      "name": "BTSC Laboratory Assistant – Engineering",
+      "desc": "BTSC Laboratory Assistant – Engineering Streams",
+      "totalChapters": 20,
+      "overviewText": "BTSC Laboratory Assistant – Engineering Streams. Bihar state government recruitment exam; see the latest official notification for exact eligibility and vacancies.",
+      "examInfoText": "Qualification: Relevant technical qualification. Selection: Written/CBT as notified."
+    },
+    {
+      "name": "BTSC Instructor – ITI Trades",
+      "desc": "BTSC Instructor – ITI / Technical Trades",
+      "totalChapters": 20,
+      "overviewText": "BTSC Instructor – ITI / Technical Trades. Bihar state government recruitment exam; see the latest official notification for exact eligibility and vacancies.",
+      "examInfoText": "Qualification: Relevant technical qualification. Selection: Written/CBT as notified."
+    },
+    {
+      "name": "BTSC X-Ray Technician",
+      "desc": "BTSC X-Ray Technician",
+      "totalChapters": 24,
+      "overviewText": "BTSC X-Ray Technician. Bihar state government recruitment exam; see the latest official notification for exact eligibility and vacancies.",
+      "examInfoText": "Qualification: Relevant paramedical qualification. Selection: Written/CBT as notified."
+    },
+    {
+      "name": "BTSC OT Assistant",
+      "desc": "BTSC Operation Theatre Assistant",
+      "totalChapters": 20,
+      "overviewText": "BTSC Operation Theatre Assistant. Bihar state government recruitment exam; see the latest official notification for exact eligibility and vacancies.",
+      "examInfoText": "Qualification: Relevant paramedical qualification. Selection: Written/CBT as notified."
+    },
+    {
+      "name": "BTSC Dresser",
+      "desc": "BTSC Dresser",
+      "totalChapters": 20,
+      "overviewText": "BTSC Dresser. Bihar state government recruitment exam; see the latest official notification for exact eligibility and vacancies.",
+      "examInfoText": "Qualification: As per notification. Selection: Written/CBT as notified."
+    },
+    {
+      "name": "BTSC Pharmacist",
+      "desc": "BTSC Pharmacist",
+      "totalChapters": 20,
+      "overviewText": "BTSC Pharmacist. Bihar state government recruitment exam; see the latest official notification for exact eligibility and vacancies.",
+      "examInfoText": "Qualification: Pharmacy qualification as notified. Selection: Written/CBT as notified."
+    },
+    {
+      "name": "BTSC Food Safety Officer",
+      "desc": "BTSC Food Safety Officer",
+      "totalChapters": 20,
+      "overviewText": "BTSC Food Safety Officer. Bihar state government recruitment exam; see the latest official notification for exact eligibility and vacancies.",
+      "examInfoText": "Qualification: Relevant qualification as notified. Selection: Written/CBT as notified."
+    },
+    {
+      "name": "BTSC Scientific Assistant",
+      "desc": "BTSC Scientific Assistant",
+      "totalChapters": 20,
+      "overviewText": "BTSC Scientific Assistant. Bihar state government recruitment exam; see the latest official notification for exact eligibility and vacancies.",
+      "examInfoText": "Qualification: Relevant science qualification. Selection: Written/CBT as notified."
+    },
+    {
+      "name": "BPSSC Police Sub-Inspector",
+      "desc": "BPSSC Police Sub-Inspector (SI)",
+      "totalChapters": 28,
+      "overviewText": "BPSSC Police Sub-Inspector (SI). Bihar state government recruitment exam; see the latest official notification for exact eligibility and vacancies.",
+      "examInfoText": "Qualification: Graduate. Selection: Prelims → Mains → PET/PST → Document Verification."
+    },
+    {
+      "name": "BPSSC Special Branch SI",
+      "desc": "BPSSC Police Sub-Inspector – Special Branch",
+      "totalChapters": 24,
+      "overviewText": "BPSSC Police Sub-Inspector – Special Branch. Bihar state government recruitment exam; see the latest official notification for exact eligibility and vacancies.",
+      "examInfoText": "Qualification: Graduate / as notified. Selection: Written stages → Physical/verification as notified."
+    },
+    {
+      "name": "BPSSC ASI Operation",
+      "desc": "BPSSC Assistant Sub-Inspector (Operation) – Bihar Police Radio",
+      "totalChapters": 20,
+      "overviewText": "BPSSC Assistant Sub-Inspector (Operation) – Bihar Police Radio. Bihar state government recruitment exam; see the latest official notification for exact eligibility and vacancies.",
+      "examInfoText": "Qualification: Technical qualification as notified. Selection: Prelims/Written → technical/skill stages as notified."
+    },
+    {
+      "name": "BPSSC ASI Technical",
+      "desc": "BPSSC Assistant Sub-Inspector (Technical) – Bihar Police Radio",
+      "totalChapters": 20,
+      "overviewText": "BPSSC Assistant Sub-Inspector (Technical) – Bihar Police Radio. Bihar state government recruitment exam; see the latest official notification for exact eligibility and vacancies.",
+      "examInfoText": "Qualification: Technical qualification as notified. Selection: Prelims/Written → technical/skill stages as notified."
+    },
+    {
+      "name": "BPSSC Steno ASI",
+      "desc": "BPSSC Steno Assistant Sub-Inspector",
+      "totalChapters": 24,
+      "overviewText": "BPSSC Steno Assistant Sub-Inspector. Bihar state government recruitment exam; see the latest official notification for exact eligibility and vacancies.",
+      "examInfoText": "Qualification: As per notification. Selection: Written → eligibility/skill/verification stages."
+    },
+    {
+      "name": "BPSSC Enforcement SI",
+      "desc": "BPSSC Enforcement Sub-Inspector",
+      "totalChapters": 24,
+      "overviewText": "BPSSC Enforcement Sub-Inspector. Bihar state government recruitment exam; see the latest official notification for exact eligibility and vacancies.",
+      "examInfoText": "Qualification: Graduate / as notified. Selection: Prelims → Mains → physical/verification as notified."
+    },
+    {
+      "name": "CSBC Constable",
+      "desc": "CSBC Bihar Police Constable (General Duty)",
+      "totalChapters": 24,
+      "overviewText": "CSBC Bihar Police Constable (General Duty). Bihar state government recruitment exam; see the latest official notification for exact eligibility and vacancies.",
+      "examInfoText": "Qualification: 10th/12th as notified. Selection: Written → PET/PST → Document Verification."
+    },
+    {
+      "name": "CSBC Constable Operator",
+      "desc": "CSBC Constable (Operator)",
+      "totalChapters": 24,
+      "overviewText": "CSBC Constable (Operator). Bihar state government recruitment exam; see the latest official notification for exact eligibility and vacancies.",
+      "examInfoText": "Qualification: As per notification. Selection: Written → PET/PST/technical stages as notified."
+    },
+    {
+      "name": "CSBC Driver Constable",
+      "desc": "CSBC Driver Constable – Bihar Police / Bihar Special Armed Police",
+      "totalChapters": 24,
+      "overviewText": "CSBC Driver Constable – Bihar Police / Bihar Special Armed Police. Bihar state government recruitment exam; see the latest official notification for exact eligibility and vacancies.",
+      "examInfoText": "Qualification: As per notification + driving licence. Selection: Written → PET/PST → Driving Efficiency Test → DV."
+    },
+    {
+      "name": "CSBC Prohibition Constable",
+      "desc": "CSBC Prohibition Constable",
+      "totalChapters": 24,
+      "overviewText": "CSBC Prohibition Constable. Bihar state government recruitment exam; see the latest official notification for exact eligibility and vacancies.",
+      "examInfoText": "Qualification: As per notification. Selection: Written → PET/PST → DV."
+    },
+    {
+      "name": "CSBC Jail Warder",
+      "desc": "CSBC Jail Warder",
+      "totalChapters": 24,
+      "overviewText": "CSBC Jail Warder. Bihar state government recruitment exam; see the latest official notification for exact eligibility and vacancies.",
+      "examInfoText": "Qualification: As per notification. Selection: Written → PET/PST → DV."
+    },
+    {
+      "name": "CSBC Mobile Squad Constable",
+      "desc": "CSBC Mobile Squad Constable",
+      "totalChapters": 24,
+      "overviewText": "CSBC Mobile Squad Constable. Bihar state government recruitment exam; see the latest official notification for exact eligibility and vacancies.",
+      "examInfoText": "Qualification: As per notification. Selection: Written → PET/PST → DV."
+    },
+    {
+      "name": "CSBC Special Branch Constable",
+      "desc": "CSBC Special Branch Constable (Close Cadre)",
+      "totalChapters": 24,
+      "overviewText": "CSBC Special Branch Constable (Close Cadre). Bihar state government recruitment exam; see the latest official notification for exact eligibility and vacancies.",
+      "examInfoText": "Qualification: As per notification. Selection: Written → PST/PET/DV."
+    },
+    {
+      "name": "Bihar Civil Court Clerk",
+      "desc": "Bihar Civil Courts – Clerk",
+      "totalChapters": 28,
+      "overviewText": "Bihar Civil Courts – Clerk. Bihar state government recruitment exam; see the latest official notification for exact eligibility and vacancies.",
+      "examInfoText": "Qualification: As per court recruitment notification. Selection: Written → skill/test/typing → DV as notified."
+    },
+    {
+      "name": "Bihar Civil Court Stenographer",
+      "desc": "Bihar Civil Courts – Stenographer",
+      "totalChapters": 24,
+      "overviewText": "Bihar Civil Courts – Stenographer. Bihar state government recruitment exam; see the latest official notification for exact eligibility and vacancies.",
+      "examInfoText": "Qualification: As per court recruitment notification. Selection: Written → Stenography/typing → DV."
+    },
+    {
+      "name": "Bihar Civil Court Court Reader",
+      "desc": "Bihar Civil Courts – Court Reader-cum-Deposition Writer",
+      "totalChapters": 24,
+      "overviewText": "Bihar Civil Courts – Court Reader-cum-Deposition Writer. Bihar state government recruitment exam; see the latest official notification for exact eligibility and vacancies.",
+      "examInfoText": "Qualification: As per notification. Selection: Written → skill/typing → DV."
+    },
+    {
+      "name": "Bihar Civil Court Peon",
+      "desc": "Bihar Civil Courts – Peon / Orderly",
+      "totalChapters": 20,
+      "overviewText": "Bihar Civil Courts – Peon / Orderly. Bihar state government recruitment exam; see the latest official notification for exact eligibility and vacancies.",
+      "examInfoText": "Qualification: As per notification. Selection: Written/selection process as notified."
+    },
+    {
+      "name": "Bihar Vidhan Sabha Secretariat",
+      "desc": "Bihar Vidhan Sabha Secretariat Recruitment",
+      "totalChapters": 28,
+      "overviewText": "Bihar Vidhan Sabha Secretariat Recruitment. Bihar state government recruitment exam; see the latest official notification for exact eligibility and vacancies.",
+      "examInfoText": "Qualification: Post-specific. Selection: Written/skill stages as notified."
+    },
+    {
+      "name": "Bihar Vidhan Parishad Secretariat",
+      "desc": "Bihar Vidhan Parishad Secretariat Recruitment",
+      "totalChapters": 28,
+      "overviewText": "Bihar Vidhan Parishad Secretariat Recruitment. Bihar state government recruitment exam; see the latest official notification for exact eligibility and vacancies.",
+      "examInfoText": "Qualification: Post-specific. Selection: Written/skill stages as notified."
+    },
+    {
+      "name": "Bihar Home Guard",
+      "desc": "Bihar Home Guard Recruitment",
+      "totalChapters": 20,
+      "overviewText": "Bihar Home Guard Recruitment. Bihar state government recruitment exam; see the latest official notification for exact eligibility and vacancies.",
+      "examInfoText": "Qualification: As per notification. Selection: Written/physical/merit stages as notified."
+    },
+    {
+      "name": "Bihar Health Department Recruitment",
+      "desc": "Bihar Health Department / SHSB Recruitment",
+      "totalChapters": 20,
+      "overviewText": "Bihar Health Department / SHSB Recruitment. Bihar state government recruitment exam; see the latest official notification for exact eligibility and vacancies.",
+      "examInfoText": "Qualification: Post-specific. Selection: CBT/written/skill/merit as notified."
+    },
+    {
+      "name": "Other Bihar Departmental Exams",
+      "desc": "Other Bihar State Departmental Recruitment Exams",
+      "totalChapters": 20,
+      "overviewText": "Other Bihar State Departmental Recruitment Exams. Bihar state government recruitment exam; see the latest official notification for exact eligibility and vacancies.",
+      "examInfoText": "Qualification: Post-specific. Selection: As prescribed in the official notification."
+    }
+  ]
+};
+  state.subExams = [bihar, ...state.subExams.filter(x => x.name !== "Bihar Government Exams (बिहार सरकारी परीक्षाएं)")];
+})();
