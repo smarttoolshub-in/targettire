@@ -72,6 +72,38 @@ input, textarea, select {
 -ms-user-select: text;
 user-select: text;
 }
+
+/* Premium exam information cards */
+.exam-info-card { transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease; }
+.exam-info-card:hover { transform: translateY(-2px); box-shadow: 0 14px 35px rgba(15,23,42,.08); }
+.dark .exam-info-card:hover { box-shadow: 0 14px 35px rgba(0,0,0,.22); }
+.exam-stage-card, .exam-syllabus-card, .exam-pattern-card {
+  position: relative; overflow: hidden; border: 1px solid rgb(226 232 240);
+  background: rgb(248 250 252); border-radius: 16px; padding: 16px;
+}
+.dark .exam-stage-card, .dark .exam-syllabus-card, .dark .exam-pattern-card {
+  border-color: rgb(30 41 59); background: rgb(11 15 25);
+}
+.exam-stage-card::before, .exam-syllabus-card::before, .exam-pattern-card::before {
+  content:""; position:absolute; inset:0 auto 0 0; width:3px;
+  background: linear-gradient(to bottom,#6366f1,#14b8a6); border-radius:16px 0 0 16px;
+}
+.exam-stage-number {
+  width:30px;height:30px;border-radius:10px;display:flex;align-items:center;justify-content:center;
+  background:rgba(99,102,241,.12); color:#6366f1;font-size:11px;font-weight:800; flex:none;
+}
+.exam-stage-title,.exam-syllabus-title { font-size:12px;font-weight:800;color:rgb(15 23 42); }
+.dark .exam-stage-title,.dark .exam-syllabus-title { color:rgb(248 250 252); }
+.exam-stage-desc,.exam-syllabus-list { font-size:10.5px;line-height:1.65;color:rgb(100 116 139); }
+.dark .exam-stage-desc,.dark .exam-syllabus-list { color:rgb(148 163 184); }
+.exam-syllabus-list { margin-top:9px; padding-left:15px; }
+.exam-syllabus-list li { margin-bottom:4px; }
+.exam-rich-text .exam-info-section { margin-bottom:18px; padding:14px 16px; border:1px solid rgb(226 232 240); border-radius:14px; background:rgb(248 250 252); }
+.dark .exam-rich-text .exam-info-section { border-color:rgb(30 41 59); background:rgb(11 15 25); }
+.exam-rich-text .exam-info-heading { font-size:12px; font-weight:800; color:rgb(15 23 42); margin-bottom:7px; }
+.dark .exam-rich-text .exam-info-heading { color:rgb(248 250 252); }
+.exam-rich-text .exam-info-line { margin:4px 0; }
+
 </style>
 </head>
 <body class="bg-slate-50 dark:bg-[#0b0f19] text-slate-800 dark:text-slate-300 min-h-screen flex flex-col transition-colors duration-300">
@@ -290,30 +322,26 @@ Launch Mock Test
 <button onclick="switchExamSubTab('pyq')" id="esub-btn-pyq" class="exam-sub-tab-btn pb-3 text-xs font-semibold text-slate-500 hover:text-slate-900 dark:hover:text-white whitespace-nowrap cursor-pointer">Previous Year Questions (PYQs)</button>
 </div>
 <div id="esub-content-overview" class="exam-sub-content space-y-6">
+<!-- Dynamic Exam Overview -->
 <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
 <div class="lg:col-span-2 bg-white dark:bg-[#131b2e] border border-slate-200 dark:border-slate-800/80 p-7 rounded-2xl shadow-sm">
-<h3 class="text-base font-bold text-slate-900 dark:text-white mb-3">About <span id="exam-name-span">Exam</span></h3>
-<p id="exam-desc-text" class="text-xs sm:text-sm text-slate-600 dark:text-slate-400 leading-relaxed mb-6">
-This examination is one of the most prestigious competitive recruitment tests conducted annually for aspirants seeking elite government positions.
-</p>
-<div class="grid grid-cols-2 sm:grid-cols-3 gap-4">
-<div class="bg-slate-50 dark:bg-[#0b0f19] p-4 rounded-xl border border-slate-200 dark:border-slate-800">
-<p class="text-[10px] text-slate-500 uppercase font-semibold">Mode of Exam</p>
-<p class="text-xs font-bold text-slate-900 dark:text-white mt-1">Online (CBT)</p>
+<div class="flex items-center gap-3 mb-4">
+<div class="w-10 h-10 rounded-xl bg-indigo-500/10 text-indigo-600 dark:text-indigo-400 flex items-center justify-center">
+<i class="fa-solid fa-circle-info"></i>
 </div>
-<div class="bg-slate-50 dark:bg-[#0b0f19] p-4 rounded-xl border border-slate-200 dark:border-slate-800">
-<p class="text-[10px] text-slate-500 uppercase font-semibold">Frequency</p>
-<p class="text-xs font-bold text-slate-900 dark:text-white mt-1">Annual</p>
-</div>
-<div class="bg-slate-50 dark:bg-[#0b0f19] p-4 rounded-xl border border-slate-200 dark:border-slate-800">
-<p class="text-[10px] text-slate-500 uppercase font-semibold">Language</p>
-<p class="text-xs font-bold text-slate-900 dark:text-white mt-1">Bilingual (EN/HI)</p>
+<div>
+<h3 class="text-base font-bold text-slate-900 dark:text-white">About <span id="exam-name-span">Exam</span></h3>
+<p class="text-[10px] text-slate-500 uppercase tracking-wider mt-0.5">Exam Overview</p>
 </div>
 </div>
+<p id="exam-desc-text" class="text-xs sm:text-sm text-slate-600 dark:text-slate-400 leading-relaxed mb-6"></p>
+<div id="exam-overview-highlights" class="grid grid-cols-1 sm:grid-cols-3 gap-4"></div>
 </div>
 <div class="bg-white dark:bg-[#131b2e] border border-slate-200 dark:border-slate-800/80 p-6 rounded-2xl shadow-sm flex flex-col justify-between">
 <div>
-<h4 class="text-xs font-bold uppercase tracking-wider text-slate-900 dark:text-white mb-4">Quick Preparation Actions</h4>
+<h4 class="text-xs font-bold uppercase tracking-wider text-slate-900 dark:text-white mb-4">
+<i class="fa-solid fa-bolt text-amber-500 mr-1"></i> Quick Preparation
+</h4>
 <div class="space-y-3">
 <button onclick="switchTab('vault')" class="w-full bg-indigo-600 hover:bg-indigo-500 text-white font-semibold text-xs py-3 rounded-xl transition shadow cursor-pointer">Start Full Mock Test</button>
 <button onclick="switchTab('practice')" class="w-full bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-800 dark:text-slate-200 font-semibold text-xs py-3 rounded-xl transition cursor-pointer">Practice Chapter Quizzes</button>
@@ -321,15 +349,57 @@ This examination is one of the most prestigious competitive recruitment tests co
 </div>
 </div>
 </div>
+
+<!-- Dynamic Selection Stages -->
+<div class="exam-info-card bg-white dark:bg-[#131b2e] border border-slate-200 dark:border-slate-800/80 p-6 sm:p-7 rounded-2xl shadow-sm">
+<div class="flex items-center justify-between gap-3 mb-5">
+<div>
+<h3 class="text-base font-bold text-slate-900 dark:text-white flex items-center gap-2">
+<i class="fa-solid fa-route text-indigo-500"></i> Selection Stages
+</h3>
+<p class="text-[11px] text-slate-500 dark:text-slate-400 mt-1">Exam stages, CBT levels and qualifying requirements</p>
 </div>
+<span class="text-[9px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full bg-indigo-500/10 text-indigo-600 dark:text-indigo-300 border border-indigo-500/20">Stage-wise</span>
+</div>
+<div id="exam-stages-container" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4"></div>
+</div>
+
+<!-- Dynamic Syllabus -->
+<div class="exam-info-card bg-white dark:bg-[#131b2e] border border-slate-200 dark:border-slate-800/80 p-6 sm:p-7 rounded-2xl shadow-sm">
+<div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 mb-5">
+<div>
+<h3 class="text-base font-bold text-slate-900 dark:text-white flex items-center gap-2">
+<i class="fa-solid fa-book-open text-teal-500"></i> Syllabus
+</h3>
+<p class="text-[11px] text-slate-500 dark:text-slate-400 mt-1">Subject-wise syllabus and important topics</p>
+</div>
+<span id="exam-syllabus-count" class="text-[9px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full bg-teal-500/10 text-teal-600 dark:text-teal-300 border border-teal-500/20">Loading</span>
+</div>
+<div id="exam-syllabus-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4"></div>
+</div>
+</div>
+
 <div id="esub-content-info" class="exam-sub-content hidden space-y-6">
 <div class="bg-white dark:bg-[#131b2e] border border-slate-200 dark:border-slate-800/80 p-7 rounded-2xl shadow-sm">
-<h3 class="text-base font-bold text-slate-900 dark:text-white mb-4">Exam Pattern & Eligibility Criteria</h3>
-<div id="exam-info-text" class="text-xs sm:text-sm text-slate-600 dark:text-slate-400 leading-relaxed whitespace-pre-line">
-Exam information is currently being prepared.
+<div class="flex items-center gap-3 mb-5">
+<div class="w-10 h-10 rounded-xl bg-amber-500/10 text-amber-600 dark:text-amber-400 flex items-center justify-center">
+<i class="fa-solid fa-clipboard-list"></i>
+</div>
+<div>
+<h3 class="text-base font-bold text-slate-900 dark:text-white">Exam Pattern & Eligibility Criteria</h3>
+<p class="text-[10px] text-slate-500 uppercase tracking-wider mt-0.5">Detailed Information</p>
 </div>
 </div>
+<div id="exam-info-text" class="exam-rich-text text-xs sm:text-sm text-slate-600 dark:text-slate-400 leading-relaxed"></div>
 </div>
+<div class="bg-white dark:bg-[#131b2e] border border-slate-200 dark:border-slate-800/80 p-6 rounded-2xl shadow-sm">
+<h3 class="text-sm font-bold text-slate-900 dark:text-white mb-4 flex items-center gap-2">
+<i class="fa-solid fa-layer-group text-indigo-500"></i> Pattern at a Glance
+</h3>
+<div id="exam-pattern-cards" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4"></div>
+</div>
+</div>
+
 <div id="esub-content-testseries" class="exam-sub-content hidden space-y-6">
 <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
 <div class="bg-white dark:bg-[#131b2e] border border-slate-200 dark:border-slate-800/80 p-6 rounded-2xl shadow-sm flex flex-col justify-between">
@@ -1165,7 +1235,6 @@ document.querySelectorAll('.tab-content').forEach(el => el.classList.add('hidden
 const detailTab = document.getElementById('tab-exam-detail');
 if(detailTab) detailTab.classList.remove('hidden');
 
-// Find the selected sub-exam from exams-data.js.
 let selectedExam = null;
 let selectedGroup = null;
 
@@ -1174,7 +1243,6 @@ if (window.examGroupsData && typeof window.examGroupsData === 'object') {
         const match = Array.isArray(group.subExams)
             ? group.subExams.find(exam => exam.name === category)
             : null;
-
         if (match) {
             selectedExam = match;
             selectedGroup = group;
@@ -1184,8 +1252,6 @@ if (window.examGroupsData && typeof window.examGroupsData === 'object') {
     });
 }
 
-// Content is maintained separately in exam-content.js.
-// If an entry is missing there, fall back to exams-data.js.
 const editableContent =
     (window.examContent && window.examContent[category])
         ? window.examContent[category]
@@ -1205,20 +1271,17 @@ const informationText =
 
 document.getElementById('exam-detail-title').innerText =
     examName + " Examination Intelligence";
-
 document.getElementById('exam-detail-badge').innerText =
     examName + " Portal";
-
 document.getElementById('exam-name-span').innerText = examName;
-
 document.getElementById('exam-desc-text').innerText = overviewText;
 
-const infoTextEl = document.getElementById('exam-info-text');
-if (infoTextEl) {
-    infoTextEl.innerText = informationText;
-}
+const content = Object.assign({}, editableContent, selectedExam || {});
+renderExamOverviewHighlights(content);
+renderExamStages(content, informationText);
+renderExamSyllabus(content, informationText);
+renderExamInformation(informationText, content);
 
-// Keep the selected exam available to other exam-detail features.
 window.currentSelectedExam = selectedExam || {
     name: examName,
     group: selectedGroup
@@ -1227,6 +1290,169 @@ window.currentSelectedExam = selectedExam || {
 switchExamSubTab('overview');
 window.scrollTo({ top: 0, behavior: 'smooth' });
 showToast(`Loaded ${examName} Intelligence Portal.`);
+}
+
+/* Accepts both structured exam-content.js data and older plain-text entries.
+   No exam-specific stage is invented: only supplied/parsable data is displayed. */
+function normalizeList(value) {
+    if (Array.isArray(value)) return value.filter(Boolean);
+    if (typeof value === 'string') {
+        return value.split(/\n|•|;/).map(x => x.trim()).filter(Boolean);
+    }
+    return [];
+}
+
+function normalizeStage(stage, index) {
+    if (typeof stage === 'string') return { title: stage, desc: '', icon: index === 0 ? 'fa-desktop' : 'fa-circle-check' };
+    if (!stage || typeof stage !== 'object') return null;
+    return {
+        title: stage.title || stage.name || stage.stage || stage.label || `Stage ${index + 1}`,
+        desc: stage.description || stage.desc || stage.details || stage.note || '',
+        icon: stage.icon || (String(stage.title || stage.name || '').toLowerCase().includes('medical') ? 'fa-user-doctor' :
+              String(stage.title || stage.name || '').toLowerCase().includes('cbt') ? 'fa-computer' : 'fa-circle-check')
+    };
+}
+
+function getStageData(content, informationText) {
+    let raw = content.stages || content.selectionStages || content.selectionProcess ||
+              content.examStages || content.phases || content.levels;
+
+    if (!raw) {
+        const lines = String(informationText || '').split(/\n/).map(x => x.trim()).filter(Boolean);
+        const matches = lines.filter(line => /^(CBT[\s-]?[12]|Tier[\s-]?[IV1-4]+|PET|PST|Typing|Skill|Document|Medical|DV|Interview|Stage|Phase)\b/i.test(line));
+        raw = matches.map(x => x.replace(/^[•\-]\s*/, ''));
+    }
+    return normalizeList(raw).map((x,i)=>normalizeStage(x,i)).filter(Boolean);
+}
+
+function renderExamOverviewHighlights(content) {
+    const box = document.getElementById('exam-overview-highlights');
+    if (!box) return;
+    const items = [
+        ['fa-laptop-code','Mode of Exam',content.mode || content.examMode || 'Online / CBT'],
+        ['fa-calendar-days','Frequency',content.frequency || content.conducted || 'As per notification'],
+        ['fa-language','Language',content.language || content.languages || 'As per notification']
+    ];
+    box.innerHTML = items.map(([icon,label,val]) => `
+      <div class="bg-slate-50 dark:bg-[#0b0f19] p-4 rounded-xl border border-slate-200 dark:border-slate-800">
+        <p class="text-[10px] text-slate-500 uppercase font-semibold">${label}</p>
+        <p class="text-xs font-bold text-slate-900 dark:text-white mt-1">${Array.isArray(val) ? val.join(' / ') : val}</p>
+      </div>`).join('');
+}
+
+function renderExamStages(content, informationText) {
+    const box = document.getElementById('exam-stages-container');
+    if (!box) return;
+    const stages = getStageData(content, informationText);
+    if (!stages.length) {
+        box.innerHTML = `<div class="col-span-full rounded-xl border border-dashed border-slate-300 dark:border-slate-700 p-5 text-center text-[11px] text-slate-500 dark:text-slate-400">
+            Stage-wise details will appear here automatically when they are added to exam-content.js.
+        </div>`;
+        return;
+    }
+    box.innerHTML = stages.map((st,i) => `
+      <div class="exam-stage-card">
+        <div class="flex items-start gap-3">
+          <div class="exam-stage-number">${i+1}</div>
+          <div class="min-w-0">
+            <div class="flex items-center gap-2">
+              <i class="fa-solid ${st.icon} text-indigo-500 text-xs"></i>
+              <div class="exam-stage-title">${st.title}</div>
+            </div>
+            ${st.desc ? `<p class="exam-stage-desc mt-2">${st.desc}</p>` : ''}
+          </div>
+        </div>
+      </div>`).join('');
+}
+
+function getSyllabusData(content, informationText) {
+    let raw = content.syllabus || content.syllabusData || content.subjects || content.subjectWiseSyllabus;
+
+    if (raw && typeof raw === 'object' && !Array.isArray(raw)) {
+        return Object.entries(raw).map(([subject,topics]) => ({
+            subject, topics: normalizeList(topics)
+        }));
+    }
+    if (Array.isArray(raw)) {
+        return raw.map((item,i) => {
+            if (typeof item === 'string') return {subject:`Subject ${i+1}`,topics:[item]};
+            return {subject:item.subject || item.name || item.title || `Subject ${i+1}`,topics:normalizeList(item.topics || item.chapters || item.points || item.content || item.description)};
+        });
+    }
+
+    /* Also supports simple text format:
+       "Mathematics: Number System, Algebra"
+       "Reasoning: Analogy, Series"
+    */
+    const lines = String(informationText || '').split(/\n/).map(x=>x.trim()).filter(Boolean);
+    const parsed = [];
+    lines.forEach(line => {
+        const clean = line.replace(/^[•\-]\s*/, '');
+        const m = clean.match(/^([^:]{2,45}):\s*(.+)$/);
+        if (m && /math|reason|science|english|computer|history|geography|polity|econom|current|general awareness|quant/i.test(m[1])) {
+            parsed.push({subject:m[1].trim(), topics:normalizeList(m[2])});
+        }
+    });
+    return parsed;
+}
+
+function renderExamSyllabus(content, informationText) {
+    const box = document.getElementById('exam-syllabus-container');
+    const count = document.getElementById('exam-syllabus-count');
+    if (!box) return;
+    const syllabus = getSyllabusData(content, informationText);
+    if (count) count.innerText = syllabus.length ? `${syllabus.length} SUBJECT${syllabus.length > 1 ? 'S' : ''}` : 'DATA-DRIVEN';
+    if (!syllabus.length) {
+        box.innerHTML = `<div class="col-span-full rounded-xl border border-dashed border-slate-300 dark:border-slate-700 p-6 text-center">
+          <i class="fa-solid fa-book-open text-teal-500 text-lg mb-2"></i>
+          <p class="text-xs font-semibold text-slate-700 dark:text-slate-200">Syllabus section ready</p>
+          <p class="text-[10px] text-slate-500 dark:text-slate-400 mt-1">Add <b>syllabus</b> in exam-content.js and it will automatically appear here subject-wise.</p>
+        </div>`;
+        return;
+    }
+    box.innerHTML = syllabus.map(item => `
+      <div class="exam-syllabus-card">
+        <div class="flex items-center gap-2">
+          <i class="fa-solid fa-book text-teal-500 text-xs"></i>
+          <div class="exam-syllabus-title">${item.subject}</div>
+        </div>
+        <ul class="exam-syllabus-list list-disc">
+          ${item.topics.length ? item.topics.map(t=>`<li>${t}</li>`).join('') : '<li>Topics will be updated as per official syllabus.</li>'}
+        </ul>
+      </div>`).join('');
+}
+
+function renderExamInformation(informationText, content) {
+    const infoTextEl = document.getElementById('exam-info-text');
+    const patternBox = document.getElementById('exam-pattern-cards');
+    if (!infoTextEl) return;
+
+    const lines = String(informationText || '').split(/\n/).map(x=>x.trim()).filter(Boolean);
+    infoTextEl.innerHTML = lines.length
+      ? lines.map(line => {
+          const clean = line.replace(/^[•\-]\s*/, '');
+          const m = clean.match(/^([^:]{2,55}):\s*(.+)$/);
+          if (m) return `<div class="exam-info-section"><div class="exam-info-heading">${m[1]}</div><div class="exam-info-line">${m[2]}</div></div>`;
+          return `<div class="exam-info-line mb-2">${clean}</div>`;
+        }).join('')
+      : `<div class="text-slate-500">Exam information is currently being prepared.</div>`;
+
+    const notes = Array.isArray(content.importantNotes) ? content.importantNotes.filter(Boolean) : [];
+    if (notes.length) {
+      infoTextEl.innerHTML += `<div class="exam-info-section mt-4"><div class="exam-info-heading">Important Notes</div><ul class="exam-syllabus-list">${notes.map(n=>`<li>${n}</li>`).join('')}</ul></div>`;
+    }
+
+    if (!patternBox) return;
+    const patternItems = [
+      ['Mode', content.mode || content.examMode],
+      ['Duration', content.duration || content.time],
+      ['Questions', content.questions || content.totalQuestions],
+      ['Negative Marking', content.negativeMarking || content.negativeMarks]
+    ].filter(x=>x[1] !== undefined && x[1] !== null && String(x[1]).trim() !== '');
+
+    patternBox.innerHTML = patternItems.length
+      ? patternItems.map(([k,v])=>`<div class="exam-pattern-card"><p class="text-[10px] text-slate-500 uppercase font-semibold">${k}</p><p class="text-xs font-bold text-slate-900 dark:text-white mt-1">${Array.isArray(v)?v.join(' / '):v}</p></div>`).join('')
+      : `<div class="col-span-full text-[11px] text-slate-500 dark:text-slate-400">Pattern cards will populate from exam-content.js when those fields are provided.</div>`;
 }
 
 function switchExamSubTab(subTabId) {
@@ -2911,51 +3137,17 @@ loadCurrentAffairsFromGist();
             </p>
         </div>
     </footer>
- <script>  
-     function playBrandNewSuccessTune() {
-    try {
-        const AudioContext = window.AudioContext || window.webkitAudioContext;
-        const ctx = new AudioContext();
-        if (ctx.state === 'suspended') {
-            ctx.resume();
-        }
-        let now = ctx.currentTime;
-        [523.25, 659.25, 783.99, 1046.50, 1318.51].forEach((freq, idx) => {
-            let osc = ctx.createOscillator();
-            let gain = ctx.createGain();
-            osc.type = 'triangle';
-            osc.frequency.setValueAtTime(freq, now + (idx * 0.06));
-            gain.gain.setValueAtTime(0.15, now + (idx * 0.06));
-            gain.gain.exponentialRampToValueAtTime(0.0001, now + (idx * 0.06) + 0.35);
-            osc.connect(gain);
-            gain.connect(ctx.destination);
-            osc.start(now + (idx * 0.06));
-            osc.stop(now + (idx * 0.06) + 0.35);
-        });
-    } catch(err) {}
-}
 
-function playBrandNewErrorTune() {
-    try {
-        const AudioContext = window.AudioContext || window.webkitAudioContext;
-        const ctx = new AudioContext();
-        if (ctx.state === 'suspended') {
-            ctx.resume();
-        }
-        let now = ctx.currentTime;
-        let osc = ctx.createOscillator();
-        let gain = ctx.createGain();
-        osc.type = 'sawtooth';
-        osc.frequency.setValueAtTime(150, now);
-        osc.frequency.exponentialRampToValueAtTime(90, now + 0.2);
-        gain.gain.setValueAtTime(0.1, now);
-        gain.gain.exponentialRampToValueAtTime(0.0001, now + 0.25);
-        osc.connect(gain);
-        gain.connect(ctx.destination);
-        osc.start(now);
-        osc.stop(now + 0.25);
-    } catch(err) {}
-}
- </script>
-    </body>
+    <script>
+/* Permanent audio cleanup:
+   Exam/practice timers remain functional, but no automatic beep/tick/background
+   sound is allowed from this page. Legacy feedback functions are intentionally silent. */
+window.playBrandNewSuccessTune = function(){};
+window.playBrandNewErrorTune = function(){};
+window.speechSynthesis && window.speechSynthesis.cancel();
+document.querySelectorAll('audio').forEach(a => {
+  try { a.pause(); a.currentTime = 0; a.removeAttribute('autoplay'); a.removeAttribute('loop'); } catch(e) {}
+});
+</script>
+</body>
 </html>
