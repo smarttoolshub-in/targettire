@@ -1763,6 +1763,232 @@ window.examContent = {
       "Vacancy, age limit, dates, exact marks, negative marking और post-specific eligibility latest official notification के अनुसार verify करें।"
     ]
   },
+    "Bihar Combined (BPSC CCE)": {
+    "overview": "BPSC CCE is conducted by the Bihar Public Service Commission to recruit administrative officers, police officers, and other executive posts in Bihar state administration. / बिहार लोक सेवा आयोग (BPSC) द्वारा प्रशासनिक, पुलिस और अन्य कार्यकारी पदों पर चयन के लिए संयुक्त प्रतियोगी परीक्षा आयोजित की जाती है।",
+    "information": "Exam Pattern & Selection Process: 1) Mode: Offline / Online as notified. 2) Stages: Prelims (Objective General Studies), Mains (Descriptive Papers including Essay and General Hindi), followed by Interview. 3) Negative Marking: Yes, negative marking is applicable in the Prelims exam. / परीक्षा पैटर्न और चयन प्रक्रिया: 1) मोड: प्रारंभिक और मुख्य परीक्षा। 2) चरण: प्रीलिम्स (सामान्य अध्ययन), मेंस (वर्णनात्मक पेपर जैसे निबंध और सामान्य हिंदी) और इसके बाद इंटरव्यू (साक्षात्कार)। 3) नेगेटिव मार्किंग: हाँ, प्रारंभिक परीक्षा में नेगेटिव मार्किंग होती है।",
+    "stages": [
+      {
+        "title": "Prelims",
+        "description": "Objective General Studies Examination"
+      },
+      {
+        "title": "Mains",
+        "description": "Descriptive written examination (General Hindi, Essay & GS Papers)"
+      },
+      {
+        "title": "Interview",
+        "description": "Personality test / final interview stage"
+      }
+    ],
+    "syllabus": [
+      {
+        "title": "General Studies & Bihar Special",
+        "topics": [
+          "Indian History & National Movement",
+          "Indian & World Geography",
+          "Indian Polity & Economy",
+          "General Science",
+          "Bihar Special General Knowledge (History, Geography, Economy of Bihar)",
+          "Current Affairs (National & International)"
+        ]
+      },
+      {
+        "title": "Aptitude & Mental Ability",
+        "topics": [
+          "Basic Mathematics & Logical Reasoning"
+        ]
+      }
+    ],
+    "pattern": {
+      "mode": "Offline / Online",
+      "selection": "Prelims → Mains → Interview"
+    },
+    "importantNotes": [
+      "यह structured content TargetTire के exam-information cards के लिए है।",
+      "Vacancy, age limit, dates, exact marks, negative marking और post-specific eligibility latest official BPSC notification के अनुसार verify करें।"
+    ]
+  },
+  "Bihar Police (SI & Constable)": {
+    "overview": "Recruitment exams for Sub-Inspector (SI), Sergeant, and Constable positions under Bihar Police and Home Guard departments. / बिहार पुलिस और गृह विभाग के अंतर्गत सब-इंस्पेक्टर (दरोगा) और कांस्टेबल पदों के लिए भर्ती परीक्षाएं।",
+    "information": "Exam Pattern & Selection Process: 1) Stages: Written Test (Prelims & Mains for SI, Single Written for Constable), Physical Standard Test (PST), Physical Efficiency Test (PET), and Medical Examination. / परीक्षा पैटर्न और चयन प्रक्रिया: 1) चरण: लिखित परीक्षा (दरोगा के लिए प्री और मेंस, कांस्टेबल के लिए सिंगल लिखित), शारीरिक माप परीक्षण (PST), शारीरिक दक्षता परीक्षा (PET) और मेडिकल परीक्षा।",
+    "stages": [
+      {
+        "title": "Written Examination",
+        "description": "Objective Computer Based or OMR Test (Prelims & Mains)"
+      },
+      {
+        "title": "PST / PMT",
+        "description": "Physical Standard / Measurement Test"
+      },
+      {
+        "title": "PET",
+        "description": "Physical Efficiency Test (Running, High Jump, Long Jump, Shot Put)"
+      },
+      {
+        "title": "Medical Examination",
+        "description": "Medical fitness test"
+      }
+    ],
+    "syllabus": [
+      {
+        "title": "General Knowledge & Current Affairs",
+        "topics": [
+          "History, Geography & Polity",
+          "General Science (Physics, Chemistry, Biology)",
+          "Current Affairs & Static GK"
+        ]
+      },
+      {
+        "title": "Hindi & English Language",
+        "topics": [
+          "सामान्य हिंदी व्याकरण और बोध",
+          "Basic English Grammar & Comprehension"
+        ]
+      },
+      {
+        "title": "Mathematics & Reasoning",
+        "topics": [
+          "Elementary Arithmetic & Mental Ability"
+        ]
+      }
+    ],
+    "pattern": {
+      "mode": "OMR / Computer Based",
+      "selection": "Written Test → PST → PET → Medical Examination"
+    },
+    "importantNotes": [
+      "यह structured content TargetTire के exam-information cards के लिए है।",
+      "Vacancy, age limit, dates, exact marks, negative marking और post-specific eligibility latest official BPSSC / CSBC notification के अनुसार verify करें।"
+    ]
+  },
+  "Bihar SSC (BSSC CGL / Inter Level)": {
+    "overview": "BSSC conducts recruitment examinations for secretariat assistants, lower division clerks, and various state government department positions in Bihar. / बिहार कर्मचारी चयन आयोग (BSSC) द्वारा सचिवालय सहायक, लोअर डिवीजन क्लर्क और विभिन्न विभागों के पदों पर भर्ती परीक्षा आयोजित की जाती है।",
+    "information": "Exam Pattern & Selection Process: 1) Stages: Preliminary Examination, Main Examination, followed by Typing/Skill Test or Document Verification. / परीक्षा पैटर्न और चयन प्रक्रिया: 1) चरण: प्रारंभिक परीक्षा, मुख्य परीक्षा, और इसके बाद टाइपिंग/स्किल टेस्ट या डॉक्यूमेंट वेरिफिकेशन।",
+    "stages": [
+      {
+        "title": "Prelims",
+        "description": "Preliminary objective examination"
+      },
+      {
+        "title": "Mains",
+        "description": "Main objective/descriptive examination"
+      },
+      {
+        "title": "Skill / Typing Test",
+        "description": "Applicable for clerical and typist posts"
+      },
+      {
+        "title": "Document Verification",
+        "description": "Final document check"
+      }
+    ],
+    "syllabus": [
+      {
+        "title": "General Studies & Science",
+        "topics": [
+          "General Knowledge & Current Affairs",
+          "Indian History, Polity & Geography",
+          "General Science & Mathematics"
+        ]
+      },
+      {
+        "title": "Reasoning",
+        "topics": [
+          "Logical Reasoning, Mental Ability & Verbal/Non-Verbal Series"
+        ]
+      }
+    ],
+    "pattern": {
+      "mode": "Offline OMR Based",
+      "selection": "Prelims → Mains → Skill Test / Typing → Document Verification"
+    },
+    "importantNotes": [
+      "यह structured content TargetTire के exam-information cards के लिए है।",
+      "Vacancy, age limit, dates, exact marks, negative marking और post-specific eligibility latest official BSSC notification के अनुसार verify करें।"
+    ]
+  },
+  "Bihar Teacher (BPSC TRE)": {
+    "overview": "BPSC Teacher Recruitment Examination (TRE) for hiring teachers across Primary, Middle, Secondary, and Higher Secondary government schools in Bihar. / बिहार के सरकारी विद्यालयों में प्राइमरी, मिडिल, माध्यमिक और उच्च माध्यमिक शिक्षकों की भर्ती के लिए BPSC TRE परीक्षा।",
+    "information": "Exam Pattern & Selection Process: 1) Mode: Objective written examination covering language qualification, general studies, and core subject competence. / परीक्षा पैटर्न और चयन प्रक्रिया: 1) मोड: वस्तुनिष्ठ लिखित परीक्षा जिसमें भाषा अहर्ता, सामान्य अध्ययन और विषय-विशेष से जुड़े प्रश्न पूछे जाते हैं।",
+    "stages": [
+      {
+        "title": "Written Examination",
+        "description": "Single-stage objective multi-part exam"
+      },
+      {
+        "title": "Document Verification",
+        "description": "Certificate and eligibility verification"
+      },
+      {
+        "title": "Medical Examination",
+        "description": "Medical fitness check"
+      }
+    ],
+    "syllabus": [
+      {
+        "title": "Language Qualification",
+        "topics": [
+          "Hindi / English qualifying language test"
+        ]
+      },
+      {
+        "title": "General Studies",
+        "topics": [
+          "Elementary Mathematics, Mental Ability, General Awareness, Science, Social Science & Indian National Movement"
+        ]
+      },
+      {
+        "title": "Subject-Specific Competence",
+        "topics": [
+          "Class/Grade level core subject syllabus as per prescribed curriculum"
+        ]
+      }
+    ],
+    "pattern": {
+      "mode": "Objective Written Test",
+      "selection": "Written Examination → Document Verification → Medical"
+    },
+    "importantNotes": [
+      "यह structured content TargetTire के exam-information cards के लिए है।",
+      "Vacancy, age limit, dates, exact marks, negative marking और post-specific eligibility latest official BPSC notification के अनुसार verify करें।"
+    ]
+  },
+  "Bihar Technical Service (BTSC JE / Staff Nurse)": {
+    "overview": "Bihar Technical Service Commission (BTSC) examinations for Junior Engineers, medical staff, and technical personnel in state departments. / बिहार तकनीकी सेवा आयोग (BTSC) द्वारा जूनियर इंजीनियर, मेडिकल स्टाफ और तकनीकी पदों पर भर्ती परीक्षा।",
+    "information": "Exam Pattern & Selection Process: 1) Mode: Written CBT or academic/experience-based merit evaluation followed by document verification. / परीक्षा पैटर्न और चयन प्रक्रिया: 1) मोड: लिखित सीबीटी परीक्षा या शैक्षणिक/अनुभव आधारित मेरिट मूल्यांकन और डॉक्यूमेंट वेरिफिकेशन।",
+    "stages": [
+      {
+        "title": "Written / CBT",
+        "description": "Technical or domain-specific examination"
+      },
+      {
+        "title": "Document Verification",
+        "description": "Verification of technical degrees and academic certificates"
+      }
+    ],
+    "syllabus": [
+      {
+        "title": "Technical / Domain Discipline",
+        "topics": [
+          "Engineering / Medical / Nursing stream specific syllabus as per post requirement"
+        ]
+      },
+      {
+        "title": "General Studies & Aptitude",
+        "topics": [
+          "General Knowledge, Reasoning & Quantitative Aptitude"
+        ]
+      }
+    ],
+    "pattern": {
+      "mode": "Computer Based / Merit Based",
+      "selection": "Written / CBT or Merit Evaluation → Document Verification"
+    },
+    "importantNotes": [
+      "यह structured content TargetTire के exam-information cards के लिए है।",
+      "Vacancy, age limit, dates, exact marks, negative marking और post-specific eligibility latest official BTSC notification के अनुसार verify करें।"
+    ]
+  },
   "Civil Service Exam (UPSC CSE)": {
     "overview": "Union Public Service Commission Civil Services Examination (UPSC CSE) for IAS, IPS, IFS, and central civil services.",
     "information": "Exam Pattern: Preliminary Examination (GS + CSAT), Main Examination (9 Descriptive Papers), and Personality Test (Interview).",
