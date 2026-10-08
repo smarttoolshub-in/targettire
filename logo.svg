@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="40" height="40" fill="none">
+  <!-- आउटर रिंग -->
+  <circle cx="12" cy="12" r="9" stroke="url(#paint0_linear)" stroke-width="2" stroke-opacity="0.5"/>
+  <!-- इनर प्रिसिजन रिंग -->
+  <circle cx="12" cy="12" r="5" stroke="url(#paint1_linear)" stroke-width="2"/>
+  <!-- सेंटर क्रॉसहेयर/डॉट -->
+  <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v3m0 12v3M3 12h3m12 0h3" stroke="url(#paint2_linear)" stroke-width="2"/>
+  <defs>
+    <linearGradient id="paint0_linear" x1="3" y1="3" x2="21" y2="21" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#6366F1"/>
+      <stop offset="1" stop-color="#14B8A6"/>
+    </linearGradient>
+    <linearGradient id="paint1_linear" x1="7" y1="7" x2="17" y2="17" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#6366F1"/>
+      <stop offset="1" stop-color="#14B8A6"/>
+    </linearGradient>
+    <linearGradient id="paint2_linear" x1="3" y1="3" x2="21" y2="21" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#6366F1"/>
+      <stop offset="1" stop-color="#14B8A6"/>
+    </linearGradient>
+  </defs>
+</svg>
