@@ -1822,12 +1822,7 @@ window.examNotificationData = {
       "lastUpdated": ""
     }
   }
-};
-
-
-// Bihar State Government Exams - notification registry. Official dates/links are kept blank until verified from the relevant official notification.
-Object.assign(window.examNotificationData = window.examNotificationData || {}, {
-  "BPSC CCE": {
+"BPSC CCE": {
     "2026": {
       "titleEn": "BPSC Combined Competitive Examination (CCE)",
       "titleHi": "BPSC Combined Competitive Examination (CCE)",
@@ -5207,4 +5202,4 @@ Object.assign(window.examNotificationData = window.examNotificationData || {}, {
       "lastUpdated": ""
     }
   }
-});
+};
