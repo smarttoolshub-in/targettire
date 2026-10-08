@@ -1301,9 +1301,21 @@ function normalizeMonthlyCA(raw) {
         if (Array.isArray(item)) { item.forEach((x,i)=>push(x, key || String(i))); return; }
         if (typeof item !== 'object') return;
         const title = item.title || item.monthTitle || item.name || item.bulletinTitle || (key ? String(key) : 'Monthly Current Affairs');
+        // If this is a container (for example sections/chapters), go deeper
+        // BEFORE treating it as a monthly bulletin. Otherwise the parent
+        // section ("Monthly Current Affairs 2026") is mistaken for a month
+        // and its empty quizList hides the actual October questions.
+        const childCollections = ['chapters','months','monthly','monthlyData'];
+        const hasChildren = childCollections.some(k => Array.isArray(item[k]) && item[k].length);
+        if (hasChildren) {
+            childCollections.forEach(k => {
+                if (Array.isArray(item[k])) item[k].forEach((v,i) => push(v, v && v.id != null ? String(v.id) : (key ? key + '-' + i : String(i))));
+            });
+            return;
+        }
         const points = item.points || item.items || item.news || item.currentAffairs || item.topics || item.content;
         const quiz = item.quizList || item.quiz || item.questions || [];
-        if (Array.isArray(points) || Array.isArray(quiz) || item.date || item.month || item.monthName) {
+        if (Array.isArray(points) || (Array.isArray(quiz) && quiz.length > 0) || item.date || item.month || item.monthName || item.title) {
             out.push({key:key||String(out.length), title, date:item.date || item.month || item.monthName || '', points:Array.isArray(points)?points:[], quizList:Array.isArray(quiz)?quiz:[]});
         } else {
             Object.entries(item).forEach(([k,v])=>push(v,k));
