@@ -129,6 +129,27 @@ user-select: text;
   #tab-exam-detail .flex.border-b { gap: 18px !important; margin-bottom: 1.25rem !important; padding-bottom: 0; -webkit-overflow-scrolling: touch; }
   #mobile-exams-container a { display:block; padding:9px 14px 9px 42px; font-size:11px; border-bottom:1px solid rgba(148,163,184,.12); }
 }
+
+
+/* Global Search */
+#global-search-wrap { min-width: 180px; }
+@media (max-width: 767px) {
+  #global-search-wrap { display:none !important; }
+}
+.global-search-result {
+  display:flex; align-items:center; gap:10px; width:100%; text-align:left;
+  padding:10px 11px; border-radius:12px; cursor:pointer; transition:.15s;
+}
+.global-search-result:hover { background:rgba(99,102,241,.09); }
+.global-search-result-icon {
+  width:32px;height:32px;border-radius:10px;display:flex;align-items:center;justify-content:center;
+  background:rgba(99,102,241,.1);color:#6366f1;flex:none;
+}
+.global-search-result-title { font-size:11px;font-weight:800;color:rgb(15 23 42); }
+.dark .global-search-result-title { color:rgb(248 250 252); }
+.global-search-result-meta { font-size:9px;color:rgb(100 116 139);margin-top:2px; }
+.dark .global-search-result-meta { color:rgb(148 163 184); }
+
 </style>
 </head>
 <body class="bg-slate-50 dark:bg-[#0b0f19] text-slate-800 dark:text-slate-300 min-h-screen flex flex-col transition-colors duration-300">
@@ -164,6 +185,22 @@ user-select: text;
 </div>
 </div>
 </div>
+<!-- Global Website Search -->
+<div id="global-search-wrap" class="relative flex-1 max-w-md mx-2 sm:mx-4">
+  <div class="relative">
+    <i class="fa-solid fa-magnifying-glass absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-xs pointer-events-none"></i>
+    <input id="global-site-search" type="search" autocomplete="off"
+      placeholder="Search exams, subjects, chapters..."
+      class="w-full h-10 pl-9 pr-9 rounded-xl bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-xs text-slate-800 dark:text-slate-200 placeholder:text-slate-400 focus:outline-none focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/10 transition">
+    <button id="global-search-clear" type="button" aria-label="Clear search"
+      class="hidden absolute right-2.5 top-1/2 -translate-y-1/2 w-6 h-6 rounded-lg text-slate-400 hover:text-slate-700 dark:hover:text-white">
+      <i class="fa-solid fa-xmark text-xs"></i>
+    </button>
+  </div>
+  <div id="global-search-results" class="hidden absolute left-0 right-0 mt-2 bg-white dark:bg-[#131b2e] border border-slate-200 dark:border-slate-800 rounded-2xl shadow-2xl z-[80] overflow-hidden">
+    <div id="global-search-results-inner" class="max-h-[65vh] overflow-y-auto p-2"></div>
+  </div>
+</div>
 <nav class="hidden md:flex items-center space-x-1 bg-slate-100 dark:bg-slate-900/80 p-1.5 rounded-xl border border-slate-200 dark:border-slate-800 transition-colors duration-300">
 <button onclick="switchTab('dashboard')" class="nav-btn px-3.5 py-2 rounded-lg text-xs font-semibold text-indigo-600 dark:text-indigo-400 bg-slate-200 dark:bg-slate-800/90 transition cursor-pointer" data-tab="dashboard" data-i18n="navDashboard">Dashboard</button>
 <button onclick="switchTab('practice')" class="nav-btn px-3.5 py-2 rounded-lg text-xs font-semibold text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200 transition cursor-pointer" data-tab="practice" data-i18n="navPractice">Practice Hub</button>
@@ -194,6 +231,19 @@ user-select: text;
 <div id="mobile-menu-drawer" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 hidden md:hidden flex">
 <div class="bg-white dark:bg-[#131b2e] w-72 h-full shadow-2xl border-r border-slate-200 dark:border-slate-800 p-6 flex flex-col justify-between">
 <div>
+<!-- Mobile Global Search -->
+<div class="mb-5">
+  <label class="block text-[10px] font-bold uppercase tracking-wider text-slate-400 mb-2">Search Website</label>
+  <div class="relative">
+    <i class="fa-solid fa-magnifying-glass absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-xs pointer-events-none"></i>
+    <input id="mobile-global-site-search" type="search" autocomplete="off"
+      placeholder="Exam, subject, chapter..."
+      class="w-full h-10 pl-9 pr-3 rounded-xl bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-xs text-slate-800 dark:text-slate-200 placeholder:text-slate-400 focus:outline-none focus:border-indigo-500">
+  </div>
+  <div id="mobile-global-search-results" class="hidden mt-2 bg-slate-50 dark:bg-[#0b0f19] border border-slate-200 dark:border-slate-800 rounded-xl overflow-hidden">
+    <div id="mobile-global-search-results-inner" class="max-h-56 overflow-y-auto p-1"></div>
+  </div>
+</div>
 <div class="flex items-center justify-between pb-4 border-b border-slate-200 dark:border-slate-800 mb-6">
 <div class="flex items-center space-x-3">
 <div class="w-9 h-9 bg-gradient-to-br from-indigo-600 to-teal-600 text-white rounded-xl flex items-center justify-center shadow">
@@ -483,6 +533,27 @@ Launch Mock Test
 </div>
 </div>
 </div>
+</div>
+
+<!-- Session Pause / Leave-Website Protection Overlay -->
+<div id="session-pause-overlay" class="fixed inset-0 bg-slate-950/75 backdrop-blur-md z-[100] hidden items-center justify-center p-5">
+  <div class="w-full max-w-md bg-white dark:bg-[#131b2e] border border-slate-200 dark:border-slate-800 rounded-3xl shadow-2xl p-7 text-center">
+    <div class="w-16 h-16 mx-auto mb-5 rounded-2xl bg-amber-500/10 text-amber-500 flex items-center justify-center text-2xl">
+      <i class="fa-solid fa-pause"></i>
+    </div>
+    <h3 class="text-lg font-extrabold text-slate-900 dark:text-white">आप वेबसाइट से बाहर चले गए थे</h3>
+    <p id="session-pause-message" class="text-xs text-slate-500 dark:text-slate-400 mt-2 leading-relaxed">
+      आपका टेस्ट सुरक्षित रूप से रोक दिया गया है। Timer और sound दोनों pause हैं।
+    </p>
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mt-7">
+      <button id="session-resume-btn" class="bg-teal-600 hover:bg-teal-500 text-white font-bold py-3 rounded-xl text-xs shadow transition">
+        <i class="fa-solid fa-play mr-1"></i> वहीं से जारी रखें
+      </button>
+      <button id="session-fresh-btn" class="bg-slate-200 dark:bg-slate-800 hover:bg-slate-300 dark:hover:bg-slate-700 text-slate-800 dark:text-slate-200 font-bold py-3 rounded-xl text-xs transition">
+        <i class="fa-solid fa-rotate-right mr-1"></i> नया शुरू करें
+      </button>
+    </div>
+  </div>
 </div>
 
 <!-- Practice Hub Tab -->
@@ -2030,6 +2101,16 @@ history.pushState({ tab: tabId }, "", "#" + tabId);
 }
 
 window.addEventListener('popstate', function(event) {
+const practiceRunning = !!window.__targetTireActiveSession &&
+    !document.getElementById('practice-runner-view')?.classList.contains('hidden');
+const mockRunning = !!window.__targetTireActiveSession &&
+    !document.getElementById('vault-runner-view')?.classList.contains('hidden');
+if (practiceRunning || mockRunning) {
+    try { window.__targetTirePauseNow && window.__targetTirePauseNow(); } catch(e) {}
+    // Keep the user on the current test screen; progress is preserved.
+    history.pushState({ tab: practiceRunning ? 'practice' : 'vault' }, "", location.href);
+    return;
+}
 if (event.state && event.state.tab) {
 switchTab(event.state.tab, false);
 } else {
@@ -2632,7 +2713,18 @@ function getQuestionsForChapter(chapterTitle, subjectName) {
         }
 
         if (!rawQuestions || rawQuestions.length === 0) {
-            const curriculum = window.curriculumData || {};
+            const syllabusDB = window.examSyllabusData || {};
+    Object.keys(syllabusDB).forEach(name=>{
+      addSearchItem(name,'Syllabus / subjects / important topics','fa-book-open',()=>selectExamCategory(name),
+        [name,JSON.stringify(syllabusDB[name])].join(' '));
+    });
+    const notificationDB = window.examNotificationData || {};
+    Object.keys(notificationDB).forEach(name=>{
+      addSearchItem(name,'Notifications / dates / official links','fa-bullhorn',()=>selectExamCategory(name),
+        [name,JSON.stringify(notificationDB[name])].join(' '));
+    });
+
+    const curriculum = window.curriculumData || {};
             let detectedSubjectKey = "";
 
             for (let subjKey in curriculum) {
@@ -2729,6 +2821,8 @@ if (savedState) {
 function executePracticeChoice(choice) {
 document.getElementById('practice-resume-choice-view').classList.add('hidden');
 currentChapter = { title: pendingPracticeTitle, subjectName: pendingPracticeSub };
+window.__targetTireActiveSession = { type: 'practice', title: pendingPracticeTitle, subject: pendingPracticeSub };
+localStorage.setItem('targettire_active_session', JSON.stringify(window.__targetTireActiveSession));
 
 document.getElementById('main-site-header').classList.add('hidden');
 const footerEl = document.querySelector('footer');
@@ -2746,16 +2840,19 @@ userAnswers = {};
 
 const savedStateKey = 'targettire_practice_' + pendingPracticeTitle.replace(/\s+/g, '_');
 if (choice === 'resume') {
+    timeLeft = 30;
     const savedState = localStorage.getItem(savedStateKey);
     if (savedState) {
         try {
             const data = JSON.parse(savedState);
             pIndex = data.pIndex || 0;
             userAnswers = data.userAnswers || {};
+            if (typeof data.timeLeft === 'number' && data.timeLeft > 0) timeLeft = data.timeLeft;
         } catch(e) {}
     }
 } else {
     localStorage.removeItem(savedStateKey);
+    timeLeft = 30;
 }
 
 runnerLangMode = 'bi';
@@ -2770,7 +2867,8 @@ function savePracticeProgress() {
     const savedStateKey = 'targettire_practice_' + currentChapter.title.replace(/\s+/g, '_');
     const stateData = {
         pIndex: pIndex,
-        userAnswers: userAnswers
+        userAnswers: userAnswers,
+        timeLeft: timeLeft
     };
     localStorage.setItem(savedStateKey, JSON.stringify(stateData));
 }
@@ -2888,18 +2986,26 @@ renderQuestionPalette();
 
 function startTimer() {
 clearInterval(timerInterval);
-timeLeft = 30;
 const timerEl = document.getElementById('runner-timer');
 if(!timerEl) return;
+if (!Number.isFinite(timeLeft) || timeLeft <= 0 || timeLeft > 30) timeLeft = 30;
 timerEl.innerText = timeLeft + 's';
 
+if (window.__targetTireSessionPaused || document.visibilityState !== 'visible') return;
+
 timerInterval = setInterval(() => {
+if (window.__targetTireSessionPaused || document.visibilityState !== 'visible') {
+  clearInterval(timerInterval);
+  savePracticeProgress();
+  return;
+}
 timeLeft--;
 timerEl.innerText = timeLeft + 's';
 if (timeLeft <= 0) {
 clearInterval(timerInterval);
 if (userAnswers[pIndex] === undefined) userAnswers[pIndex] = -1;
 savePracticeProgress();
+timeLeft = 30;
 loadPracticeQuestion();
 }
 }, 1000);
@@ -2962,6 +3068,8 @@ function confirmExitPractice() {
 
 function finishPracticeRunner() {
 clearInterval(timerInterval);
+localStorage.removeItem('targettire_active_session');
+window.__targetTireActiveSession = null;
 if (currentChapter) {
     localStorage.removeItem('targettire_practice_' + currentChapter.title.replace(/\s+/g, '_'));
 }
@@ -2997,6 +3105,8 @@ date: new Date().toLocaleDateString()
 
 function exitPracticeRunner() {
 clearInterval(timerInterval);
+localStorage.removeItem('targettire_active_session');
+window.__targetTireActiveSession = null;
 document.getElementById('main-site-header').classList.remove('hidden');
 const footerEl = document.querySelector('footer');
 if(footerEl) footerEl.classList.remove('hidden');
@@ -3034,6 +3144,8 @@ function executeMockChoice(choice) {
     examSecondsLeft = pendingMockMins * 60;
     examAnswers = {};
     eIndex = 0;
+    window.__targetTireActiveSession = { type: 'mock', title: pendingMockTitle, qs: pendingMockQs, mins: pendingMockMins };
+    localStorage.setItem('targettire_active_session', JSON.stringify(window.__targetTireActiveSession));
 
     document.getElementById('main-site-header').classList.add('hidden');
     const footerEl = document.querySelector('footer');
@@ -3102,8 +3214,14 @@ function startExamMainTimer() {
 clearInterval(examTimerInterval);
 const timerEl = document.getElementById('exam-main-timer');
 if(!timerEl) return;
+if (window.__targetTireSessionPaused || document.visibilityState !== 'visible') return;
 
 examTimerInterval = setInterval(() => {
+if (window.__targetTireSessionPaused || document.visibilityState !== 'visible') {
+  clearInterval(examTimerInterval);
+  saveMockProgress();
+  return;
+}
 if (examSecondsLeft <= 0) {
 clearInterval(examTimerInterval);
 submitExamSimulation();
@@ -3191,6 +3309,10 @@ renderExamPalette();
 
 function selectExamOption(idx) {
 examAnswers[eIndex] = idx;
+if (examQuestions[eIndex]) {
+  if (idx === examQuestions[eIndex].answer) playBrandNewSuccessTune();
+  else playBrandNewErrorTune();
+}
 saveMockProgress();
 renderExamPalette();
 }
@@ -3246,6 +3368,8 @@ customConfirmCallback = null;
 
 function submitExamSimulation() {
 clearInterval(examTimerInterval);
+localStorage.removeItem('targettire_active_session');
+window.__targetTireActiveSession = null;
 localStorage.removeItem('targettire_mock_' + examTitle.replace(/\s+/g, '_'));
 document.getElementById('exam-question-box').classList.add('hidden');
 document.getElementById('exam-submitted-box').classList.remove('hidden');
@@ -3279,6 +3403,8 @@ date: new Date().toLocaleDateString()
 
 function exitExamVault() {
 clearInterval(examTimerInterval);
+localStorage.removeItem('targettire_active_session');
+window.__targetTireActiveSession = null;
 document.getElementById('main-site-header').classList.remove('hidden');
 const footerEl = document.querySelector('footer');
 if(footerEl) footerEl.classList.remove('hidden');
@@ -3553,15 +3679,294 @@ loadCurrentAffairsFromGist();
     </footer>
 
     <script>
-/* Permanent audio cleanup:
-   Exam/practice timers remain functional, but no automatic beep/tick/background
-   sound is allowed from this page. Legacy feedback functions are intentionally silent. */
-window.playBrandNewSuccessTune = function(){};
-window.playBrandNewErrorTune = function(){};
-window.speechSynthesis && window.speechSynthesis.cancel();
-document.querySelectorAll('audio').forEach(a => {
-  try { a.pause(); a.currentTime = 0; a.removeAttribute('autoplay'); a.removeAttribute('loop'); } catch(e) {}
-});
+/* TargetTire answer feedback audio:
+   Short WebAudio tones only after an answer is selected.
+   No background tick/beep is generated. Audio is stopped/suspended on leave. */
+let __ttAudioCtx = null;
+let __ttAudioNodes = [];
+function __ttStopAudio() {
+  try { __ttAudioNodes.forEach(n => { try { n.stop(); } catch(e){} }); } catch(e){}
+  __ttAudioNodes = [];
+  try { if (__ttAudioCtx && __ttAudioCtx.state === 'running') __ttAudioCtx.suspend(); } catch(e){}
+  try { if (window.speechSynthesis) window.speechSynthesis.cancel(); } catch(e){}
+}
+function __ttPlayTone(correct) {
+  if (window.__targetTireSessionPaused || document.visibilityState !== 'visible') return;
+  try {
+    const Ctx = window.AudioContext || window.webkitAudioContext;
+    if (!Ctx) return;
+    if (!__ttAudioCtx) __ttAudioCtx = new Ctx();
+    if (__ttAudioCtx.state === 'suspended') __ttAudioCtx.resume();
+    const now = __ttAudioCtx.currentTime;
+    const osc = __ttAudioCtx.createOscillator();
+    const gain = __ttAudioCtx.createGain();
+    osc.type = correct ? 'sine' : 'triangle';
+    osc.frequency.setValueAtTime(correct ? 660 : 220, now);
+    if (correct) osc.frequency.linearRampToValueAtTime(880, now + 0.12);
+    else osc.frequency.linearRampToValueAtTime(150, now + 0.18);
+    gain.gain.setValueAtTime(0.0001, now);
+    gain.gain.exponentialRampToValueAtTime(0.12, now + 0.015);
+    gain.gain.exponentialRampToValueAtTime(0.0001, now + (correct ? 0.16 : 0.22));
+    osc.connect(gain); gain.connect(__ttAudioCtx.destination);
+    __ttAudioNodes.push(osc);
+    osc.onended = () => { __ttAudioNodes = __ttAudioNodes.filter(n => n !== osc); };
+    osc.start(now);
+    osc.stop(now + (correct ? 0.18 : 0.24));
+  } catch(e) {}
+}
+window.playBrandNewSuccessTune = function(){ __ttPlayTone(true); };
+window.playBrandNewErrorTune = function(){ __ttPlayTone(false); };
 </script>
+
+<script>
+/* ================= TargetTire Global Search + Session Safety ================= */
+(function(){
+  const SEARCH_LIMIT = 12;
+  let searchIndex = [];
+  let searchReady = false;
+
+  function norm(v){ return String(v ?? '').toLowerCase().replace(/\s+/g,' ').trim(); }
+  function escapeHtml(v){
+    return String(v ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+  }
+
+  function addSearchItem(title, meta, icon, action, haystack){
+    if(!title) return;
+    searchIndex.push({title:String(title), meta:String(meta||''), icon:icon||'fa-magnifying-glass', action, haystack:norm(haystack||title)});
+  }
+
+  function buildSearchIndex(){
+    searchIndex = [];
+    addSearchItem('Dashboard','Home / TargetTire','fa-house',()=>switchTab('dashboard'),'dashboard targettire home');
+    addSearchItem('Practice Hub','Practice, subjects & chapter quizzes','fa-book-open',()=>switchTab('practice'),'practice hub subject chapter quiz');
+    addSearchItem('Mock Vault','Full mock examinations','fa-shield-halved',()=>switchTab('vault'),'mock vault exam test');
+    addSearchItem('PYQ Hub','Previous Year Questions','fa-file-lines',()=>switchTab('pyq'),'pyq previous year questions');
+    addSearchItem('My Exams','Your pinned examinations','fa-graduation-cap',()=>switchTab('my_exams'),'my exams');
+    addSearchItem('Custom Chapters','Create and manage chapters','fa-book-bookmark',()=>switchTab('chapters'),'custom chapters');
+    addSearchItem('Telemetry','Performance and test history','fa-chart-line',()=>switchTab('analytics'),'telemetry analytics performance');
+
+    const groups = window.examGroupsData || {};
+    Object.keys(groups).forEach(gk=>{
+      const g=groups[gk]||{};
+      (g.subExams||[]).forEach(ex=>{
+        const name=ex.name||'';
+        addSearchItem(name, `${g.name||'Exam'} • Exam Intelligence`, 'fa-graduation-cap',
+          ()=>selectExamCategory(name),
+          [name,ex.desc,ex.overviewText,ex.examInfoText,g.name].join(' '));
+      });
+    });
+
+    const content = window.examContent || {};
+    Object.keys(content).forEach(name=>{
+      if(!searchIndex.some(x=>x.title===name)){
+        const c=content[name]||{};
+        addSearchItem(name,'Exam information / syllabus','fa-book-open',()=>selectExamCategory(name),
+          [name,JSON.stringify(c),c.overview,c.overview_en,c.overview_hi,c.information,c.information_en,c.information_hi].join(' '));
+      }
+    });
+
+    const curriculum = window.curriculumData || {};
+    Object.keys(curriculum).forEach(sk=>{
+      const subj=curriculum[sk]||{};
+      const subjName=subj.name||sk;
+      addSearchItem(subjName,'Subject Stream','fa-book-open',()=>{
+        switchTab('practice');
+        try{ selectPracticeSubjectStream(sk); }catch(e){}
+      },[subjName,sk].join(' '));
+      (subj.sections||[]).forEach(sec=>{
+        (sec.chapters||[]).forEach(ch=>{
+          if(ch.title) addSearchItem(ch.title,`${subjName} • Chapter Quiz`,'fa-list-check',()=>{
+            switchTab('practice');
+            try{ selectPracticeSubjectStream(sk); }catch(e){}
+          },[ch.title,subjName,sec.title].join(' '));
+        });
+      });
+    });
+
+    const qdb = window.chapterQuestionsDB || {};
+    Object.keys(qdb).forEach(ch=>{
+      if(ch && !searchIndex.some(x=>x.title===ch)){
+        addSearchItem(ch,'Practice Questions','fa-circle-question',()=>{
+          switchTab('practice');
+        },[ch].join(' '));
+      }
+    });
+
+    addSearchItem('Daily Current Affairs','Current Affairs & Quiz','fa-newspaper',()=>{try{openCurrentAffairsModal('daily');}catch(e){switchTab('dashboard');}},'daily current affairs current affairs quiz');
+    addSearchItem('Monthly Current Affairs','Current Affairs & Quiz','fa-calendar-days',()=>{try{openCurrentAffairsModal('monthly');}catch(e){switchTab('dashboard');}},'monthly current affairs');
+    searchReady = true;
+  }
+
+  function renderSearchResults(query, mobile){
+    const box=document.getElementById(mobile?'mobile-global-search-results':'global-search-results');
+    const inner=document.getElementById(mobile?'mobile-global-search-results-inner':'global-search-results-inner');
+    if(!box||!inner)return;
+    const q=norm(query);
+    if(!q){box.classList.add('hidden');inner.innerHTML='';return;}
+    if(!searchReady) buildSearchIndex();
+    const terms=q.split(' ').filter(Boolean);
+    const scored=searchIndex.map(item=>{
+      let score=0, hay=item.haystack;
+      if(hay===q) score+=100;
+      if(norm(item.title)===q) score+=90;
+      if(norm(item.title).includes(q)) score+=60;
+      terms.forEach(t=>{ if(hay.includes(t)) score+=8; });
+      return {...item,score};
+    }).filter(x=>x.score>0).sort((a,b)=>b.score-a.score).slice(0,SEARCH_LIMIT);
+
+    if(!scored.length){
+      inner.innerHTML='<div class="px-3 py-5 text-center text-[11px] text-slate-400"><i class="fa-solid fa-magnifying-glass mr-1"></i> कोई matching result नहीं मिला।</div>';
+    } else {
+      inner.innerHTML=scored.map((r,i)=>`<button type="button" class="global-search-result" data-search-result="${i}">
+        <span class="global-search-result-icon"><i class="fa-solid ${escapeHtml(r.icon)} text-xs"></i></span>
+        <span class="min-w-0"><span class="global-search-result-title block truncate">${escapeHtml(r.title)}</span><span class="global-search-result-meta block truncate">${escapeHtml(r.meta)}</span></span>
+      </button>`).join('');
+      inner.querySelectorAll('[data-search-result]').forEach((el,i)=>{
+        el.addEventListener('click',()=>{
+          const result=scored[i];
+          box.classList.add('hidden');
+          const input=document.getElementById(mobile?'mobile-global-site-search':'global-site-search');
+          if(input) input.value='';
+          try{ result.action(); }catch(e){ console.error(e); }
+          if(mobile){
+            try{ toggleMobileMenu(); }catch(e){}
+          }
+        });
+      });
+    }
+    box.classList.remove('hidden');
+  }
+
+  function setupSearch(){
+    buildSearchIndex();
+    const desktop=document.getElementById('global-site-search');
+    const mobile=document.getElementById('mobile-global-site-search');
+    const clear=document.getElementById('global-search-clear');
+    if(desktop){
+      desktop.addEventListener('input',e=>{
+        if(clear)clear.classList.toggle('hidden',!e.target.value);
+        renderSearchResults(e.target.value,false);
+      });
+      desktop.addEventListener('focus',e=>{if(e.target.value)renderSearchResults(e.target.value,false);});
+    }
+    if(clear) clear.addEventListener('click',()=>{
+      if(desktop){desktop.value='';desktop.focus();}
+      document.getElementById('global-search-results')?.classList.add('hidden');
+    });
+    if(mobile) mobile.addEventListener('input',e=>renderSearchResults(e.target.value,true));
+    document.addEventListener('click',e=>{
+      if(!e.target.closest('#global-search-wrap')) document.getElementById('global-search-results')?.classList.add('hidden');
+      if(!e.target.closest('#mobile-global-site-search') && !e.target.closest('#mobile-global-search-results')) document.getElementById('mobile-global-search-results')?.classList.add('hidden');
+    });
+  }
+
+  function isRunnerActive(){
+    return !!(window.__targetTireActiveSession &&
+      !document.getElementById('practice-runner-view')?.classList.contains('hidden') ||
+      window.__targetTireActiveSession &&
+      !document.getElementById('vault-runner-view')?.classList.contains('hidden'));
+  }
+  function saveActiveSession(){
+    if(!window.__targetTireActiveSession)return;
+    try{
+      if(window.__targetTireActiveSession.type==='practice') savePracticeProgress();
+      else saveMockProgress();
+    }catch(e){}
+    try{localStorage.setItem('targettire_active_session',JSON.stringify(window.__targetTireActiveSession));}catch(e){}
+  }
+  function stopSessionTimersAndAudio(){
+    window.__targetTireSessionPaused=true;
+    try{clearInterval(timerInterval);}catch(e){}
+    try{clearInterval(examTimerInterval);}catch(e){}
+    try{if(typeof __ttStopAudio==='function')__ttStopAudio();}catch(e){}
+    saveActiveSession();
+  }
+  function showPauseOverlay(){
+    const ov=document.getElementById('session-pause-overlay');
+    if(!ov)return;
+    const msg=document.getElementById('session-pause-message');
+    if(msg) msg.innerText='आपके लौटने तक Timer, Practice/Exam activity और सभी sounds पूरी तरह pause रहेंगे।';
+    ov.classList.remove('hidden'); ov.classList.add('flex');
+  }
+  function hidePauseOverlay(){const ov=document.getElementById('session-pause-overlay');if(ov){ov.classList.add('hidden');ov.classList.remove('flex');}}
+
+  function pauseIfRunning(){
+    if(!isRunnerActive())return;
+    stopSessionTimersAndAudio();
+    showPauseOverlay();
+  }
+  window.__targetTirePauseNow = pauseIfRunning;
+  function resumeRunningSession(){
+    hidePauseOverlay();
+    window.__targetTireSessionPaused=false;
+    try{
+      if(!document.getElementById('practice-runner-view')?.classList.contains('hidden')) startTimer();
+      if(!document.getElementById('vault-runner-view')?.classList.contains('hidden')) startExamMainTimer();
+    }catch(e){}
+  }
+  function startFreshFromPause(){
+    const active=window.__targetTireActiveSession;
+    hidePauseOverlay();
+    window.__targetTireSessionPaused=false;
+    if(active?.type==='practice'){
+      localStorage.removeItem('targettire_practice_'+active.title.replace(/\s+/g,'_'));
+      pendingPracticeTitle=active.title; pendingPracticeSub=active.subjectName||'Practice';
+      executePracticeChoice('fresh');
+    }else if(active?.type==='mock'){
+      localStorage.removeItem('targettire_mock_'+active.title.replace(/\s+/g,'_'));
+      pendingMockTitle=active.title; pendingMockQs=active.qs||50; pendingMockMins=active.mins||30;
+      executeMockChoice('fresh');
+    }
+  }
+  function restoreAfterReload(){
+    const raw=localStorage.getItem('targettire_active_session');
+    if(!raw)return;
+    try{
+      const active=JSON.parse(raw);
+      if(!active||!active.type||!active.title)return;
+      window.__targetTireActiveSession=active;
+      window.__targetTireSessionPaused=true;
+      setTimeout(()=>{
+        const ov=document.getElementById('session-pause-overlay');
+        if(!ov)return;
+        document.getElementById('session-pause-message').innerText='आपका पिछला test session सुरक्षित मिला है। वहीं से जारी रखने पर saved question, answers और timer वापस आएँगे।';
+        ov.classList.remove('hidden'); ov.classList.add('flex');
+        const resume=document.getElementById('session-resume-btn');
+        const fresh=document.getElementById('session-fresh-btn');
+        resume.onclick=()=>{
+          if(active.type==='practice'){
+            pendingPracticeTitle=active.title; pendingPracticeSub=active.subjectName||'Practice';
+            executePracticeChoice('resume');
+          }else{
+            pendingMockTitle=active.title; pendingMockQs=active.qs||50; pendingMockMins=active.mins||30;
+            executeMockChoice('resume');
+          }
+          window.__targetTireSessionPaused=false;
+          hidePauseOverlay();
+          if(active.type==='practice')startTimer();else startExamMainTimer();
+        };
+        fresh.onclick=startFreshFromPause;
+      },600);
+    }catch(e){}
+  }
+
+  document.addEventListener('visibilitychange',()=>{
+    if(document.visibilityState==='hidden') pauseIfRunning();
+    else if(window.__targetTireActiveSession && document.getElementById('session-pause-overlay')?.classList.contains('hidden')===false) {}
+  });
+  window.addEventListener('blur',()=>{ if(document.visibilityState==='visible') pauseIfRunning(); });
+  window.addEventListener('pageshow',()=>{ if(window.__targetTireActiveSession && document.visibilityState==='visible' && !document.getElementById('session-pause-overlay')?.classList.contains('hidden')) return; });
+  window.addEventListener('pagehide',()=>{ if(isRunnerActive()) stopSessionTimersAndAudio(); });
+
+  const resumeBtn=document.getElementById('session-resume-btn');
+  const freshBtn=document.getElementById('session-fresh-btn');
+  if(resumeBtn)resumeBtn.onclick=resumeRunningSession;
+  if(freshBtn)freshBtn.onclick=startFreshFromPause;
+
+  if(document.readyState==='loading') window.addEventListener('DOMContentLoaded',()=>{setupSearch();restoreAfterReload();});
+  else { setupSearch(); restoreAfterReload(); }
+})();
+</script>
+
 </body>
 </html>
