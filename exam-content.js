@@ -1,15 +1,3 @@
-// exam-content.js
-// ============================================================
-// TargetTire - Editable Exam Content
-// सिर्फ इसी file में Overview और Exam Information बदलें.
-// index.html को दोबारा बदलने की जरूरत नहीं होगी.
-//
-// IMPORTANT:
-// - Exam name बिल्कुल वही रखें जो exams-data.js में है.
-// - Text में newline चाहिए तो \n का इस्तेमाल कर सकते हैं.
-// - File save करने के बाद website refresh करें.
-// ============================================================
-
 window.examContent = {
   "SSC CGL": {
     overview: "SSC CGL (Staff Selection Commission - Combined Graduate Level) is a prestigious national-level competitive exam conducted in India to recruit candidates for Group 'B' and 'C' Gazetted and Non-Gazetted posts in various ministries, departments, and organizations of the Government of India. / एसएससी सीजीएल (कर्मचारी चयन आयोग - संयुक्त स्नातक स्तर परीक्षा) भारत सरकार के विभिन्न मंत्रालयों, विभागों और संगठनों में ग्रुप 'बी' और 'सी' के पदों पर भर्ती के लिए आयोजित होने वाली देश की सबसे प्रतिष्ठित राष्ट्रीय स्तर की प्रतियोगी परीक्षा है।",
@@ -126,12 +114,6 @@ window.examContent = {
     overview: "Recruitment examinations for public sector insurance, food corporations, and statutory bodies.",
     information: "Exam Pattern: Multi-tier online competitive testing."
   }
-};
-
-
-// Bihar State Government Exams - added as a separate editable block.
-window.examContent = window.examContent || {};
-Object.assign(window.examContent, {
   "BPSC CCE": {
     "overview": "BPSC Combined Competitive Examination (CCE) is a Bihar state government recruitment examination conducted by the relevant Bihar recruiting authority. Eligibility, vacancies, dates and selection stages are governed by the latest official notification.",
     "information": "Qualification: Graduate. Selection: Prelims → Mains → Interview. Exact age limit, marks, negative marking, vacancies and post-wise eligibility should be taken from the latest official notification.",
@@ -2508,4 +2490,4 @@ Object.assign(window.examContent, {
       "Use the latest official notification for exact eligibility, dates, marks, vacancies and selection rules."
     ]
   }
-});
+};
