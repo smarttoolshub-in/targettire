@@ -1,16 +1,16 @@
-// exams-data.js - TargetTire Complete External Exams Data with Overview & Info
+// exams-data.js - TargetTire Complete External Exams Data with State & Bihar Specific Sections
 window.examGroupsData = {
   "SSC": {
     name: "SSC Exams (कर्मचारी चयन आयोग)",
     icon: "fa-building-columns",
     subExams: [
       {
-  name: "SSC CGL",
-  desc: "Combined Graduate Level Tier-I & Tier-II",
-  totalChapters: 50,
-  overviewText: "SSC CGL is a premier national-level competitive recruitment test conducted for various Group B and C posts.",
-  examInfoText: "Exam Pattern: Tier-I Computer Based Examination followed by Tier-II Advanced Objective Modules."
-},
+        name: "SSC CGL",
+        desc: "Combined Graduate Level Tier-I & Tier-II",
+        totalChapters: 50,
+        overviewText: "SSC CGL is a premier national-level competitive recruitment test conducted for various Group B and C posts.",
+        examInfoText: "Exam Pattern: Tier-I Computer Based Examination followed by Tier-II Advanced Objective Modules."
+      },
       { 
         name: "SSC CHSL", 
         desc: "Higher Secondary (10+2) LDC, DEO", 
@@ -179,8 +179,63 @@ window.examGroupsData = {
       }
     ]
   },
+  "StateExams": {
+    name: "State Exams & Bihar Special (राज्य स्तरीय परीक्षाएं)",
+    icon: "fa-map-location-dot",
+    subExams: [
+      {
+        name: "Bihar Combined (BPSC CCE)",
+        desc: "Bihar Public Service Commission Combined Competitive Exam",
+        totalChapters: 60,
+        overviewText: "BPSC CCE is conducted by the Bihar Public Service Commission to recruit administrative officers, police officers, and other executive posts in Bihar state administration.",
+        examInfoText: "Exam Pattern: Prelims (Objective General Studies), Mains (Descriptive Papers including Essay and Optional), followed by Personality Test (Interview)."
+      },
+      {
+        name: "Bihar SSC (BSSC CGL / Inter Level)",
+        desc: "Staff Selection Commission Bihar Secretariat & Clerk Exams",
+        totalChapters: 45,
+        overviewText: "BSSC conducts recruitment examinations for secretariat assistants, lower division clerks, and various state government department positions in Bihar.",
+        examInfoText: "Exam Pattern: Preliminary Exam, Main Exam, followed by Typing/Skill Test or Document Verification."
+      },
+      {
+        name: "Bihar Police (SI & Constable)",
+        desc: "Bihar Police Sub-ordinate Services Commission & CSBC",
+        totalChapters: 40,
+        overviewText: "Recruitment exams for Sub-Inspector (SI), Sergeant, and Constable positions under Bihar Police and Home Guard departments.",
+        examInfoText: "Exam Pattern: Written Test (Prelims & Mains), Physical Efficiency Test (PET), and Medical Examination."
+      },
+      {
+        name: "Bihar Teacher (BPSC TRE)",
+        desc: "School Teacher Recruitment Examination (Primary to PGT)",
+        totalChapters: 50,
+        overviewText: "BPSC Teacher Recruitment Examination (TRE) for hiring teachers across Primary, Middle, Secondary, and Higher Secondary government schools in Bihar.",
+        examInfoText: "Exam Pattern: Single or multi-part objective test covering Language proficiency, General Studies, and Subject-specific knowledge."
+      },
+      {
+        name: "Bihar Technical Service (BTSC JE / Staff Nurse)",
+        desc: "BTSC Engineering, Medical & Technical Recruitment",
+        totalChapters: 40,
+        overviewText: "Bihar Technical Service Commission (BTSC) examinations for Junior Engineers, medical staff, and technical personnel in state departments.",
+        examInfoText: "Exam Pattern: Written CBT or academic/experience-based merit evaluation followed by document verification."
+      },
+      {
+        name: "UPPSC / UPSSSC (Uttar Pradesh Exams)",
+        desc: "Uttar Pradesh Public Service Commission & Subordinate Services",
+        totalChapters: 50,
+        overviewText: "State-level administrative and subordinate service examinations conducted in Uttar Pradesh for PCS, RO/ARO, and PET.",
+        examInfoText: "Exam Pattern: Preliminary exam, Main descriptive exam, and Interview."
+      },
+      {
+        name: "MPPSC / Vyapam (Madhya Pradesh Exams)",
+        desc: "Madhya Pradesh Public Service Commission & Professional Exam Board",
+        totalChapters: 45,
+        overviewText: "Recruitment examinations for state civil services, police, and professional boards in Madhya Pradesh.",
+        examInfoText: "Exam Pattern: Prelims objective test, Mains written exam, and Interview."
+      }
+    ]
+  },
   "CivilService": {
-    name: "UPSC, Defense & State Exams",
+    name: "UPSC & Defense Exams",
     icon: "fa-scale-balanced",
     subExams: [
       { 
@@ -196,20 +251,6 @@ window.examGroupsData = {
         totalChapters: 50,
         overviewText: "National Defence Academy (NDA) and Combined Defence Services (CDS) examinations for officer commissioning in the Armed Forces.",
         examInfoText: "Exam Pattern: Written examination followed by SSB Interview and medical testing."
-      },
-      { 
-        name: "State Government & PCS Exams", 
-        desc: "BPSC, UPPSC, MPPSC and State recruitment", 
-        totalChapters: 50,
-        overviewText: "State Public Service Commission exams (BPSC, UPPSC, MPPSC, etc.) for administrative and executive state positions.",
-        examInfoText: "Exam Pattern: Prelims, Mains, and Interview patterned after civil service models."
-      },
-      { 
-        name: "Police Exam (SI & Constable)", 
-        desc: "State police recruitment board test papers", 
-        totalChapters: 40,
-        overviewText: "State Police Sub-Inspector and Constable recruitment board tests for law and order enforcement.",
-        examInfoText: "Exam Pattern: Written CBT, Physical Measurement, and Efficiency tests."
       },
       { 
         name: "Other Government Exams", 
