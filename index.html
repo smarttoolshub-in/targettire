@@ -899,6 +899,11 @@ Return to Mock Vault
 <button id="ca-modal-daily-btn" onclick="switchCurrentAffairsMode('daily')" class="flex-1 py-2 rounded-lg text-[11px] font-bold bg-indigo-600 text-white">Daily Current Affairs</button>
 <button id="ca-modal-monthly-btn" onclick="switchCurrentAffairsMode('monthly')" class="flex-1 py-2 rounded-lg text-[11px] font-bold text-slate-600 dark:text-slate-300">Monthly Current Affairs</button>
 </div>
+<div id="ca-month-selector-wrap" class="hidden mt-2">
+<select id="ca-month-selector" onchange="renderSelectedMonthlyCurrentAffairs()" class="w-full bg-white dark:bg-[#0b0f19] border border-slate-200 dark:border-slate-700 rounded-lg px-3 py-2 text-[11px] font-semibold text-slate-700 dark:text-slate-200 outline-none">
+<option value="">Select Month</option>
+</select>
+</div>
 </div>
 <div class="flex-grow overflow-y-auto space-y-4 pr-2 text-xs sm:text-sm text-slate-700 dark:text-slate-300 leading-relaxed">
 <div class="p-4 bg-slate-50 dark:bg-[#0b0f19] rounded-xl border border-slate-200 dark:border-slate-800">
@@ -1322,16 +1327,63 @@ function renderCAQuiz(list, containerId) {
     });
     quizContainer.innerHTML = html + '</div>';
 }
-function renderMonthlyCurrentAffairs() {
+function getMonthlyCurrentAffairsItems() {
     const raw = getMonthlyCurrentAffairsData();
-    const items = normalizeMonthlyCA(raw);
+    return normalizeMonthlyCA(raw).filter(item =>
+        item && (
+            (Array.isArray(item.quizList) && item.quizList.length) ||
+            (Array.isArray(item.points) && item.points.length) ||
+            item.title || item.date
+        )
+    );
+}
+
+function populateMonthlyCurrentAffairsSelector(items) {
+    const wrap = document.getElementById('ca-month-selector-wrap');
+    const select = document.getElementById('ca-month-selector');
+    if (!wrap || !select) return;
+
+    select.innerHTML = '';
+    if (!items.length) {
+        wrap.classList.add('hidden');
+        return;
+    }
+
+    items.forEach((item, index) => {
+        const option = document.createElement('option');
+        option.value = String(index);
+        option.textContent = item.title || item.date || item.key || `Month ${index + 1}`;
+        select.appendChild(option);
+    });
+
+    // IMPORTANT: open the latest month that actually has questions/data,
+    // not the first chapter (which was causing January to stay selected).
+    let defaultIndex = items.length - 1;
+    for (let i = items.length - 1; i >= 0; i--) {
+        if (Array.isArray(items[i].quizList) && items[i].quizList.length > 0) {
+            defaultIndex = i;
+            break;
+        }
+    }
+    select.value = String(defaultIndex);
+    wrap.classList.remove('hidden');
+}
+
+function renderSelectedMonthlyCurrentAffairs() {
+    const items = getMonthlyCurrentAffairsItems();
+    const select = document.getElementById('ca-month-selector');
+    const index = select ? Number(select.value) : (items.length - 1);
+    const item = items[index] || items[items.length - 1];
+
     const empty = document.getElementById('modal-ca-monthly-empty');
     const points = document.getElementById('modal-ca-points-list');
     const quiz = document.getElementById('modal-ca-quiz-container');
     const date = document.getElementById('modal-ca-date');
     const title = document.getElementById('modal-ca-title');
     const qBox = document.getElementById('modal-ca-quiz-box');
-    if (!items.length) {
+    const qLabel = document.getElementById('modal-ca-quiz-label');
+
+    if (!item) {
         if (empty) empty.classList.remove('hidden');
         if (points) points.innerHTML = '';
         if (quiz) quiz.innerHTML = '';
@@ -1340,14 +1392,28 @@ function renderMonthlyCurrentAffairs() {
         if (title) title.innerText = 'Monthly Current Affairs';
         return;
     }
+
     if (empty) empty.classList.add('hidden');
     if (qBox) qBox.classList.remove('hidden');
-    const item = items[0];
+    if (qLabel) qLabel.innerText = 'Monthly CA Practice Quiz';
     if (date) date.innerText = item.date || item.key || 'Monthly';
     if (title) title.innerText = item.title || 'Monthly Current Affairs';
-    if (points) points.innerHTML = item.points.length ? item.points.map(p=>`<li>${typeof p==='string'?p:(p.text||p.title||JSON.stringify(p))}</li>`).join('') : '<li>Monthly current affairs topics are ready in the connected data file.</li>';
+
+    if (points) {
+        points.innerHTML = item.points.length
+            ? item.points.map(p => `<li>${typeof p === 'string' ? p : (p.text || p.title || JSON.stringify(p))}</li>`).join('')
+            : '<li>Monthly current affairs questions are available below.</li>';
+    }
+
     renderCAQuiz(item.quizList, 'modal-ca-quiz-container');
 }
+
+function renderMonthlyCurrentAffairs() {
+    const items = getMonthlyCurrentAffairsItems();
+    populateMonthlyCurrentAffairsSelector(items);
+    renderSelectedMonthlyCurrentAffairs();
+}
+
 function switchCurrentAffairsMode(mode) {
     const dailyBtn=document.getElementById('ca-modal-daily-btn'), monthlyBtn=document.getElementById('ca-modal-monthly-btn');
     const empty=document.getElementById('modal-ca-monthly-empty');
@@ -1358,6 +1424,7 @@ function switchCurrentAffairsMode(mode) {
         document.getElementById('modal-ca-heading').innerHTML='<i class="fa-solid fa-calendar-days text-teal-600 dark:text-teal-400"></i> Monthly Current Affairs';
         renderMonthlyCurrentAffairs();
     } else {
+        document.getElementById('ca-month-selector-wrap')?.classList.add('hidden');
         monthlyBtn?.classList.remove('bg-teal-600','text-white'); monthlyBtn?.classList.add('text-slate-600','dark:text-slate-300');
         dailyBtn?.classList.add('bg-indigo-600','text-white'); dailyBtn?.classList.remove('text-slate-600','dark:text-slate-300');
         if (empty) empty.classList.add('hidden'); if (qBox) qBox.classList.remove('hidden');
