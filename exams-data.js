@@ -220,22 +220,12 @@ window.examGroupsData = {
         examInfoText: "Exam Pattern: Multi-tier online competitive testing."
       }
     ]
-  }
-};
+  },
 
-
-// Bihar nested exam menu: State Government Exams → Bihar → individual examinations.
-(function(){
-  const state = window.examGroupsData && window.examGroupsData["State Government & PCS Exams"];
-  if (!state) return;
-  state.name = "State Government Exams (राज्य सरकारी परीक्षाएं)";
-  const bihar = {
-  "name": "Bihar Government Exams (बिहार सरकारी परीक्षाएं)",
-  "desc": "BPSC, BSSC, BTSC, BPSSC, CSBC and other Bihar state recruitment exams",
-  "totalChapters": 100,
-  "overviewText": "Bihar government recruitment exams across BPSC, BSSC, BTSC, BPSSC, CSBC, courts, legislature, health and other state departments.",
-  "examInfoText": "Open Bihar to see separate commission/post-wise exams and technical streams.",
-  "children": [
+  "StateExams": {
+    name: "Bihar Government Exams (बिहार सरकारी परीक्षाएं)",
+    icon: "fa-map-location-dot",
+    subExams: [
     {
       "name": "BPSC CCE",
       "desc": "BPSC Combined Competitive Examination (CCE)",
@@ -601,6 +591,6 @@ window.examGroupsData = {
       "examInfoText": "Qualification: Post-specific. Selection: As prescribed in the official notification."
     }
   ]
-};
-  state.subExams = [bihar, ...state.subExams.filter(x => x.name !== "Bihar Government Exams (बिहार सरकारी परीक्षाएं)")];
-})();
+}
+};    
+  
