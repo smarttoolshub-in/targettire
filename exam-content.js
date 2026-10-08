@@ -1,2252 +1,2511 @@
-// exam-content-expanded.js
-// TargetTire - Complete Structured Exam Content
-// इसे website में exam-content.js के नाम से रख सकते हैं.
-// Existing exam entries + Overview + Information + Stages + Syllabus + Pattern + Notes.
+// exam-content.js
+// ============================================================
+// TargetTire - Editable Exam Content
+// सिर्फ इसी file में Overview और Exam Information बदलें.
+// index.html को दोबारा बदलने की जरूरत नहीं होगी.
+//
+// IMPORTANT:
+// - Exam name बिल्कुल वही रखें जो exams-data.js में है.
+// - Text में newline चाहिए तो \n का इस्तेमाल कर सकते हैं.
+// - File save करने के बाद website refresh करें.
+// ============================================================
 
 window.examContent = {
   "SSC CGL": {
-    "overview": "SSC CGL (Staff Selection Commission - Combined Graduate Level) is a prestigious national-level competitive exam conducted in India to recruit candidates for Group 'B' and 'C' Gazetted and Non-Gazetted posts in various ministries, departments, and organizations of the Government of India. / एसएससी सीजीएल (कर्मचारी चयन आयोग - संयुक्त स्नातक स्तर परीक्षा) भारत सरकार के विभिन्न मंत्रालयों, विभागों और संगठनों में ग्रुप 'बी' और 'सी' के पदों पर भर्ती के लिए आयोजित होने वाली देश की सबसे प्रतिष्ठित राष्ट्रीय स्तर की प्रतियोगी परीक्षा है।",
-    "information": "Exam Pattern & Selection Process: 1) Mode: Conducted entirely online via Computer Based Examination (CBT). 2) Tiers: The selection involves Tier-I (Objective Computer-Based Test) and Tier-II (Mandatory computer-based sessions with multiple modules like Mathematical Abilities, Reasoning, English, General Awareness, and Computer Knowledge). 3) Negative Marking: Yes, there is negative marking for wrong answers in both Tiers (typically 0.50 marks for Tier-I and 1 mark for Tier-II per incorrect answer). 4) Final Stages: After clearing the written exams, candidates undergo Document Verification (DV), and for specific posts (like Inspector/Sub-Inspector), medical examination and physical standards tests are also conducted. / परीक्षा पैटर्न और चयन प्रक्रिया: 1) मोड: यह परीक्षा पूरी तरह से ऑनलाइन कंप्यूटर आधारित परीक्षा (CBT) के रूप में होती है। 2) चरण (Tiers): इसमें मुख्य रूप से टियर-1 (ऑब्जेक्टिव सीबीटी) और टियर-2 (कंप्यूटर आधारित टेस्ट जिसमें गणित, रीजनिंग, अंग्रेजी, सामान्य ज्ञान और कंप्यूटर ज्ञान शामिल है) देने होते हैं। 3) नेगेटिव मार्किंग: हाँ, दोनों चरणों में गलत उत्तरों के लिए नेगेटिव मार्किंग होती है (आमतौर पर टियर-1 में 0.50 और टियर-2 में प्रत्येक गलत उत्तर पर 1 अंक काटा जाता है)। 4) अंतिम चरण: लिखित परीक्षा पास करने के बाद डॉक्यूमेंट वेरिफिकेशन (दस्तावेज़ सत्यापन) होता है, और कुछ खास पदों (जैसे इंस्पेक्टर/सब-इंस्पेक्टर) के लिए मेडिकल परीक्षा और शारीरिक मानक परीक्षण (Physical Standards Test) भी लिया जाता है।",
-    "stages": [
-      {
-        "title": "Tier-I / CBT-1",
-        "description": "Objective Computer Based Examination"
-      },
-      {
-        "title": "Tier-II / CBT-2",
-        "description": "Computer Based Examination with multiple sections/modules"
-      },
-      {
-        "title": "Document Verification",
-        "description": "Verification of required documents"
-      },
-      {
-        "title": "Medical / Physical Standards",
-        "description": "Applicable to specific posts where prescribed"
-      }
-    ],
-    "syllabus": [
-      {
-        "title": "Mathematics / Quantitative Aptitude",
-        "topics": [
-          "Number System",
-          "Percentage",
-          "Ratio & Proportion",
-          "Profit & Loss",
-          "Time & Work",
-          "Time & Distance",
-          "Algebra",
-          "Geometry",
-          "Mensuration"
-        ]
-      },
-      {
-        "title": "Reasoning / General Intelligence",
-        "topics": [
-          "Analogy",
-          "Classification",
-          "Series",
-          "Coding-Decoding",
-          "Blood Relation",
-          "Direction Test",
-          "Syllogism",
-          "Venn Diagram"
-        ]
-      },
-      {
-        "title": "English Language",
-        "topics": [
-          "Grammar",
-          "Vocabulary",
-          "Error Detection",
-          "Comprehension",
-          "Cloze Test"
-        ]
-      },
-      {
-        "title": "General Awareness",
-        "topics": [
-          "History",
-          "Geography",
-          "Polity",
-          "Economics",
-          "General Science",
-          "Current Affairs"
-        ]
-      }
-    ],
-    "pattern": {
-      "mode": "Computer Based / Online",
-      "selection": "Tier-I / CBT-1 → Tier-II / CBT-2 → Document Verification → Medical / Physical Standards"
-    },
-    "importantNotes": [
-      "यह structured content TargetTire के exam-information cards के लिए है।",
-      "Vacancy, age limit, dates, exact marks, negative marking और post-specific eligibility latest official notification के अनुसार verify करें।"
-    ]
+    overview: "SSC CGL (Staff Selection Commission - Combined Graduate Level) is a prestigious national-level competitive exam conducted in India to recruit candidates for Group 'B' and 'C' Gazetted and Non-Gazetted posts in various ministries, departments, and organizations of the Government of India. / एसएससी सीजीएल (कर्मचारी चयन आयोग - संयुक्त स्नातक स्तर परीक्षा) भारत सरकार के विभिन्न मंत्रालयों, विभागों और संगठनों में ग्रुप 'बी' और 'सी' के पदों पर भर्ती के लिए आयोजित होने वाली देश की सबसे प्रतिष्ठित राष्ट्रीय स्तर की प्रतियोगी परीक्षा है।",
+    information: "Exam Pattern & Selection Process: 1) Mode: Conducted entirely online via Computer Based Examination (CBT). 2) Tiers: The selection involves Tier-I (Objective Computer-Based Test) and Tier-II (Mandatory computer-based sessions with multiple modules like Mathematical Abilities, Reasoning, English, General Awareness, and Computer Knowledge). 3) Negative Marking: Yes, there is negative marking for wrong answers in both Tiers (typically 0.50 marks for Tier-I and 1 mark for Tier-II per incorrect answer). 4) Final Stages: After clearing the written exams, candidates undergo Document Verification (DV), and for specific posts (like Inspector/Sub-Inspector), medical examination and physical standards tests are also conducted. / परीक्षा पैटर्न और चयन प्रक्रिया: 1) मोड: यह परीक्षा पूरी तरह से ऑनलाइन कंप्यूटर आधारित परीक्षा (CBT) के रूप में होती है। 2) चरण (Tiers): इसमें मुख्य रूप से टियर-1 (ऑब्जेक्टिव सीबीटी) और टियर-2 (कंप्यूटर आधारित टेस्ट जिसमें गणित, रीजनिंग, अंग्रेजी, सामान्य ज्ञान और कंप्यूटर ज्ञान शामिल है) देने होते हैं। 3) नेगेटिव मार्किंग: हाँ, दोनों चरणों में गलत उत्तरों के लिए नेगेटिव मार्किंग होती है (आमतौर पर टियर-1 में 0.50 और टियर-2 में प्रत्येक गलत उत्तर पर 1 अंक काटा जाता है)। 4) अंतिम चरण: लिखित परीक्षा पास करने के बाद डॉक्यूमेंट वेरिफिकेशन (दस्तावेज़ सत्यापन) होता है, और कुछ खास पदों (जैसे इंस्पेक्टर/सब-इंस्पेक्टर) के लिए मेडिकल परीक्षा और शारीरिक मानक परीक्षण (Physical Standards Test) भी लिया जाता है।"
   },
   "SSC CHSL": {
-    "overview": "SSC CHSL is conducted for 10+2 intermediate qualified candidates aspiring for Lower Division Clerk (LDC), Junior Secretariat Assistant (JSA), and Data Entry Operator (DEO) positions.",
-    "information": "Exam Pattern: Tier-I Computer Based Examination followed by Tier-II Skill Test / Typing Test for qualified candidates.",
-    "stages": [
-      {
-        "title": "Tier-I / CBT-1",
-        "description": "Computer Based Examination"
-      },
-      {
-        "title": "Tier-II",
-        "description": "Computer Based Examination / Skill or Typing assessment as applicable"
-      },
-      {
-        "title": "Document Verification",
-        "description": "Verification of required documents"
-      }
-    ],
-    "syllabus": [
-      {
-        "title": "Mathematics / Quantitative Aptitude",
-        "topics": [
-          "Number System",
-          "Percentage",
-          "Ratio & Proportion",
-          "Profit & Loss",
-          "Time & Work",
-          "Time & Distance",
-          "Algebra",
-          "Geometry",
-          "Mensuration"
-        ]
-      },
-      {
-        "title": "Reasoning / General Intelligence",
-        "topics": [
-          "Analogy",
-          "Classification",
-          "Series",
-          "Coding-Decoding",
-          "Blood Relation",
-          "Direction Test",
-          "Syllogism",
-          "Venn Diagram"
-        ]
-      },
-      {
-        "title": "English Language",
-        "topics": [
-          "Grammar",
-          "Vocabulary",
-          "Error Detection",
-          "Comprehension",
-          "Cloze Test"
-        ]
-      },
-      {
-        "title": "General Awareness",
-        "topics": [
-          "History",
-          "Geography",
-          "Polity",
-          "Economics",
-          "General Science",
-          "Current Affairs"
-        ]
-      }
-    ],
-    "pattern": {
-      "mode": "Computer Based / Online",
-      "selection": "Tier-I / CBT-1 → Tier-II → Document Verification"
-    },
-    "importantNotes": [
-      "यह structured content TargetTire के exam-information cards के लिए है।",
-      "Vacancy, age limit, dates, exact marks, negative marking और post-specific eligibility latest official notification के अनुसार verify करें।"
-    ]
+    overview: "SSC CHSL is conducted for 10+2 intermediate qualified candidates aspiring for Lower Division Clerk (LDC), Junior Secretariat Assistant (JSA), and Data Entry Operator (DEO) positions.",
+    information: "Exam Pattern: Tier-I Computer Based Examination followed by Tier-II Skill Test / Typing Test for qualified candidates."
   },
   "SSC GD Constable": {
-    "overview": "SSC GD Constable exam is held for recruitment of Constable (General Duty) in Border Security Force (BSF), CISF, ITBP, CRPF, and NCB.",
-    "information": "Exam Pattern: Computer Based Examination (CBE) consisting of Objective type questions, followed by Physical Efficiency Test (PET) and Physical Standard Test (PST).",
-    "stages": [
-      {
-        "title": "Computer Based Examination",
-        "description": "Objective computer based test"
-      },
-      {
-        "title": "PET",
-        "description": "Physical Efficiency Test"
-      },
-      {
-        "title": "PST",
-        "description": "Physical Standard Test"
-      },
-      {
-        "title": "Medical Examination",
-        "description": "Medical fitness assessment"
-      }
-    ],
-    "syllabus": [
-      {
-        "title": "Mathematics / Quantitative Aptitude",
-        "topics": [
-          "Number System",
-          "Percentage",
-          "Ratio & Proportion",
-          "Profit & Loss",
-          "Time & Work",
-          "Time & Distance",
-          "Algebra",
-          "Geometry",
-          "Mensuration"
-        ]
-      },
-      {
-        "title": "Reasoning / General Intelligence",
-        "topics": [
-          "Analogy",
-          "Classification",
-          "Series",
-          "Coding-Decoding",
-          "Blood Relation",
-          "Direction Test",
-          "Syllogism",
-          "Venn Diagram"
-        ]
-      },
-      {
-        "title": "English Language",
-        "topics": [
-          "Grammar",
-          "Vocabulary",
-          "Error Detection",
-          "Comprehension",
-          "Cloze Test"
-        ]
-      },
-      {
-        "title": "General Awareness",
-        "topics": [
-          "History",
-          "Geography",
-          "Polity",
-          "Economics",
-          "General Science",
-          "Current Affairs"
-        ]
-      }
-    ],
-    "pattern": {
-      "mode": "Computer Based / Online",
-      "selection": "Computer Based Examination → PET → PST → Medical Examination"
-    },
-    "importantNotes": [
-      "यह structured content TargetTire के exam-information cards के लिए है।",
-      "Vacancy, age limit, dates, exact marks, negative marking और post-specific eligibility latest official notification के अनुसार verify करें।"
-    ]
+    overview: "SSC GD Constable exam is held for recruitment of Constable (General Duty) in Border Security Force (BSF), CISF, ITBP, CRPF, and NCB.",
+    information: "Exam Pattern: Computer Based Examination (CBE) consisting of Objective type questions, followed by Physical Efficiency Test (PET) and Physical Standard Test (PST)."
   },
   "SSC Selection Post": {
-    "overview": "SSC Selection Post is conducted to recruit candidates with Matriculation, Higher Secondary, and Graduation educational qualifications for various specific government department posts.",
-    "information": "Exam Pattern: Single stage Computer Based Examination consisting of objective multiple-choice questions.",
-    "stages": [
-      {
-        "title": "Computer Based Examination",
-        "description": "Objective multiple-choice computer based examination"
-      },
-      {
-        "title": "Document Verification",
-        "description": "Post/qualification-specific verification"
-      }
-    ],
-    "syllabus": [
-      {
-        "title": "Mathematics / Quantitative Aptitude",
-        "topics": [
-          "Number System",
-          "Percentage",
-          "Ratio & Proportion",
-          "Profit & Loss",
-          "Time & Work",
-          "Time & Distance",
-          "Algebra",
-          "Geometry",
-          "Mensuration"
-        ]
-      },
-      {
-        "title": "Reasoning / General Intelligence",
-        "topics": [
-          "Analogy",
-          "Classification",
-          "Series",
-          "Coding-Decoding",
-          "Blood Relation",
-          "Direction Test",
-          "Syllogism",
-          "Venn Diagram"
-        ]
-      },
-      {
-        "title": "English Language",
-        "topics": [
-          "Grammar",
-          "Vocabulary",
-          "Error Detection",
-          "Comprehension",
-          "Cloze Test"
-        ]
-      },
-      {
-        "title": "General Awareness",
-        "topics": [
-          "History",
-          "Geography",
-          "Polity",
-          "Economics",
-          "General Science",
-          "Current Affairs"
-        ]
-      }
-    ],
-    "pattern": {
-      "mode": "Computer Based / Online",
-      "selection": "Computer Based Examination → Document Verification"
-    },
-    "importantNotes": [
-      "यह structured content TargetTire के exam-information cards के लिए है।",
-      "Vacancy, age limit, dates, exact marks, negative marking और post-specific eligibility latest official notification के अनुसार verify करें।"
-    ]
+    overview: "SSC Selection Post is conducted to recruit candidates with Matriculation, Higher Secondary, and Graduation educational qualifications for various specific government department posts.",
+    information: "Exam Pattern: Single stage Computer Based Examination consisting of objective multiple-choice questions."
   },
   "SSC MTS": {
-    "overview": "SSC MTS is a nationwide examination for recruiting candidates in General Central Service Group 'C' Non-Gazetted, Non-Ministerial posts in various ministries.",
-    "information": "Exam Pattern: Computer Based Exam conducted in two sessions with objective type questions and negative marking in Session-2.",
-    "stages": [
-      {
-        "title": "Computer Based Examination",
-        "description": "Computer based examination in sessions"
-      },
-      {
-        "title": "PET / PST",
-        "description": "Applicable for Havaldar posts"
-      },
-      {
-        "title": "Document Verification",
-        "description": "Verification of required documents"
-      }
-    ],
-    "syllabus": [
-      {
-        "title": "Mathematics / Quantitative Aptitude",
-        "topics": [
-          "Number System",
-          "Percentage",
-          "Ratio & Proportion",
-          "Profit & Loss",
-          "Time & Work",
-          "Time & Distance",
-          "Algebra",
-          "Geometry",
-          "Mensuration"
-        ]
-      },
-      {
-        "title": "Reasoning / General Intelligence",
-        "topics": [
-          "Analogy",
-          "Classification",
-          "Series",
-          "Coding-Decoding",
-          "Blood Relation",
-          "Direction Test",
-          "Syllogism",
-          "Venn Diagram"
-        ]
-      },
-      {
-        "title": "English Language",
-        "topics": [
-          "Grammar",
-          "Vocabulary",
-          "Error Detection",
-          "Comprehension",
-          "Cloze Test"
-        ]
-      },
-      {
-        "title": "General Awareness",
-        "topics": [
-          "History",
-          "Geography",
-          "Polity",
-          "Economics",
-          "General Science",
-          "Current Affairs"
-        ]
-      }
-    ],
-    "pattern": {
-      "mode": "Computer Based / Online",
-      "selection": "Computer Based Examination → PET / PST → Document Verification"
-    },
-    "importantNotes": [
-      "यह structured content TargetTire के exam-information cards के लिए है।",
-      "Vacancy, age limit, dates, exact marks, negative marking और post-specific eligibility latest official notification के अनुसार verify करें।"
-    ]
+    overview: "SSC MTS is a nationwide examination for recruiting candidates in General Central Service Group 'C' Non-Gazetted, Non-Ministerial posts in various ministries.",
+    information: "Exam Pattern: Computer Based Exam conducted in two sessions with objective type questions and negative marking in Session-2."
   },
   "SSC CPO": {
-    "overview": "SSC CPO exam recruits Sub-Inspectors (SI) in Delhi Police and Central Armed Police Forces (CAPFs) through a rigorous multi-stage evaluation process.",
-    "information": "Exam Pattern: Paper-I (CBT), Physical Standard Test (PST) / Physical Endurance Test (PET), Paper-II (English Language & Comprehension), and Detailed Medical Examination.",
-    "stages": [
-      {
-        "title": "Paper-I / CBT",
-        "description": "Computer Based Examination"
-      },
-      {
-        "title": "PST / PET",
-        "description": "Physical Standard and Physical Endurance Tests"
-      },
-      {
-        "title": "Paper-II",
-        "description": "English Language & Comprehension"
-      },
-      {
-        "title": "Detailed Medical Examination",
-        "description": "Medical fitness assessment"
-      }
-    ],
-    "syllabus": [
-      {
-        "title": "Mathematics / Quantitative Aptitude",
-        "topics": [
-          "Number System",
-          "Percentage",
-          "Ratio & Proportion",
-          "Profit & Loss",
-          "Time & Work",
-          "Time & Distance",
-          "Algebra",
-          "Geometry",
-          "Mensuration"
-        ]
-      },
-      {
-        "title": "Reasoning / General Intelligence",
-        "topics": [
-          "Analogy",
-          "Classification",
-          "Series",
-          "Coding-Decoding",
-          "Blood Relation",
-          "Direction Test",
-          "Syllogism",
-          "Venn Diagram"
-        ]
-      },
-      {
-        "title": "English Language",
-        "topics": [
-          "Grammar",
-          "Vocabulary",
-          "Error Detection",
-          "Comprehension",
-          "Cloze Test"
-        ]
-      },
-      {
-        "title": "General Awareness",
-        "topics": [
-          "History",
-          "Geography",
-          "Polity",
-          "Economics",
-          "General Science",
-          "Current Affairs"
-        ]
-      }
-    ],
-    "pattern": {
-      "mode": "Computer Based / Online",
-      "selection": "Paper-I / CBT → PST / PET → Paper-II → Detailed Medical Examination"
-    },
-    "importantNotes": [
-      "यह structured content TargetTire के exam-information cards के लिए है।",
-      "Vacancy, age limit, dates, exact marks, negative marking और post-specific eligibility latest official notification के अनुसार verify करें।"
-    ]
+    overview: "SSC CPO exam recruits Sub-Inspectors (SI) in Delhi Police and Central Armed Police Forces (CAPFs) through a rigorous multi-stage evaluation process.",
+    information: "Exam Pattern: Paper-I (CBT), Physical Standard Test (PST) / Physical Endurance Test (PET), Paper-II (English Language & Comprehension), and Detailed Medical Examination."
   },
   "SSC Stenographer": {
-    "overview": "SSC Stenographer Grade 'C' (Group B Non-Gazetted) and Grade 'D' (Group C) examination for candidates skilled in shorthand transcription.",
-    "information": "Exam Pattern: Computer Based Online Test testing General Intelligence, General Awareness, and English Language, followed by Skill Test in Stenography.",
-    "stages": [
-      {
-        "title": "Computer Based Examination",
-        "description": "General Intelligence, General Awareness and English"
-      },
-      {
-        "title": "Skill Test",
-        "description": "Stenography skill assessment"
-      },
-      {
-        "title": "Document Verification",
-        "description": "Verification of required documents"
-      }
-    ],
-    "syllabus": [
-      {
-        "title": "Reasoning / General Intelligence",
-        "topics": [
-          "Analogy",
-          "Classification",
-          "Series",
-          "Coding-Decoding",
-          "Blood Relation",
-          "Direction Test",
-          "Syllogism",
-          "Venn Diagram"
-        ]
-      },
-      {
-        "title": "English Language",
-        "topics": [
-          "Grammar",
-          "Vocabulary",
-          "Error Detection",
-          "Comprehension",
-          "Cloze Test"
-        ]
-      },
-      {
-        "title": "General Awareness",
-        "topics": [
-          "History",
-          "Geography",
-          "Polity",
-          "Economics",
-          "General Science",
-          "Current Affairs"
-        ]
-      },
-      {
-        "title": "Stenography",
-        "topics": [
-          "Shorthand",
-          "Transcription",
-          "Skill Test Practice"
-        ]
-      }
-    ],
-    "pattern": {
-      "mode": "Computer Based / Online",
-      "selection": "Computer Based Examination → Skill Test → Document Verification"
-    },
-    "importantNotes": [
-      "यह structured content TargetTire के exam-information cards के लिए है।",
-      "Vacancy, age limit, dates, exact marks, negative marking और post-specific eligibility latest official notification के अनुसार verify करें।"
-    ]
+    overview: "SSC Stenographer Grade 'C' (Group B Non-Gazetted) and Grade 'D' (Group C) examination for candidates skilled in shorthand transcription.",
+    information: "Exam Pattern: Computer Based Online Test testing General Intelligence, General Awareness, and English Language, followed by Skill Test in Stenography."
   },
   "SSC JE": {
-    "overview": "SSC Junior Engineer (JE) exam is conducted annually for recruiting Junior Engineers in Civil, Mechanical, and Electrical disciplines across various government organizations.",
-    "information": "Exam Pattern: Paper-I (Objective CBT) and Paper-II (Detailed Subject-specific Technical CBT).",
-    "stages": [
-      {
-        "title": "Paper-I / CBT",
-        "description": "Objective Computer Based Examination"
-      },
-      {
-        "title": "Paper-II",
-        "description": "Subject-specific technical examination"
-      },
-      {
-        "title": "Document Verification",
-        "description": "Verification of required documents"
-      }
-    ],
-    "syllabus": [
-      {
-        "title": "Mathematics / Quantitative Aptitude",
-        "topics": [
-          "Number System",
-          "Percentage",
-          "Ratio & Proportion",
-          "Profit & Loss",
-          "Time & Work",
-          "Time & Distance",
-          "Algebra",
-          "Geometry",
-          "Mensuration"
-        ]
-      },
-      {
-        "title": "Reasoning / General Intelligence",
-        "topics": [
-          "Analogy",
-          "Classification",
-          "Series",
-          "Coding-Decoding",
-          "Blood Relation",
-          "Direction Test",
-          "Syllogism",
-          "Venn Diagram"
-        ]
-      },
-      {
-        "title": "English Language",
-        "topics": [
-          "Grammar",
-          "Vocabulary",
-          "Error Detection",
-          "Comprehension",
-          "Cloze Test"
-        ]
-      },
-      {
-        "title": "General Awareness",
-        "topics": [
-          "History",
-          "Geography",
-          "Polity",
-          "Economics",
-          "General Science",
-          "Current Affairs"
-        ]
-      },
-      {
-        "title": "Technical Subject",
-        "topics": [
-          "Civil / Mechanical / Electrical stream-specific syllabus"
-        ]
-      }
-    ],
-    "pattern": {
-      "mode": "Computer Based / Online",
-      "selection": "Paper-I / CBT → Paper-II → Document Verification"
-    },
-    "importantNotes": [
-      "यह structured content TargetTire के exam-information cards के लिए है।",
-      "Vacancy, age limit, dates, exact marks, negative marking और post-specific eligibility latest official notification के अनुसार verify करें।"
-    ]
+    overview: "SSC Junior Engineer (JE) exam is conducted annually for recruiting Junior Engineers in Civil, Mechanical, and Electrical disciplines across various government organizations.",
+    information: "Exam Pattern: Paper-I (Objective CBT) and Paper-II (Detailed Subject-specific Technical CBT)."
   },
+
   "IBPS RRB Clerk": {
-    "overview": "IBPS RRB Office Assistant (Clerk) exam is conducted for recruitment in Regional Rural Banks across India.",
-    "information": "Exam Pattern: Preliminary Examination (Reasoning & Numerical Ability) followed by Main Examination.",
-    "stages": [
-      {
-        "title": "Prelims",
-        "description": "Reasoning and Numerical Ability"
-      },
-      {
-        "title": "Mains",
-        "description": "Main online examination"
-      },
-      {
-        "title": "Document Verification",
-        "description": "Recruitment/verification stage"
-      }
-    ],
-    "syllabus": [
-      {
-        "title": "Reasoning",
-        "topics": [
-          "Puzzles",
-          "Seating Arrangement",
-          "Syllogism",
-          "Inequality",
-          "Coding-Decoding",
-          "Blood Relation"
-        ]
-      },
-      {
-        "title": "Quantitative Aptitude",
-        "topics": [
-          "Simplification",
-          "Number Series",
-          "Percentage",
-          "Ratio",
-          "Profit & Loss",
-          "Time & Work",
-          "Data Interpretation"
-        ]
-      },
-      {
-        "title": "English Language",
-        "topics": [
-          "Grammar",
-          "Vocabulary",
-          "Reading Comprehension",
-          "Cloze Test"
-        ]
-      },
-      {
-        "title": "General / Banking Awareness",
-        "topics": [
-          "Banking Basics",
-          "Financial Awareness",
-          "Current Affairs",
-          "Static Awareness"
-        ]
-      }
-    ],
-    "pattern": {
-      "mode": "As prescribed in notification",
-      "selection": "Prelims → Mains → Document Verification"
-    },
-    "importantNotes": [
-      "यह structured content TargetTire के exam-information cards के लिए है।",
-      "Vacancy, age limit, dates, exact marks, negative marking और post-specific eligibility latest official notification के अनुसार verify करें।"
-    ]
+    overview: "IBPS RRB Office Assistant (Clerk) exam is conducted for recruitment in Regional Rural Banks across India.",
+    information: "Exam Pattern: Preliminary Examination (Reasoning & Numerical Ability) followed by Main Examination."
   },
   "IBPS RRB PO": {
-    "overview": "IBPS RRB Officer Scale-I (Probationary Officer) exam evaluates high-level reasoning and quantitative aptitude for rural banking leadership.",
-    "information": "Exam Pattern: Prelims, Mains, and Interview process conducted by IBPS.",
-    "stages": [
-      {
-        "title": "Prelims",
-        "description": "Preliminary online examination"
-      },
-      {
-        "title": "Mains",
-        "description": "Main online examination"
-      },
-      {
-        "title": "Interview",
-        "description": "Interview / final selection stage"
-      }
-    ],
-    "syllabus": [
-      {
-        "title": "Reasoning",
-        "topics": [
-          "Puzzles",
-          "Seating Arrangement",
-          "Syllogism",
-          "Inequality",
-          "Coding-Decoding",
-          "Blood Relation"
-        ]
-      },
-      {
-        "title": "Quantitative Aptitude",
-        "topics": [
-          "Simplification",
-          "Number Series",
-          "Percentage",
-          "Ratio",
-          "Profit & Loss",
-          "Time & Work",
-          "Data Interpretation"
-        ]
-      },
-      {
-        "title": "English Language",
-        "topics": [
-          "Grammar",
-          "Vocabulary",
-          "Reading Comprehension",
-          "Cloze Test"
-        ]
-      },
-      {
-        "title": "General / Banking Awareness",
-        "topics": [
-          "Banking Basics",
-          "Financial Awareness",
-          "Current Affairs",
-          "Static Awareness"
-        ]
-      }
-    ],
-    "pattern": {
-      "mode": "As prescribed in notification",
-      "selection": "Prelims → Mains → Interview"
-    },
-    "importantNotes": [
-      "यह structured content TargetTire के exam-information cards के लिए है।",
-      "Vacancy, age limit, dates, exact marks, negative marking और post-specific eligibility latest official notification के अनुसार verify करें।"
-    ]
+    overview: "IBPS RRB Officer Scale-I (Probationary Officer) exam evaluates high-level reasoning and quantitative aptitude for rural banking leadership.",
+    information: "Exam Pattern: Prelims, Mains, and Interview process conducted by IBPS."
   },
   "IBPS Clerk": {
-    "overview": "IBPS Clerk recruitment is a gateway for clerical cadre positions in participating public sector banks across India.",
-    "information": "Exam Pattern: Two-tier online examination (Prelims and Mains) with sectional and overall cut-offs.",
-    "stages": [
-      {
-        "title": "Prelims",
-        "description": "Preliminary online examination"
-      },
-      {
-        "title": "Mains",
-        "description": "Main online examination"
-      },
-      {
-        "title": "Document Verification",
-        "description": "Recruitment/verification stage"
-      }
-    ],
-    "syllabus": [
-      {
-        "title": "Reasoning",
-        "topics": [
-          "Puzzles",
-          "Seating Arrangement",
-          "Syllogism",
-          "Inequality",
-          "Coding-Decoding",
-          "Blood Relation"
-        ]
-      },
-      {
-        "title": "Quantitative Aptitude",
-        "topics": [
-          "Simplification",
-          "Number Series",
-          "Percentage",
-          "Ratio",
-          "Profit & Loss",
-          "Time & Work",
-          "Data Interpretation"
-        ]
-      },
-      {
-        "title": "English Language",
-        "topics": [
-          "Grammar",
-          "Vocabulary",
-          "Reading Comprehension",
-          "Cloze Test"
-        ]
-      },
-      {
-        "title": "General / Banking Awareness",
-        "topics": [
-          "Banking Basics",
-          "Financial Awareness",
-          "Current Affairs",
-          "Static Awareness"
-        ]
-      }
-    ],
-    "pattern": {
-      "mode": "Computer Based / Online",
-      "selection": "Prelims → Mains → Document Verification"
-    },
-    "importantNotes": [
-      "यह structured content TargetTire के exam-information cards के लिए है।",
-      "Vacancy, age limit, dates, exact marks, negative marking और post-specific eligibility latest official notification के अनुसार verify करें।"
-    ]
+    overview: "IBPS Clerk recruitment is a gateway for clerical cadre positions in participating public sector banks across India.",
+    information: "Exam Pattern: Two-tier online examination (Prelims and Mains) with sectional and overall cut-offs."
   },
   "IBPS PO": {
-    "overview": "IBPS Probationary Officer (PO) exam is one of the most sought-after banking exams for leadership roles in public sector banks.",
-    "information": "Exam Pattern: Prelims (Objective), Mains (Objective + Descriptive Test), followed by a personal interview.",
-    "stages": [
-      {
-        "title": "Prelims",
-        "description": "Objective preliminary examination"
-      },
-      {
-        "title": "Mains",
-        "description": "Objective + descriptive examination"
-      },
-      {
-        "title": "Interview",
-        "description": "Personal interview"
-      }
-    ],
-    "syllabus": [
-      {
-        "title": "Reasoning",
-        "topics": [
-          "Puzzles",
-          "Seating Arrangement",
-          "Syllogism",
-          "Inequality",
-          "Coding-Decoding",
-          "Blood Relation"
-        ]
-      },
-      {
-        "title": "Quantitative Aptitude",
-        "topics": [
-          "Simplification",
-          "Number Series",
-          "Percentage",
-          "Ratio",
-          "Profit & Loss",
-          "Time & Work",
-          "Data Interpretation"
-        ]
-      },
-      {
-        "title": "English Language",
-        "topics": [
-          "Grammar",
-          "Vocabulary",
-          "Reading Comprehension",
-          "Cloze Test"
-        ]
-      },
-      {
-        "title": "General / Banking Awareness",
-        "topics": [
-          "Banking Basics",
-          "Financial Awareness",
-          "Current Affairs",
-          "Static Awareness"
-        ]
-      }
-    ],
-    "pattern": {
-      "mode": "As prescribed in notification",
-      "selection": "Prelims → Mains → Interview"
-    },
-    "importantNotes": [
-      "यह structured content TargetTire के exam-information cards के लिए है।",
-      "Vacancy, age limit, dates, exact marks, negative marking और post-specific eligibility latest official notification के अनुसार verify करें।"
-    ]
+    overview: "IBPS Probationary Officer (PO) exam is one of the most sought-after banking exams for leadership roles in public sector banks.",
+    information: "Exam Pattern: Prelims (Objective), Mains (Objective + Descriptive Test), followed by a personal interview."
   },
   "SBI Clerk": {
-    "overview": "State Bank of India (SBI) Junior Associate (Customer Support & Sales) recruitment exam.",
-    "information": "Exam Pattern: Preliminary online test, Main online test, and local language proficiency test.",
-    "stages": [
-      {
-        "title": "Prelims",
-        "description": "Preliminary online examination"
-      },
-      {
-        "title": "Mains",
-        "description": "Main online examination"
-      },
-      {
-        "title": "Local Language Test",
-        "description": "Local language proficiency assessment as applicable"
-      }
-    ],
-    "syllabus": [
-      {
-        "title": "Reasoning",
-        "topics": [
-          "Puzzles",
-          "Seating Arrangement",
-          "Syllogism",
-          "Inequality",
-          "Coding-Decoding",
-          "Blood Relation"
-        ]
-      },
-      {
-        "title": "Quantitative Aptitude",
-        "topics": [
-          "Simplification",
-          "Number Series",
-          "Percentage",
-          "Ratio",
-          "Profit & Loss",
-          "Time & Work",
-          "Data Interpretation"
-        ]
-      },
-      {
-        "title": "English Language",
-        "topics": [
-          "Grammar",
-          "Vocabulary",
-          "Reading Comprehension",
-          "Cloze Test"
-        ]
-      },
-      {
-        "title": "General / Banking Awareness",
-        "topics": [
-          "Banking Basics",
-          "Financial Awareness",
-          "Current Affairs",
-          "Static Awareness"
-        ]
-      }
-    ],
-    "pattern": {
-      "mode": "Computer Based / Online",
-      "selection": "Prelims → Mains → Local Language Test"
-    },
-    "importantNotes": [
-      "यह structured content TargetTire के exam-information cards के लिए है।",
-      "Vacancy, age limit, dates, exact marks, negative marking और post-specific eligibility latest official notification के अनुसार verify करें।"
-    ]
+    overview: "State Bank of India (SBI) Junior Associate (Customer Support & Sales) recruitment exam.",
+    information: "Exam Pattern: Preliminary online test, Main online test, and local language proficiency test."
   },
   "SBI PO": {
-    "overview": "SBI Probationary Officer exam is renowned for its high difficulty standards and comprehensive testing across reasoning, data interpretation, and banking awareness.",
-    "information": "Exam Pattern: Prelims, Mains (Objective & Descriptive), Psychometric Test, Group Exercise, and Interview.",
+    overview: "SBI Probationary Officer exam is renowned for its high difficulty standards and comprehensive testing across reasoning, data interpretation, and banking awareness.",
+    information: "Exam Pattern: Prelims, Mains (Objective & Descriptive), Psychometric Test, Group Exercise, and Interview."
+  },
+
+  "RRB NTPC": {
+    overview: "Railway Recruitment Board Non-Technical Popular Categories (RRB NTPC) for graduate and undergraduate posts like Station Master, Guard, and Clerk.",
+    information: "Exam Pattern: First Stage CBT, Second Stage CBT, Typing Skill Test / Computer Based Aptitude Test (as applicable), and Document Verification."
+  },
+  "RRB NTPC UG": {
+    overview: "RRB NTPC Undergraduate examination for positions such as Junior Clerk cum Typist, Accounts Clerk cum Typist, and Trains Clerk.",
+    information: "Exam Pattern: Multi-stage Computer Based Tests (CBT-1 and CBT-2) with general awareness, mathematics, and reasoning."
+  },
+  "RRB Group D": {
+    overview: "RRB Level-1 (Group D) recruitment for track maintainers, assistants, and helpers in various departments of Indian Railways.",
+    information: "Exam Pattern: Computer Based Test (CBT) followed by Physical Efficiency Test (PET) and Document Verification."
+  },
+  "RRB ALP": {
+    overview: "RRB Assistant Loco Pilot (ALP) and Technician examination for technical career paths in Indian Railways.",
+    information: "Exam Pattern: CBT-1, CBT-2 (Part A & Part B Technical), Computer Based Aptitude Test (CBAT), and Medical Examination."
+  },
+  "RRB Technician Grade 1": {
+    overview: "RRB Technician Grade-I Signal examination focusing on advanced electronics, computer science, and instrumentation.",
+    information: "Exam Pattern: Single stage CBT with specialized technical questions along with general aptitude."
+  },
+  "RRB Technician Grade 3": {
+    overview: "RRB Technician Grade-III exam for various workshop trades and engineering streams.",
+    information: "Exam Pattern: Computer Based Test covering Mathematics, General Intelligence, Science, and General Awareness."
+  },
+  "RRB JE": {
+    overview: "RRB Junior Engineer examination for engineering degree and diploma holders across railway infrastructure zones.",
+    information: "Exam Pattern: CBT-1 and CBT-2 covering technical abilities and general science."
+  },
+  "RRB Section Controller": {
+    overview: "Operational management and train control testing for railway administrative roles.",
+    information: "Exam Pattern: Computer Based Test and operational aptitude evaluation."
+  },
+  "RRB Constable": {
+    overview: "Railway Protection Force (RPF) Constable recruitment examination for security and law enforcement.",
+    information: "Exam Pattern: CBT, Physical Efficiency Test (PET), and Physical Measurement Test (PMT)."
+  },
+
+  "Civil Service Exam (UPSC CSE)": {
+    overview: "Union Public Service Commission Civil Services Examination (UPSC CSE) for IAS, IPS, IFS, and central civil services.",
+    information: "Exam Pattern: Preliminary Examination (GS + CSAT), Main Examination (9 Descriptive Papers), and Personality Test (Interview)."
+  },
+  "Defense Exam (NDA & CDS)": {
+    overview: "National Defence Academy (NDA) and Combined Defence Services (CDS) examinations for officer commissioning in the Armed Forces.",
+    information: "Exam Pattern: Written examination followed by SSB Interview and medical testing."
+  },
+  "State Government & PCS Exams": {
+    overview: "State Public Service Commission exams (BPSC, UPPSC, MPPSC, etc.) for administrative and executive state positions.",
+    information: "Exam Pattern: Prelims, Mains, and Interview patterned after civil service models."
+  },
+  "Police Exam (SI & Constable)": {
+    overview: "State Police Sub-Inspector and Constable recruitment board tests for law and order enforcement.",
+    information: "Exam Pattern: Written CBT, Physical Measurement, and Efficiency tests."
+  },
+  "Other Government Exams": {
+    overview: "Recruitment examinations for public sector insurance, food corporations, and statutory bodies.",
+    information: "Exam Pattern: Multi-tier online competitive testing."
+  }
+};
+
+
+// Bihar State Government Exams - added as a separate editable block.
+window.examContent = window.examContent || {};
+Object.assign(window.examContent, {
+  "BPSC CCE": {
+    "overview": "BPSC Combined Competitive Examination (CCE) is a Bihar state government recruitment examination conducted by the relevant Bihar recruiting authority. Eligibility, vacancies, dates and selection stages are governed by the latest official notification.",
+    "information": "Qualification: Graduate. Selection: Prelims → Mains → Interview. Exact age limit, marks, negative marking, vacancies and post-wise eligibility should be taken from the latest official notification.",
     "stages": [
       {
         "title": "Prelims",
-        "description": "Preliminary online examination"
+        "description": "Prelims"
       },
       {
         "title": "Mains",
-        "description": "Objective + descriptive examination"
-      },
-      {
-        "title": "Psychometric / Group Exercise",
-        "description": "Assessment stage as applicable"
+        "description": "Mains"
       },
       {
         "title": "Interview",
-        "description": "Interview stage"
+        "description": "Interview"
       }
     ],
     "syllabus": [
       {
-        "title": "Reasoning",
-        "topics": [
-          "Puzzles",
-          "Seating Arrangement",
-          "Syllogism",
-          "Inequality",
-          "Coding-Decoding",
-          "Blood Relation"
-        ]
+        "title": "General Studies",
+        "topics": []
+      },
+      {
+        "title": "Current Affairs",
+        "topics": []
+      },
+      {
+        "title": "History of Bihar & India",
+        "topics": []
+      },
+      {
+        "title": "Geography",
+        "topics": []
+      },
+      {
+        "title": "Polity",
+        "topics": []
+      },
+      {
+        "title": "Economy",
+        "topics": []
+      },
+      {
+        "title": "General Science",
+        "topics": []
+      },
+      {
+        "title": "Essay & General Hindi (Mains)",
+        "topics": []
+      }
+    ],
+    "pattern": {
+      "mode": "As prescribed in the latest official notification",
+      "selection": "Prelims → Mains → Interview"
+    },
+    "importantNotes": [
+      "Bihar-specific current affairs and Bihar General Knowledge should be prepared along with the post-specific syllabus.",
+      "Use the latest official notification for exact eligibility, dates, marks, vacancies and selection rules."
+    ]
+  },
+  "BPSC Teacher Recruitment Examination (TRE)": {
+    "overview": "BPSC Teacher Recruitment Examination (TRE) is a Bihar state government recruitment examination conducted by the relevant Bihar recruiting authority. Eligibility, vacancies, dates and selection stages are governed by the latest official notification.",
+    "information": "Qualification: Primary / Middle / Secondary / Higher Secondary Teacher. Selection: Written Examination → Document Verification. Exact age limit, marks, negative marking, vacancies and post-wise eligibility should be taken from the latest official notification.",
+    "stages": [
+      {
+        "title": "Written Examination",
+        "description": "Written Examination"
+      },
+      {
+        "title": "Document Verification",
+        "description": "Document Verification"
+      }
+    ],
+    "syllabus": [
+      {
+        "title": "Language",
+        "topics": []
+      },
+      {
+        "title": "General Studies",
+        "topics": []
+      },
+      {
+        "title": "Teaching Aptitude",
+        "topics": []
+      },
+      {
+        "title": "Subject-specific paper",
+        "topics": []
+      },
+      {
+        "title": "Bihar General Knowledge",
+        "topics": []
+      }
+    ],
+    "pattern": {
+      "mode": "As prescribed in the latest official notification",
+      "selection": "Written Examination → Document Verification"
+    },
+    "importantNotes": [
+      "Bihar-specific current affairs and Bihar General Knowledge should be prepared along with the post-specific syllabus.",
+      "Use the latest official notification for exact eligibility, dates, marks, vacancies and selection rules."
+    ]
+  },
+  "BPSC Assistant Section Officer": {
+    "overview": "BPSC Assistant Section Officer (ASO) is a Bihar state government recruitment examination conducted by the relevant Bihar recruiting authority. Eligibility, vacancies, dates and selection stages are governed by the latest official notification.",
+    "information": "Qualification: Graduate. Selection: Prelims → Mains. Exact age limit, marks, negative marking, vacancies and post-wise eligibility should be taken from the latest official notification.",
+    "stages": [
+      {
+        "title": "Prelims",
+        "description": "Prelims"
+      },
+      {
+        "title": "Mains",
+        "description": "Mains"
+      }
+    ],
+    "syllabus": [
+      {
+        "title": "General Studies",
+        "topics": []
+      },
+      {
+        "title": "General Science & Mathematics",
+        "topics": []
+      },
+      {
+        "title": "Mental Ability",
+        "topics": []
+      },
+      {
+        "title": "General Hindi",
+        "topics": []
+      },
+      {
+        "title": "General Knowledge",
+        "topics": []
+      },
+      {
+        "title": "Computer basics",
+        "topics": []
+      }
+    ],
+    "pattern": {
+      "mode": "As prescribed in the latest official notification",
+      "selection": "Prelims → Mains"
+    },
+    "importantNotes": [
+      "Bihar-specific current affairs and Bihar General Knowledge should be prepared along with the post-specific syllabus.",
+      "Use the latest official notification for exact eligibility, dates, marks, vacancies and selection rules."
+    ]
+  },
+  "BPSC Bihar Judicial Services": {
+    "overview": "Bihar Judicial Services Examination is a Bihar state government recruitment examination conducted by the relevant Bihar recruiting authority. Eligibility, vacancies, dates and selection stages are governed by the latest official notification.",
+    "information": "Qualification: Law Graduate. Selection: Prelims → Mains → Interview. Exact age limit, marks, negative marking, vacancies and post-wise eligibility should be taken from the latest official notification.",
+    "stages": [
+      {
+        "title": "Prelims",
+        "description": "Prelims"
+      },
+      {
+        "title": "Mains",
+        "description": "Mains"
+      },
+      {
+        "title": "Interview",
+        "description": "Interview"
+      }
+    ],
+    "syllabus": [
+      {
+        "title": "General Studies",
+        "topics": []
+      },
+      {
+        "title": "General Hindi",
+        "topics": []
+      },
+      {
+        "title": "General English",
+        "topics": []
+      },
+      {
+        "title": "Law of Evidence & Procedure",
+        "topics": []
+      },
+      {
+        "title": "Constitutional Law",
+        "topics": []
+      },
+      {
+        "title": "Substantive Law",
+        "topics": []
+      },
+      {
+        "title": "Other prescribed law papers",
+        "topics": []
+      }
+    ],
+    "pattern": {
+      "mode": "As prescribed in the latest official notification",
+      "selection": "Prelims → Mains → Interview"
+    },
+    "importantNotes": [
+      "Bihar-specific current affairs and Bihar General Knowledge should be prepared along with the post-specific syllabus.",
+      "Use the latest official notification for exact eligibility, dates, marks, vacancies and selection rules."
+    ]
+  },
+  "BPSC Prosecution Officer": {
+    "overview": "BPSC Prosecution Officer is a Bihar state government recruitment examination conducted by the relevant Bihar recruiting authority. Eligibility, vacancies, dates and selection stages are governed by the latest official notification.",
+    "information": "Qualification: Law / prescribed qualification. Selection: Prelims → Mains → Interview. Exact age limit, marks, negative marking, vacancies and post-wise eligibility should be taken from the latest official notification.",
+    "stages": [
+      {
+        "title": "Prelims",
+        "description": "Prelims"
+      },
+      {
+        "title": "Mains",
+        "description": "Mains"
+      },
+      {
+        "title": "Interview",
+        "description": "Interview"
+      }
+    ],
+    "syllabus": [
+      {
+        "title": "General Studies",
+        "topics": []
+      },
+      {
+        "title": "General Hindi",
+        "topics": []
+      },
+      {
+        "title": "General English",
+        "topics": []
+      },
+      {
+        "title": "Criminal Law",
+        "topics": []
+      },
+      {
+        "title": "Criminal Procedure",
+        "topics": []
+      },
+      {
+        "title": "Evidence",
+        "topics": []
+      },
+      {
+        "title": "Other prescribed law papers",
+        "topics": []
+      }
+    ],
+    "pattern": {
+      "mode": "As prescribed in the latest official notification",
+      "selection": "Prelims → Mains → Interview"
+    },
+    "importantNotes": [
+      "Bihar-specific current affairs and Bihar General Knowledge should be prepared along with the post-specific syllabus.",
+      "Use the latest official notification for exact eligibility, dates, marks, vacancies and selection rules."
+    ]
+  },
+  "BPSC Auditor": {
+    "overview": "BPSC Auditor / Audit-related recruitment is a Bihar state government recruitment examination conducted by the relevant Bihar recruiting authority. Eligibility, vacancies, dates and selection stages are governed by the latest official notification.",
+    "information": "Qualification: As per notification. Selection: Written/Prelims-Mains as prescribed. Exact age limit, marks, negative marking, vacancies and post-wise eligibility should be taken from the latest official notification.",
+    "stages": [
+      {
+        "title": "Written/Prelims-Mains as prescribed",
+        "description": "Written/Prelims-Mains as prescribed"
+      }
+    ],
+    "syllabus": [
+      {
+        "title": "General Studies",
+        "topics": []
+      },
+      {
+        "title": "General Knowledge",
+        "topics": []
+      },
+      {
+        "title": "Bihar GK",
+        "topics": []
       },
       {
         "title": "Quantitative Aptitude",
-        "topics": [
-          "Simplification",
-          "Number Series",
-          "Percentage",
-          "Ratio",
-          "Profit & Loss",
-          "Time & Work",
-          "Data Interpretation"
-        ]
-      },
-      {
-        "title": "English Language",
-        "topics": [
-          "Grammar",
-          "Vocabulary",
-          "Reading Comprehension",
-          "Cloze Test"
-        ]
-      },
-      {
-        "title": "General / Banking Awareness",
-        "topics": [
-          "Banking Basics",
-          "Financial Awareness",
-          "Current Affairs",
-          "Static Awareness"
-        ]
-      }
-    ],
-    "pattern": {
-      "mode": "As prescribed in notification",
-      "selection": "Prelims → Mains → Psychometric / Group Exercise → Interview"
-    },
-    "importantNotes": [
-      "यह structured content TargetTire के exam-information cards के लिए है।",
-      "Vacancy, age limit, dates, exact marks, negative marking और post-specific eligibility latest official notification के अनुसार verify करें।"
-    ]
-  },
-  "RRB NTPC": {
-    "overview": "Railway Recruitment Board Non-Technical Popular Categories (RRB NTPC) for graduate and undergraduate posts like Station Master, Guard, and Clerk.",
-    "information": "Exam Pattern: First Stage CBT, Second Stage CBT, Typing Skill Test / Computer Based Aptitude Test (as applicable), and Document Verification.",
-    "stages": [
-      {
-        "title": "CBT-1",
-        "description": "First Stage Computer Based Test"
-      },
-      {
-        "title": "CBT-2",
-        "description": "Second Stage Computer Based Test"
-      },
-      {
-        "title": "CBAT / Typing Skill Test",
-        "description": "Applicable according to post"
-      },
-      {
-        "title": "Document Verification",
-        "description": "Verification of required documents"
-      },
-      {
-        "title": "Medical Examination",
-        "description": "Applicable recruitment medical standard"
-      }
-    ],
-    "syllabus": [
-      {
-        "title": "Mathematics",
-        "topics": [
-          "Number System",
-          "BODMAS",
-          "Decimals & Fractions",
-          "LCM & HCF",
-          "Ratio",
-          "Percentage",
-          "Mensuration",
-          "Time & Work",
-          "Time & Distance"
-        ]
-      },
-      {
-        "title": "General Intelligence & Reasoning",
-        "topics": [
-          "Analogy",
-          "Series",
-          "Coding-Decoding",
-          "Syllogism",
-          "Venn Diagram",
-          "Directions",
-          "Puzzle"
-        ]
-      },
-      {
-        "title": "General Science",
-        "topics": [
-          "Physics",
-          "Chemistry",
-          "Biology",
-          "Everyday Science"
-        ]
-      },
-      {
-        "title": "General Awareness",
-        "topics": [
-          "History",
-          "Geography",
-          "Polity",
-          "Economics",
-          "Current Affairs"
-        ]
-      }
-    ],
-    "pattern": {
-      "mode": "Computer Based / Online",
-      "selection": "CBT-1 → CBT-2 → CBAT / Typing Skill Test → Document Verification"
-    },
-    "importantNotes": [
-      "यह structured content TargetTire के exam-information cards के लिए है।",
-      "Vacancy, age limit, dates, exact marks, negative marking और post-specific eligibility latest official notification के अनुसार verify करें।"
-    ]
-  },
-  "RRB NTPC UG": {
-    "overview": "RRB NTPC Undergraduate examination for positions such as Junior Clerk cum Typist, Accounts Clerk cum Typist, and Trains Clerk.",
-    "information": "Exam Pattern: Multi-stage Computer Based Tests (CBT-1 and CBT-2) with general awareness, mathematics, and reasoning.",
-    "stages": [
-      {
-        "title": "CBT-1",
-        "description": "First Stage Computer Based Test"
-      },
-      {
-        "title": "CBT-2",
-        "description": "Second Stage Computer Based Test"
-      },
-      {
-        "title": "Typing Skill Test",
-        "description": "Applicable typing posts"
-      },
-      {
-        "title": "Document Verification",
-        "description": "Verification of required documents"
-      },
-      {
-        "title": "Medical Examination",
-        "description": "Applicable recruitment medical standard"
-      }
-    ],
-    "syllabus": [
-      {
-        "title": "Mathematics",
-        "topics": [
-          "Number System",
-          "BODMAS",
-          "Decimals & Fractions",
-          "LCM & HCF",
-          "Ratio",
-          "Percentage",
-          "Mensuration",
-          "Time & Work",
-          "Time & Distance"
-        ]
-      },
-      {
-        "title": "General Intelligence & Reasoning",
-        "topics": [
-          "Analogy",
-          "Series",
-          "Coding-Decoding",
-          "Syllogism",
-          "Venn Diagram",
-          "Directions",
-          "Puzzle"
-        ]
-      },
-      {
-        "title": "General Science",
-        "topics": [
-          "Physics",
-          "Chemistry",
-          "Biology",
-          "Everyday Science"
-        ]
-      },
-      {
-        "title": "General Awareness",
-        "topics": [
-          "History",
-          "Geography",
-          "Polity",
-          "Economics",
-          "Current Affairs"
-        ]
-      }
-    ],
-    "pattern": {
-      "mode": "Computer Based / Online",
-      "selection": "CBT-1 → CBT-2 → Typing Skill Test → Document Verification"
-    },
-    "importantNotes": [
-      "यह structured content TargetTire के exam-information cards के लिए है।",
-      "Vacancy, age limit, dates, exact marks, negative marking और post-specific eligibility latest official notification के अनुसार verify करें।"
-    ]
-  },
-  "RRB Group D": {
-    "overview": "RRB Level-1 (Group D) recruitment for track maintainers, assistants, and helpers in various departments of Indian Railways.",
-    "information": "Exam Pattern: Computer Based Test (CBT) followed by Physical Efficiency Test (PET) and Document Verification.",
-    "stages": [
-      {
-        "title": "CBT",
-        "description": "Computer Based Test"
-      },
-      {
-        "title": "PET",
-        "description": "Physical Efficiency Test"
-      },
-      {
-        "title": "Document Verification",
-        "description": "Verification of required documents"
-      },
-      {
-        "title": "Medical Examination",
-        "description": "Railway medical fitness"
-      }
-    ],
-    "syllabus": [
-      {
-        "title": "Mathematics",
-        "topics": [
-          "Number System",
-          "BODMAS",
-          "Decimals & Fractions",
-          "LCM & HCF",
-          "Ratio",
-          "Percentage",
-          "Mensuration",
-          "Time & Work",
-          "Time & Distance"
-        ]
-      },
-      {
-        "title": "General Intelligence & Reasoning",
-        "topics": [
-          "Analogy",
-          "Series",
-          "Coding-Decoding",
-          "Syllogism",
-          "Venn Diagram",
-          "Directions",
-          "Puzzle"
-        ]
-      },
-      {
-        "title": "General Science",
-        "topics": [
-          "Physics",
-          "Chemistry",
-          "Biology",
-          "Everyday Science"
-        ]
-      },
-      {
-        "title": "General Awareness",
-        "topics": [
-          "History",
-          "Geography",
-          "Polity",
-          "Economics",
-          "Current Affairs"
-        ]
-      }
-    ],
-    "pattern": {
-      "mode": "Computer Based / Online",
-      "selection": "CBT → PET → Document Verification → Medical Examination"
-    },
-    "importantNotes": [
-      "यह structured content TargetTire के exam-information cards के लिए है।",
-      "Vacancy, age limit, dates, exact marks, negative marking और post-specific eligibility latest official notification के अनुसार verify करें।"
-    ]
-  },
-  "RRB ALP": {
-    "overview": "RRB Assistant Loco Pilot (ALP) and Technician examination for technical career paths in Indian Railways.",
-    "information": "Exam Pattern: CBT-1, CBT-2 (Part A & Part B Technical), Computer Based Aptitude Test (CBAT), and Medical Examination.",
-    "stages": [
-      {
-        "title": "CBT-1",
-        "description": "First Stage Computer Based Test"
-      },
-      {
-        "title": "CBT-2",
-        "description": "Second Stage Computer Based Test"
-      },
-      {
-        "title": "CBAT",
-        "description": "Computer Based Aptitude Test"
-      },
-      {
-        "title": "Document Verification",
-        "description": "Verification of required documents"
-      },
-      {
-        "title": "Medical Examination",
-        "description": "Railway medical fitness"
-      }
-    ],
-    "syllabus": [
-      {
-        "title": "Mathematics",
-        "topics": [
-          "Number System",
-          "BODMAS",
-          "Decimals & Fractions",
-          "LCM & HCF",
-          "Ratio",
-          "Percentage",
-          "Mensuration",
-          "Time & Work",
-          "Time & Distance"
-        ]
-      },
-      {
-        "title": "General Intelligence & Reasoning",
-        "topics": [
-          "Analogy",
-          "Series",
-          "Coding-Decoding",
-          "Syllogism",
-          "Venn Diagram",
-          "Directions",
-          "Puzzle"
-        ]
-      },
-      {
-        "title": "General Science",
-        "topics": [
-          "Physics",
-          "Chemistry",
-          "Biology",
-          "Everyday Science"
-        ]
-      },
-      {
-        "title": "General Awareness",
-        "topics": [
-          "History",
-          "Geography",
-          "Polity",
-          "Economics",
-          "Current Affairs"
-        ]
-      },
-      {
-        "title": "Technical / Trade Subject",
-        "topics": [
-          "Post-specific technical syllabus as prescribed in the recruitment notification"
-        ]
-      }
-    ],
-    "pattern": {
-      "mode": "Computer Based / Online",
-      "selection": "CBT-1 → CBT-2 → CBAT → Document Verification"
-    },
-    "importantNotes": [
-      "यह structured content TargetTire के exam-information cards के लिए है।",
-      "Vacancy, age limit, dates, exact marks, negative marking और post-specific eligibility latest official notification के अनुसार verify करें।"
-    ]
-  },
-  "RRB Technician Grade 1": {
-    "overview": "RRB Technician Grade-I Signal examination focusing on advanced electronics, computer science, and instrumentation.",
-    "information": "Exam Pattern: Single stage CBT with specialized technical questions along with general aptitude.",
-    "stages": [
-      {
-        "title": "CBT",
-        "description": "Computer Based Test with technical content"
-      },
-      {
-        "title": "Document Verification",
-        "description": "Verification of required documents"
-      },
-      {
-        "title": "Medical Examination",
-        "description": "Railway medical fitness"
-      }
-    ],
-    "syllabus": [
-      {
-        "title": "Mathematics",
-        "topics": [
-          "Number System",
-          "BODMAS",
-          "Decimals & Fractions",
-          "LCM & HCF",
-          "Ratio",
-          "Percentage",
-          "Mensuration",
-          "Time & Work",
-          "Time & Distance"
-        ]
-      },
-      {
-        "title": "General Intelligence & Reasoning",
-        "topics": [
-          "Analogy",
-          "Series",
-          "Coding-Decoding",
-          "Syllogism",
-          "Venn Diagram",
-          "Directions",
-          "Puzzle"
-        ]
-      },
-      {
-        "title": "General Science",
-        "topics": [
-          "Physics",
-          "Chemistry",
-          "Biology",
-          "Everyday Science"
-        ]
-      },
-      {
-        "title": "General Awareness",
-        "topics": [
-          "History",
-          "Geography",
-          "Polity",
-          "Economics",
-          "Current Affairs"
-        ]
-      },
-      {
-        "title": "Technical / Trade Subject",
-        "topics": [
-          "Post-specific technical syllabus as prescribed in the recruitment notification"
-        ]
-      }
-    ],
-    "pattern": {
-      "mode": "Computer Based / Online",
-      "selection": "CBT → Document Verification → Medical Examination"
-    },
-    "importantNotes": [
-      "यह structured content TargetTire के exam-information cards के लिए है।",
-      "Vacancy, age limit, dates, exact marks, negative marking और post-specific eligibility latest official notification के अनुसार verify करें।"
-    ]
-  },
-  "RRB Technician Grade 3": {
-    "overview": "RRB Technician Grade-III exam for various workshop trades and engineering streams.",
-    "information": "Exam Pattern: Computer Based Test covering Mathematics, General Intelligence, Science, and General Awareness.",
-    "stages": [
-      {
-        "title": "CBT",
-        "description": "Computer Based Test"
-      },
-      {
-        "title": "Document Verification",
-        "description": "Verification of required documents"
-      },
-      {
-        "title": "Medical Examination",
-        "description": "Railway medical fitness"
-      }
-    ],
-    "syllabus": [
-      {
-        "title": "Mathematics",
-        "topics": [
-          "Number System",
-          "BODMAS",
-          "Decimals & Fractions",
-          "LCM & HCF",
-          "Ratio",
-          "Percentage",
-          "Mensuration",
-          "Time & Work",
-          "Time & Distance"
-        ]
-      },
-      {
-        "title": "General Intelligence & Reasoning",
-        "topics": [
-          "Analogy",
-          "Series",
-          "Coding-Decoding",
-          "Syllogism",
-          "Venn Diagram",
-          "Directions",
-          "Puzzle"
-        ]
-      },
-      {
-        "title": "General Science",
-        "topics": [
-          "Physics",
-          "Chemistry",
-          "Biology",
-          "Everyday Science"
-        ]
-      },
-      {
-        "title": "General Awareness",
-        "topics": [
-          "History",
-          "Geography",
-          "Polity",
-          "Economics",
-          "Current Affairs"
-        ]
-      },
-      {
-        "title": "Technical / Trade Subject",
-        "topics": [
-          "Post-specific technical syllabus as prescribed in the recruitment notification"
-        ]
-      }
-    ],
-    "pattern": {
-      "mode": "Computer Based / Online",
-      "selection": "CBT → Document Verification → Medical Examination"
-    },
-    "importantNotes": [
-      "यह structured content TargetTire के exam-information cards के लिए है।",
-      "Vacancy, age limit, dates, exact marks, negative marking और post-specific eligibility latest official notification के अनुसार verify करें।"
-    ]
-  },
-  "RRB JE": {
-    "overview": "RRB Junior Engineer examination for engineering degree and diploma holders across railway infrastructure zones.",
-    "information": "Exam Pattern: CBT-1 and CBT-2 covering technical abilities and general science.",
-    "stages": [
-      {
-        "title": "CBT-1",
-        "description": "First Stage Computer Based Test"
-      },
-      {
-        "title": "CBT-2",
-        "description": "Second Stage Computer Based Test with technical ability"
-      },
-      {
-        "title": "Document Verification",
-        "description": "Verification of required documents"
-      },
-      {
-        "title": "Medical Examination",
-        "description": "Railway medical fitness"
-      }
-    ],
-    "syllabus": [
-      {
-        "title": "Mathematics",
-        "topics": [
-          "Number System",
-          "BODMAS",
-          "Decimals & Fractions",
-          "LCM & HCF",
-          "Ratio",
-          "Percentage",
-          "Mensuration",
-          "Time & Work",
-          "Time & Distance"
-        ]
-      },
-      {
-        "title": "General Intelligence & Reasoning",
-        "topics": [
-          "Analogy",
-          "Series",
-          "Coding-Decoding",
-          "Syllogism",
-          "Venn Diagram",
-          "Directions",
-          "Puzzle"
-        ]
-      },
-      {
-        "title": "General Science",
-        "topics": [
-          "Physics",
-          "Chemistry",
-          "Biology",
-          "Everyday Science"
-        ]
-      },
-      {
-        "title": "General Awareness",
-        "topics": [
-          "History",
-          "Geography",
-          "Polity",
-          "Economics",
-          "Current Affairs"
-        ]
-      },
-      {
-        "title": "Technical / Trade Subject",
-        "topics": [
-          "Post-specific technical syllabus as prescribed in the recruitment notification"
-        ]
-      }
-    ],
-    "pattern": {
-      "mode": "Computer Based / Online",
-      "selection": "CBT-1 → CBT-2 → Document Verification → Medical Examination"
-    },
-    "importantNotes": [
-      "यह structured content TargetTire के exam-information cards के लिए है।",
-      "Vacancy, age limit, dates, exact marks, negative marking और post-specific eligibility latest official notification के अनुसार verify करें।"
-    ]
-  },
-  "RRB Section Controller": {
-    "overview": "Operational management and train control testing for railway administrative roles.",
-    "information": "Exam Pattern: Computer Based Test and operational aptitude evaluation.",
-    "stages": [
-      {
-        "title": "Computer Based Test",
-        "description": "Computer Based Test"
-      },
-      {
-        "title": "Aptitude / Operational Assessment",
-        "description": "Operational aptitude assessment as prescribed"
-      },
-      {
-        "title": "Document Verification",
-        "description": "Verification of required documents"
-      },
-      {
-        "title": "Medical Examination",
-        "description": "Applicable railway medical standard"
-      }
-    ],
-    "syllabus": [
-      {
-        "title": "Mathematics",
-        "topics": [
-          "Number System",
-          "BODMAS",
-          "Decimals & Fractions",
-          "LCM & HCF",
-          "Ratio",
-          "Percentage",
-          "Mensuration",
-          "Time & Work",
-          "Time & Distance"
-        ]
-      },
-      {
-        "title": "General Intelligence & Reasoning",
-        "topics": [
-          "Analogy",
-          "Series",
-          "Coding-Decoding",
-          "Syllogism",
-          "Venn Diagram",
-          "Directions",
-          "Puzzle"
-        ]
-      },
-      {
-        "title": "General Science",
-        "topics": [
-          "Physics",
-          "Chemistry",
-          "Biology",
-          "Everyday Science"
-        ]
-      },
-      {
-        "title": "General Awareness",
-        "topics": [
-          "History",
-          "Geography",
-          "Polity",
-          "Economics",
-          "Current Affairs"
-        ]
-      }
-    ],
-    "pattern": {
-      "mode": "Computer Based / Online",
-      "selection": "Computer Based Test → Aptitude / Operational Assessment → Document Verification → Medical Examination"
-    },
-    "importantNotes": [
-      "यह structured content TargetTire के exam-information cards के लिए है।",
-      "Vacancy, age limit, dates, exact marks, negative marking और post-specific eligibility latest official notification के अनुसार verify करें।"
-    ]
-  },
-  "RRB Constable": {
-    "overview": "Railway Protection Force (RPF) Constable recruitment examination for security and law enforcement.",
-    "information": "Exam Pattern: CBT, Physical Efficiency Test (PET), and Physical Measurement Test (PMT).",
-    "stages": [
-      {
-        "title": "CBT",
-        "description": "Computer Based Test"
-      },
-      {
-        "title": "PET",
-        "description": "Physical Efficiency Test"
-      },
-      {
-        "title": "PMT",
-        "description": "Physical Measurement Test"
-      },
-      {
-        "title": "Document Verification",
-        "description": "Verification of required documents"
-      },
-      {
-        "title": "Medical Examination",
-        "description": "Medical fitness assessment"
-      }
-    ],
-    "syllabus": [
-      {
-        "title": "Mathematics",
-        "topics": [
-          "Number System",
-          "BODMAS",
-          "Decimals & Fractions",
-          "LCM & HCF",
-          "Ratio",
-          "Percentage",
-          "Mensuration",
-          "Time & Work",
-          "Time & Distance"
-        ]
-      },
-      {
-        "title": "General Intelligence & Reasoning",
-        "topics": [
-          "Analogy",
-          "Series",
-          "Coding-Decoding",
-          "Syllogism",
-          "Venn Diagram",
-          "Directions",
-          "Puzzle"
-        ]
-      },
-      {
-        "title": "General Science",
-        "topics": [
-          "Physics",
-          "Chemistry",
-          "Biology",
-          "Everyday Science"
-        ]
-      },
-      {
-        "title": "General Awareness",
-        "topics": [
-          "History",
-          "Geography",
-          "Polity",
-          "Economics",
-          "Current Affairs"
-        ]
-      }
-    ],
-    "pattern": {
-      "mode": "Computer Based / Online",
-      "selection": "CBT → PET → PMT → Document Verification"
-    },
-    "importantNotes": [
-      "यह structured content TargetTire के exam-information cards के लिए है।",
-      "Vacancy, age limit, dates, exact marks, negative marking और post-specific eligibility latest official notification के अनुसार verify करें।"
-    ]
-  },
-    "Bihar Combined (BPSC CCE)": {
-    "overview": "BPSC CCE is conducted by the Bihar Public Service Commission to recruit administrative officers, police officers, and other executive posts in Bihar state administration. / बिहार लोक सेवा आयोग (BPSC) द्वारा प्रशासनिक, पुलिस और अन्य कार्यकारी पदों पर चयन के लिए संयुक्त प्रतियोगी परीक्षा आयोजित की जाती है।",
-    "information": "Exam Pattern & Selection Process: 1) Mode: Offline / Online as notified. 2) Stages: Prelims (Objective General Studies), Mains (Descriptive Papers including Essay and General Hindi), followed by Interview. 3) Negative Marking: Yes, negative marking is applicable in the Prelims exam. / परीक्षा पैटर्न और चयन प्रक्रिया: 1) मोड: प्रारंभिक और मुख्य परीक्षा। 2) चरण: प्रीलिम्स (सामान्य अध्ययन), मेंस (वर्णनात्मक पेपर जैसे निबंध और सामान्य हिंदी) और इसके बाद इंटरव्यू (साक्षात्कार)। 3) नेगेटिव मार्किंग: हाँ, प्रारंभिक परीक्षा में नेगेटिव मार्किंग होती है।",
-    "stages": [
-      {
-        "title": "Prelims",
-        "description": "Objective General Studies Examination"
-      },
-      {
-        "title": "Mains",
-        "description": "Descriptive written examination (General Hindi, Essay & GS Papers)"
-      },
-      {
-        "title": "Interview",
-        "description": "Personality test / final interview stage"
-      }
-    ],
-    "syllabus": [
-      {
-        "title": "General Studies & Bihar Special",
-        "topics": [
-          "Indian History & National Movement",
-          "Indian & World Geography",
-          "Indian Polity & Economy",
-          "General Science",
-          "Bihar Special General Knowledge (History, Geography, Economy of Bihar)",
-          "Current Affairs (National & International)"
-        ]
-      },
-      {
-        "title": "Aptitude & Mental Ability",
-        "topics": [
-          "Basic Mathematics & Logical Reasoning"
-        ]
-      }
-    ],
-    "pattern": {
-      "mode": "Offline / Online",
-      "selection": "Prelims → Mains → Interview"
-    },
-    "importantNotes": [
-      "यह structured content TargetTire के exam-information cards के लिए है।",
-      "Vacancy, age limit, dates, exact marks, negative marking और post-specific eligibility latest official BPSC notification के अनुसार verify करें।"
-    ]
-  },
-  "Bihar Police (SI & Constable)": {
-    "overview": "Recruitment exams for Sub-Inspector (SI), Sergeant, and Constable positions under Bihar Police and Home Guard departments. / बिहार पुलिस और गृह विभाग के अंतर्गत सब-इंस्पेक्टर (दरोगा) और कांस्टेबल पदों के लिए भर्ती परीक्षाएं।",
-    "information": "Exam Pattern & Selection Process: 1) Stages: Written Test (Prelims & Mains for SI, Single Written for Constable), Physical Standard Test (PST), Physical Efficiency Test (PET), and Medical Examination. / परीक्षा पैटर्न और चयन प्रक्रिया: 1) चरण: लिखित परीक्षा (दरोगा के लिए प्री और मेंस, कांस्टेबल के लिए सिंगल लिखित), शारीरिक माप परीक्षण (PST), शारीरिक दक्षता परीक्षा (PET) और मेडिकल परीक्षा।",
-    "stages": [
-      {
-        "title": "Written Examination",
-        "description": "Objective Computer Based or OMR Test (Prelims & Mains)"
-      },
-      {
-        "title": "PST / PMT",
-        "description": "Physical Standard / Measurement Test"
-      },
-      {
-        "title": "PET",
-        "description": "Physical Efficiency Test (Running, High Jump, Long Jump, Shot Put)"
-      },
-      {
-        "title": "Medical Examination",
-        "description": "Medical fitness test"
-      }
-    ],
-    "syllabus": [
-      {
-        "title": "General Knowledge & Current Affairs",
-        "topics": [
-          "History, Geography & Polity",
-          "General Science (Physics, Chemistry, Biology)",
-          "Current Affairs & Static GK"
-        ]
-      },
-      {
-        "title": "Hindi & English Language",
-        "topics": [
-          "सामान्य हिंदी व्याकरण और बोध",
-          "Basic English Grammar & Comprehension"
-        ]
-      },
-      {
-        "title": "Mathematics & Reasoning",
-        "topics": [
-          "Elementary Arithmetic & Mental Ability"
-        ]
-      }
-    ],
-    "pattern": {
-      "mode": "OMR / Computer Based",
-      "selection": "Written Test → PST → PET → Medical Examination"
-    },
-    "importantNotes": [
-      "यह structured content TargetTire के exam-information cards के लिए है।",
-      "Vacancy, age limit, dates, exact marks, negative marking और post-specific eligibility latest official BPSSC / CSBC notification के अनुसार verify करें।"
-    ]
-  },
-  "Bihar SSC (BSSC CGL / Inter Level)": {
-    "overview": "BSSC conducts recruitment examinations for secretariat assistants, lower division clerks, and various state government department positions in Bihar. / बिहार कर्मचारी चयन आयोग (BSSC) द्वारा सचिवालय सहायक, लोअर डिवीजन क्लर्क और विभिन्न विभागों के पदों पर भर्ती परीक्षा आयोजित की जाती है।",
-    "information": "Exam Pattern & Selection Process: 1) Stages: Preliminary Examination, Main Examination, followed by Typing/Skill Test or Document Verification. / परीक्षा पैटर्न और चयन प्रक्रिया: 1) चरण: प्रारंभिक परीक्षा, मुख्य परीक्षा, और इसके बाद टाइपिंग/स्किल टेस्ट या डॉक्यूमेंट वेरिफिकेशन।",
-    "stages": [
-      {
-        "title": "Prelims",
-        "description": "Preliminary objective examination"
-      },
-      {
-        "title": "Mains",
-        "description": "Main objective/descriptive examination"
-      },
-      {
-        "title": "Skill / Typing Test",
-        "description": "Applicable for clerical and typist posts"
-      },
-      {
-        "title": "Document Verification",
-        "description": "Final document check"
-      }
-    ],
-    "syllabus": [
-      {
-        "title": "General Studies & Science",
-        "topics": [
-          "General Knowledge & Current Affairs",
-          "Indian History, Polity & Geography",
-          "General Science & Mathematics"
-        ]
+        "topics": []
       },
       {
         "title": "Reasoning",
-        "topics": [
-          "Logical Reasoning, Mental Ability & Verbal/Non-Verbal Series"
-        ]
+        "topics": []
+      },
+      {
+        "title": "Subject/accounting topics as notified",
+        "topics": []
       }
     ],
     "pattern": {
-      "mode": "Offline OMR Based",
-      "selection": "Prelims → Mains → Skill Test / Typing → Document Verification"
+      "mode": "As prescribed in the latest official notification",
+      "selection": "Written/Prelims-Mains as prescribed"
     },
     "importantNotes": [
-      "यह structured content TargetTire के exam-information cards के लिए है।",
-      "Vacancy, age limit, dates, exact marks, negative marking और post-specific eligibility latest official BSSC notification के अनुसार verify करें।"
+      "Bihar-specific current affairs and Bihar General Knowledge should be prepared along with the post-specific syllabus.",
+      "Use the latest official notification for exact eligibility, dates, marks, vacancies and selection rules."
     ]
   },
-  "Bihar Teacher (BPSC TRE)": {
-    "overview": "BPSC Teacher Recruitment Examination (TRE) for hiring teachers across Primary, Middle, Secondary, and Higher Secondary government schools in Bihar. / बिहार के सरकारी विद्यालयों में प्राइमरी, मिडिल, माध्यमिक और उच्च माध्यमिक शिक्षकों की भर्ती के लिए BPSC TRE परीक्षा।",
-    "information": "Exam Pattern & Selection Process: 1) Mode: Objective written examination covering language qualification, general studies, and core subject competence. / परीक्षा पैटर्न और चयन प्रक्रिया: 1) मोड: वस्तुनिष्ठ लिखित परीक्षा जिसमें भाषा अहर्ता, सामान्य अध्ययन और विषय-विशेष से जुड़े प्रश्न पूछे जाते हैं।",
+  "BPSC Assistant Engineer Civil": {
+    "overview": "BPSC Assistant Engineer – Civil is a Bihar state government recruitment examination conducted by the relevant Bihar recruiting authority. Eligibility, vacancies, dates and selection stages are governed by the latest official notification.",
+    "information": "Qualification: Engineering degree/diploma as notified. Selection: Written/Competitive examination as notified. Exact age limit, marks, negative marking, vacancies and post-wise eligibility should be taken from the latest official notification.",
     "stages": [
       {
-        "title": "Written Examination",
-        "description": "Single-stage objective multi-part exam"
-      },
-      {
-        "title": "Document Verification",
-        "description": "Certificate and eligibility verification"
-      },
-      {
-        "title": "Medical Examination",
-        "description": "Medical fitness check"
+        "title": "Written/Competitive examination as notified",
+        "description": "Written/Competitive examination as notified"
       }
     ],
     "syllabus": [
       {
-        "title": "Language Qualification",
-        "topics": [
-          "Hindi / English qualifying language test"
-        ]
+        "title": "Civil Engineering",
+        "topics": []
       },
       {
         "title": "General Studies",
-        "topics": [
-          "Elementary Mathematics, Mental Ability, General Awareness, Science, Social Science & Indian National Movement"
-        ]
+        "topics": []
       },
       {
-        "title": "Subject-Specific Competence",
-        "topics": [
-          "Class/Grade level core subject syllabus as per prescribed curriculum"
-        ]
+        "title": "General Knowledge",
+        "topics": []
+      },
+      {
+        "title": "Current Affairs",
+        "topics": []
       }
     ],
     "pattern": {
-      "mode": "Objective Written Test",
-      "selection": "Written Examination → Document Verification → Medical"
+      "mode": "As prescribed in the latest official notification",
+      "selection": "Written/Competitive examination as notified"
     },
     "importantNotes": [
-      "यह structured content TargetTire के exam-information cards के लिए है।",
-      "Vacancy, age limit, dates, exact marks, negative marking और post-specific eligibility latest official BPSC notification के अनुसार verify करें।"
+      "Bihar-specific current affairs and Bihar General Knowledge should be prepared along with the post-specific syllabus.",
+      "Use the latest official notification for exact eligibility, dates, marks, vacancies and selection rules."
     ]
   },
-  "Bihar Technical Service (BTSC JE / Staff Nurse)": {
-    "overview": "Bihar Technical Service Commission (BTSC) examinations for Junior Engineers, medical staff, and technical personnel in state departments. / बिहार तकनीकी सेवा आयोग (BTSC) द्वारा जूनियर इंजीनियर, मेडिकल स्टाफ और तकनीकी पदों पर भर्ती परीक्षा।",
-    "information": "Exam Pattern & Selection Process: 1) Mode: Written CBT or academic/experience-based merit evaluation followed by document verification. / परीक्षा पैटर्न और चयन प्रक्रिया: 1) मोड: लिखित सीबीटी परीक्षा या शैक्षणिक/अनुभव आधारित मेरिट मूल्यांकन और डॉक्यूमेंट वेरिफिकेशन।",
+  "BPSC Assistant Engineer Mechanical": {
+    "overview": "BPSC Assistant Engineer – Mechanical is a Bihar state government recruitment examination conducted by the relevant Bihar recruiting authority. Eligibility, vacancies, dates and selection stages are governed by the latest official notification.",
+    "information": "Qualification: Engineering qualification as notified. Selection: Written/Competitive examination as notified. Exact age limit, marks, negative marking, vacancies and post-wise eligibility should be taken from the latest official notification.",
     "stages": [
       {
-        "title": "Written / CBT",
-        "description": "Technical or domain-specific examination"
-      },
-      {
-        "title": "Document Verification",
-        "description": "Verification of technical degrees and academic certificates"
+        "title": "Written/Competitive examination as notified",
+        "description": "Written/Competitive examination as notified"
       }
     ],
     "syllabus": [
       {
-        "title": "Technical / Domain Discipline",
-        "topics": [
-          "Engineering / Medical / Nursing stream specific syllabus as per post requirement"
-        ]
+        "title": "Mechanical Engineering",
+        "topics": []
       },
-      {
-        "title": "General Studies & Aptitude",
-        "topics": [
-          "General Knowledge, Reasoning & Quantitative Aptitude"
-        ]
-      }
-    ],
-    "pattern": {
-      "mode": "Computer Based / Merit Based",
-      "selection": "Written / CBT or Merit Evaluation → Document Verification"
-    },
-    "importantNotes": [
-      "यह structured content TargetTire के exam-information cards के लिए है।",
-      "Vacancy, age limit, dates, exact marks, negative marking और post-specific eligibility latest official BTSC notification के अनुसार verify करें।"
-    ]
-  },
-  "Civil Service Exam (UPSC CSE)": {
-    "overview": "Union Public Service Commission Civil Services Examination (UPSC CSE) for IAS, IPS, IFS, and central civil services.",
-    "information": "Exam Pattern: Preliminary Examination (GS + CSAT), Main Examination (9 Descriptive Papers), and Personality Test (Interview).",
-    "stages": [
-      {
-        "title": "Prelims",
-        "description": "General Studies Paper-I and CSAT Paper-II"
-      },
-      {
-        "title": "Mains",
-        "description": "Descriptive written examination"
-      },
-      {
-        "title": "Personality Test",
-        "description": "Interview / personality assessment"
-      }
-    ],
-    "syllabus": [
       {
         "title": "General Studies",
-        "topics": [
-          "History",
-          "Geography",
-          "Polity",
-          "Economy",
-          "Environment",
-          "Science & Technology",
-          "Current Affairs"
-        ]
+        "topics": []
       },
       {
-        "title": "CSAT",
-        "topics": [
-          "Comprehension",
-          "Logical Reasoning",
-          "Basic Numeracy",
-          "Data Interpretation"
-        ]
+        "title": "General Knowledge",
+        "topics": []
       },
       {
-        "title": "Mains",
-        "topics": [
-          "Essay",
-          "General Studies Papers",
-          "Optional Subject",
-          "Language Papers"
-        ]
+        "title": "Current Affairs",
+        "topics": []
       }
     ],
     "pattern": {
-      "mode": "As prescribed in notification",
-      "selection": "Prelims → Mains → Personality Test"
+      "mode": "As prescribed in the latest official notification",
+      "selection": "Written/Competitive examination as notified"
     },
     "importantNotes": [
-      "यह structured content TargetTire के exam-information cards के लिए है।",
-      "Vacancy, age limit, dates, exact marks, negative marking और post-specific eligibility latest official notification के अनुसार verify करें।"
+      "Bihar-specific current affairs and Bihar General Knowledge should be prepared along with the post-specific syllabus.",
+      "Use the latest official notification for exact eligibility, dates, marks, vacancies and selection rules."
     ]
   },
-  "Defense Exam (NDA & CDS)": {
-    "overview": "National Defence Academy (NDA) and Combined Defence Services (CDS) examinations for officer commissioning in the Armed Forces.",
-    "information": "Exam Pattern: Written examination followed by SSB Interview and medical testing.",
+  "BPSC Assistant Engineer Electrical": {
+    "overview": "BPSC Assistant Engineer – Electrical is a Bihar state government recruitment examination conducted by the relevant Bihar recruiting authority. Eligibility, vacancies, dates and selection stages are governed by the latest official notification.",
+    "information": "Qualification: Engineering qualification as notified. Selection: Written/Competitive examination as notified. Exact age limit, marks, negative marking, vacancies and post-wise eligibility should be taken from the latest official notification.",
     "stages": [
       {
-        "title": "Written Examination",
-        "description": "Objective written examination"
-      },
-      {
-        "title": "SSB Interview",
-        "description": "Services Selection Board assessment"
-      },
-      {
-        "title": "Medical Examination",
-        "description": "Medical fitness assessment"
+        "title": "Written/Competitive examination as notified",
+        "description": "Written/Competitive examination as notified"
       }
     ],
     "syllabus": [
       {
-        "title": "Mathematics",
-        "topics": [
-          "Arithmetic",
-          "Algebra",
-          "Geometry",
-          "Trigonometry",
-          "Mensuration"
-        ]
+        "title": "Electrical Engineering",
+        "topics": []
       },
-      {
-        "title": "General Ability",
-        "topics": [
-          "English",
-          "General Knowledge",
-          "Science",
-          "History",
-          "Geography",
-          "Current Affairs"
-        ]
-      }
-    ],
-    "pattern": {
-      "mode": "As prescribed in notification",
-      "selection": "Written Examination → SSB Interview → Medical Examination"
-    },
-    "importantNotes": [
-      "यह structured content TargetTire के exam-information cards के लिए है।",
-      "Vacancy, age limit, dates, exact marks, negative marking और post-specific eligibility latest official notification के अनुसार verify करें।"
-    ]
-  },
-  "State Government & PCS Exams": {
-    "overview": "State Public Service Commission exams (BPSC, UPPSC, MPPSC, etc.) for administrative and executive state positions.",
-    "information": "Exam Pattern: Prelims, Mains, and Interview patterned after civil service models.",
-    "stages": [
-      {
-        "title": "Prelims",
-        "description": "Preliminary screening examination"
-      },
-      {
-        "title": "Mains",
-        "description": "Descriptive main examination"
-      },
-      {
-        "title": "Interview",
-        "description": "Personality / interview stage where applicable"
-      }
-    ],
-    "syllabus": [
       {
         "title": "General Studies",
-        "topics": [
-          "History",
-          "Geography",
-          "Polity",
-          "Economy",
-          "Science",
-          "Current Affairs"
-        ]
+        "topics": []
       },
       {
-        "title": "State-Specific Studies",
-        "topics": [
-          "State History",
-          "State Geography",
-          "State Polity",
-          "State Economy",
-          "State Current Affairs"
-        ]
+        "title": "General Knowledge",
+        "topics": []
+      },
+      {
+        "title": "Current Affairs",
+        "topics": []
       }
     ],
     "pattern": {
-      "mode": "As prescribed in notification",
-      "selection": "Prelims → Mains → Interview"
+      "mode": "As prescribed in the latest official notification",
+      "selection": "Written/Competitive examination as notified"
     },
     "importantNotes": [
-      "यह structured content TargetTire के exam-information cards के लिए है।",
-      "Vacancy, age limit, dates, exact marks, negative marking और post-specific eligibility latest official notification के अनुसार verify करें।"
+      "Bihar-specific current affairs and Bihar General Knowledge should be prepared along with the post-specific syllabus.",
+      "Use the latest official notification for exact eligibility, dates, marks, vacancies and selection rules."
     ]
   },
-  "Police Exam (SI & Constable)": {
-    "overview": "State Police Sub-Inspector and Constable recruitment board tests for law and order enforcement.",
-    "information": "Exam Pattern: Written CBT, Physical Measurement, and Efficiency tests.",
+  "BPSC Stenographer": {
+    "overview": "BPSC Stenographer is a Bihar state government recruitment examination conducted by the relevant Bihar recruiting authority. Eligibility, vacancies, dates and selection stages are governed by the latest official notification.",
+    "information": "Qualification: As per notification. Selection: Written/CBT → Skill Test as notified. Exact age limit, marks, negative marking, vacancies and post-wise eligibility should be taken from the latest official notification.",
     "stages": [
       {
-        "title": "Written / CBT",
-        "description": "Written or computer based examination"
+        "title": "Written/CBT",
+        "description": "Written/CBT"
       },
       {
-        "title": "PMT",
-        "description": "Physical measurement / standards"
-      },
-      {
-        "title": "PET",
-        "description": "Physical efficiency test"
-      },
-      {
-        "title": "Medical Examination",
-        "description": "Medical fitness assessment"
+        "title": "Skill Test as notified",
+        "description": "Skill Test as notified"
       }
     ],
     "syllabus": [
       {
         "title": "General Knowledge",
-        "topics": [
-          "History",
-          "Geography",
-          "Polity",
-          "Science",
-          "Current Affairs"
-        ]
+        "topics": []
       },
       {
-        "title": "Reasoning",
-        "topics": [
-          "Analogy",
-          "Series",
-          "Coding-Decoding",
-          "Logical Reasoning"
-        ]
+        "title": "General Hindi",
+        "topics": []
       },
       {
-        "title": "Quantitative Aptitude",
-        "topics": [
-          "Arithmetic",
-          "Percentage",
-          "Ratio",
-          "Profit & Loss"
-        ]
+        "title": "General English",
+        "topics": []
+      },
+      {
+        "title": "Computer basics",
+        "topics": []
+      },
+      {
+        "title": "Stenography / typing skill",
+        "topics": []
       }
     ],
     "pattern": {
-      "mode": "Computer Based / Online",
-      "selection": "Written / CBT → PMT → PET → Medical Examination"
+      "mode": "As prescribed in the latest official notification",
+      "selection": "Written/CBT → Skill Test as notified"
     },
     "importantNotes": [
-      "यह structured content TargetTire के exam-information cards के लिए है।",
-      "Vacancy, age limit, dates, exact marks, negative marking और post-specific eligibility latest official notification के अनुसार verify करें।"
+      "Bihar-specific current affairs and Bihar General Knowledge should be prepared along with the post-specific syllabus.",
+      "Use the latest official notification for exact eligibility, dates, marks, vacancies and selection rules."
     ]
   },
-  "Other Government Exams": {
-    "overview": "Recruitment examinations for public sector insurance, food corporations, and statutory bodies.",
-    "information": "Exam Pattern: Multi-tier online competitive testing.",
+  "BSSC 4th Graduate Level": {
+    "overview": "BSSC 4th Graduate Level Combined Competitive Examination is a Bihar state government recruitment examination conducted by the relevant Bihar recruiting authority. Eligibility, vacancies, dates and selection stages are governed by the latest official notification.",
+    "information": "Qualification: Graduate. Selection: Prelims/CBT → Mains/skill stages as notified. Exact age limit, marks, negative marking, vacancies and post-wise eligibility should be taken from the latest official notification.",
     "stages": [
       {
-        "title": "Computer Based / Written Test",
-        "description": "Recruitment examination as prescribed"
+        "title": "Prelims/CBT",
+        "description": "Prelims/CBT"
       },
       {
-        "title": "Skill / Aptitude Stage",
-        "description": "Where applicable to the post"
-      },
-      {
-        "title": "Document Verification",
-        "description": "Verification of required documents"
+        "title": "Mains/skill stages as notified",
+        "description": "Mains/skill stages as notified"
       }
     ],
     "syllabus": [
       {
-        "title": "General Awareness",
-        "topics": [
-          "General Knowledge",
-          "Current Affairs",
-          "Relevant General Studies"
-        ]
+        "title": "General Studies",
+        "topics": []
       },
       {
-        "title": "Aptitude",
-        "topics": [
-          "Reasoning",
-          "Quantitative Aptitude",
-          "Language Skills where applicable"
-        ]
+        "title": "General Science",
+        "topics": []
+      },
+      {
+        "title": "Mathematics",
+        "topics": []
+      },
+      {
+        "title": "Reasoning",
+        "topics": []
+      },
+      {
+        "title": "General Knowledge",
+        "topics": []
+      },
+      {
+        "title": "Bihar GK",
+        "topics": []
+      },
+      {
+        "title": "Current Affairs",
+        "topics": []
       }
     ],
     "pattern": {
-      "mode": "Computer Based / Online",
-      "selection": "Computer Based / Written Test → Skill / Aptitude Stage → Document Verification"
+      "mode": "As prescribed in the latest official notification",
+      "selection": "Prelims/CBT → Mains/skill stages as notified"
     },
     "importantNotes": [
-      "यह structured content TargetTire के exam-information cards के लिए है।",
-      "Vacancy, age limit, dates, exact marks, negative marking और post-specific eligibility latest official notification के अनुसार verify करें।"
+      "Bihar-specific current affairs and Bihar General Knowledge should be prepared along with the post-specific syllabus.",
+      "Use the latest official notification for exact eligibility, dates, marks, vacancies and selection rules."
+    ]
+  },
+  "BSSC Inter Level (10+2)": {
+    "overview": "BSSC Second Inter Level Combined Competitive Examination is a Bihar state government recruitment examination conducted by the relevant Bihar recruiting authority. Eligibility, vacancies, dates and selection stages are governed by the latest official notification.",
+    "information": "Qualification: Intermediate / 10+2. Selection: Prelims/CBT → Mains/skill stages as notified. Exact age limit, marks, negative marking, vacancies and post-wise eligibility should be taken from the latest official notification.",
+    "stages": [
+      {
+        "title": "Prelims/CBT",
+        "description": "Prelims/CBT"
+      },
+      {
+        "title": "Mains/skill stages as notified",
+        "description": "Mains/skill stages as notified"
+      }
+    ],
+    "syllabus": [
+      {
+        "title": "General Studies",
+        "topics": []
+      },
+      {
+        "title": "General Science",
+        "topics": []
+      },
+      {
+        "title": "Mathematics",
+        "topics": []
+      },
+      {
+        "title": "Reasoning",
+        "topics": []
+      },
+      {
+        "title": "General Knowledge",
+        "topics": []
+      },
+      {
+        "title": "Bihar GK",
+        "topics": []
+      },
+      {
+        "title": "Current Affairs",
+        "topics": []
+      },
+      {
+        "title": "Hindi",
+        "topics": []
+      }
+    ],
+    "pattern": {
+      "mode": "As prescribed in the latest official notification",
+      "selection": "Prelims/CBT → Mains/skill stages as notified"
+    },
+    "importantNotes": [
+      "Bihar-specific current affairs and Bihar General Knowledge should be prepared along with the post-specific syllabus.",
+      "Use the latest official notification for exact eligibility, dates, marks, vacancies and selection rules."
+    ]
+  },
+  "BSSC Office Attendant (10th Level)": {
+    "overview": "BSSC Office Attendant / Attendant (Special) Combined Competitive Examination is a Bihar state government recruitment examination conducted by the relevant Bihar recruiting authority. Eligibility, vacancies, dates and selection stages are governed by the latest official notification.",
+    "information": "Qualification: Matriculation / 10th level. Selection: Written examination as notified. Exact age limit, marks, negative marking, vacancies and post-wise eligibility should be taken from the latest official notification.",
+    "stages": [
+      {
+        "title": "Written examination as notified",
+        "description": "Written examination as notified"
+      }
+    ],
+    "syllabus": [
+      {
+        "title": "General Knowledge",
+        "topics": []
+      },
+      {
+        "title": "Current Affairs",
+        "topics": []
+      },
+      {
+        "title": "General Mathematics",
+        "topics": []
+      },
+      {
+        "title": "Reasoning",
+        "topics": []
+      },
+      {
+        "title": "Basic Hindi/English",
+        "topics": []
+      }
+    ],
+    "pattern": {
+      "mode": "As prescribed in the latest official notification",
+      "selection": "Written examination as notified"
+    },
+    "importantNotes": [
+      "Bihar-specific current affairs and Bihar General Knowledge should be prepared along with the post-specific syllabus.",
+      "Use the latest official notification for exact eligibility, dates, marks, vacancies and selection rules."
+    ]
+  },
+  "BSSC Stenographer / Steno Typist": {
+    "overview": "BSSC Stenographer / Steno Typist Grade-III is a Bihar state government recruitment examination conducted by the relevant Bihar recruiting authority. Eligibility, vacancies, dates and selection stages are governed by the latest official notification.",
+    "information": "Qualification: As per notification. Selection: Written/CBT → Stenography/Typing skill. Exact age limit, marks, negative marking, vacancies and post-wise eligibility should be taken from the latest official notification.",
+    "stages": [
+      {
+        "title": "Written/CBT",
+        "description": "Written/CBT"
+      },
+      {
+        "title": "Stenography/Typing skill",
+        "description": "Stenography/Typing skill"
+      }
+    ],
+    "syllabus": [
+      {
+        "title": "General Studies",
+        "topics": []
+      },
+      {
+        "title": "General Knowledge",
+        "topics": []
+      },
+      {
+        "title": "Reasoning",
+        "topics": []
+      },
+      {
+        "title": "General Hindi",
+        "topics": []
+      },
+      {
+        "title": "Computer basics",
+        "topics": []
+      },
+      {
+        "title": "Stenography & Typing",
+        "topics": []
+      }
+    ],
+    "pattern": {
+      "mode": "As prescribed in the latest official notification",
+      "selection": "Written/CBT → Stenography/Typing skill"
+    },
+    "importantNotes": [
+      "Bihar-specific current affairs and Bihar General Knowledge should be prepared along with the post-specific syllabus.",
+      "Use the latest official notification for exact eligibility, dates, marks, vacancies and selection rules."
+    ]
+  },
+  "BSSC Field Assistant": {
+    "overview": "BSSC Field Assistant (Agriculture Department) is a Bihar state government recruitment examination conducted by the relevant Bihar recruiting authority. Eligibility, vacancies, dates and selection stages are governed by the latest official notification.",
+    "information": "Qualification: As per notification. Selection: Written examination. Exact age limit, marks, negative marking, vacancies and post-wise eligibility should be taken from the latest official notification.",
+    "stages": [
+      {
+        "title": "Written examination",
+        "description": "Written examination"
+      }
+    ],
+    "syllabus": [
+      {
+        "title": "Agriculture",
+        "topics": []
+      },
+      {
+        "title": "General Knowledge",
+        "topics": []
+      },
+      {
+        "title": "Bihar GK",
+        "topics": []
+      },
+      {
+        "title": "General Science",
+        "topics": []
+      },
+      {
+        "title": "Reasoning",
+        "topics": []
+      },
+      {
+        "title": "Current Affairs",
+        "topics": []
+      }
+    ],
+    "pattern": {
+      "mode": "As prescribed in the latest official notification",
+      "selection": "Written examination"
+    },
+    "importantNotes": [
+      "Bihar-specific current affairs and Bihar General Knowledge should be prepared along with the post-specific syllabus.",
+      "Use the latest official notification for exact eligibility, dates, marks, vacancies and selection rules."
+    ]
+  },
+  "BSSC Sports Trainer": {
+    "overview": "BSSC Sports Trainer is a Bihar state government recruitment examination conducted by the relevant Bihar recruiting authority. Eligibility, vacancies, dates and selection stages are governed by the latest official notification.",
+    "information": "Qualification: As per notification. Selection: Written examination / skill as notified. Exact age limit, marks, negative marking, vacancies and post-wise eligibility should be taken from the latest official notification.",
+    "stages": [
+      {
+        "title": "Written examination / skill as notified",
+        "description": "Written examination / skill as notified"
+      }
+    ],
+    "syllabus": [
+      {
+        "title": "Sports Science",
+        "topics": []
+      },
+      {
+        "title": "Physical Education",
+        "topics": []
+      },
+      {
+        "title": "General Knowledge",
+        "topics": []
+      },
+      {
+        "title": "Current Affairs",
+        "topics": []
+      },
+      {
+        "title": "Bihar GK",
+        "topics": []
+      }
+    ],
+    "pattern": {
+      "mode": "As prescribed in the latest official notification",
+      "selection": "Written examination / skill as notified"
+    },
+    "importantNotes": [
+      "Bihar-specific current affairs and Bihar General Knowledge should be prepared along with the post-specific syllabus.",
+      "Use the latest official notification for exact eligibility, dates, marks, vacancies and selection rules."
+    ]
+  },
+  "BTSC Junior Engineer Civil": {
+    "overview": "BTSC Junior Engineer – Civil is a Bihar state government recruitment examination conducted by the relevant Bihar recruiting authority. Eligibility, vacancies, dates and selection stages are governed by the latest official notification.",
+    "information": "Qualification: Diploma/Degree in Civil Engineering as notified. Selection: Written/CBT as notified. Exact age limit, marks, negative marking, vacancies and post-wise eligibility should be taken from the latest official notification.",
+    "stages": [
+      {
+        "title": "Written/CBT as notified",
+        "description": "Written/CBT as notified"
+      }
+    ],
+    "syllabus": [
+      {
+        "title": "Civil Engineering",
+        "topics": []
+      },
+      {
+        "title": "General Studies",
+        "topics": []
+      },
+      {
+        "title": "General Knowledge",
+        "topics": []
+      },
+      {
+        "title": "Current Affairs",
+        "topics": []
+      }
+    ],
+    "pattern": {
+      "mode": "As prescribed in the latest official notification",
+      "selection": "Written/CBT as notified"
+    },
+    "importantNotes": [
+      "Bihar-specific current affairs and Bihar General Knowledge should be prepared along with the post-specific syllabus.",
+      "Use the latest official notification for exact eligibility, dates, marks, vacancies and selection rules."
+    ]
+  },
+  "BTSC Junior Engineer Mechanical": {
+    "overview": "BTSC Junior Engineer – Mechanical is a Bihar state government recruitment examination conducted by the relevant Bihar recruiting authority. Eligibility, vacancies, dates and selection stages are governed by the latest official notification.",
+    "information": "Qualification: Diploma/Degree in Mechanical Engineering as notified. Selection: Written/CBT as notified. Exact age limit, marks, negative marking, vacancies and post-wise eligibility should be taken from the latest official notification.",
+    "stages": [
+      {
+        "title": "Written/CBT as notified",
+        "description": "Written/CBT as notified"
+      }
+    ],
+    "syllabus": [
+      {
+        "title": "Mechanical Engineering",
+        "topics": []
+      },
+      {
+        "title": "General Studies",
+        "topics": []
+      },
+      {
+        "title": "General Knowledge",
+        "topics": []
+      },
+      {
+        "title": "Current Affairs",
+        "topics": []
+      }
+    ],
+    "pattern": {
+      "mode": "As prescribed in the latest official notification",
+      "selection": "Written/CBT as notified"
+    },
+    "importantNotes": [
+      "Bihar-specific current affairs and Bihar General Knowledge should be prepared along with the post-specific syllabus.",
+      "Use the latest official notification for exact eligibility, dates, marks, vacancies and selection rules."
+    ]
+  },
+  "BTSC Junior Engineer Electrical": {
+    "overview": "BTSC Junior Engineer – Electrical is a Bihar state government recruitment examination conducted by the relevant Bihar recruiting authority. Eligibility, vacancies, dates and selection stages are governed by the latest official notification.",
+    "information": "Qualification: Diploma/Degree in Electrical Engineering as notified. Selection: Written/CBT as notified. Exact age limit, marks, negative marking, vacancies and post-wise eligibility should be taken from the latest official notification.",
+    "stages": [
+      {
+        "title": "Written/CBT as notified",
+        "description": "Written/CBT as notified"
+      }
+    ],
+    "syllabus": [
+      {
+        "title": "Electrical Engineering",
+        "topics": []
+      },
+      {
+        "title": "General Studies",
+        "topics": []
+      },
+      {
+        "title": "General Knowledge",
+        "topics": []
+      },
+      {
+        "title": "Current Affairs",
+        "topics": []
+      }
+    ],
+    "pattern": {
+      "mode": "As prescribed in the latest official notification",
+      "selection": "Written/CBT as notified"
+    },
+    "importantNotes": [
+      "Bihar-specific current affairs and Bihar General Knowledge should be prepared along with the post-specific syllabus.",
+      "Use the latest official notification for exact eligibility, dates, marks, vacancies and selection rules."
+    ]
+  },
+  "BTSC Staff Nurse": {
+    "overview": "BTSC Staff Nurse is a Bihar state government recruitment examination conducted by the relevant Bihar recruiting authority. Eligibility, vacancies, dates and selection stages are governed by the latest official notification.",
+    "information": "Qualification: Nursing qualification as notified. Selection: Written/CBT + document verification as notified. Exact age limit, marks, negative marking, vacancies and post-wise eligibility should be taken from the latest official notification.",
+    "stages": [
+      {
+        "title": "Written/CBT + document verification as notified",
+        "description": "Written/CBT + document verification as notified"
+      }
+    ],
+    "syllabus": [
+      {
+        "title": "Nursing",
+        "topics": []
+      },
+      {
+        "title": "Community Health",
+        "topics": []
+      },
+      {
+        "title": "Medical-Surgical Nursing",
+        "topics": []
+      },
+      {
+        "title": "Child Health",
+        "topics": []
+      },
+      {
+        "title": "Mental Health",
+        "topics": []
+      },
+      {
+        "title": "Obstetric & Gynaecological Nursing",
+        "topics": []
+      },
+      {
+        "title": "General Knowledge",
+        "topics": []
+      }
+    ],
+    "pattern": {
+      "mode": "As prescribed in the latest official notification",
+      "selection": "Written/CBT + document verification as notified"
+    },
+    "importantNotes": [
+      "Bihar-specific current affairs and Bihar General Knowledge should be prepared along with the post-specific syllabus.",
+      "Use the latest official notification for exact eligibility, dates, marks, vacancies and selection rules."
+    ]
+  },
+  "BTSC ANM": {
+    "overview": "BTSC Auxiliary Nurse Midwifery (ANM) is a Bihar state government recruitment examination conducted by the relevant Bihar recruiting authority. Eligibility, vacancies, dates and selection stages are governed by the latest official notification.",
+    "information": "Qualification: ANM qualification as notified. Selection: Written/CBT as notified. Exact age limit, marks, negative marking, vacancies and post-wise eligibility should be taken from the latest official notification.",
+    "stages": [
+      {
+        "title": "Written/CBT as notified",
+        "description": "Written/CBT as notified"
+      }
+    ],
+    "syllabus": [
+      {
+        "title": "Community Health Nursing",
+        "topics": []
+      },
+      {
+        "title": "Maternal & Child Health",
+        "topics": []
+      },
+      {
+        "title": "Primary Health Care",
+        "topics": []
+      },
+      {
+        "title": "Nutrition",
+        "topics": []
+      },
+      {
+        "title": "First Aid",
+        "topics": []
+      },
+      {
+        "title": "General Knowledge",
+        "topics": []
+      }
+    ],
+    "pattern": {
+      "mode": "As prescribed in the latest official notification",
+      "selection": "Written/CBT as notified"
+    },
+    "importantNotes": [
+      "Bihar-specific current affairs and Bihar General Knowledge should be prepared along with the post-specific syllabus.",
+      "Use the latest official notification for exact eligibility, dates, marks, vacancies and selection rules."
+    ]
+  },
+  "BTSC Laboratory Assistant – Science": {
+    "overview": "BTSC Laboratory Assistant – Science is a Bihar state government recruitment examination conducted by the relevant Bihar recruiting authority. Eligibility, vacancies, dates and selection stages are governed by the latest official notification.",
+    "information": "Qualification: As per notification. Selection: Written/CBT as notified. Exact age limit, marks, negative marking, vacancies and post-wise eligibility should be taken from the latest official notification.",
+    "stages": [
+      {
+        "title": "Written/CBT as notified",
+        "description": "Written/CBT as notified"
+      }
+    ],
+    "syllabus": [
+      {
+        "title": "Science",
+        "topics": []
+      },
+      {
+        "title": "Physics",
+        "topics": []
+      },
+      {
+        "title": "Chemistry",
+        "topics": []
+      },
+      {
+        "title": "Biology",
+        "topics": []
+      },
+      {
+        "title": "Laboratory basics",
+        "topics": []
+      },
+      {
+        "title": "General Knowledge",
+        "topics": []
+      }
+    ],
+    "pattern": {
+      "mode": "As prescribed in the latest official notification",
+      "selection": "Written/CBT as notified"
+    },
+    "importantNotes": [
+      "Bihar-specific current affairs and Bihar General Knowledge should be prepared along with the post-specific syllabus.",
+      "Use the latest official notification for exact eligibility, dates, marks, vacancies and selection rules."
+    ]
+  },
+  "BTSC Laboratory Assistant – Engineering": {
+    "overview": "BTSC Laboratory Assistant – Engineering Streams is a Bihar state government recruitment examination conducted by the relevant Bihar recruiting authority. Eligibility, vacancies, dates and selection stages are governed by the latest official notification.",
+    "information": "Qualification: Relevant technical qualification. Selection: Written/CBT as notified. Exact age limit, marks, negative marking, vacancies and post-wise eligibility should be taken from the latest official notification.",
+    "stages": [
+      {
+        "title": "Written/CBT as notified",
+        "description": "Written/CBT as notified"
+      }
+    ],
+    "syllabus": [
+      {
+        "title": "Relevant engineering trade",
+        "topics": []
+      },
+      {
+        "title": "Laboratory practices",
+        "topics": []
+      },
+      {
+        "title": "Technical fundamentals",
+        "topics": []
+      },
+      {
+        "title": "General Knowledge",
+        "topics": []
+      }
+    ],
+    "pattern": {
+      "mode": "As prescribed in the latest official notification",
+      "selection": "Written/CBT as notified"
+    },
+    "importantNotes": [
+      "Bihar-specific current affairs and Bihar General Knowledge should be prepared along with the post-specific syllabus.",
+      "Use the latest official notification for exact eligibility, dates, marks, vacancies and selection rules."
+    ]
+  },
+  "BTSC Instructor – ITI Trades": {
+    "overview": "BTSC Instructor – ITI / Technical Trades is a Bihar state government recruitment examination conducted by the relevant Bihar recruiting authority. Eligibility, vacancies, dates and selection stages are governed by the latest official notification.",
+    "information": "Qualification: Relevant technical qualification. Selection: Written/CBT as notified. Exact age limit, marks, negative marking, vacancies and post-wise eligibility should be taken from the latest official notification.",
+    "stages": [
+      {
+        "title": "Written/CBT as notified",
+        "description": "Written/CBT as notified"
+      }
+    ],
+    "syllabus": [
+      {
+        "title": "Trade theory",
+        "topics": []
+      },
+      {
+        "title": "Workshop calculation & science",
+        "topics": []
+      },
+      {
+        "title": "Engineering drawing",
+        "topics": []
+      },
+      {
+        "title": "Employability skills",
+        "topics": []
+      },
+      {
+        "title": "Trade-specific practical knowledge",
+        "topics": []
+      }
+    ],
+    "pattern": {
+      "mode": "As prescribed in the latest official notification",
+      "selection": "Written/CBT as notified"
+    },
+    "importantNotes": [
+      "Bihar-specific current affairs and Bihar General Knowledge should be prepared along with the post-specific syllabus.",
+      "Use the latest official notification for exact eligibility, dates, marks, vacancies and selection rules."
+    ]
+  },
+  "BTSC X-Ray Technician": {
+    "overview": "BTSC X-Ray Technician is a Bihar state government recruitment examination conducted by the relevant Bihar recruiting authority. Eligibility, vacancies, dates and selection stages are governed by the latest official notification.",
+    "information": "Qualification: Relevant paramedical qualification. Selection: Written/CBT as notified. Exact age limit, marks, negative marking, vacancies and post-wise eligibility should be taken from the latest official notification.",
+    "stages": [
+      {
+        "title": "Written/CBT as notified",
+        "description": "Written/CBT as notified"
+      }
+    ],
+    "syllabus": [
+      {
+        "title": "Radiography",
+        "topics": []
+      },
+      {
+        "title": "Radiation physics",
+        "topics": []
+      },
+      {
+        "title": "Imaging techniques",
+        "topics": []
+      },
+      {
+        "title": "Patient care",
+        "topics": []
+      },
+      {
+        "title": "Anatomy & physiology",
+        "topics": []
+      },
+      {
+        "title": "General Knowledge",
+        "topics": []
+      }
+    ],
+    "pattern": {
+      "mode": "As prescribed in the latest official notification",
+      "selection": "Written/CBT as notified"
+    },
+    "importantNotes": [
+      "Bihar-specific current affairs and Bihar General Knowledge should be prepared along with the post-specific syllabus.",
+      "Use the latest official notification for exact eligibility, dates, marks, vacancies and selection rules."
+    ]
+  },
+  "BTSC OT Assistant": {
+    "overview": "BTSC Operation Theatre Assistant is a Bihar state government recruitment examination conducted by the relevant Bihar recruiting authority. Eligibility, vacancies, dates and selection stages are governed by the latest official notification.",
+    "information": "Qualification: Relevant paramedical qualification. Selection: Written/CBT as notified. Exact age limit, marks, negative marking, vacancies and post-wise eligibility should be taken from the latest official notification.",
+    "stages": [
+      {
+        "title": "Written/CBT as notified",
+        "description": "Written/CBT as notified"
+      }
+    ],
+    "syllabus": [
+      {
+        "title": "Operation theatre procedures",
+        "topics": []
+      },
+      {
+        "title": "Sterilization",
+        "topics": []
+      },
+      {
+        "title": "Patient care",
+        "topics": []
+      },
+      {
+        "title": "Anatomy & physiology",
+        "topics": []
+      },
+      {
+        "title": "Basic pharmacology",
+        "topics": []
+      }
+    ],
+    "pattern": {
+      "mode": "As prescribed in the latest official notification",
+      "selection": "Written/CBT as notified"
+    },
+    "importantNotes": [
+      "Bihar-specific current affairs and Bihar General Knowledge should be prepared along with the post-specific syllabus.",
+      "Use the latest official notification for exact eligibility, dates, marks, vacancies and selection rules."
+    ]
+  },
+  "BTSC Dresser": {
+    "overview": "BTSC Dresser is a Bihar state government recruitment examination conducted by the relevant Bihar recruiting authority. Eligibility, vacancies, dates and selection stages are governed by the latest official notification.",
+    "information": "Qualification: As per notification. Selection: Written/CBT as notified. Exact age limit, marks, negative marking, vacancies and post-wise eligibility should be taken from the latest official notification.",
+    "stages": [
+      {
+        "title": "Written/CBT as notified",
+        "description": "Written/CBT as notified"
+      }
+    ],
+    "syllabus": [
+      {
+        "title": "First aid",
+        "topics": []
+      },
+      {
+        "title": "Wound care",
+        "topics": []
+      },
+      {
+        "title": "Basic anatomy",
+        "topics": []
+      },
+      {
+        "title": "Hospital procedures",
+        "topics": []
+      },
+      {
+        "title": "General Knowledge",
+        "topics": []
+      }
+    ],
+    "pattern": {
+      "mode": "As prescribed in the latest official notification",
+      "selection": "Written/CBT as notified"
+    },
+    "importantNotes": [
+      "Bihar-specific current affairs and Bihar General Knowledge should be prepared along with the post-specific syllabus.",
+      "Use the latest official notification for exact eligibility, dates, marks, vacancies and selection rules."
+    ]
+  },
+  "BTSC Pharmacist": {
+    "overview": "BTSC Pharmacist is a Bihar state government recruitment examination conducted by the relevant Bihar recruiting authority. Eligibility, vacancies, dates and selection stages are governed by the latest official notification.",
+    "information": "Qualification: Pharmacy qualification as notified. Selection: Written/CBT as notified. Exact age limit, marks, negative marking, vacancies and post-wise eligibility should be taken from the latest official notification.",
+    "stages": [
+      {
+        "title": "Written/CBT as notified",
+        "description": "Written/CBT as notified"
+      }
+    ],
+    "syllabus": [
+      {
+        "title": "Pharmaceutics",
+        "topics": []
+      },
+      {
+        "title": "Pharmacology",
+        "topics": []
+      },
+      {
+        "title": "Pharmacognosy",
+        "topics": []
+      },
+      {
+        "title": "Pharmaceutical chemistry",
+        "topics": []
+      },
+      {
+        "title": "Hospital pharmacy",
+        "topics": []
+      }
+    ],
+    "pattern": {
+      "mode": "As prescribed in the latest official notification",
+      "selection": "Written/CBT as notified"
+    },
+    "importantNotes": [
+      "Bihar-specific current affairs and Bihar General Knowledge should be prepared along with the post-specific syllabus.",
+      "Use the latest official notification for exact eligibility, dates, marks, vacancies and selection rules."
+    ]
+  },
+  "BTSC Food Safety Officer": {
+    "overview": "BTSC Food Safety Officer is a Bihar state government recruitment examination conducted by the relevant Bihar recruiting authority. Eligibility, vacancies, dates and selection stages are governed by the latest official notification.",
+    "information": "Qualification: Relevant qualification as notified. Selection: Written/CBT as notified. Exact age limit, marks, negative marking, vacancies and post-wise eligibility should be taken from the latest official notification.",
+    "stages": [
+      {
+        "title": "Written/CBT as notified",
+        "description": "Written/CBT as notified"
+      }
+    ],
+    "syllabus": [
+      {
+        "title": "Food safety law",
+        "topics": []
+      },
+      {
+        "title": "Food chemistry",
+        "topics": []
+      },
+      {
+        "title": "Microbiology",
+        "topics": []
+      },
+      {
+        "title": "Food processing",
+        "topics": []
+      },
+      {
+        "title": "General Knowledge",
+        "topics": []
+      }
+    ],
+    "pattern": {
+      "mode": "As prescribed in the latest official notification",
+      "selection": "Written/CBT as notified"
+    },
+    "importantNotes": [
+      "Bihar-specific current affairs and Bihar General Knowledge should be prepared along with the post-specific syllabus.",
+      "Use the latest official notification for exact eligibility, dates, marks, vacancies and selection rules."
+    ]
+  },
+  "BTSC Scientific Assistant": {
+    "overview": "BTSC Scientific Assistant is a Bihar state government recruitment examination conducted by the relevant Bihar recruiting authority. Eligibility, vacancies, dates and selection stages are governed by the latest official notification.",
+    "information": "Qualification: Relevant science qualification. Selection: Written/CBT as notified. Exact age limit, marks, negative marking, vacancies and post-wise eligibility should be taken from the latest official notification.",
+    "stages": [
+      {
+        "title": "Written/CBT as notified",
+        "description": "Written/CBT as notified"
+      }
+    ],
+    "syllabus": [
+      {
+        "title": "Relevant science subject",
+        "topics": []
+      },
+      {
+        "title": "Laboratory methods",
+        "topics": []
+      },
+      {
+        "title": "General Science",
+        "topics": []
+      },
+      {
+        "title": "General Knowledge",
+        "topics": []
+      },
+      {
+        "title": "Current Affairs",
+        "topics": []
+      }
+    ],
+    "pattern": {
+      "mode": "As prescribed in the latest official notification",
+      "selection": "Written/CBT as notified"
+    },
+    "importantNotes": [
+      "Bihar-specific current affairs and Bihar General Knowledge should be prepared along with the post-specific syllabus.",
+      "Use the latest official notification for exact eligibility, dates, marks, vacancies and selection rules."
+    ]
+  },
+  "BPSSC Police Sub-Inspector": {
+    "overview": "BPSSC Police Sub-Inspector (SI) is a Bihar state government recruitment examination conducted by the relevant Bihar recruiting authority. Eligibility, vacancies, dates and selection stages are governed by the latest official notification.",
+    "information": "Qualification: Graduate. Selection: Prelims → Mains → PET/PST → Document Verification. Exact age limit, marks, negative marking, vacancies and post-wise eligibility should be taken from the latest official notification.",
+    "stages": [
+      {
+        "title": "Prelims",
+        "description": "Prelims"
+      },
+      {
+        "title": "Mains",
+        "description": "Mains"
+      },
+      {
+        "title": "PET/PST",
+        "description": "PET/PST"
+      },
+      {
+        "title": "Document Verification",
+        "description": "Document Verification"
+      }
+    ],
+    "syllabus": [
+      {
+        "title": "General Studies",
+        "topics": []
+      },
+      {
+        "title": "Current Affairs",
+        "topics": []
+      },
+      {
+        "title": "General Knowledge",
+        "topics": []
+      },
+      {
+        "title": "General Hindi",
+        "topics": []
+      },
+      {
+        "title": "Constitution",
+        "topics": []
+      },
+      {
+        "title": "Bihar GK",
+        "topics": []
+      },
+      {
+        "title": "Physical efficiency preparation",
+        "topics": []
+      }
+    ],
+    "pattern": {
+      "mode": "As prescribed in the latest official notification",
+      "selection": "Prelims → Mains → PET/PST → Document Verification"
+    },
+    "importantNotes": [
+      "Bihar-specific current affairs and Bihar General Knowledge should be prepared along with the post-specific syllabus.",
+      "Use the latest official notification for exact eligibility, dates, marks, vacancies and selection rules."
+    ]
+  },
+  "BPSSC Special Branch SI": {
+    "overview": "BPSSC Police Sub-Inspector – Special Branch is a Bihar state government recruitment examination conducted by the relevant Bihar recruiting authority. Eligibility, vacancies, dates and selection stages are governed by the latest official notification.",
+    "information": "Qualification: Graduate / as notified. Selection: Written stages → Physical/verification as notified. Exact age limit, marks, negative marking, vacancies and post-wise eligibility should be taken from the latest official notification.",
+    "stages": [
+      {
+        "title": "Written stages",
+        "description": "Written stages"
+      },
+      {
+        "title": "Physical/verification as notified",
+        "description": "Physical/verification as notified"
+      }
+    ],
+    "syllabus": [
+      {
+        "title": "General Studies",
+        "topics": []
+      },
+      {
+        "title": "Current Affairs",
+        "topics": []
+      },
+      {
+        "title": "General Knowledge",
+        "topics": []
+      },
+      {
+        "title": "Reasoning",
+        "topics": []
+      },
+      {
+        "title": "Bihar GK",
+        "topics": []
+      },
+      {
+        "title": "Relevant special-branch topics",
+        "topics": []
+      }
+    ],
+    "pattern": {
+      "mode": "As prescribed in the latest official notification",
+      "selection": "Written stages → Physical/verification as notified"
+    },
+    "importantNotes": [
+      "Bihar-specific current affairs and Bihar General Knowledge should be prepared along with the post-specific syllabus.",
+      "Use the latest official notification for exact eligibility, dates, marks, vacancies and selection rules."
+    ]
+  },
+  "BPSSC ASI Operation": {
+    "overview": "BPSSC Assistant Sub-Inspector (Operation) – Bihar Police Radio is a Bihar state government recruitment examination conducted by the relevant Bihar recruiting authority. Eligibility, vacancies, dates and selection stages are governed by the latest official notification.",
+    "information": "Qualification: Technical qualification as notified. Selection: Prelims/Written → technical/skill stages as notified. Exact age limit, marks, negative marking, vacancies and post-wise eligibility should be taken from the latest official notification.",
+    "stages": [
+      {
+        "title": "Prelims/Written",
+        "description": "Prelims/Written"
+      },
+      {
+        "title": "technical/skill stages as notified",
+        "description": "technical/skill stages as notified"
+      }
+    ],
+    "syllabus": [
+      {
+        "title": "Radio/telecommunication basics",
+        "topics": []
+      },
+      {
+        "title": "Electronics",
+        "topics": []
+      },
+      {
+        "title": "Computer",
+        "topics": []
+      },
+      {
+        "title": "General Knowledge",
+        "topics": []
+      },
+      {
+        "title": "Current Affairs",
+        "topics": []
+      }
+    ],
+    "pattern": {
+      "mode": "As prescribed in the latest official notification",
+      "selection": "Prelims/Written → technical/skill stages as notified"
+    },
+    "importantNotes": [
+      "Bihar-specific current affairs and Bihar General Knowledge should be prepared along with the post-specific syllabus.",
+      "Use the latest official notification for exact eligibility, dates, marks, vacancies and selection rules."
+    ]
+  },
+  "BPSSC ASI Technical": {
+    "overview": "BPSSC Assistant Sub-Inspector (Technical) – Bihar Police Radio is a Bihar state government recruitment examination conducted by the relevant Bihar recruiting authority. Eligibility, vacancies, dates and selection stages are governed by the latest official notification.",
+    "information": "Qualification: Technical qualification as notified. Selection: Prelims/Written → technical/skill stages as notified. Exact age limit, marks, negative marking, vacancies and post-wise eligibility should be taken from the latest official notification.",
+    "stages": [
+      {
+        "title": "Prelims/Written",
+        "description": "Prelims/Written"
+      },
+      {
+        "title": "technical/skill stages as notified",
+        "description": "technical/skill stages as notified"
+      }
+    ],
+    "syllabus": [
+      {
+        "title": "Electronics",
+        "topics": []
+      },
+      {
+        "title": "Telecommunication",
+        "topics": []
+      },
+      {
+        "title": "Computer",
+        "topics": []
+      },
+      {
+        "title": "Technical aptitude",
+        "topics": []
+      },
+      {
+        "title": "General Knowledge",
+        "topics": []
+      }
+    ],
+    "pattern": {
+      "mode": "As prescribed in the latest official notification",
+      "selection": "Prelims/Written → technical/skill stages as notified"
+    },
+    "importantNotes": [
+      "Bihar-specific current affairs and Bihar General Knowledge should be prepared along with the post-specific syllabus.",
+      "Use the latest official notification for exact eligibility, dates, marks, vacancies and selection rules."
+    ]
+  },
+  "BPSSC Steno ASI": {
+    "overview": "BPSSC Steno Assistant Sub-Inspector is a Bihar state government recruitment examination conducted by the relevant Bihar recruiting authority. Eligibility, vacancies, dates and selection stages are governed by the latest official notification.",
+    "information": "Qualification: As per notification. Selection: Written → eligibility/skill/verification stages. Exact age limit, marks, negative marking, vacancies and post-wise eligibility should be taken from the latest official notification.",
+    "stages": [
+      {
+        "title": "Written",
+        "description": "Written"
+      },
+      {
+        "title": "eligibility/skill/verification stages",
+        "description": "eligibility/skill/verification stages"
+      }
+    ],
+    "syllabus": [
+      {
+        "title": "General Knowledge",
+        "topics": []
+      },
+      {
+        "title": "General Hindi",
+        "topics": []
+      },
+      {
+        "title": "General English",
+        "topics": []
+      },
+      {
+        "title": "Reasoning",
+        "topics": []
+      },
+      {
+        "title": "Computer",
+        "topics": []
+      },
+      {
+        "title": "Stenography & typing",
+        "topics": []
+      }
+    ],
+    "pattern": {
+      "mode": "As prescribed in the latest official notification",
+      "selection": "Written → eligibility/skill/verification stages"
+    },
+    "importantNotes": [
+      "Bihar-specific current affairs and Bihar General Knowledge should be prepared along with the post-specific syllabus.",
+      "Use the latest official notification for exact eligibility, dates, marks, vacancies and selection rules."
+    ]
+  },
+  "BPSSC Enforcement SI": {
+    "overview": "BPSSC Enforcement Sub-Inspector is a Bihar state government recruitment examination conducted by the relevant Bihar recruiting authority. Eligibility, vacancies, dates and selection stages are governed by the latest official notification.",
+    "information": "Qualification: Graduate / as notified. Selection: Prelims → Mains → physical/verification as notified. Exact age limit, marks, negative marking, vacancies and post-wise eligibility should be taken from the latest official notification.",
+    "stages": [
+      {
+        "title": "Prelims",
+        "description": "Prelims"
+      },
+      {
+        "title": "Mains",
+        "description": "Mains"
+      },
+      {
+        "title": "physical/verification as notified",
+        "description": "physical/verification as notified"
+      }
+    ],
+    "syllabus": [
+      {
+        "title": "General Studies",
+        "topics": []
+      },
+      {
+        "title": "Transport rules",
+        "topics": []
+      },
+      {
+        "title": "Road safety",
+        "topics": []
+      },
+      {
+        "title": "Current Affairs",
+        "topics": []
+      },
+      {
+        "title": "Bihar GK",
+        "topics": []
+      },
+      {
+        "title": "General Hindi",
+        "topics": []
+      }
+    ],
+    "pattern": {
+      "mode": "As prescribed in the latest official notification",
+      "selection": "Prelims → Mains → physical/verification as notified"
+    },
+    "importantNotes": [
+      "Bihar-specific current affairs and Bihar General Knowledge should be prepared along with the post-specific syllabus.",
+      "Use the latest official notification for exact eligibility, dates, marks, vacancies and selection rules."
+    ]
+  },
+  "CSBC Constable": {
+    "overview": "CSBC Bihar Police Constable (General Duty) is a Bihar state government recruitment examination conducted by the relevant Bihar recruiting authority. Eligibility, vacancies, dates and selection stages are governed by the latest official notification.",
+    "information": "Qualification: 10th/12th as notified. Selection: Written → PET/PST → Document Verification. Exact age limit, marks, negative marking, vacancies and post-wise eligibility should be taken from the latest official notification.",
+    "stages": [
+      {
+        "title": "Written",
+        "description": "Written"
+      },
+      {
+        "title": "PET/PST",
+        "description": "PET/PST"
+      },
+      {
+        "title": "Document Verification",
+        "description": "Document Verification"
+      }
+    ],
+    "syllabus": [
+      {
+        "title": "General Knowledge",
+        "topics": []
+      },
+      {
+        "title": "Current Affairs",
+        "topics": []
+      },
+      {
+        "title": "General Science",
+        "topics": []
+      },
+      {
+        "title": "Mathematics",
+        "topics": []
+      },
+      {
+        "title": "Reasoning",
+        "topics": []
+      },
+      {
+        "title": "Bihar GK",
+        "topics": []
+      }
+    ],
+    "pattern": {
+      "mode": "As prescribed in the latest official notification",
+      "selection": "Written → PET/PST → Document Verification"
+    },
+    "importantNotes": [
+      "Bihar-specific current affairs and Bihar General Knowledge should be prepared along with the post-specific syllabus.",
+      "Use the latest official notification for exact eligibility, dates, marks, vacancies and selection rules."
+    ]
+  },
+  "CSBC Constable Operator": {
+    "overview": "CSBC Constable (Operator) is a Bihar state government recruitment examination conducted by the relevant Bihar recruiting authority. Eligibility, vacancies, dates and selection stages are governed by the latest official notification.",
+    "information": "Qualification: As per notification. Selection: Written → PET/PST/technical stages as notified. Exact age limit, marks, negative marking, vacancies and post-wise eligibility should be taken from the latest official notification.",
+    "stages": [
+      {
+        "title": "Written",
+        "description": "Written"
+      },
+      {
+        "title": "PET/PST/technical stages as notified",
+        "description": "PET/PST/technical stages as notified"
+      }
+    ],
+    "syllabus": [
+      {
+        "title": "General Knowledge",
+        "topics": []
+      },
+      {
+        "title": "Science",
+        "topics": []
+      },
+      {
+        "title": "Mathematics",
+        "topics": []
+      },
+      {
+        "title": "Reasoning",
+        "topics": []
+      },
+      {
+        "title": "Basic computer/communication",
+        "topics": []
+      },
+      {
+        "title": "Bihar GK",
+        "topics": []
+      }
+    ],
+    "pattern": {
+      "mode": "As prescribed in the latest official notification",
+      "selection": "Written → PET/PST/technical stages as notified"
+    },
+    "importantNotes": [
+      "Bihar-specific current affairs and Bihar General Knowledge should be prepared along with the post-specific syllabus.",
+      "Use the latest official notification for exact eligibility, dates, marks, vacancies and selection rules."
+    ]
+  },
+  "CSBC Driver Constable": {
+    "overview": "CSBC Driver Constable – Bihar Police / Bihar Special Armed Police is a Bihar state government recruitment examination conducted by the relevant Bihar recruiting authority. Eligibility, vacancies, dates and selection stages are governed by the latest official notification.",
+    "information": "Qualification: As per notification + driving licence. Selection: Written → PET/PST → Driving Efficiency Test → DV. Exact age limit, marks, negative marking, vacancies and post-wise eligibility should be taken from the latest official notification.",
+    "stages": [
+      {
+        "title": "Written",
+        "description": "Written"
+      },
+      {
+        "title": "PET/PST",
+        "description": "PET/PST"
+      },
+      {
+        "title": "Driving Efficiency Test",
+        "description": "Driving Efficiency Test"
+      },
+      {
+        "title": "DV",
+        "description": "DV"
+      }
+    ],
+    "syllabus": [
+      {
+        "title": "General Knowledge",
+        "topics": []
+      },
+      {
+        "title": "Current Affairs",
+        "topics": []
+      },
+      {
+        "title": "Traffic rules",
+        "topics": []
+      },
+      {
+        "title": "Road safety",
+        "topics": []
+      },
+      {
+        "title": "Vehicle basics",
+        "topics": []
+      },
+      {
+        "title": "Bihar GK",
+        "topics": []
+      }
+    ],
+    "pattern": {
+      "mode": "As prescribed in the latest official notification",
+      "selection": "Written → PET/PST → Driving Efficiency Test → DV"
+    },
+    "importantNotes": [
+      "Bihar-specific current affairs and Bihar General Knowledge should be prepared along with the post-specific syllabus.",
+      "Use the latest official notification for exact eligibility, dates, marks, vacancies and selection rules."
+    ]
+  },
+  "CSBC Prohibition Constable": {
+    "overview": "CSBC Prohibition Constable is a Bihar state government recruitment examination conducted by the relevant Bihar recruiting authority. Eligibility, vacancies, dates and selection stages are governed by the latest official notification.",
+    "information": "Qualification: As per notification. Selection: Written → PET/PST → DV. Exact age limit, marks, negative marking, vacancies and post-wise eligibility should be taken from the latest official notification.",
+    "stages": [
+      {
+        "title": "Written",
+        "description": "Written"
+      },
+      {
+        "title": "PET/PST",
+        "description": "PET/PST"
+      },
+      {
+        "title": "DV",
+        "description": "DV"
+      }
+    ],
+    "syllabus": [
+      {
+        "title": "General Knowledge",
+        "topics": []
+      },
+      {
+        "title": "Current Affairs",
+        "topics": []
+      },
+      {
+        "title": "General Science",
+        "topics": []
+      },
+      {
+        "title": "Mathematics",
+        "topics": []
+      },
+      {
+        "title": "Reasoning",
+        "topics": []
+      },
+      {
+        "title": "Bihar GK",
+        "topics": []
+      }
+    ],
+    "pattern": {
+      "mode": "As prescribed in the latest official notification",
+      "selection": "Written → PET/PST → DV"
+    },
+    "importantNotes": [
+      "Bihar-specific current affairs and Bihar General Knowledge should be prepared along with the post-specific syllabus.",
+      "Use the latest official notification for exact eligibility, dates, marks, vacancies and selection rules."
+    ]
+  },
+  "CSBC Jail Warder": {
+    "overview": "CSBC Jail Warder is a Bihar state government recruitment examination conducted by the relevant Bihar recruiting authority. Eligibility, vacancies, dates and selection stages are governed by the latest official notification.",
+    "information": "Qualification: As per notification. Selection: Written → PET/PST → DV. Exact age limit, marks, negative marking, vacancies and post-wise eligibility should be taken from the latest official notification.",
+    "stages": [
+      {
+        "title": "Written",
+        "description": "Written"
+      },
+      {
+        "title": "PET/PST",
+        "description": "PET/PST"
+      },
+      {
+        "title": "DV",
+        "description": "DV"
+      }
+    ],
+    "syllabus": [
+      {
+        "title": "General Knowledge",
+        "topics": []
+      },
+      {
+        "title": "Current Affairs",
+        "topics": []
+      },
+      {
+        "title": "General Science",
+        "topics": []
+      },
+      {
+        "title": "Mathematics",
+        "topics": []
+      },
+      {
+        "title": "Reasoning",
+        "topics": []
+      },
+      {
+        "title": "Bihar GK",
+        "topics": []
+      }
+    ],
+    "pattern": {
+      "mode": "As prescribed in the latest official notification",
+      "selection": "Written → PET/PST → DV"
+    },
+    "importantNotes": [
+      "Bihar-specific current affairs and Bihar General Knowledge should be prepared along with the post-specific syllabus.",
+      "Use the latest official notification for exact eligibility, dates, marks, vacancies and selection rules."
+    ]
+  },
+  "CSBC Mobile Squad Constable": {
+    "overview": "CSBC Mobile Squad Constable is a Bihar state government recruitment examination conducted by the relevant Bihar recruiting authority. Eligibility, vacancies, dates and selection stages are governed by the latest official notification.",
+    "information": "Qualification: As per notification. Selection: Written → PET/PST → DV. Exact age limit, marks, negative marking, vacancies and post-wise eligibility should be taken from the latest official notification.",
+    "stages": [
+      {
+        "title": "Written",
+        "description": "Written"
+      },
+      {
+        "title": "PET/PST",
+        "description": "PET/PST"
+      },
+      {
+        "title": "DV",
+        "description": "DV"
+      }
+    ],
+    "syllabus": [
+      {
+        "title": "General Knowledge",
+        "topics": []
+      },
+      {
+        "title": "Current Affairs",
+        "topics": []
+      },
+      {
+        "title": "Road safety",
+        "topics": []
+      },
+      {
+        "title": "General Science",
+        "topics": []
+      },
+      {
+        "title": "Mathematics",
+        "topics": []
+      },
+      {
+        "title": "Bihar GK",
+        "topics": []
+      }
+    ],
+    "pattern": {
+      "mode": "As prescribed in the latest official notification",
+      "selection": "Written → PET/PST → DV"
+    },
+    "importantNotes": [
+      "Bihar-specific current affairs and Bihar General Knowledge should be prepared along with the post-specific syllabus.",
+      "Use the latest official notification for exact eligibility, dates, marks, vacancies and selection rules."
+    ]
+  },
+  "CSBC Special Branch Constable": {
+    "overview": "CSBC Special Branch Constable (Close Cadre) is a Bihar state government recruitment examination conducted by the relevant Bihar recruiting authority. Eligibility, vacancies, dates and selection stages are governed by the latest official notification.",
+    "information": "Qualification: As per notification. Selection: Written → PST/PET/DV. Exact age limit, marks, negative marking, vacancies and post-wise eligibility should be taken from the latest official notification.",
+    "stages": [
+      {
+        "title": "Written",
+        "description": "Written"
+      },
+      {
+        "title": "PST/PET/DV",
+        "description": "PST/PET/DV"
+      }
+    ],
+    "syllabus": [
+      {
+        "title": "General Knowledge",
+        "topics": []
+      },
+      {
+        "title": "Current Affairs",
+        "topics": []
+      },
+      {
+        "title": "Reasoning",
+        "topics": []
+      },
+      {
+        "title": "General Science",
+        "topics": []
+      },
+      {
+        "title": "Bihar GK",
+        "topics": []
+      },
+      {
+        "title": "Physical efficiency",
+        "topics": []
+      }
+    ],
+    "pattern": {
+      "mode": "As prescribed in the latest official notification",
+      "selection": "Written → PST/PET/DV"
+    },
+    "importantNotes": [
+      "Bihar-specific current affairs and Bihar General Knowledge should be prepared along with the post-specific syllabus.",
+      "Use the latest official notification for exact eligibility, dates, marks, vacancies and selection rules."
+    ]
+  },
+  "Bihar Civil Court Clerk": {
+    "overview": "Bihar Civil Courts – Clerk is a Bihar state government recruitment examination conducted by the relevant Bihar recruiting authority. Eligibility, vacancies, dates and selection stages are governed by the latest official notification.",
+    "information": "Qualification: As per court recruitment notification. Selection: Written → skill/test/typing → DV as notified. Exact age limit, marks, negative marking, vacancies and post-wise eligibility should be taken from the latest official notification.",
+    "stages": [
+      {
+        "title": "Written",
+        "description": "Written"
+      },
+      {
+        "title": "skill/test/typing",
+        "description": "skill/test/typing"
+      },
+      {
+        "title": "DV as notified",
+        "description": "DV as notified"
+      }
+    ],
+    "syllabus": [
+      {
+        "title": "General Knowledge",
+        "topics": []
+      },
+      {
+        "title": "Current Affairs",
+        "topics": []
+      },
+      {
+        "title": "General Hindi",
+        "topics": []
+      },
+      {
+        "title": "General English",
+        "topics": []
+      },
+      {
+        "title": "Mathematics",
+        "topics": []
+      },
+      {
+        "title": "Computer",
+        "topics": []
+      },
+      {
+        "title": "Typing",
+        "topics": []
+      }
+    ],
+    "pattern": {
+      "mode": "As prescribed in the latest official notification",
+      "selection": "Written → skill/test/typing → DV as notified"
+    },
+    "importantNotes": [
+      "Bihar-specific current affairs and Bihar General Knowledge should be prepared along with the post-specific syllabus.",
+      "Use the latest official notification for exact eligibility, dates, marks, vacancies and selection rules."
+    ]
+  },
+  "Bihar Civil Court Stenographer": {
+    "overview": "Bihar Civil Courts – Stenographer is a Bihar state government recruitment examination conducted by the relevant Bihar recruiting authority. Eligibility, vacancies, dates and selection stages are governed by the latest official notification.",
+    "information": "Qualification: As per court recruitment notification. Selection: Written → Stenography/typing → DV. Exact age limit, marks, negative marking, vacancies and post-wise eligibility should be taken from the latest official notification.",
+    "stages": [
+      {
+        "title": "Written",
+        "description": "Written"
+      },
+      {
+        "title": "Stenography/typing",
+        "description": "Stenography/typing"
+      },
+      {
+        "title": "DV",
+        "description": "DV"
+      }
+    ],
+    "syllabus": [
+      {
+        "title": "General Knowledge",
+        "topics": []
+      },
+      {
+        "title": "English",
+        "topics": []
+      },
+      {
+        "title": "Hindi",
+        "topics": []
+      },
+      {
+        "title": "Computer",
+        "topics": []
+      },
+      {
+        "title": "Stenography",
+        "topics": []
+      },
+      {
+        "title": "Typing",
+        "topics": []
+      }
+    ],
+    "pattern": {
+      "mode": "As prescribed in the latest official notification",
+      "selection": "Written → Stenography/typing → DV"
+    },
+    "importantNotes": [
+      "Bihar-specific current affairs and Bihar General Knowledge should be prepared along with the post-specific syllabus.",
+      "Use the latest official notification for exact eligibility, dates, marks, vacancies and selection rules."
+    ]
+  },
+  "Bihar Civil Court Court Reader": {
+    "overview": "Bihar Civil Courts – Court Reader-cum-Deposition Writer is a Bihar state government recruitment examination conducted by the relevant Bihar recruiting authority. Eligibility, vacancies, dates and selection stages are governed by the latest official notification.",
+    "information": "Qualification: As per notification. Selection: Written → skill/typing → DV. Exact age limit, marks, negative marking, vacancies and post-wise eligibility should be taken from the latest official notification.",
+    "stages": [
+      {
+        "title": "Written",
+        "description": "Written"
+      },
+      {
+        "title": "skill/typing",
+        "description": "skill/typing"
+      },
+      {
+        "title": "DV",
+        "description": "DV"
+      }
+    ],
+    "syllabus": [
+      {
+        "title": "General Knowledge",
+        "topics": []
+      },
+      {
+        "title": "Hindi",
+        "topics": []
+      },
+      {
+        "title": "English",
+        "topics": []
+      },
+      {
+        "title": "Computer",
+        "topics": []
+      },
+      {
+        "title": "Typing",
+        "topics": []
+      },
+      {
+        "title": "Court terminology",
+        "topics": []
+      }
+    ],
+    "pattern": {
+      "mode": "As prescribed in the latest official notification",
+      "selection": "Written → skill/typing → DV"
+    },
+    "importantNotes": [
+      "Bihar-specific current affairs and Bihar General Knowledge should be prepared along with the post-specific syllabus.",
+      "Use the latest official notification for exact eligibility, dates, marks, vacancies and selection rules."
+    ]
+  },
+  "Bihar Civil Court Peon": {
+    "overview": "Bihar Civil Courts – Peon / Orderly is a Bihar state government recruitment examination conducted by the relevant Bihar recruiting authority. Eligibility, vacancies, dates and selection stages are governed by the latest official notification.",
+    "information": "Qualification: As per notification. Selection: Written/selection process as notified. Exact age limit, marks, negative marking, vacancies and post-wise eligibility should be taken from the latest official notification.",
+    "stages": [
+      {
+        "title": "Written/selection process as notified",
+        "description": "Written/selection process as notified"
+      }
+    ],
+    "syllabus": [
+      {
+        "title": "General Knowledge",
+        "topics": []
+      },
+      {
+        "title": "Current Affairs",
+        "topics": []
+      },
+      {
+        "title": "Basic Hindi",
+        "topics": []
+      },
+      {
+        "title": "Basic Mathematics",
+        "topics": []
+      },
+      {
+        "title": "Bihar GK",
+        "topics": []
+      }
+    ],
+    "pattern": {
+      "mode": "As prescribed in the latest official notification",
+      "selection": "Written/selection process as notified"
+    },
+    "importantNotes": [
+      "Bihar-specific current affairs and Bihar General Knowledge should be prepared along with the post-specific syllabus.",
+      "Use the latest official notification for exact eligibility, dates, marks, vacancies and selection rules."
+    ]
+  },
+  "Bihar Vidhan Sabha Secretariat": {
+    "overview": "Bihar Vidhan Sabha Secretariat Recruitment is a Bihar state government recruitment examination conducted by the relevant Bihar recruiting authority. Eligibility, vacancies, dates and selection stages are governed by the latest official notification.",
+    "information": "Qualification: Post-specific. Selection: Written/skill stages as notified. Exact age limit, marks, negative marking, vacancies and post-wise eligibility should be taken from the latest official notification.",
+    "stages": [
+      {
+        "title": "Written/skill stages as notified",
+        "description": "Written/skill stages as notified"
+      }
+    ],
+    "syllabus": [
+      {
+        "title": "General Studies",
+        "topics": []
+      },
+      {
+        "title": "Bihar GK",
+        "topics": []
+      },
+      {
+        "title": "Hindi",
+        "topics": []
+      },
+      {
+        "title": "English",
+        "topics": []
+      },
+      {
+        "title": "Reasoning",
+        "topics": []
+      },
+      {
+        "title": "Computer",
+        "topics": []
+      },
+      {
+        "title": "Post-specific skill",
+        "topics": []
+      }
+    ],
+    "pattern": {
+      "mode": "As prescribed in the latest official notification",
+      "selection": "Written/skill stages as notified"
+    },
+    "importantNotes": [
+      "Bihar-specific current affairs and Bihar General Knowledge should be prepared along with the post-specific syllabus.",
+      "Use the latest official notification for exact eligibility, dates, marks, vacancies and selection rules."
+    ]
+  },
+  "Bihar Vidhan Parishad Secretariat": {
+    "overview": "Bihar Vidhan Parishad Secretariat Recruitment is a Bihar state government recruitment examination conducted by the relevant Bihar recruiting authority. Eligibility, vacancies, dates and selection stages are governed by the latest official notification.",
+    "information": "Qualification: Post-specific. Selection: Written/skill stages as notified. Exact age limit, marks, negative marking, vacancies and post-wise eligibility should be taken from the latest official notification.",
+    "stages": [
+      {
+        "title": "Written/skill stages as notified",
+        "description": "Written/skill stages as notified"
+      }
+    ],
+    "syllabus": [
+      {
+        "title": "General Studies",
+        "topics": []
+      },
+      {
+        "title": "Bihar GK",
+        "topics": []
+      },
+      {
+        "title": "Hindi",
+        "topics": []
+      },
+      {
+        "title": "English",
+        "topics": []
+      },
+      {
+        "title": "Reasoning",
+        "topics": []
+      },
+      {
+        "title": "Computer",
+        "topics": []
+      },
+      {
+        "title": "Post-specific skill",
+        "topics": []
+      }
+    ],
+    "pattern": {
+      "mode": "As prescribed in the latest official notification",
+      "selection": "Written/skill stages as notified"
+    },
+    "importantNotes": [
+      "Bihar-specific current affairs and Bihar General Knowledge should be prepared along with the post-specific syllabus.",
+      "Use the latest official notification for exact eligibility, dates, marks, vacancies and selection rules."
+    ]
+  },
+  "Bihar Home Guard": {
+    "overview": "Bihar Home Guard Recruitment is a Bihar state government recruitment examination conducted by the relevant Bihar recruiting authority. Eligibility, vacancies, dates and selection stages are governed by the latest official notification.",
+    "information": "Qualification: As per notification. Selection: Written/physical/merit stages as notified. Exact age limit, marks, negative marking, vacancies and post-wise eligibility should be taken from the latest official notification.",
+    "stages": [
+      {
+        "title": "Written/physical/merit stages as notified",
+        "description": "Written/physical/merit stages as notified"
+      }
+    ],
+    "syllabus": [
+      {
+        "title": "General Knowledge",
+        "topics": []
+      },
+      {
+        "title": "Current Affairs",
+        "topics": []
+      },
+      {
+        "title": "Bihar GK",
+        "topics": []
+      },
+      {
+        "title": "General Science",
+        "topics": []
+      },
+      {
+        "title": "Physical efficiency",
+        "topics": []
+      }
+    ],
+    "pattern": {
+      "mode": "As prescribed in the latest official notification",
+      "selection": "Written/physical/merit stages as notified"
+    },
+    "importantNotes": [
+      "Bihar-specific current affairs and Bihar General Knowledge should be prepared along with the post-specific syllabus.",
+      "Use the latest official notification for exact eligibility, dates, marks, vacancies and selection rules."
+    ]
+  },
+  "Bihar Health Department Recruitment": {
+    "overview": "Bihar Health Department / SHSB Recruitment is a Bihar state government recruitment examination conducted by the relevant Bihar recruiting authority. Eligibility, vacancies, dates and selection stages are governed by the latest official notification.",
+    "information": "Qualification: Post-specific. Selection: CBT/written/skill/merit as notified. Exact age limit, marks, negative marking, vacancies and post-wise eligibility should be taken from the latest official notification.",
+    "stages": [
+      {
+        "title": "CBT/written/skill/merit as notified",
+        "description": "CBT/written/skill/merit as notified"
+      }
+    ],
+    "syllabus": [
+      {
+        "title": "Post-specific professional subject",
+        "topics": []
+      },
+      {
+        "title": "General Knowledge",
+        "topics": []
+      },
+      {
+        "title": "Bihar GK",
+        "topics": []
+      },
+      {
+        "title": "Current Affairs",
+        "topics": []
+      },
+      {
+        "title": "Computer/aptitude where applicable",
+        "topics": []
+      }
+    ],
+    "pattern": {
+      "mode": "As prescribed in the latest official notification",
+      "selection": "CBT/written/skill/merit as notified"
+    },
+    "importantNotes": [
+      "Bihar-specific current affairs and Bihar General Knowledge should be prepared along with the post-specific syllabus.",
+      "Use the latest official notification for exact eligibility, dates, marks, vacancies and selection rules."
+    ]
+  },
+  "Other Bihar Departmental Exams": {
+    "overview": "Other Bihar State Departmental Recruitment Exams is a Bihar state government recruitment examination conducted by the relevant Bihar recruiting authority. Eligibility, vacancies, dates and selection stages are governed by the latest official notification.",
+    "information": "Qualification: Post-specific. Selection: As prescribed in the official notification. Exact age limit, marks, negative marking, vacancies and post-wise eligibility should be taken from the latest official notification.",
+    "stages": [
+      {
+        "title": "As prescribed in the official notification",
+        "description": "As prescribed in the official notification"
+      }
+    ],
+    "syllabus": [
+      {
+        "title": "Post-specific subject",
+        "topics": []
+      },
+      {
+        "title": "General Studies",
+        "topics": []
+      },
+      {
+        "title": "Bihar GK",
+        "topics": []
+      },
+      {
+        "title": "Current Affairs",
+        "topics": []
+      },
+      {
+        "title": "Reasoning/aptitude where applicable",
+        "topics": []
+      }
+    ],
+    "pattern": {
+      "mode": "As prescribed in the latest official notification",
+      "selection": "As prescribed in the official notification"
+    },
+    "importantNotes": [
+      "Bihar-specific current affairs and Bihar General Knowledge should be prepared along with the post-specific syllabus.",
+      "Use the latest official notification for exact eligibility, dates, marks, vacancies and selection rules."
     ]
   }
-};
+});
