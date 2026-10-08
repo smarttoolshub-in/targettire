@@ -28,6 +28,7 @@
 <script src="current-affairs-data.js"></script>
 <!-- Other Hub Data Modules -->
 <script src="exams-data.js"></script>
+<script src="exam-content.js"></script>
 <script src="pyq-data.js"></script>
 <script src="mocks-data.js"></script>
 <script src="ca-data.js"></script>
@@ -324,9 +325,8 @@ This examination is one of the most prestigious competitive recruitment tests co
 <div id="esub-content-info" class="exam-sub-content hidden space-y-6">
 <div class="bg-white dark:bg-[#131b2e] border border-slate-200 dark:border-slate-800/80 p-7 rounded-2xl shadow-sm">
 <h3 class="text-base font-bold text-slate-900 dark:text-white mb-4">Exam Pattern & Eligibility Criteria</h3>
-<div class="space-y-4 text-xs sm:text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
-<p><strong>Tier Structure:</strong> Conducted in multiple tiers (Objective Computer Based CBT & Descriptive paper).</p>
-<p><strong>Marking Scheme:</strong> Positive marks for correct answers, negative marking for incorrect attempts in objective sections.</p>
+<div id="exam-info-text" class="text-xs sm:text-sm text-slate-600 dark:text-slate-400 leading-relaxed whitespace-pre-line">
+Exam information is currently being prepared.
 </div>
 </div>
 </div>
@@ -1165,14 +1165,68 @@ document.querySelectorAll('.tab-content').forEach(el => el.classList.add('hidden
 const detailTab = document.getElementById('tab-exam-detail');
 if(detailTab) detailTab.classList.remove('hidden');
 
-document.getElementById('exam-detail-title').innerText = category + " Examination Intelligence";
-document.getElementById('exam-detail-badge').innerText = category + " Portal";
-document.getElementById('exam-name-span').innerText = category;
-document.getElementById('exam-desc-text').innerText = `${category} is a premier national-level competitive recruitment test conducted annually for aspirants seeking elite government positions. TargetTire provides real-time adaptive testing, PYQ solution sets, and chapter quizzes tailored specifically for ${category}.`;
+// Find the selected sub-exam from exams-data.js.
+let selectedExam = null;
+let selectedGroup = null;
+
+if (window.examGroupsData && typeof window.examGroupsData === 'object') {
+    Object.entries(window.examGroupsData).some(([groupKey, group]) => {
+        const match = Array.isArray(group.subExams)
+            ? group.subExams.find(exam => exam.name === category)
+            : null;
+
+        if (match) {
+            selectedExam = match;
+            selectedGroup = group;
+            return true;
+        }
+        return false;
+    });
+}
+
+// Content is maintained separately in exam-content.js.
+// If an entry is missing there, fall back to exams-data.js.
+const editableContent =
+    (window.examContent && window.examContent[category])
+        ? window.examContent[category]
+        : {};
+
+const examName = selectedExam?.name || category;
+const overviewText =
+    editableContent.overview ||
+    selectedExam?.overviewText ||
+    selectedExam?.desc ||
+    `${category} examination information is currently being prepared.`;
+
+const informationText =
+    editableContent.information ||
+    selectedExam?.examInfoText ||
+    "Exam information is currently being prepared.";
+
+document.getElementById('exam-detail-title').innerText =
+    examName + " Examination Intelligence";
+
+document.getElementById('exam-detail-badge').innerText =
+    examName + " Portal";
+
+document.getElementById('exam-name-span').innerText = examName;
+
+document.getElementById('exam-desc-text').innerText = overviewText;
+
+const infoTextEl = document.getElementById('exam-info-text');
+if (infoTextEl) {
+    infoTextEl.innerText = informationText;
+}
+
+// Keep the selected exam available to other exam-detail features.
+window.currentSelectedExam = selectedExam || {
+    name: examName,
+    group: selectedGroup
+};
 
 switchExamSubTab('overview');
 window.scrollTo({ top: 0, behavior: 'smooth' });
-showToast(`Loaded ${category} Intelligence Portal.`);
+showToast(`Loaded ${examName} Intelligence Portal.`);
 }
 
 function switchExamSubTab(subTabId) {
