@@ -29,6 +29,8 @@
 <!-- Other Hub Data Modules -->
 <script src="exams-data.js"></script>
 <script src="exam-content.js"></script>
+<script src="syllabus-data.js"></script>
+<script src="exam-notification-data.js"></script>
 <script src="pyq-data.js"></script>
 <script src="mocks-data.js"></script>
 <script src="ca-data.js"></script>
@@ -103,6 +105,17 @@ user-select: text;
 .exam-rich-text .exam-info-heading { font-size:12px; font-weight:800; color:rgb(15 23 42); margin-bottom:7px; }
 .dark .exam-rich-text .exam-info-heading { color:rgb(248 250 252); }
 .exam-rich-text .exam-info-line { margin:4px 0; }
+
+/* Year-wise exam notification UI */
+.exam-notification-card { position:relative; overflow:hidden; border:1px solid rgb(226 232 240); background:linear-gradient(135deg,rgb(248 250 252),rgb(255 255 255)); border-radius:18px; padding:18px; }
+.dark .exam-notification-card { border-color:rgb(30 41 59); background:linear-gradient(135deg,rgb(19 27 46),rgb(11 15 25)); }
+.exam-notification-card::before { content:""; position:absolute; inset:0 auto 0 0; width:4px; background:linear-gradient(to bottom,#f59e0b,#6366f1,#14b8a6); }
+.exam-notification-item { border:1px solid rgb(226 232 240); background:rgb(255 255 255); border-radius:13px; padding:12px; }
+.dark .exam-notification-item { border-color:rgb(30 41 59); background:rgb(11 15 25); }
+.exam-notification-label { font-size:9px; text-transform:uppercase; letter-spacing:.06em; font-weight:800; color:rgb(100 116 139); }
+.exam-notification-value { margin-top:3px; font-size:11px; font-weight:700; color:rgb(15 23 42); }
+.dark .exam-notification-value { color:rgb(248 250 252); }
+.exam-notification-link { display:inline-flex; align-items:center; gap:6px; padding:9px 12px; border-radius:10px; font-size:10px; font-weight:800; transition:.2s; }
 
 </style>
 </head>
@@ -350,6 +363,23 @@ Launch Mock Test
 </div>
 </div>
 
+<!-- Dynamic Latest Exam Notification -->
+<div id="exam-notification-section" class="exam-info-card bg-white dark:bg-[#131b2e] border border-slate-200 dark:border-slate-800/80 p-6 sm:p-7 rounded-2xl shadow-sm">
+  <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-5">
+    <div>
+      <h3 id="exam-notification-heading" class="text-base font-bold text-slate-900 dark:text-white flex items-center gap-2">
+        <i class="fa-solid fa-bullhorn text-amber-500"></i> Latest Exam Notification
+      </h3>
+      <p id="exam-notification-subheading" class="text-[11px] text-slate-500 dark:text-slate-400 mt-1">Latest update, important dates and official links</p>
+    </div>
+    <div class="flex items-center gap-2">
+      <label id="exam-notification-year-label" class="text-[10px] font-bold text-slate-500 uppercase">Year</label>
+      <select id="exam-notification-year" onchange="changeExamNotificationYear(this.value)" class="text-xs font-semibold rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 px-2.5 py-2 text-slate-700 dark:text-slate-200 focus:outline-none focus:border-indigo-500"></select>
+    </div>
+  </div>
+  <div id="exam-notification-card"></div>
+</div>
+
 <!-- Dynamic Selection Stages -->
 <div class="exam-info-card bg-white dark:bg-[#131b2e] border border-slate-200 dark:border-slate-800/80 p-6 sm:p-7 rounded-2xl shadow-sm">
 <div class="flex items-center justify-between gap-3 mb-5">
@@ -375,6 +405,7 @@ Launch Mock Test
 </div>
 <span id="exam-syllabus-count" class="text-[9px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full bg-teal-500/10 text-teal-600 dark:text-teal-300 border border-teal-500/20">Loading</span>
 </div>
+<div id="exam-syllabus-controls" class="mb-4"></div>
 <div id="exam-syllabus-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4"></div>
 </div>
 </div>
@@ -1225,6 +1256,82 @@ if(icon) icon.classList.remove('rotate-180');
 }
 });
 
+
+function escapeExamNotificationHtml(value) {
+    return String(value ?? '').replace(/[&<>\"']/g, function(ch) {
+        return ({'&':'&amp;','<':'&lt;','>':'&gt;','\"':'&quot;',"'":'&#39;'})[ch];
+    });
+}
+
+function getExamNotificationYears(examName) {
+    const db = window.examNotificationData || {};
+    const exam = db[examName] || {};
+    return Object.keys(exam).filter(y => /^\d{4}$/.test(y)).sort((a,b) => Number(b)-Number(a));
+}
+
+function renderExamNotifications(examName) {
+    const box = document.getElementById('exam-notification-card');
+    const select = document.getElementById('exam-notification-year');
+    if (!box || !select) return;
+    const db = window.examNotificationData || {};
+    const exam = db[examName] || {};
+    const years = getExamNotificationYears(examName);
+    const fallbackYears = ['2028','2027','2026'];
+    const usableYears = years.length ? years : fallbackYears;
+    const hasNotificationData = (d) => !!d && !!(d.titleEn || d.titleHi || d.latestUpdateEn || d.latestUpdateHi || d.officialWebsite || d.notificationPdf || d.applyOnline || d.admitCard || d.answerKey || d.result || d.lastUpdated || Object.values(d.importantDates || {}).some(Boolean));
+    const oldYear = select.value;
+    const populatedYear = usableYears.find(y => hasNotificationData(exam[y]));
+    const year = exam[oldYear] ? oldYear : (populatedYear || (exam['2026'] ? '2026' : usableYears[0]));
+    select.innerHTML = usableYears.map(y => `<option value="${y}" ${y===year?'selected':''}>${y}</option>`).join('');
+    const data = exam[year] || {};
+    const hi = currentLang === 'hi';
+    const text = (en, hindi) => hi ? (hindi || en || '') : (en || hindi || '');
+    const title = text(data.titleEn, data.titleHi) || (hi ? `${examName} ${year} परीक्षा सूचना` : `${examName} ${year} Exam Notification`);
+    const update = text(data.latestUpdateEn, data.latestUpdateHi);
+    const dates = data.importantDates || {};
+    const dateItems = [
+      [hi?'नोटिफिकेशन जारी':'Notification', dates.notification],
+      [hi?'आवेदन शुरू':'Application Start', dates.applicationStart],
+      [hi?'अंतिम तिथि':'Last Date to Apply', dates.applicationLastDate || dates.lastDate],
+      [hi?'परीक्षा तिथि':'Exam Date', dates.examDate],
+      [hi?'एडमिट कार्ड':'Admit Card', dates.admitCardDate],
+      [hi?'रिजल्ट':'Result', dates.resultDate]
+    ].filter(x => x[1]);
+    const links = [
+      ['officialWebsite', hi?'Official Website':'Official Website','fa-globe'],
+      ['notificationPdf', hi?'Notification PDF':'Notification PDF','fa-file-pdf'],
+      ['applyOnline', hi?'Online Apply':'Apply Online','fa-arrow-up-right-from-square'],
+      ['admitCard', hi?'Admit Card':'Admit Card','fa-id-card'],
+      ['answerKey', hi?'Answer Key':'Answer Key','fa-key'],
+      ['result', hi?'Result':'Result','fa-square-poll-vertical']
+    ].filter(item => data[item[0]]);
+    let html = `<div class="exam-notification-card">
+      <div class="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-4">
+        <div class="min-w-0">
+          <div class="flex items-center gap-2 mb-2"><span class="text-[9px] font-extrabold uppercase tracking-wider px-2 py-1 rounded-full bg-amber-500/10 text-amber-600 dark:text-amber-400 border border-amber-500/20">${year}</span><span class="text-[9px] font-bold text-slate-400">${escapeExamNotificationHtml(data.lastUpdated ? (hi?'Updated: ':'Updated: ') + data.lastUpdated : '')}</span></div>
+          <h4 class="text-sm sm:text-base font-extrabold text-slate-900 dark:text-white">${escapeExamNotificationHtml(title)}</h4>
+          ${update ? `<p class="text-[11px] leading-relaxed text-slate-600 dark:text-slate-400 mt-2"><span class="font-bold text-indigo-600 dark:text-indigo-400">${hi?'Latest Update:':'Latest Update:'}</span> ${escapeExamNotificationHtml(update)}</p>` : `<p class="text-[11px] text-slate-500 dark:text-slate-400 mt-2">${hi?'इस वर्ष की वास्तविक notification details exam-notification-data.js में जोड़ें।':'Add the official notification details for this year in exam-notification-data.js.'}</p>`}
+        </div>
+      </div>`;
+    if (dateItems.length) {
+      html += `<div class="grid grid-cols-2 md:grid-cols-3 gap-3 mt-5">${dateItems.map(([label,val]) => `<div class="exam-notification-item"><div class="exam-notification-label">${escapeExamNotificationHtml(label)}</div><div class="exam-notification-value">${escapeExamNotificationHtml(val)}</div></div>`).join('')}</div>`;
+    } else {
+      html += `<div class="mt-4 rounded-xl border border-dashed border-slate-300 dark:border-slate-700 p-4 text-[10px] text-slate-500 dark:text-slate-400">${hi?'Important Dates यहाँ exam-notification-data.js से अपने-आप दिखाई जाएँगी।':'Important Dates will appear here automatically from exam-notification-data.js.'}</div>`;
+    }
+    if (links.length) {
+      html += `<div class="flex flex-wrap gap-2 mt-5">${links.map(([key,label,icon]) => `<a href="${escapeExamNotificationHtml(data[key])}" target="_blank" rel="noopener noreferrer" class="exam-notification-link bg-indigo-600 hover:bg-indigo-500 text-white"><i class="fa-solid ${icon}"></i>${escapeExamNotificationHtml(label)}</a>`).join('')}</div>`;
+    } else {
+      html += `<div class="mt-5 text-[10px] text-slate-400">${hi?'Official Website, Notification, Apply Online, Admit Card और Result links यहाँ दिखेंगे।':'Official Website, Notification, Apply Online, Admit Card and Result links will appear here.'}</div>`;
+    }
+    html += `</div>`;
+    box.innerHTML = html;
+}
+
+function changeExamNotificationYear(year) {
+    const examName = document.getElementById('exam-name-span')?.innerText;
+    if (examName) renderExamNotifications(examName);
+}
+
 function selectExamCategory(category) {
 const menu = document.getElementById('exam-dropdown-menu');
 const icon = document.getElementById('exam-dropdown-icon');
@@ -1258,16 +1365,11 @@ const editableContent =
         : {};
 
 const examName = selectedExam?.name || category;
-const overviewText =
-    editableContent.overview ||
-    selectedExam?.overviewText ||
-    selectedExam?.desc ||
-    `${category} examination information is currently being prepared.`;
-
-const informationText =
-    editableContent.information ||
-    selectedExam?.examInfoText ||
-    "Exam information is currently being prepared.";
+const splitBilingual = (value) => { const parts = String(value || '').split(/\s+\/\s+/); return { en:(parts[0]||'').trim(), hi:(parts.length>1?parts.slice(1).join(' / '):(parts[0]||'')).trim() }; };
+const overviewPair = { en: editableContent.overview_en || splitBilingual(editableContent.overview).en || selectedExam?.overviewText || selectedExam?.desc || `${category} examination information is currently being prepared.`, hi: editableContent.overview_hi || splitBilingual(editableContent.overview).hi || selectedExam?.overviewText || selectedExam?.desc || `${category} परीक्षा की जानकारी अभी तैयार की जा रही है।` };
+const informationPair = { en: editableContent.information_en || splitBilingual(editableContent.information).en || selectedExam?.examInfoText || "Exam information is currently being prepared.", hi: editableContent.information_hi || splitBilingual(editableContent.information).hi || selectedExam?.examInfoText || "परीक्षा की जानकारी अभी तैयार की जा रही है।" };
+const overviewText = currentLang === 'hi' ? overviewPair.hi : overviewPair.en;
+const informationText = currentLang === 'hi' ? informationPair.hi : informationPair.en;
 
 document.getElementById('exam-detail-title').innerText =
     examName + " Examination Intelligence";
@@ -1281,6 +1383,7 @@ renderExamOverviewHighlights(content);
 renderExamStages(content, informationText);
 renderExamSyllabus(content, informationText);
 renderExamInformation(informationText, content);
+renderExamNotifications(examName);
 
 window.currentSelectedExam = selectedExam || {
     name: examName,
@@ -1396,31 +1499,25 @@ function getSyllabusData(content, informationText) {
     return parsed;
 }
 
-function renderExamSyllabus(content, informationText) {
-    const box = document.getElementById('exam-syllabus-container');
-    const count = document.getElementById('exam-syllabus-count');
-    if (!box) return;
-    const syllabus = getSyllabusData(content, informationText);
-    if (count) count.innerText = syllabus.length ? `${syllabus.length} SUBJECT${syllabus.length > 1 ? 'S' : ''}` : 'DATA-DRIVEN';
-    if (!syllabus.length) {
-        box.innerHTML = `<div class="col-span-full rounded-xl border border-dashed border-slate-300 dark:border-slate-700 p-6 text-center">
-          <i class="fa-solid fa-book-open text-teal-500 text-lg mb-2"></i>
-          <p class="text-xs font-semibold text-slate-700 dark:text-slate-200">Syllabus section ready</p>
-          <p class="text-[10px] text-slate-500 dark:text-slate-400 mt-1">Add <b>syllabus</b> in exam-content.js and it will automatically appear here subject-wise.</p>
-        </div>`;
-        return;
-    }
-    box.innerHTML = syllabus.map(item => `
-      <div class="exam-syllabus-card">
-        <div class="flex items-center gap-2">
-          <i class="fa-solid fa-book text-teal-500 text-xs"></i>
-          <div class="exam-syllabus-title">${item.subject}</div>
-        </div>
-        <ul class="exam-syllabus-list list-disc">
-          ${item.topics.length ? item.topics.map(t=>`<li>${t}</li>`).join('') : '<li>Topics will be updated as per official syllabus.</li>'}
-        </ul>
-      </div>`).join('');
+function getExamSyllabusYears(examName, content, informationText) {
+    const external = window.examSyllabusData && window.examSyllabusData[examName];
+    if (external && typeof external === 'object') return external;
+    return { "2026": { subjects: getSyllabusData(content, informationText), downloadUrl: "" } };
 }
+function renderExamSyllabus(content, informationText) {
+    const box=document.getElementById('exam-syllabus-container'), count=document.getElementById('exam-syllabus-count'); if(!box)return;
+    const examName=document.getElementById('exam-name-span')?.innerText||content.name||'Exam';
+    const yearData=getExamSyllabusYears(examName,content,informationText), years=Object.keys(yearData).sort((a,b)=>Number(b)-Number(a));
+    if(!years.length){box.innerHTML='<div class="col-span-full text-center text-xs text-slate-500">Syllabus will be updated here.</div>';return;}
+    const oldYear=document.getElementById('exam-syllabus-year')?.value, year=yearData[oldYear]?oldYear:years[0], data=yearData[year]||{};
+    const syllabus=Array.isArray(data.subjects)?data.subjects:getSyllabusData({syllabus:data.subjects||data.syllabus},informationText);
+    if(count)count.innerText=`${year} • ${syllabus.length||0} SUBJECT${syllabus.length===1?'':'S'}`;
+    const controls=document.getElementById('exam-syllabus-controls');
+    if(controls)controls.innerHTML=`<div class="flex flex-wrap items-center gap-2"><label class="text-[10px] font-bold text-slate-500 uppercase">Syllabus Year</label><select id="exam-syllabus-year" onchange="changeExamSyllabusYear(this.value)" class="text-xs font-semibold rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 px-2.5 py-2 text-slate-700 dark:text-slate-200">${years.map(y=>`<option value="${y}" ${y===year?'selected':''}>${y}</option>`).join('')}</select>${data.downloadUrl?`<a href="${data.downloadUrl}" download class="inline-flex items-center gap-1.5 text-[10px] font-bold px-3 py-2 rounded-lg bg-indigo-600 text-white hover:bg-indigo-500"><i class="fa-solid fa-download"></i> Download Syllabus ${year}</a>`:`<span class="text-[10px] text-slate-400">PDF download will appear when the ${year} syllabus file is added.</span>`}</div>`;
+    if(!syllabus.length){box.innerHTML=`<div class="col-span-full rounded-xl border border-dashed border-slate-300 dark:border-slate-700 p-6 text-center"><i class="fa-solid fa-book-open text-teal-500 text-lg mb-2"></i><p class="text-xs font-semibold text-slate-700 dark:text-slate-200">${examName} Syllabus ${year}</p><p class="text-[10px] text-slate-500 dark:text-slate-400 mt-1">Add the yearly syllabus in syllabus-data.js.</p></div>`;return;}
+    box.innerHTML=syllabus.map(item=>`<div class="exam-syllabus-card"><div class="flex items-center gap-2"><i class="fa-solid fa-book text-teal-500 text-xs"></i><div class="exam-syllabus-title">${item.subject||item.title||'Subject'}</div></div><ul class="exam-syllabus-list list-disc">${normalizeList(item.topics||item.chapters||item.points||item.content).map(t=>`<li>${t}</li>`).join('')||'<li>Topics will be updated as per official syllabus.</li>'}</ul></div>`).join('');
+}
+function changeExamSyllabusYear(year){const examName=document.getElementById('exam-name-span')?.innerText;if(!examName)return;const content=(window.examContent&&window.examContent[examName])||{};const info=currentLang==='hi'?(content.information_hi||content.information||''):(content.information_en||content.information||'');renderExamSyllabus(content,info);}
 
 function renderExamInformation(informationText, content) {
     const infoTextEl = document.getElementById('exam-info-text');
@@ -1436,11 +1533,6 @@ function renderExamInformation(informationText, content) {
           return `<div class="exam-info-line mb-2">${clean}</div>`;
         }).join('')
       : `<div class="text-slate-500">Exam information is currently being prepared.</div>`;
-
-    const notes = Array.isArray(content.importantNotes) ? content.importantNotes.filter(Boolean) : [];
-    if (notes.length) {
-      infoTextEl.innerHTML += `<div class="exam-info-section mt-4"><div class="exam-info-heading">Important Notes</div><ul class="exam-syllabus-list">${notes.map(n=>`<li>${n}</li>`).join('')}</ul></div>`;
-    }
 
     if (!patternBox) return;
     const patternItems = [
@@ -1549,6 +1641,17 @@ paletteSub: "किसी भी प्रश्न पर सीधे जा�
 }
 };
 
+function refreshCurrentExamLanguage() {
+    const exam = window.currentSelectedExam; if (!exam) return;
+    const key = exam.name || exam; const content = (window.examContent && window.examContent[key]) || exam || {};
+    const splitBilingual = (value) => { const p=String(value||'').split(/\s+\/\s+/); return {en:(p[0]||'').trim(),hi:(p.length>1?p.slice(1).join(' / '):(p[0]||'')).trim()}; };
+    const pair=(ek,hk,ok,fe,fh)=>({en:content[ek]||splitBilingual(content[ok]).en||fe,hi:content[hk]||splitBilingual(content[ok]).hi||fh});
+    const overview=pair('overview_en','overview_hi','overview',`${key} examination information is currently being prepared.`,`${key} परीक्षा की जानकारी अभी तैयार की जा रही है।`);
+    const info=pair('information_en','information_hi','information','Exam information is currently being prepared.','परीक्षा की जानकारी अभी तैयार की जा रही है।');
+    const d=document.getElementById('exam-desc-text'); if(d)d.innerText=currentLang==='hi'?overview.hi:overview.en;
+    renderExamStages(content,currentLang==='hi'?info.hi:info.en); renderExamInformation(currentLang==='hi'?info.hi:info.en,content); renderExamSyllabus(content,currentLang==='hi'?info.hi:info.en); renderExamNotifications(key);
+}
+
 function switchLanguage(lang) {
 currentLang = lang;
 document.querySelectorAll('[data-i18n]').forEach(el => {
@@ -1557,6 +1660,7 @@ if (translations[lang] && translations[lang][key]) {
 el.innerText = translations[lang][key];
 }
 });
+refreshCurrentExamLanguage();
 }
 
 function toggleTheme() {
