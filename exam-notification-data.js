@@ -1,4 +1,4 @@
-// TargetTire - Year-wise Exam Notification Registry
+// TargetTire - Year-wise Exam Notification Registry (Expanded with State & Bihar Special Exams)
 // Keep all exam notification updates in this file. Do not edit exam-content.js for notification changes.
 // Add official dates/links only after checking the latest official notification.
 window.examNotificationData = {
@@ -1433,6 +1433,331 @@ window.examNotificationData = {
     }
   },
   "RRB Constable": {
+    "2026": {
+      "titleEn": "",
+      "titleHi": "",
+      "latestUpdateEn": "",
+      "latestUpdateHi": "",
+      "importantDates": {
+        "notification": "",
+        "applicationStart": "",
+        "applicationLastDate": "",
+        "examDate": "",
+        "admitCardDate": "",
+        "resultDate": ""
+      },
+      "officialWebsite": "",
+      "notificationPdf": "",
+      "applyOnline": "",
+      "admitCard": "",
+      "answerKey": "",
+      "result": "",
+      "lastUpdated": ""
+    },
+    "2027": {
+      "titleEn": "",
+      "titleHi": "",
+      "latestUpdateEn": "",
+      "latestUpdateHi": "",
+      "importantDates": {
+        "notification": "",
+        "applicationStart": "",
+        "applicationLastDate": "",
+        "examDate": "",
+        "admitCardDate": "",
+        "resultDate": ""
+      },
+      "officialWebsite": "",
+      "notificationPdf": "",
+      "applyOnline": "",
+      "admitCard": "",
+      "answerKey": "",
+      "result": "",
+      "lastUpdated": ""
+    },
+    "2028": {
+      "titleEn": "",
+      "titleHi": "",
+      "latestUpdateEn": "",
+      "latestUpdateHi": "",
+      "importantDates": {
+        "notification": "",
+        "applicationStart": "",
+        "applicationLastDate": "",
+        "examDate": "",
+        "admitCardDate": "",
+        "resultDate": ""
+      },
+      "officialWebsite": "",
+      "notificationPdf": "",
+      "applyOnline": "",
+      "admitCard": "",
+      "answerKey": "",
+      "result": "",
+      "lastUpdated": ""
+    }
+  },
+  "Bihar Combined (BPSC CCE)": {
+    "2026": {
+      "titleEn": "",
+      "titleHi": "",
+      "latestUpdateEn": "",
+      "latestUpdateHi": "",
+      "importantDates": {
+        "notification": "",
+        "applicationStart": "",
+        "applicationLastDate": "",
+        "examDate": "",
+        "admitCardDate": "",
+        "resultDate": ""
+      },
+      "officialWebsite": "",
+      "notificationPdf": "",
+      "applyOnline": "",
+      "admitCard": "",
+      "answerKey": "",
+      "result": "",
+      "lastUpdated": ""
+    },
+    "2027": {
+      "titleEn": "",
+      "titleHi": "",
+      "latestUpdateEn": "",
+      "latestUpdateHi": "",
+      "importantDates": {
+        "notification": "",
+        "applicationStart": "",
+        "applicationLastDate": "",
+        "examDate": "",
+        "admitCardDate": "",
+        "resultDate": ""
+      },
+      "officialWebsite": "",
+      "notificationPdf": "",
+      "applyOnline": "",
+      "admitCard": "",
+      "answerKey": "",
+      "result": "",
+      "lastUpdated": ""
+    },
+    "2028": {
+      "titleEn": "",
+      "titleHi": "",
+      "latestUpdateEn": "",
+      "latestUpdateHi": "",
+      "importantDates": {
+        "notification": "",
+        "applicationStart": "",
+        "applicationLastDate": "",
+        "examDate": "",
+        "admitCardDate": "",
+        "resultDate": ""
+      },
+      "officialWebsite": "",
+      "notificationPdf": "",
+      "applyOnline": "",
+      "admitCard": "",
+      "answerKey": "",
+      "result": "",
+      "lastUpdated": ""
+    }
+  },
+  "Bihar Police (SI & Constable)": {
+    "2026": {
+      "titleEn": "",
+      "titleHi": "",
+      "latestUpdateEn": "",
+      "latestUpdateHi": "",
+      "importantDates": {
+        "notification": "",
+        "applicationStart": "",
+        "applicationLastDate": "",
+        "examDate": "",
+        "admitCardDate": "",
+        "resultDate": ""
+      },
+      "officialWebsite": "",
+      "notificationPdf": "",
+      "applyOnline": "",
+      "admitCard": "",
+      "answerKey": "",
+      "result": "",
+      "lastUpdated": ""
+    },
+    "2027": {
+      "titleEn": "",
+      "titleHi": "",
+      "latestUpdateEn": "",
+      "latestUpdateHi": "",
+      "importantDates": {
+        "notification": "",
+        "applicationStart": "",
+        "applicationLastDate": "",
+        "examDate": "",
+        "admitCardDate": "",
+        "resultDate": ""
+      },
+      "officialWebsite": "",
+      "notificationPdf": "",
+      "applyOnline": "",
+      "admitCard": "",
+      "answerKey": "",
+      "result": "",
+      "lastUpdated": ""
+    },
+    "2028": {
+      "titleEn": "",
+      "titleHi": "",
+      "latestUpdateEn": "",
+      "latestUpdateHi": "",
+      "importantDates": {
+        "notification": "",
+        "applicationStart": "",
+        "applicationLastDate": "",
+        "examDate": "",
+        "admitCardDate": "",
+        "resultDate": ""
+      },
+      "officialWebsite": "",
+      "notificationPdf": "",
+      "applyOnline": "",
+      "admitCard": "",
+      "answerKey": "",
+      "result": "",
+      "lastUpdated": ""
+    }
+  },
+  "Bihar SSC (BSSC CGL / Inter Level)": {
+    "2026": {
+      "titleEn": "",
+      "titleHi": "",
+      "latestUpdateEn": "",
+      "latestUpdateHi": "",
+      "importantDates": {
+        "notification": "",
+        "applicationStart": "",
+        "applicationLastDate": "",
+        "examDate": "",
+        "admitCardDate": "",
+        "resultDate": ""
+      },
+      "officialWebsite": "",
+      "notificationPdf": "",
+      "applyOnline": "",
+      "admitCard": "",
+      "answerKey": "",
+      "result": "",
+      "lastUpdated": ""
+    },
+    "2027": {
+      "titleEn": "",
+      "titleHi": "",
+      "latestUpdateEn": "",
+      "latestUpdateHi": "",
+      "importantDates": {
+        "notification": "",
+        "applicationStart": "",
+        "applicationLastDate": "",
+        "examDate": "",
+        "admitCardDate": "",
+        "resultDate": ""
+      },
+      "officialWebsite": "",
+      "notificationPdf": "",
+      "applyOnline": "",
+      "admitCard": "",
+      "answerKey": "",
+      "result": "",
+      "lastUpdated": ""
+    },
+    "2028": {
+      "titleEn": "",
+      "titleHi": "",
+      "latestUpdateEn": "",
+      "latestUpdateHi": "",
+      "importantDates": {
+        "notification": "",
+        "applicationStart": "",
+        "applicationLastDate": "",
+        "examDate": "",
+        "admitCardDate": "",
+        "resultDate": ""
+      },
+      "officialWebsite": "",
+      "notificationPdf": "",
+      "applyOnline": "",
+      "admitCard": "",
+      "answerKey": "",
+      "result": "",
+      "lastUpdated": ""
+    }
+  },
+  "Bihar Teacher (BPSC TRE)": {
+    "2026": {
+      "titleEn": "",
+      "titleHi": "",
+      "latestUpdateEn": "",
+      "latestUpdateHi": "",
+      "importantDates": {
+        "notification": "",
+        "applicationStart": "",
+        "applicationLastDate": "",
+        "examDate": "",
+        "admitCardDate": "",
+        "resultDate": ""
+      },
+      "officialWebsite": "",
+      "notificationPdf": "",
+      "applyOnline": "",
+      "admitCard": "",
+      "answerKey": "",
+      "result": "",
+      "lastUpdated": ""
+    },
+    "2027": {
+      "titleEn": "",
+      "titleHi": "",
+      "latestUpdateEn": "",
+      "latestUpdateHi": "",
+      "importantDates": {
+        "notification": "",
+        "applicationStart": "",
+        "applicationLastDate": "",
+        "examDate": "",
+        "admitCardDate": "",
+        "resultDate": ""
+      },
+      "officialWebsite": "",
+      "notificationPdf": "",
+      "applyOnline": "",
+      "admitCard": "",
+      "answerKey": "",
+      "result": "",
+      "lastUpdated": ""
+    },
+    "2028": {
+      "titleEn": "",
+      "titleHi": "",
+      "latestUpdateEn": "",
+      "latestUpdateHi": "",
+      "importantDates": {
+        "notification": "",
+        "applicationStart": "",
+        "applicationLastDate": "",
+        "examDate": "",
+        "admitCardDate": "",
+        "resultDate": ""
+      },
+      "officialWebsite": "",
+      "notificationPdf": "",
+      "applyOnline": "",
+      "admitCard": "",
+      "answerKey": "",
+      "result": "",
+      "lastUpdated": ""
+    }
+  },
+  "Bihar Technical Service (BTSC JE / Staff Nurse)": {
     "2026": {
       "titleEn": "",
       "titleHi": "",
