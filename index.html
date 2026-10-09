@@ -708,7 +708,7 @@ Next <i class="fa-solid fa-arrow-right ml-1"></i>
 <button id="runner-launch-mock-btn" class="bg-teal-600 hover:bg-teal-500 text-white font-semibold px-6 py-3 rounded-xl text-xs uppercase tracking-wider transition shadow cursor-pointer">
 <i class="fa-solid fa-shield-halved mr-1"></i> Give Mock Test Now
 </button>
-<button onclick="exitPracticeRunner(); switchTab('dashboard');" class="bg-slate-200 hover:bg-slate-300 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-800 dark:text-slate-200 font-semibold px-6 py-3 rounded-xl text-xs uppercase tracking-wider transition cursor-pointer">
+<button onclick="exitPracticeRunner(); returnFromRunner();" class="bg-slate-200 hover:bg-slate-300 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-800 dark:text-slate-200 font-semibold px-6 py-3 rounded-xl text-xs uppercase tracking-wider transition cursor-pointer">
 Return to Practice Hub
 </button>
 </div>
@@ -857,7 +857,7 @@ Next <i class="fa-solid fa-arrow-right ml-1"></i>
 <p id="exam-summary-unattempted" class="text-lg font-bold text-slate-400">0</p>
 </div>
 </div>
-<button onclick="exitExamVault(); switchTab('dashboard');" class="bg-indigo-600 hover:bg-indigo-500 text-white font-semibold px-6 py-3 rounded-xl text-xs uppercase tracking-wider transition cursor-pointer">
+<button onclick="exitExamVault(); returnFromRunner();" class="bg-indigo-600 hover:bg-indigo-500 text-white font-semibold px-6 py-3 rounded-xl text-xs uppercase tracking-wider transition cursor-pointer">
 Return to Mock Vault
 </button>
 </div>
@@ -2180,6 +2180,31 @@ grid.appendChild(card);
 }
 
 let pyqNavState = { groupKey: null, subExamName: null, year: null, month: null };
+// Preserve the exact hub/context that launched a Practice or Mock runner.
+let runnerReturnContext = null;
+function captureRunnerReturnContext(tabId) {
+  const activeTab = tabId || (document.querySelector('.tab-content:not(.hidden)')?.id || '').replace('tab-','') || 'practice';
+  runnerReturnContext = { tab: activeTab };
+  if (activeTab === 'pyq') {
+    runnerReturnContext.pyq = JSON.parse(JSON.stringify(pyqNavState || {}));
+  }
+  return runnerReturnContext;
+}
+function returnFromRunner() {
+  const ctx = runnerReturnContext || { tab: 'practice' };
+  const tab = ctx.tab || 'practice';
+  if (tab === 'pyq') {
+    switchTab('pyq');
+    if (ctx.pyq) {
+      pyqNavState = JSON.parse(JSON.stringify(ctx.pyq));
+      renderPYQHub();
+    }
+  } else {
+    switchTab(tab);
+  }
+  runnerReturnContext = null;
+}
+
 
 function resetPYQHub() { pyqNavState={groupKey:null,subExamName:null,year:null,month:null}; renderPYQHub(); }
 function selectPYQGroup(groupKey) { pyqNavState={groupKey,subExamName:null,year:null,month:null}; renderPYQHub(); }
@@ -2210,6 +2235,7 @@ function normalizePYQYears(examName){
   return out;
 }
 function pyqLaunchQuestions(title, questions, mode){
+  captureRunnerReturnContext('pyq');
   window.chapterQuestionsDB=window.chapterQuestionsDB||{};
   window.chapterQuestionsDB[title]=questions;
   if(mode==='practice'){ switchTab('practice'); startChapterPractice(title,'PYQ'); }
@@ -2563,6 +2589,7 @@ function getQuestionsForChapter(chapterTitle, subjectName) {
 }
 
 function startChapterPractice(chapterTitle, subjectName) {
+if (!runnerReturnContext) captureRunnerReturnContext();
 pendingPracticeTitle = chapterTitle;
 pendingPracticeSub = subjectName;
 
@@ -2823,7 +2850,7 @@ function confirmExitPractice() {
             localStorage.removeItem('targettire_practice_' + currentChapter.title.replace(/\s+/g, '_'));
         }
         exitPracticeRunner();
-        switchTab('practice');
+        returnFromRunner();
     });
 }
 
@@ -2882,6 +2909,7 @@ document.getElementById('runner-finished-box').classList.add('hidden');
 let examTitle = "", examQuestions = [], eIndex = 0, examAnswers = {}, examTimerInterval = null, examSecondsLeft = 0, examLangMode = 'bi';
 
 function launchChapterSimulation(chapterTitle, totalQuestions, totalMinutes) {
+    if (!runnerReturnContext) captureRunnerReturnContext();
     pendingMockTitle = chapterTitle + " - Mock Exam";
     pendingMockQs = totalQuestions;
     pendingMockMins = totalMinutes || 30;
@@ -3107,7 +3135,7 @@ function confirmExitExam() {
     openCustomConfirm("Exit Simulation", "क्या आप वाकई मॉक टेस्ट छोड़कर वापस जाना चाहते हैं?", () => {
         localStorage.removeItem('targettire_mock_' + examTitle.replace(/\s+/g, '_'));
         exitExamVault();
-        switchTab('vault');
+        returnFromRunner();
     });
 }
 
