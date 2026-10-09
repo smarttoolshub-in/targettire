@@ -524,7 +524,15 @@ Launch Mock Test
 </div>
 </div>
 <div id="esub-content-pyq" class="exam-sub-content hidden space-y-6">
-<div id="exam-pyq-links-container"></div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="bg-white dark:bg-[#131b2e] border border-slate-200 dark:border-slate-800/80 p-6 rounded-2xl shadow-sm flex items-center justify-between">
+<div>
+<span class="text-[10px] bg-indigo-500/10 text-indigo-700 font-bold px-2 py-0.5 rounded">Official Shift Paper Set</span>
+<h4 class="text-sm font-bold mt-2 text-slate-900 dark:text-white">Official Shift 1 Question Paper</h4>
+</div>
+<button onclick="switchTab('pyq')" class="bg-indigo-600 text-white text-xs font-semibold px-4 py-2 rounded-xl cursor-pointer">Solve Paper</button>
+</div>
+</div>
 </div>
 </div>
 
@@ -1917,59 +1925,10 @@ function renderExamInformation(informationText, content) {
       : `<div class="col-span-full text-[11px] text-slate-500 dark:text-slate-400">Pattern cards will populate from exam-content.js when those fields are provided.</div>`;
 }
 
-const examPYQSourceLinks = {
-    'SSC CGL': {
-        '2025': 'https://career.aglasem.com/ssc/ssc-cgl/previous-papers/2025',
-        '2024': 'https://career.aglasem.com/ssc/ssc-cgl/previous-papers/2024',
-        '2023': 'https://career.aglasem.com/ssc/ssc-cgl/previous-papers/2023',
-        '2022': 'https://career.aglasem.com/ssc/ssc-cgl/previous-papers/2022',
-        'All Years': 'https://career.aglasem.com/ssc/ssc-cgl/previous-papers/'
-    }
-};
-
-function renderExamPYQLinks(examName) {
-    const box = document.getElementById('exam-pyq-links-container');
-    if (!box) return;
-    const links = examPYQSourceLinks[examName];
-    const hi = currentLang === 'hi';
-    if (!links) {
-        box.innerHTML = `<div class="bg-white dark:bg-[#131b2e] border border-dashed border-slate-300 dark:border-slate-700 p-7 rounded-2xl text-center">
-            <div class="w-12 h-12 mx-auto rounded-2xl bg-indigo-500/10 text-indigo-600 flex items-center justify-center text-xl mb-4"><i class="fa-solid fa-file-circle-question"></i></div>
-            <h3 class="text-base font-bold text-slate-900 dark:text-white">${hi ? 'इस परीक्षा के PYQ links जल्द जोड़े जाएंगे' : 'PYQ links for this exam will be added here'}</h3>
-            <p class="text-[11px] text-slate-500 dark:text-slate-400 mt-2">${hi ? 'आप अभी PYQ Hub खोलकर उपलब्ध question sets देख सकते हैं।' : 'You can open the PYQ Hub now to work with the available question sets.'}</p>
-            <button onclick="switchTab('pyq')" class="mt-5 bg-indigo-600 hover:bg-indigo-500 text-white text-xs font-bold px-5 py-2.5 rounded-xl cursor-pointer"><i class="fa-solid fa-arrow-right mr-1"></i> Open PYQ Hub</button>
-        </div>`;
-        return;
-    }
-    const yearEntries = Object.entries(links).filter(([year]) => year !== 'All Years');
-    box.innerHTML = `
-      <div class="bg-white dark:bg-[#131b2e] border border-slate-200 dark:border-slate-800/80 p-6 sm:p-7 rounded-2xl shadow-sm">
-        <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 mb-6">
-          <div>
-            <span class="text-[10px] bg-indigo-500/10 text-indigo-700 dark:text-indigo-300 font-bold px-2.5 py-1 rounded border border-indigo-500/20 uppercase">PYQ Downloads</span>
-            <h3 class="text-base font-extrabold mt-3 text-slate-900 dark:text-white">${examName} Previous Year Papers</h3>
-            <p class="text-[11px] text-slate-500 dark:text-slate-400 mt-1">${hi ? 'वर्ष चुनें और shift-wise question papers की सूची खोलें।' : 'Choose a year to open the shift-wise question-paper list.'}</p>
-          </div>
-          <button onclick="switchTab('pyq')" class="bg-teal-600 hover:bg-teal-500 text-white text-xs font-bold px-4 py-2.5 rounded-xl cursor-pointer"><i class="fa-solid fa-laptop mr-1"></i> ${hi ? 'PYQ Hub में Solve करें' : 'Solve in PYQ Hub'}</button>
-        </div>
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
-          ${yearEntries.map(([year,url]) => `<a href="${url}" target="_blank" rel="noopener noreferrer" class="group rounded-2xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-[#0b0f19] p-4 hover:border-indigo-500 hover:-translate-y-0.5 transition">
-              <div class="flex items-center justify-between"><span class="text-lg font-extrabold text-slate-900 dark:text-white">${year}</span><i class="fa-solid fa-download text-indigo-500 text-xs group-hover:translate-y-0.5 transition"></i></div>
-              <p class="text-[10px] text-slate-500 dark:text-slate-400 mt-2">${hi ? 'Question Papers / PDFs' : 'Question Papers / PDFs'}</p>
-          </a>`).join('')}
-        </div>
-        <a href="${links['All Years']}" target="_blank" rel="noopener noreferrer" class="mt-4 inline-flex items-center gap-2 text-xs font-bold text-indigo-600 dark:text-indigo-400 hover:underline"><i class="fa-solid fa-folder-open"></i> ${hi ? 'सभी वर्षों के PYQs देखें' : 'Browse all available years'}</a>
-        <p class="text-[10px] text-slate-400 dark:text-slate-500 mt-4">${hi ? 'नोट: ये external source pages हैं; साइट में उपलब्ध structured PYQs अलग से PYQ Hub में रहेंगे।' : 'Note: These are external source pages; structured PYQs available inside the site remain in PYQ Hub.'}</p>
-      </div>`;
-}
-
 function switchExamSubTab(subTabId) {
 document.querySelectorAll('.exam-sub-content').forEach(el => el.classList.add('hidden'));
 const target = document.getElementById('esub-content-' + subTabId);
 if(target) target.classList.remove('hidden');
-if (subTabId === 'pyq') {
-    renderExamPYQLinks(document.getElementById('exam-name-span')?.innerText || window.currentSelectedExam?.name || 'Exam');
-}
 
 const isDark = document.documentElement.classList.contains('dark');
 document.querySelectorAll('.exam-sub-tab-btn').forEach(btn => {
@@ -2456,373 +2415,6 @@ grid.appendChild(lockCard);
 }
 
 let currentChapter = null;
-let practiceNavState = { groupKey: null, subExamName: null };
-function switchPracticeMode(mode) {
-const examsContainer = document.getElementById('practice-exams-container');
-const subjectsContainer = document.getElementById('practice-subjects-container');
-const examsBtn = document.getElementById('pmode-exams-btn');
-const subjectsBtn = document.getElementById('pmode-subjects-btn');
-
-if (mode === 'exams') {
-examsContainer.classList.remove('hidden');
-subjectsContainer.classList.add('hidden');
-examsBtn.className = 'px-4 py-2 text-xs font-bold rounded-lg bg-indigo-600 text-white transition cursor-pointer';
-subjectsBtn.className = 'px-4 py-2 text-xs font-semibold rounded-lg text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition cursor-pointer';
-resetPracticeExamNav();
-} else {
-examsContainer.classList.add('hidden');
-subjectsContainer.classList.remove('hidden');
-subjectsBtn.className = 'px-4 py-2 text-xs font-bold rounded-lg bg-indigo-600 text-white transition cursor-pointer';
-examsBtn.className = 'px-4 py-2 text-xs font-semibold rounded-lg text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition cursor-pointer';
-selectPracticeSubjectStream('mathematics');
-}
-}
-
-function resetPracticeExamNav() {
-practiceNavState = { groupKey: null, subExamName: null };
-renderPracticeExamHub();
-}
-
-function selectPracticeGroup(groupKey) {
-practiceNavState = { groupKey, subExamName: null };
-renderPracticeExamHub();
-}
-
-function selectPracticeSubExam(subExamName) {
-practiceNavState.subExamName = subExamName;
-renderPracticeExamHub();
-}
-
-function renderPracticeExamHub() {
-const grid = document.getElementById('practice-exam-grid');
-const breadcrumb = document.getElementById('practice-exam-breadcrumb');
-const sep1 = document.getElementById('pexam-sep-1');
-const groupSpan = document.getElementById('pexam-breadcrumb-group');
-const sep2 = document.getElementById('pexam-sep-2');
-const subSpan = document.getElementById('pexam-breadcrumb-sub');
-
-if (!grid) return;
-grid.innerHTML = '';
-const groups = window.examGroupsData || {};
-
-if (!practiceNavState.groupKey) {
-if(breadcrumb) breadcrumb.classList.add('hidden');
-Object.keys(groups).forEach(key => {
-const g = groups[key];
-const card = document.createElement('div');
-card.className = 'bg-white dark:bg-[#131b2e] border border-slate-200 dark:border-slate-800/80 p-6 rounded-2xl flex flex-col justify-between shadow-sm hover:border-indigo-500 transition cursor-pointer group';
-card.onclick = () => selectPracticeGroup(key);
-card.innerHTML = `<div><span class="bg-indigo-500/10 text-indigo-700 dark:text-indigo-300 border border-indigo-500/20 text-[10px] font-bold uppercase px-2.5 py-1 rounded">1 Demo Exam Available</span><h3 class="text-lg font-bold mt-3 mb-2 text-slate-900 dark:text-white group-hover:text-indigo-600 transition"><i class="fa-solid ${g.icon} text-indigo-500 mr-2"></i> ${g.name}</h3><p class="text-slate-600 dark:text-slate-400 text-xs mb-5">Explore sub-examinations and proctored test sets under ${g.name}.</p></div><div class="flex items-center justify-between text-xs font-semibold text-indigo-600 dark:text-indigo-400"><span>View Sub-Exams</span><i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition"></i></div>`;
-grid.appendChild(card);
-});
-} else if (!practiceNavState.subExamName) {
-const g = groups[practiceNavState.groupKey];
-if(breadcrumb) breadcrumb.classList.remove('hidden');
-if(sep1) sep1.classList.remove('hidden');
-if(groupSpan) {
-groupSpan.classList.remove('hidden');
-groupSpan.innerText = g.name;
-groupSpan.className = "hover:text-indigo-600 dark:hover:text-indigo-400 cursor-pointer";
-groupSpan.onclick = () => resetPracticeExamNav();
-}
-if(sep2) sep2.classList.add('hidden');
-if(subSpan) subSpan.classList.add('hidden');
-
-let subList = g.subExams;
-if (!currentUser) {
-subList = [g.subExams[0]];
-}
-
-subList.forEach(sub => {
-const card = document.createElement('div');
-card.className = 'bg-white dark:bg-[#131b2e] border border-slate-200 dark:border-slate-800/80 p-6 rounded-2xl flex flex-col justify-between shadow-sm hover:border-teal-500 transition cursor-pointer group';
-card.onclick = () => selectPracticeSubExam(sub.name);
-card.innerHTML = `<div><span class="bg-teal-500/10 text-teal-700 dark:text-teal-300 border border-teal-500/20 text-[10px] font-bold uppercase px-2.5 py-1 rounded">${sub.totalChapters} Chapters</span><h3 class="text-base font-bold mt-3 mb-2 text-slate-900 dark:text-white group-hover:text-teal-600 transition">${sub.name}</h3><p class="text-slate-600 dark:text-slate-400 text-xs mb-5">${sub.desc}</p></div><div class="flex items-center justify-between text-xs font-semibold text-teal-600 dark:text-teal-400"><span>Launch Practice Hub</span><i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition"></i></div>`;
-grid.appendChild(card);
-});
-if (!currentUser && g.subExams.length > 1) {
-const lockCard = document.createElement('div');
-lockCard.className = 'col-span-full p-4 bg-amber-500/10 border border-amber-500/30 rounded-2xl text-center text-xs text-amber-600 dark:text-amber-400 font-semibold';
-lockCard.innerHTML = `<i class="fa-solid fa-lock mr-1"></i> ${g.subExams.length - 1} more sub-exams are locked. <a href="javascript:void(0)" onclick="openAuthModal()" class="underline font-bold">Login now</a> to unlock all exam categories.`;
-grid.appendChild(lockCard);
-}
-} else {
-const g = groups[practiceNavState.groupKey];
-const subName = practiceNavState.subExamName;
-if(breadcrumb) breadcrumb.classList.remove('hidden');
-if(sep1) sep1.classList.remove('hidden');
-if(groupSpan) {
-groupSpan.classList.remove('hidden');
-groupSpan.innerText = g.name;
-groupSpan.className = "hover:text-indigo-600 dark:hover:text-indigo-400 cursor-pointer";
-groupSpan.onclick = () => resetPracticeExamNav();
-}
-if(sep2) sep2.classList.remove('hidden');
-if(subSpan) {
-subSpan.classList.remove('hidden');
-subSpan.innerText = subName;
-}
-
-let sampleChapters = [
-{ title: `${subName} - Quantitative Aptitude & Mathematics Set`, questions: 50 },
-{ title: `${subName} - Logical Reasoning & Mental Ability`, questions: 50 },
-{ title: `${subName} - General Awareness & Current Affairs`, questions: 50 },
-{ title: `${subName} - English Language & Comprehension`, questions: 50 },
-{ title: `${subName} - Computer Science & Basic IT`, questions: 50 }
-];
-if (!currentUser) {
-sampleChapters = [sampleChapters[0]];
-}
-
-sampleChapters.forEach(ch => {
-const safeTitle = ch.title.replace(/'/g, "\\'");
-const card = document.createElement('div');
-card.className = 'bg-white dark:bg-[#131b2e] border border-slate-200 dark:border-slate-800/80 p-6 rounded-2xl flex flex-col justify-between shadow-sm';
-card.innerHTML = `<div><div class="flex items-center justify-between mb-4"><span class="bg-indigo-500/10 text-indigo-700 dark:text-indigo-300 border border-indigo-500/20 text-[10px] font-bold uppercase px-2.5 py-1 rounded">${ch.questions} Qs / 30s Timer</span><span class="text-[11px] text-teal-600 dark:text-teal-400 font-semibold"><i class="fa-solid fa-shuffle mr-1"></i> Shuffled</span></div><h3 class="text-base font-bold mb-2 text-slate-900 dark:text-white">${ch.title}</h3><p class="text-slate-600 dark:text-slate-400 text-xs mb-5">Target Exam: <span class="text-indigo-600 font-medium">${subName}</span></p></div><div class="space-y-2"><button onclick="startChapterPractice('${safeTitle}', '${subName}')" class="w-full bg-indigo-600 hover:bg-indigo-500 text-white font-semibold py-2.5 rounded-xl text-xs uppercase tracking-wider transition shadow cursor-pointer">Launch Practice (${ch.questions} Qs)</button><button onclick="switchTab('vault'); launchChapterSimulation('${safeTitle}', ${ch.questions}, 30)" class="w-full bg-teal-600 hover:bg-teal-500 text-white font-semibold py-2 rounded-xl text-xs uppercase tracking-wider transition shadow cursor-pointer">Launch Mock Exam</button></div>`;
-grid.appendChild(card);
-});
-if (!currentUser) {
-const lockCard = document.createElement('div');
-lockCard.className = 'col-span-full p-4 bg-amber-500/10 border border-amber-500/30 rounded-2xl text-center text-xs text-amber-600 dark:text-amber-400 font-semibold';
-lockCard.innerHTML = `<i class="fa-solid fa-lock mr-1"></i> Additional chapters are locked for guest users. <a href="javascript:void(0)" onclick="openAuthModal()" class="underline font-bold">Login now</a> to unlock all chapters.`;
-grid.appendChild(lockCard);
-}
-}
-}
-
-let activePracticeSubjectKey = 'mathematics';
-function selectPracticeSubjectStream(subjKey) {
-activePracticeSubjectKey = subjKey;
-document.querySelectorAll('#practice-subject-pills .practice-subject-btn').forEach(btn => {
-btn.className = 'practice-subject-btn px-3.5 py-2 text-xs font-semibold rounded-xl bg-white dark:bg-slate-900 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-slate-800 transition cursor-pointer';
-});
-const activeBtn = document.getElementById('practice-subj-' + subjKey);
-if (activeBtn) {
-activeBtn.className = 'practice-subject-btn px-3.5 py-2 text-xs font-semibold rounded-xl bg-indigo-600 text-white transition cursor-pointer';
-}
-renderPracticeHub();
-}
-
-function renderPracticeHub() {
-const grid = document.getElementById('practice-container-grid');
-if(!grid) return;
-grid.innerHTML = '';
-const curriculumDataSource = window.curriculumData || {};
-const subj = curriculumDataSource[activePracticeSubjectKey];
-if(!subj) return;
-
-subj.sections.forEach(sec => {
-const secHeader = document.createElement('div');
-secHeader.className = 'col-span-full mt-2 mb-1';
-secHeader.innerHTML = `<h3 class="text-sm font-bold text-indigo-600 dark:text-indigo-400 border-b border-slate-200 dark:border-slate-800 pb-2">${sec.name}</h3>`;
-grid.appendChild(secHeader);
-
-let chList = sec.chapters;
-if (!currentUser) {
-chList = [sec.chapters[0]];
-}
-
-chList.forEach(ch => {
-const safeTitle = ch.title.replace(/'/g, "\\'");
-const card = document.createElement('div');
-card.className = 'bg-white dark:bg-[#131b2e] border border-slate-200 dark:border-slate-800/80 p-6 rounded-2xl flex flex-col justify-between shadow-sm';
-card.innerHTML = `<div><div class="flex items-center justify-between mb-4"><span class="bg-teal-500/10 text-teal-700 dark:text-teal-300 border border-teal-500/20 text-[10px] font-bold uppercase px-2.5 py-1 rounded">${ch.totalQuestions} Qs / 30s Timer</span><span class="text-[11px] text-teal-600 dark:text-teal-400 font-semibold"><i class="fa-solid fa-bolt mr-1"></i> Practice</span></div><h3 class="text-base font-bold mb-2 text-slate-900 dark:text-white">${ch.title}</h3><p class="text-slate-600 dark:text-slate-400 text-xs mb-5">Subject Stream: <span class="text-indigo-600 font-medium">${subj.name}</span></p></div><div class="space-y-2"><button onclick="startChapterPractice('${safeTitle}', '${subj.name}')" class="w-full bg-indigo-600 hover:bg-indigo-500 text-white font-semibold py-2.5 rounded-xl text-xs uppercase tracking-wider transition shadow cursor-pointer">Launch Practice</button><button onclick="switchTab('vault'); launchChapterSimulation('${safeTitle}', ${ch.totalQuestions}, 30)" class="w-full bg-teal-600 hover:bg-teal-500 text-white font-semibold py-2 rounded-xl text-xs uppercase tracking-wider transition shadow cursor-pointer">Launch Mock Exam</button></div>`;
-grid.appendChild(card);
-});
-
-if (!currentUser && sec.chapters.length > 1) {
-const lockCard = document.createElement('div');
-lockCard.className = 'col-span-full p-4 bg-amber-500/10 border border-amber-500/30 rounded-2xl text-center text-xs text-amber-600 dark:text-amber-400 font-semibold';
-lockCard.innerHTML = `<i class="fa-solid fa-lock mr-1"></i> ${sec.chapters.length - 1} more chapters are locked. <a href="javascript:void(0)" onclick="openAuthModal()" class="underline font-bold">Login now</a> to unlock all practice chapters.`;
-grid.appendChild(lockCard);
-}
-});
-}
-
-let vaultNavState = { groupKey: null, subExamName: null };
-function switchVaultMode(mode) {
-const examsContainer = document.getElementById('vault-exams-container');
-const subjectsContainer = document.getElementById('vault-subjects-container');
-const examsBtn = document.getElementById('vmode-exams-btn');
-const subjectsBtn = document.getElementById('vmode-subjects-btn');
-
-if (mode === 'exams') {
-examsContainer.classList.remove('hidden');
-subjectsContainer.classList.add('hidden');
-examsBtn.className = 'px-4 py-2 text-xs font-bold rounded-lg bg-indigo-600 text-white transition cursor-pointer';
-subjectsBtn.className = 'px-4 py-2 text-xs font-semibold rounded-lg text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition cursor-pointer';
-resetVaultExamNav();
-} else {
-examsContainer.classList.add('hidden');
-subjectsContainer.classList.remove('hidden');
-subjectsBtn.className = 'px-4 py-2 text-xs font-bold rounded-lg bg-indigo-600 text-white transition cursor-pointer';
-examsBtn.className = 'px-4 py-2 text-xs font-semibold rounded-lg text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition cursor-pointer';
-selectVaultSubjectStream('mathematics');
-}
-}
-
-function resetVaultExamNav() {
-vaultNavState = { groupKey: null, subExamName: null };
-renderVaultExamHub();
-}
-
-function selectVaultGroup(groupKey) {
-vaultNavState = { groupKey, subExamName: null };
-renderVaultExamHub();
-}
-
-function selectVaultSubExam(subExamName) {
-vaultNavState.subExamName = subExamName;
-renderVaultExamHub();
-}
-
-function renderVaultExamHub() {
-const grid = document.getElementById('vault-exam-grid');
-const breadcrumb = document.getElementById('vault-exam-breadcrumb');
-const sep1 = document.getElementById('vexam-sep-1');
-const groupSpan = document.getElementById('vexam-breadcrumb-group');
-const sep2 = document.getElementById('vexam-sep-2');
-const subSpan = document.getElementById('vexam-breadcrumb-sub');
-
-if (!grid) return;
-grid.innerHTML = '';
-const groups = window.examGroupsData || {};
-
-if (!vaultNavState.groupKey) {
-if(breadcrumb) breadcrumb.classList.add('hidden');
-Object.keys(groups).forEach(key => {
-const g = groups[key];
-const card = document.createElement('div');
-card.className = 'bg-white dark:bg-[#131b2e] border border-slate-200 dark:border-slate-800/80 p-6 rounded-2xl flex flex-col justify-between shadow-sm hover:border-indigo-500 transition cursor-pointer group';
-card.onclick = () => selectVaultGroup(key);
-card.innerHTML = `<div><span class="bg-indigo-500/10 text-indigo-700 dark:text-indigo-300 border border-indigo-500/20 text-[10px] font-bold uppercase px-2.5 py-1 rounded">1 Demo Mock Available</span><h3 class="text-lg font-bold mt-3 mb-2 text-slate-900 dark:text-white group-hover:text-indigo-600 transition"><i class="fa-solid ${g.icon} text-indigo-500 mr-2"></i> ${g.name} Vault</h3><p class="text-slate-600 dark:text-slate-400 text-xs mb-5">Launch proctored simulation exams for ${g.name}.</p></div><div class="flex items-center justify-between text-xs font-semibold text-indigo-600 dark:text-indigo-400"><span>View Sub-Exams</span><i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition"></i></div>`;
-grid.appendChild(card);
-});
-} else if (!vaultNavState.subExamName) {
-const g = groups[vaultNavState.groupKey];
-if(breadcrumb) breadcrumb.classList.remove('hidden');
-if(sep1) sep1.classList.remove('hidden');
-if(groupSpan) {
-groupSpan.classList.remove('hidden');
-groupSpan.innerText = g.name;
-groupSpan.className = "hover:text-indigo-600 dark:hover:text-indigo-400 cursor-pointer";
-groupSpan.onclick = () => resetVaultExamNav();
-}
-if(sep2) sep2.classList.add('hidden');
-if(subSpan) subSpan.classList.add('hidden');
-
-let subList = g.subExams;
-if (!currentUser) {
-subList = [g.subExams[0]];
-}
-
-subList.forEach(sub => {
-const card = document.createElement('div');
-card.className = 'bg-white dark:bg-[#131b2e] border border-slate-200 dark:border-slate-800/80 p-6 rounded-2xl flex flex-col justify-between shadow-sm hover:border-teal-500 transition cursor-pointer group';
-card.onclick = () => selectVaultSubExam(sub.name);
-card.innerHTML = `<div><span class="bg-teal-500/10 text-teal-700 dark:text-teal-300 border border-teal-500/20 text-[10px] font-bold uppercase px-2.5 py-1 rounded">Proctored Mocks</span><h3 class="text-base font-bold mt-3 mb-2 text-slate-900 dark:text-white group-hover:text-teal-600 transition">${sub.name}</h3><p class="text-slate-600 dark:text-slate-400 text-xs mb-5">${sub.desc}</p></div><div class="flex items-center justify-between text-xs font-semibold text-teal-600 dark:text-teal-400"><span>Launch Mock Vault</span><i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition"></i></div>`;
-grid.appendChild(card);
-});
-if (!currentUser && g.subExams.length > 1) {
-const lockCard = document.createElement('div');
-lockCard.className = 'col-span-full p-4 bg-amber-500/10 border border-amber-500/30 rounded-2xl text-center text-xs text-amber-600 dark:text-amber-400 font-semibold';
-lockCard.innerHTML = `<i class="fa-solid fa-lock mr-1"></i> ${g.subExams.length - 1} more sub-exam mock vaults are locked. <a href="javascript:void(0)" onclick="openAuthModal()" class="underline font-bold">Login now</a> to unlock all mocks.`;
-grid.appendChild(lockCard);
-}
-} else {
-const g = groups[vaultNavState.groupKey];
-const subName = vaultNavState.subExamName;
-if(breadcrumb) breadcrumb.classList.remove('hidden');
-if(sep1) sep1.classList.remove('hidden');
-if(groupSpan) {
-groupSpan.classList.remove('hidden');
-groupSpan.innerText = g.name;
-groupSpan.className = "hover:text-indigo-600 dark:hover:text-indigo-400 cursor-pointer";
-groupSpan.onclick = () => resetVaultExamNav();
-}
-if(sep2) sep2.classList.add('hidden');
-if(subSpan) {
-subSpan.classList.remove('hidden');
-subSpan.innerText = subName;
-}
-
-let mockSets = [
-{ title: `${subName} - Full Length TCS Pattern Mock #1`, questions: 50, mins: 30 },
-{ title: `${subName} - Official Previous Year Paper Set`, questions: 50, mins: 30 },
-{ title: `${subName} - Hard Difficulty Calibration Mock`, questions: 50, mins: 30 },
-{ title: `${subName} - Speed Test & Sectional Drill`, questions: 50, mins: 30 }
-];
-if (!currentUser) {
-mockSets = [mockSets[0]];
-}
-
-mockSets.forEach(m => {
-const safeTitle = m.title.replace(/'/g, "\\'");
-const card = document.createElement('div');
-card.className = 'bg-white dark:bg-[#131b2e] border border-slate-200 dark:border-slate-800/80 p-6 rounded-2xl flex flex-col justify-between shadow-sm';
-card.innerHTML = `<div><div class="flex items-center justify-between mb-4"><span class="bg-indigo-500/10 text-indigo-700 dark:text-indigo-300 border border-indigo-500/20 text-[10px] font-bold uppercase px-2.5 py-1 rounded">${m.questions} Qs / ${m.mins} Min</span><span class="text-[11px] text-amber-500 font-semibold"><i class="fa-solid fa-shield-halved mr-1"></i> Proctored</span></div><h3 class="text-base font-bold mb-2 text-slate-900 dark:text-white">${m.title}</h3><p class="text-slate-600 dark:text-slate-400 text-xs mb-5">Simulated Exam for <span class="text-indigo-600 font-medium">${subName}</span></p></div><button onclick="launchChapterSimulation('${safeTitle}', ${m.questions}, ${m.mins})" class="w-full bg-indigo-600 hover:bg-indigo-500 text-white font-semibold py-2.5 rounded-xl text-xs uppercase tracking-wider transition shadow cursor-pointer">Launch Simulation Exam</button>`;
-grid.appendChild(card);
-});
-if (!currentUser) {
-const lockCard = document.createElement('div');
-lockCard.className = 'col-span-full p-4 bg-amber-500/10 border border-amber-500/30 rounded-2xl text-center text-xs text-amber-600 dark:text-amber-400 font-semibold';
-lockCard.innerHTML = `<i class="fa-solid fa-lock mr-1"></i> Additional mock test series are locked for guest users. <a href="javascript:void(0)" onclick="openAuthModal()" class="underline font-bold">Login now</a> to unlock all mocks.`;
-grid.appendChild(lockCard);
-}
-}
-}
-
-let activeVaultSubjectKey = 'mathematics';
-function selectVaultSubjectStream(subjKey) {
-activeVaultSubjectKey = subjKey;
-document.querySelectorAll('#vault-subject-pills .vault-subject-btn').forEach(btn => {
-btn.className = 'vault-subject-btn px-3.5 py-2 text-xs font-semibold rounded-xl bg-white dark:bg-slate-900 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-slate-800 transition cursor-pointer';
-});
-const activeBtn = document.getElementById('vault-subj-' + subjKey);
-if (activeBtn) {
-activeBtn.className = 'vault-subject-btn px-3.5 py-2 text-xs font-semibold rounded-xl bg-indigo-600 text-white transition cursor-pointer';
-}
-renderVaultHub();
-}
-
-function renderVaultHub() {
-const grid = document.getElementById('vault-container-grid');
-if(!grid) return;
-grid.innerHTML = '';
-const curriculumDataSource = window.curriculumData || {};
-const subj = curriculumDataSource[activeVaultSubjectKey];
-if(!subj) return;
-
-subj.sections.forEach(sec => {
-const secHeader = document.createElement('div');
-secHeader.className = 'col-span-full mt-2 mb-1';
-secHeader.innerHTML = `<h3 class="text-sm font-bold text-indigo-600 dark:text-indigo-400 border-b border-slate-200 dark:border-slate-800 pb-2">${sec.name}</h3>`;
-grid.appendChild(secHeader);
-
-let chList = sec.chapters;
-if (!currentUser) {
-chList = [sec.chapters[0]];
-}
-
-chList.forEach(ch => {
-const safeTitle = ch.title.replace(/'/g, "\\'");
-const card = document.createElement('div');
-card.className = 'bg-white dark:bg-[#131b2e] border border-slate-200 dark:border-slate-800/80 p-6 rounded-2xl flex flex-col justify-between shadow-sm';
-card.innerHTML = `<div><div class="flex items-center justify-between mb-4"><span class="bg-indigo-500/10 text-indigo-700 dark:text-indigo-300 border border-indigo-500/20 text-[10px] font-bold uppercase px-2.5 py-1 rounded">${ch.totalQuestions} Qs / 30 Mins</span><span class="text-[11px] text-amber-500 font-semibold"><i class="fa-solid fa-shield-halved mr-1"></i> Proctored</span></div><h3 class="text-base font-bold mb-2 text-slate-900 dark:text-white">${ch.title} - Mock Exam</h3><p class="text-slate-600 dark:text-slate-400 text-xs mb-5">Simulated Exam for <span class="text-indigo-600 font-medium">${subj.name}</span></p></div><button onclick="launchChapterSimulation('${safeTitle}', ${ch.totalQuestions}, 30)" class="w-full bg-indigo-600 hover:bg-indigo-500 text-white font-semibold py-2.5 rounded-xl text-xs uppercase tracking-wider transition shadow cursor-pointer">Launch Simulation Exam</button>`;
-grid.appendChild(card);
-});
-
-if (!currentUser && sec.chapters.length > 1) {
-const lockCard = document.createElement('div');
-lockCard.className = 'col-span-full p-4 bg-amber-500/10 border border-amber-500/30 rounded-2xl text-center text-xs text-amber-600 dark:text-amber-400 font-semibold';
-lockCard.innerHTML = `<i class="fa-solid fa-lock mr-1"></i> ${sec.chapters.length - 1} more mock exams are locked. <a href="javascript:void(0)" onclick="openAuthModal()" class="underline font-bold">Login now</a> to unlock all mock exams.`;
-grid.appendChild(lockCard);
-}
-});
-}
-
-let currentChapter = null;
-
 let practiceQuestions = [];
 let pIndex = 0;
 let userAnswers = {};
@@ -3810,6 +3402,189 @@ if(!toast) return;
 document.getElementById('toast-message').innerText = msg;
 toast.classList.remove('translate-y-24', 'opacity-0');
 setTimeout(() => { toast.classList.add('translate-y-24', 'opacity-0'); }, 3500);
+}
+
+
+
+let practiceNavState = { groupKey: null, subExamName: null };
+function switchPracticeMode(mode) {
+const examsContainer = document.getElementById('practice-exams-container');
+const subjectsContainer = document.getElementById('practice-subjects-container');
+const examsBtn = document.getElementById('pmode-exams-btn');
+const subjectsBtn = document.getElementById('pmode-subjects-btn');
+
+if (mode === 'exams') {
+examsContainer.classList.remove('hidden');
+subjectsContainer.classList.add('hidden');
+examsBtn.className = 'px-4 py-2 text-xs font-bold rounded-lg bg-indigo-600 text-white transition cursor-pointer';
+subjectsBtn.className = 'px-4 py-2 text-xs font-semibold rounded-lg text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition cursor-pointer';
+resetPracticeExamNav();
+} else {
+examsContainer.classList.add('hidden');
+subjectsContainer.classList.remove('hidden');
+subjectsBtn.className = 'px-4 py-2 text-xs font-bold rounded-lg bg-indigo-600 text-white transition cursor-pointer';
+examsBtn.className = 'px-4 py-2 text-xs font-semibold rounded-lg text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition cursor-pointer';
+selectPracticeSubjectStream('mathematics');
+}
+}
+
+function resetPracticeExamNav() {
+practiceNavState = { groupKey: null, subExamName: null };
+renderPracticeExamHub();
+}
+
+function selectPracticeGroup(groupKey) {
+practiceNavState = { groupKey, subExamName: null };
+renderPracticeExamHub();
+}
+
+function selectPracticeSubExam(subExamName) {
+practiceNavState.subExamName = subExamName;
+renderPracticeExamHub();
+}
+
+function renderPracticeExamHub() {
+const grid = document.getElementById('practice-exam-grid');
+const breadcrumb = document.getElementById('practice-exam-breadcrumb');
+const sep1 = document.getElementById('pexam-sep-1');
+const groupSpan = document.getElementById('pexam-breadcrumb-group');
+const sep2 = document.getElementById('pexam-sep-2');
+const subSpan = document.getElementById('pexam-breadcrumb-sub');
+
+if (!grid) return;
+grid.innerHTML = '';
+const groups = window.examGroupsData || {};
+
+if (!practiceNavState.groupKey) {
+if(breadcrumb) breadcrumb.classList.add('hidden');
+Object.keys(groups).forEach(key => {
+const g = groups[key];
+const card = document.createElement('div');
+card.className = 'bg-white dark:bg-[#131b2e] border border-slate-200 dark:border-slate-800/80 p-6 rounded-2xl flex flex-col justify-between shadow-sm hover:border-indigo-500 transition cursor-pointer group';
+card.onclick = () => selectPracticeGroup(key);
+card.innerHTML = `<div><span class="bg-indigo-500/10 text-indigo-700 dark:text-indigo-300 border border-indigo-500/20 text-[10px] font-bold uppercase px-2.5 py-1 rounded">1 Demo Exam Available</span><h3 class="text-lg font-bold mt-3 mb-2 text-slate-900 dark:text-white group-hover:text-indigo-600 transition"><i class="fa-solid ${g.icon} text-indigo-500 mr-2"></i> ${g.name}</h3><p class="text-slate-600 dark:text-slate-400 text-xs mb-5">Explore sub-examinations and proctored test sets under ${g.name}.</p></div><div class="flex items-center justify-between text-xs font-semibold text-indigo-600 dark:text-indigo-400"><span>View Sub-Exams</span><i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition"></i></div>`;
+grid.appendChild(card);
+});
+} else if (!practiceNavState.subExamName) {
+const g = groups[practiceNavState.groupKey];
+if(breadcrumb) breadcrumb.classList.remove('hidden');
+if(sep1) sep1.classList.remove('hidden');
+if(groupSpan) {
+groupSpan.classList.remove('hidden');
+groupSpan.innerText = g.name;
+groupSpan.className = "hover:text-indigo-600 dark:hover:text-indigo-400 cursor-pointer";
+groupSpan.onclick = () => resetPracticeExamNav();
+}
+if(sep2) sep2.classList.add('hidden');
+if(subSpan) subSpan.classList.add('hidden');
+
+let subList = g.subExams;
+if (!currentUser) {
+subList = [g.subExams[0]];
+}
+
+subList.forEach(sub => {
+const card = document.createElement('div');
+card.className = 'bg-white dark:bg-[#131b2e] border border-slate-200 dark:border-slate-800/80 p-6 rounded-2xl flex flex-col justify-between shadow-sm hover:border-teal-500 transition cursor-pointer group';
+card.onclick = () => selectPracticeSubExam(sub.name);
+card.innerHTML = `<div><span class="bg-teal-500/10 text-teal-700 dark:text-teal-300 border border-teal-500/20 text-[10px] font-bold uppercase px-2.5 py-1 rounded">${sub.totalChapters} Chapters</span><h3 class="text-base font-bold mt-3 mb-2 text-slate-900 dark:text-white group-hover:text-teal-600 transition">${sub.name}</h3><p class="text-slate-600 dark:text-slate-400 text-xs mb-5">${sub.desc}</p></div><div class="flex items-center justify-between text-xs font-semibold text-teal-600 dark:text-teal-400"><span>Launch Practice Hub</span><i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition"></i></div>`;
+grid.appendChild(card);
+});
+if (!currentUser && g.subExams.length > 1) {
+const lockCard = document.createElement('div');
+lockCard.className = 'col-span-full p-4 bg-amber-500/10 border border-amber-500/30 rounded-2xl text-center text-xs text-amber-600 dark:text-amber-400 font-semibold';
+lockCard.innerHTML = `<i class="fa-solid fa-lock mr-1"></i> ${g.subExams.length - 1} more sub-exams are locked. <a href="javascript:void(0)" onclick="openAuthModal()" class="underline font-bold">Login now</a> to unlock all exam categories.`;
+grid.appendChild(lockCard);
+}
+} else {
+const g = groups[practiceNavState.groupKey];
+const subName = practiceNavState.subExamName;
+if(breadcrumb) breadcrumb.classList.remove('hidden');
+if(sep1) sep1.classList.remove('hidden');
+if(groupSpan) {
+groupSpan.classList.remove('hidden');
+groupSpan.innerText = g.name;
+groupSpan.className = "hover:text-indigo-600 dark:hover:text-indigo-400 cursor-pointer";
+groupSpan.onclick = () => resetPracticeExamNav();
+}
+if(sep2) sep2.classList.remove('hidden');
+if(subSpan) {
+subSpan.classList.remove('hidden');
+subSpan.innerText = subName;
+}
+
+let sampleChapters = [
+{ title: `${subName} - Quantitative Aptitude & Mathematics Set`, questions: 50 },
+{ title: `${subName} - Logical Reasoning & Mental Ability`, questions: 50 },
+{ title: `${subName} - General Awareness & Current Affairs`, questions: 50 },
+{ title: `${subName} - English Language & Comprehension`, questions: 50 },
+{ title: `${subName} - Computer Science & Basic IT`, questions: 50 }
+];
+if (!currentUser) {
+sampleChapters = [sampleChapters[0]];
+}
+
+sampleChapters.forEach(ch => {
+const safeTitle = ch.title.replace(/'/g, "\\'");
+const card = document.createElement('div');
+card.className = 'bg-white dark:bg-[#131b2e] border border-slate-200 dark:border-slate-800/80 p-6 rounded-2xl flex flex-col justify-between shadow-sm';
+card.innerHTML = `<div><div class="flex items-center justify-between mb-4"><span class="bg-indigo-500/10 text-indigo-700 dark:text-indigo-300 border border-indigo-500/20 text-[10px] font-bold uppercase px-2.5 py-1 rounded">${ch.questions} Qs / 30s Timer</span><span class="text-[11px] text-teal-600 dark:text-teal-400 font-semibold"><i class="fa-solid fa-shuffle mr-1"></i> Shuffled</span></div><h3 class="text-base font-bold mb-2 text-slate-900 dark:text-white">${ch.title}</h3><p class="text-slate-600 dark:text-slate-400 text-xs mb-5">Target Exam: <span class="text-indigo-600 font-medium">${subName}</span></p></div><div class="space-y-2"><button onclick="startChapterPractice('${safeTitle}', '${subName}')" class="w-full bg-indigo-600 hover:bg-indigo-500 text-white font-semibold py-2.5 rounded-xl text-xs uppercase tracking-wider transition shadow cursor-pointer">Launch Practice (${ch.questions} Qs)</button><button onclick="switchTab('vault'); launchChapterSimulation('${safeTitle}', ${ch.questions}, 30)" class="w-full bg-teal-600 hover:bg-teal-500 text-white font-semibold py-2 rounded-xl text-xs uppercase tracking-wider transition shadow cursor-pointer">Launch Mock Exam</button></div>`;
+grid.appendChild(card);
+});
+if (!currentUser) {
+const lockCard = document.createElement('div');
+lockCard.className = 'col-span-full p-4 bg-amber-500/10 border border-amber-500/30 rounded-2xl text-center text-xs text-amber-600 dark:text-amber-400 font-semibold';
+lockCard.innerHTML = `<i class="fa-solid fa-lock mr-1"></i> Additional chapters are locked for guest users. <a href="javascript:void(0)" onclick="openAuthModal()" class="underline font-bold">Login now</a> to unlock all chapters.`;
+grid.appendChild(lockCard);
+}
+}
+}
+
+let activePracticeSubjectKey = 'mathematics';
+function selectPracticeSubjectStream(subjKey) {
+  activePracticeSubjectKey = subjKey;
+  document.querySelectorAll('#practice-subject-pills .practice-subject-btn').forEach(btn => {
+    btn.className = 'practice-subject-btn px-3.5 py-2 text-xs font-semibold rounded-xl bg-white dark:bg-slate-900 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-slate-800 transition cursor-pointer';
+  });
+  const activeBtn = document.getElementById('practice-subj-' + subjKey);
+  if (activeBtn) activeBtn.className = 'practice-subject-btn px-3.5 py-2 text-xs font-semibold rounded-xl bg-indigo-600 text-white transition cursor-pointer';
+  renderPracticeHub();
+}
+function renderPracticeHub() {
+  const grid = document.getElementById('practice-container-grid');
+  if (!grid) return;
+  grid.innerHTML = '';
+  const curriculum = window.curriculumData || {};
+  const subj = curriculum[activePracticeSubjectKey];
+  if (!subj || !Array.isArray(subj.sections)) {
+    grid.innerHTML = '<div class="col-span-full p-8 text-center text-xs text-slate-500">No subject data available.</div>';
+    return;
+  }
+  subj.sections.forEach(sec => {
+    const header = document.createElement('div');
+    header.className = 'col-span-full mt-2 mb-1';
+    header.innerHTML = `<h3 class="text-sm font-bold text-indigo-600 dark:text-indigo-400 border-b border-slate-200 dark:border-slate-800 pb-2">${sec.name || 'Section'}</h3>`;
+    grid.appendChild(header);
+    const chapters = Array.isArray(sec.chapters) ? sec.chapters : [];
+    const visible = currentUser ? chapters : chapters.slice(0, 1);
+    visible.forEach(ch => {
+      const title = String(ch.title || 'Chapter');
+      const safeTitle = title.replace(/'/g, "\\'");
+      const subjectName = String(subj.name || activePracticeSubjectKey);
+      const safeSubject = subjectName.replace(/'/g, "\\'");
+      const qCount = Number(ch.totalQuestions || ch.questions || 0);
+      const card = document.createElement('div');
+      card.className = 'bg-white dark:bg-[#131b2e] border border-slate-200 dark:border-slate-800/80 p-6 rounded-2xl flex flex-col justify-between shadow-sm';
+      card.innerHTML = `<div><div class="flex items-center justify-between mb-4"><span class="bg-teal-500/10 text-teal-700 dark:text-teal-300 border border-teal-500/20 text-[10px] font-bold uppercase px-2.5 py-1 rounded">${qCount} Qs</span><span class="text-[11px] text-teal-600 dark:text-teal-400 font-semibold"><i class="fa-solid fa-bolt mr-1"></i> Practice</span></div><h3 class="text-base font-bold mb-2 text-slate-900 dark:text-white">${title}</h3><p class="text-slate-600 dark:text-slate-400 text-xs mb-5">Subject Stream: <span class="text-indigo-600 font-medium">${subjectName}</span></p></div><div class="space-y-2"><button onclick="startChapterPractice('${safeTitle}', '${safeSubject}')" class="w-full bg-indigo-600 hover:bg-indigo-500 text-white font-semibold py-2.5 rounded-xl text-xs uppercase tracking-wider transition shadow cursor-pointer">Launch Practice</button><button onclick="switchTab('vault'); launchChapterSimulation('${safeTitle}', ${qCount}, 30)" class="w-full bg-teal-600 hover:bg-teal-500 text-white font-semibold py-2 rounded-xl text-xs uppercase tracking-wider transition shadow cursor-pointer">Launch Mock Exam</button></div>`;
+      grid.appendChild(card);
+    });
+    if (!currentUser && chapters.length > 1) {
+      const lock = document.createElement('div');
+      lock.className = 'col-span-full p-4 bg-amber-500/10 border border-amber-500/30 rounded-2xl text-center text-xs text-amber-600 dark:text-amber-400 font-semibold';
+      lock.innerHTML = `<i class="fa-solid fa-lock mr-1"></i> ${chapters.length - 1} more chapters are locked. <a href="javascript:void(0)" onclick="openAuthModal()" class="underline font-bold">Login now</a> to unlock all practice chapters.`;
+      grid.appendChild(lock);
+    }
+  });
 }
 
 window.onload = function() {
