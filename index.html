@@ -901,6 +901,8 @@ Return to Mock Vault
 <span id="pyq-breadcrumb-group" class="hidden text-indigo-600 dark:text-indigo-400"></span>
 <span id="pyq-sep-2" class="hidden text-slate-400">/</span>
 <span id="pyq-breadcrumb-sub" class="hidden text-amber-500"></span>
+<span id="pyq-sep-3" class="hidden text-slate-400">/</span>
+<span id="pyq-breadcrumb-date" class="hidden text-teal-500"></span>
 </div>
 <div id="pyq-container-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"></div>
 </div>
@@ -1716,7 +1718,7 @@ function changeExamNotificationYear(year) {
     if (examName) renderExamNotifications(examName);
 }
 
-function selectExamCategory(category) {
+function selectExamCategory(category, pushHistory = true) {
 const menu = document.getElementById('exam-dropdown-menu');
 const icon = document.getElementById('exam-dropdown-icon');
 if(menu) menu.classList.add('hidden');
@@ -1931,7 +1933,10 @@ function renderExamInformation(informationText, content) {
       : `<div class="col-span-full text-[11px] text-slate-500 dark:text-slate-400">Pattern cards will populate from exam-content.js when those fields are provided.</div>`;
 }
 
-function switchExamSubTab(subTabId) {
+window.currentSelectedExam = selectedExam || {name: examName};
+if (pushHistory) pushAppNavigation('exam-category');
+
+function switchExamSubTab(subTabId, pushHistory = true) {
 document.querySelectorAll('.exam-sub-content').forEach(el => el.classList.add('hidden'));
 const target = document.getElementById('esub-content-' + subTabId);
 if(target) target.classList.remove('hidden');
@@ -1946,7 +1951,10 @@ btn.className = isDark
 btn.className = 'exam-sub-tab-btn pb-3 text-xs font-semibold text-slate-500 hover:text-slate-900 dark:hover:text-white whitespace-nowrap cursor-pointer';
 }
 });
+window.__targetTireExamSubTab = subTabId;
+if (pushHistory) pushAppNavigation('exam-subtab');
 }
+
 
 const translations = {
 en: {
@@ -2093,7 +2101,7 @@ if (tabId === 'chapters') {
 renderCustomChapters();
 }
 if (tabId === 'pyq') {
-resetPYQHub();
+  if (!pyqNavState.groupKey) resetPYQHub(false); else renderPYQHub();
 }
 if (tabId === 'my_exams') {
 renderMyExamsTab();
@@ -2103,26 +2111,23 @@ renderUserTestHistory();
 }
 
 if (pushHistory) {
-history.pushState({ tab: tabId }, "", "#" + tabId);
+pushAppNavigation('tab');
 }
 }
 
 window.addEventListener('popstate', function(event) {
-const practiceRunning = !!window.__targetTireActiveSession &&
-    !document.getElementById('practice-runner-view')?.classList.contains('hidden');
-const mockRunning = !!window.__targetTireActiveSession &&
-    !document.getElementById('vault-runner-view')?.classList.contains('hidden');
-if (practiceRunning || mockRunning) {
+  const practiceRunning = !!window.__targetTireActiveSession && !document.getElementById('practice-runner-view')?.classList.contains('hidden');
+  const mockRunning = !!window.__targetTireActiveSession && !document.getElementById('vault-runner-view')?.classList.contains('hidden');
+  if (practiceRunning || mockRunning) {
+    // Browser Back is allowed even from a runner: pause/save the test first,
+    // then restore the exact section that was immediately before the runner.
     try { window.__targetTirePauseNow && window.__targetTirePauseNow(); } catch(e) {}
-    // Keep the user on the current test screen; progress is preserved.
-    history.pushState({ tab: practiceRunning ? 'practice' : 'vault' }, "", location.href);
-    return;
-}
-if (event.state && event.state.tab) {
-switchTab(event.state.tab, false);
-} else {
-switchTab('dashboard', false);
-}
+    try {
+      if (practiceRunning) exitPracticeRunner();
+      if (mockRunning) exitExamVault();
+    } catch(e) {}
+  }
+  restoreAppNavigation(event.state);
 });
 
 function openAddExamModal() {
@@ -2185,15 +2190,13 @@ grid.appendChild(card);
 });
 }
 
-let pyqNavState = { groupKey: null, subExamName: null, year: null, month: null };
+let pyqNavState = { groupKey: null, subExamName: null, year: null, month: null, date: null };
 // Preserve the exact hub/context that launched a Practice or Mock runner.
 let runnerReturnContext = null;
 function captureRunnerReturnContext(tabId) {
   const activeTab = tabId || (document.querySelector('.tab-content:not(.hidden)')?.id || '').replace('tab-','') || 'practice';
   runnerReturnContext = { tab: activeTab };
-  if (activeTab === 'pyq') {
-    runnerReturnContext.pyq = JSON.parse(JSON.stringify(pyqNavState || {}));
-  }
+  if (activeTab === 'pyq') runnerReturnContext.pyq = JSON.parse(JSON.stringify(pyqNavState || {}));
   return runnerReturnContext;
 }
 function returnFromRunner() {
@@ -2201,40 +2204,91 @@ function returnFromRunner() {
   const tab = ctx.tab || 'practice';
   if (tab === 'pyq') {
     switchTab('pyq');
-    if (ctx.pyq) {
-      pyqNavState = JSON.parse(JSON.stringify(ctx.pyq));
-      renderPYQHub();
-    }
-  } else {
-    switchTab(tab);
-  }
+    if (ctx.pyq) { pyqNavState = JSON.parse(JSON.stringify(ctx.pyq)); renderPYQHub(); }
+  } else switchTab(tab);
   runnerReturnContext = null;
 }
 
+/* =========================
+   IN-APP BROWSER HISTORY
+   Every navigation level gets its own history entry so Android/browser Back
+   returns to the immediately previous section instead of Dashboard.
+   ========================= */
+function getAppNavigationState() {
+  return {
+    app: true,
+    tab: (document.querySelector('.tab-content:not(.hidden)')?.id || 'tab-dashboard').replace('tab-',''),
+    pyq: JSON.parse(JSON.stringify(pyqNavState || {})),
+    practice: JSON.parse(JSON.stringify(practiceNavState || {})),
+    vault: JSON.parse(JSON.stringify(vaultNavState || {})),
+    exam: window.currentSelectedExam ? (window.currentSelectedExam.name || window.currentSelectedExam) : null,
+    examSubTab: window.__targetTireExamSubTab || 'overview',
+    practiceMode: window.__targetTirePracticeMode || 'exams',
+    vaultMode: window.__targetTireVaultMode || 'exams'
+  };
+}
+function pushAppNavigation(reason='navigation') {
+  try {
+    const state = getAppNavigationState();
+    state.reason = reason;
+    history.pushState(state, '', '#' + state.tab);
+  } catch(e) {}
+}
+function replaceAppNavigation() {
+  try { history.replaceState(getAppNavigationState(), '', location.hash || '#dashboard'); } catch(e) {}
+}
+function restoreAppNavigation(state) {
+  if (!state || !state.app) { switchTab('dashboard', false); return; }
+  if (state.pyq) pyqNavState = Object.assign({groupKey:null,subExamName:null,year:null,month:null,date:null}, state.pyq);
+  if (state.practice) practiceNavState = Object.assign({groupKey:null,subExamName:null}, state.practice);
+  if (state.vault) vaultNavState = Object.assign({groupKey:null,subExamName:null}, state.vault);
+  if (state.practiceMode) window.__targetTirePracticeMode = state.practiceMode;
+  if (state.vaultMode) window.__targetTireVaultMode = state.vaultMode;
+  if (state.examSubTab) window.__targetTireExamSubTab = state.examSubTab;
+  if (state.tab === 'exam-detail' && state.exam) {
+    selectExamCategory(state.exam, false);
+    switchExamSubTab(state.examSubTab || 'overview', false);
+    return;
+  }
+  switchTab(state.tab || 'dashboard', false);
+  if (state.tab === 'pyq') renderPYQHub();
+  if (state.tab === 'practice') renderPracticeExamHub();
+  if (state.tab === 'vault') renderVaultExamHub();
+}
 
-function resetPYQHub() { pyqNavState={groupKey:null,subExamName:null,year:null,month:null}; renderPYQHub(); }
-function selectPYQGroup(groupKey) { pyqNavState={groupKey,subExamName:null,year:null,month:null}; renderPYQHub(); }
-function selectPYQSubExam(subExamName) {
+function resetPYQHub(push=true) { pyqNavState={groupKey:null,subExamName:null,year:null,month:null,date:null}; renderPYQHub(); if(push) pushAppNavigation('pyq-root'); }
+function selectPYQGroup(groupKey, push=true) { pyqNavState={groupKey,subExamName:null,year:null,month:null,date:null}; renderPYQHub(); if(push) pushAppNavigation('pyq-group'); }
+function selectPYQSubExam(subExamName, push=true) {
   const groups=window.examGroupsData||{};
   for(const gKey in groups){ if((groups[gKey].subExams||[]).some(s=>s.name===subExamName)){pyqNavState.groupKey=gKey;break;} }
-  pyqNavState.subExamName=subExamName; pyqNavState.year=null; pyqNavState.month=null; renderPYQHub();
+  pyqNavState.subExamName=subExamName; pyqNavState.year=null; pyqNavState.month=null; pyqNavState.date=null; renderPYQHub(); if(push) pushAppNavigation('pyq-exam');
 }
-function selectPYQYear(year){pyqNavState.year=String(year);pyqNavState.month=null;renderPYQHub();}
-function selectPYQMonth(month){pyqNavState.month=String(month);renderPYQHub();}
-function pyqBackToYears(){pyqNavState.month=null;renderPYQHub();}
-function pyqBackToSubExam(){pyqNavState.year=null;pyqNavState.month=null;renderPYQHub();}
+function selectPYQYear(year, push=true){pyqNavState.year=String(year);pyqNavState.month=null;pyqNavState.date=null;renderPYQHub();if(push)pushAppNavigation('pyq-year');}
+function selectPYQMonth(month, push=true){pyqNavState.month=String(month);pyqNavState.date=null;renderPYQHub();if(push)pushAppNavigation('pyq-month');}
+function selectPYQDate(date, push=true){pyqNavState.date=String(date);renderPYQHub();if(push)pushAppNavigation('pyq-date');}
+function pyqBackToYears(push=true){pyqNavState.month=null;pyqNavState.date=null;renderPYQHub();if(push)pushAppNavigation('pyq-year');}
+function pyqBackToSubExam(push=true){pyqNavState.year=null;pyqNavState.month=null;pyqNavState.date=null;renderPYQHub();if(push)pushAppNavigation('pyq-exam');}
 function normalizePYQYears(examName){
   const raw=(window.pyqDatabase||{})[examName]||{}, out={};
   Object.keys(raw).forEach(year=>{
     const node=raw[year]; out[year]={};
-    if(Array.isArray(node)){out[year]['Month not specified']={'All Shifts':node};return;}
-    Object.keys(node||{}).forEach(k=>{
-      if(Array.isArray(node[k])){
-        out[year]['Month not specified']=out[year]['Month not specified']||{};
-        out[year]['Month not specified'][k]=node[k];
-      }else if(node[k]&&typeof node[k]==='object'){
-        out[year][k]={};
-        Object.keys(node[k]).forEach(shift=>{if(Array.isArray(node[k][shift]))out[year][k][shift]=node[k][shift];});
+    if(Array.isArray(node)){out[year]['Month not specified']={'Date not specified':{'All Shifts':node}};return;}
+    Object.keys(node||{}).forEach(month=>{
+      const monthNode=node[month];
+      if(Array.isArray(monthNode)){
+        out[year][month]={'Date not specified':{'All Shifts':monthNode}};
+        return;
+      }
+      if(monthNode&&typeof monthNode==='object'){
+        out[year][month]={};
+        Object.keys(monthNode).forEach(date=>{
+          const dateNode=monthNode[date];
+          if(Array.isArray(dateNode)) out[year][month][date]={'All Shifts':dateNode};
+          else if(dateNode&&typeof dateNode==='object'){
+            out[year][month][date]={};
+            Object.keys(dateNode).forEach(shift=>{if(Array.isArray(dateNode[shift]))out[year][month][date][shift]=dateNode[shift];});
+          }
+        });
       }
     });
   });
@@ -2249,23 +2303,33 @@ function pyqLaunchQuestions(title, questions, mode){
 }
 
 function renderPYQHub(){
-const grid=document.getElementById('pyq-container-grid'),breadcrumb=document.getElementById('pyq-exam-breadcrumb');
-if(!grid)return;grid.innerHTML='';
-const groups=window.examGroupsData||{},s=pyqNavState;
-const groupSpan=document.getElementById('pyq-breadcrumb-group'),subSpan=document.getElementById('pyq-breadcrumb-sub');
-if(!s.groupKey){breadcrumb?.classList.add('hidden');Object.keys(groups).forEach(key=>{const g=groups[key],c=document.createElement('div');c.className='bg-white dark:bg-[#131b2e] border border-slate-200 dark:border-slate-800/80 p-6 rounded-2xl shadow-sm hover:border-indigo-500 transition cursor-pointer';c.onclick=()=>selectPYQGroup(key);c.innerHTML=`<span class="text-[10px] bg-indigo-500/10 text-indigo-600 dark:text-indigo-300 font-bold uppercase px-2.5 py-1 rounded">PYQ Repository</span><h3 class="text-lg font-bold mt-3 mb-2 text-slate-900 dark:text-white"><i class="fa-solid ${g.icon} text-indigo-500 mr-2"></i>${g.name} PYQs</h3><p class="text-xs text-slate-500 dark:text-slate-400 mb-5">Year → Month → Shift → Practice / Full Test</p><div class="text-xs font-bold text-indigo-600">View Sub-Exams <i class="fa-solid fa-arrow-right ml-1"></i></div>`;grid.appendChild(c);});return;}
-const g=groups[s.groupKey];if(!g)return;breadcrumb?.classList.remove('hidden');document.getElementById('pyq-sep-1')?.classList.remove('hidden');groupSpan.classList.remove('hidden');groupSpan.innerText=g.name;groupSpan.onclick=resetPYQHub;
-if(!s.subExamName){subSpan?.classList.add('hidden');document.getElementById('pyq-sep-2')?.classList.add('hidden');(g.subExams||[]).forEach(sub=>{const c=document.createElement('div');c.className='bg-white dark:bg-[#131b2e] border border-slate-200 dark:border-slate-800/80 p-6 rounded-2xl shadow-sm hover:border-teal-500 transition cursor-pointer';c.onclick=()=>selectPYQSubExam(sub.name);c.innerHTML=`<span class="text-[10px] bg-teal-500/10 text-teal-600 dark:text-teal-300 font-bold uppercase px-2.5 py-1 rounded">Official PYQs</span><h3 class="text-base font-bold mt-3 mb-2 text-slate-900 dark:text-white">${sub.name}</h3><p class="text-xs text-slate-500 dark:text-slate-400 mb-5">${sub.desc||'Open year-wise PYQs.'}</p><div class="text-xs font-bold text-teal-600">Open ${sub.name} <i class="fa-solid fa-arrow-right ml-1"></i></div>`;grid.appendChild(c);});return;}
-document.getElementById('pyq-sep-2')?.classList.remove('hidden');subSpan.classList.remove('hidden');subSpan.innerText=s.subExamName;subSpan.onclick=pyqBackToSubExam;
-const years=normalizePYQYears(s.subExamName);
-if(!s.year){Object.keys(years).sort((a,b)=>Number(b)-Number(a)).forEach(y=>{const c=document.createElement('div');c.className='bg-white dark:bg-[#131b2e] border border-slate-200 dark:border-slate-800/80 p-6 rounded-2xl shadow-sm hover:border-indigo-500 transition cursor-pointer';c.onclick=()=>selectPYQYear(y);c.innerHTML=`<span class="text-[10px] bg-indigo-500/10 text-indigo-600 dark:text-indigo-300 font-bold uppercase px-2.5 py-1 rounded">Year ${y}</span><h3 class="text-lg font-bold mt-3 text-slate-900 dark:text-white">${y} PYQs</h3><p class="text-xs text-slate-500 dark:text-slate-400 mt-2 mb-5">Open months and shift papers for ${y}.</p><div class="text-xs font-bold text-indigo-600">View Months <i class="fa-solid fa-arrow-right ml-1"></i></div>`;grid.appendChild(c);});if(!Object.keys(years).length)grid.innerHTML='<div class="col-span-full p-8 text-center text-xs text-slate-500">No PYQ data available for this exam yet.</div>';return;}
-if(!s.month){const months=years[s.year]||{};Object.keys(months).forEach(m=>{const count=Object.values(months[m]).reduce((n,q)=>n+q.length,0),c=document.createElement('div');c.className='bg-white dark:bg-[#131b2e] border border-slate-200 dark:border-slate-800/80 p-6 rounded-2xl shadow-sm hover:border-teal-500 transition cursor-pointer';c.onclick=()=>selectPYQMonth(m);c.innerHTML=`<span class="text-[10px] bg-teal-500/10 text-teal-600 dark:text-teal-300 font-bold uppercase px-2.5 py-1 rounded">${count} Questions</span><h3 class="text-base font-bold mt-3 text-slate-900 dark:text-white">${m}</h3><p class="text-xs text-slate-500 dark:text-slate-400 mt-2 mb-5">${s.year} • Select shift</p><div class="text-xs font-bold text-teal-600">View Shifts <i class="fa-solid fa-arrow-right ml-1"></i></div>`;grid.appendChild(c);});return;}
-const shifts=(years[s.year]||{})[s.month]||{};
-Object.keys(shifts).forEach(shift=>{const qs=shifts[shift]||[],title=`${s.subExamName} | ${s.year} | ${s.month} | ${shift}`;const c=document.createElement('div');c.className='bg-white dark:bg-[#131b2e] border border-slate-200 dark:border-slate-800/80 p-6 rounded-2xl shadow-sm';c.innerHTML=`<div class="flex items-center justify-between"><span class="text-[10px] bg-indigo-500/10 text-indigo-600 dark:text-indigo-300 font-bold uppercase px-2.5 py-1 rounded">${qs.length} Questions</span><span class="text-[10px] text-amber-500 font-bold"><i class="fa-solid fa-clock mr-1"></i>Shift Paper</span></div><h3 class="text-base font-bold mt-4 text-slate-900 dark:text-white">${shift}</h3><p class="text-xs text-slate-500 dark:text-slate-400 mt-2 mb-5">${s.year} • ${s.month} • ${s.subExamName}</p><div class="grid grid-cols-1 sm:grid-cols-2 gap-2"><button class="pyq-practice bg-teal-600 hover:bg-teal-500 text-white text-[11px] font-bold py-2.5 rounded-xl">Daily Practice</button><button class="pyq-full bg-indigo-600 hover:bg-indigo-500 text-white text-[11px] font-bold py-2.5 rounded-xl">Full Test</button></div>`;c.querySelector('.pyq-practice').onclick=e=>{e.stopPropagation();pyqLaunchQuestions(title,qs,'practice')};c.querySelector('.pyq-full').onclick=e=>{e.stopPropagation();pyqLaunchQuestions(title,qs,'full')};grid.appendChild(c);});
+  const grid=document.getElementById('pyq-container-grid'),breadcrumb=document.getElementById('pyq-exam-breadcrumb');
+  if(!grid)return; grid.innerHTML='';
+  const groups=window.examGroupsData||{},s=pyqNavState;
+  const groupSpan=document.getElementById('pyq-breadcrumb-group'),subSpan=document.getElementById('pyq-breadcrumb-sub');
+  let dateSpan=document.getElementById('pyq-breadcrumb-date'), levelSep3=document.getElementById('pyq-sep-3');
+  if(!dateSpan){
+    levelSep3=document.createElement('span'); levelSep3.id='pyq-sep-3'; levelSep3.className='hidden text-slate-400'; levelSep3.innerText='/';
+    dateSpan=document.createElement('span'); dateSpan.id='pyq-breadcrumb-date'; dateSpan.className='hidden text-teal-500';
+    document.getElementById('pyq-exam-breadcrumb')?.append(levelSep3,dateSpan);
+  }
+  if(!s.groupKey){breadcrumb?.classList.add('hidden');return Object.keys(groups).forEach(key=>{const g=groups[key],c=document.createElement('div');c.className='bg-white dark:bg-[#131b2e] border border-slate-200 dark:border-slate-800/80 p-6 rounded-2xl shadow-sm hover:border-indigo-500 transition cursor-pointer';c.onclick=()=>selectPYQGroup(key);c.innerHTML=`<span class="text-[10px] bg-indigo-500/10 text-indigo-600 dark:text-indigo-300 font-bold uppercase px-2.5 py-1 rounded">PYQ Repository</span><h3 class="text-lg font-bold mt-3 mb-2 text-slate-900 dark:text-white"><i class="fa-solid ${g.icon} text-indigo-500 mr-2"></i>${g.name} PYQs</h3><p class="text-xs text-slate-500 dark:text-slate-400 mb-5">Year → Month → Date → Shift/Paper → Practice / Full Test</p><div class="text-xs font-bold text-indigo-600">View Sub-Exams <i class="fa-solid fa-arrow-right ml-1"></i></div>`;grid.appendChild(c);});}
+  const g=groups[s.groupKey];if(!g)return;breadcrumb?.classList.remove('hidden');document.getElementById('pyq-sep-1')?.classList.remove('hidden');groupSpan.classList.remove('hidden');groupSpan.innerText=g.name;groupSpan.onclick=()=>resetPYQHub();
+  if(!s.subExamName){subSpan?.classList.add('hidden');document.getElementById('pyq-sep-2')?.classList.add('hidden');levelSep3?.classList.add('hidden');dateSpan?.classList.add('hidden');(g.subExams||[]).forEach(sub=>{const c=document.createElement('div');c.className='bg-white dark:bg-[#131b2e] border border-slate-200 dark:border-slate-800/80 p-6 rounded-2xl shadow-sm hover:border-teal-500 transition cursor-pointer';c.onclick=()=>selectPYQSubExam(sub.name);c.innerHTML=`<span class="text-[10px] bg-teal-500/10 text-teal-600 dark:text-teal-300 font-bold uppercase px-2.5 py-1 rounded">Official PYQs</span><h3 class="text-base font-bold mt-3 mb-2 text-slate-900 dark:text-white">${sub.name}</h3><p class="text-xs text-slate-500 dark:text-slate-400 mb-5">${sub.desc||'Open year-wise PYQs.'}</p><div class="text-xs font-bold text-teal-600">Open ${sub.name} <i class="fa-solid fa-arrow-right ml-1"></i></div>`;grid.appendChild(c);});return;}
+  document.getElementById('pyq-sep-2')?.classList.remove('hidden');subSpan.classList.remove('hidden');subSpan.innerText=s.subExamName;subSpan.onclick=()=>pyqBackToSubExam();
+  const years=normalizePYQYears(s.subExamName);
+  if(!s.year){levelSep3?.classList.add('hidden');dateSpan?.classList.add('hidden');Object.keys(years).sort((a,b)=>Number(b)-Number(a)).forEach(y=>{const c=document.createElement('div');c.className='bg-white dark:bg-[#131b2e] border border-slate-200 dark:border-slate-800/80 p-6 rounded-2xl shadow-sm hover:border-indigo-500 transition cursor-pointer';c.onclick=()=>selectPYQYear(y);c.innerHTML=`<span class="text-[10px] bg-indigo-500/10 text-indigo-600 dark:text-indigo-300 font-bold uppercase px-2.5 py-1 rounded">Year ${y}</span><h3 class="text-lg font-bold mt-3 text-slate-900 dark:text-white">${y} PYQs</h3><p class="text-xs text-slate-500 dark:text-slate-400 mt-2 mb-5">Open months, dates and shift papers for ${y}.</p><div class="text-xs font-bold text-indigo-600">View Months <i class="fa-solid fa-arrow-right ml-1"></i></div>`;grid.appendChild(c);});if(!Object.keys(years).length)grid.innerHTML='<div class="col-span-full p-8 text-center text-xs text-slate-500">No PYQ data available for this exam yet.</div>';return;}
+  const months=years[s.year]||{};
+  if(!s.month){levelSep3?.classList.add('hidden');dateSpan?.classList.add('hidden');Object.keys(months).forEach(m=>{const count=Object.values(months[m]).reduce((n,dateNode)=>n+Object.values(dateNode||{}).reduce((a,q)=>a+(Array.isArray(q)?q.length:0),0),0),c=document.createElement('div');c.className='bg-white dark:bg-[#131b2e] border border-slate-200 dark:border-slate-800/80 p-6 rounded-2xl shadow-sm hover:border-teal-500 transition cursor-pointer';c.onclick=()=>selectPYQMonth(m);c.innerHTML=`<span class="text-[10px] bg-teal-500/10 text-teal-600 dark:text-teal-300 font-bold uppercase px-2.5 py-1 rounded">${count} Questions</span><h3 class="text-base font-bold mt-3 text-slate-900 dark:text-white">${m}</h3><p class="text-xs text-slate-500 dark:text-slate-400 mt-2 mb-5">${s.year} • Select date</p><div class="text-xs font-bold text-teal-600">View Dates <i class="fa-solid fa-arrow-right ml-1"></i></div>`;grid.appendChild(c);});return;}
+  const dates=months[s.month]||{};
+  if(!s.date){levelSep3?.classList.add('hidden');dateSpan?.classList.add('hidden');Object.keys(dates).forEach(d=>{const count=Object.values(dates[d]||{}).reduce((n,q)=>n+(Array.isArray(q)?q.length:0),0),c=document.createElement('div');c.className='bg-white dark:bg-[#131b2e] border border-slate-200 dark:border-slate-800/80 p-6 rounded-2xl shadow-sm hover:border-indigo-500 transition cursor-pointer';c.onclick=()=>selectPYQDate(d);c.innerHTML=`<span class="text-[10px] bg-indigo-500/10 text-indigo-600 dark:text-indigo-300 font-bold uppercase px-2.5 py-1 rounded">${count} Questions</span><h3 class="text-base font-bold mt-3 text-slate-900 dark:text-white">${d}</h3><p class="text-xs text-slate-500 dark:text-slate-400 mt-2 mb-5">${s.year} • ${s.month} • Select shift/paper</p><div class="text-xs font-bold text-indigo-600">View Shifts <i class="fa-solid fa-arrow-right ml-1"></i></div>`;grid.appendChild(c);});return;}
+  levelSep3?.classList.remove('hidden');dateSpan?.classList.remove('hidden');dateSpan.innerText=s.date;dateSpan.onclick=()=>{pyqNavState.date=null;renderPYQHub();};
+  const shifts=dates[s.date]||{};
+  Object.keys(shifts).forEach(shift=>{const qs=shifts[shift]||[],title=`${s.subExamName} | ${s.year} | ${s.month} | ${s.date} | ${shift}`;const c=document.createElement('div');c.className='bg-white dark:bg-[#131b2e] border border-slate-200 dark:border-slate-800/80 p-6 rounded-2xl shadow-sm';c.innerHTML=`<div class="flex items-center justify-between"><span class="text-[10px] bg-indigo-500/10 text-indigo-600 dark:text-indigo-300 font-bold uppercase px-2.5 py-1 rounded">${qs.length} Questions</span><span class="text-[10px] text-amber-500 font-bold"><i class="fa-solid fa-clock mr-1"></i>Shift Paper</span></div><h3 class="text-base font-bold mt-4 text-slate-900 dark:text-white">${shift}</h3><p class="text-xs text-slate-500 dark:text-slate-400 mt-2 mb-5">${s.year} • ${s.month} • ${s.date} • ${s.subExamName}</p><div class="grid grid-cols-1 sm:grid-cols-2 gap-2"><button class="pyq-practice bg-teal-600 hover:bg-teal-500 text-white text-[11px] font-bold py-2.5 rounded-xl">Daily Practice</button><button class="pyq-full bg-indigo-600 hover:bg-indigo-500 text-white text-[11px] font-bold py-2.5 rounded-xl">Full Test</button></div>`;c.querySelector('.pyq-practice').onclick=e=>{e.stopPropagation();pyqLaunchQuestions(title,qs,'practice')};c.querySelector('.pyq-full').onclick=e=>{e.stopPropagation();pyqLaunchQuestions(title,qs,'full')};grid.appendChild(c);});
 }
 
 let vaultNavState = { groupKey: null, subExamName: null };
-function switchVaultMode(mode) {
+function switchVaultMode(mode, pushHistory = true) {
 const examsContainer = document.getElementById('vault-exams-container');
 const subjectsContainer = document.getElementById('vault-subjects-container');
 const examsBtn = document.getElementById('vmode-exams-btn');
@@ -2284,21 +2348,26 @@ subjectsBtn.className = 'px-4 py-2 text-xs font-bold rounded-lg bg-indigo-600 te
 examsBtn.className = 'px-4 py-2 text-xs font-semibold rounded-lg text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition cursor-pointer';
 selectVaultSubjectStream('mathematics');
 }
+window.__targetTireVaultMode = mode;
+if (pushHistory) pushAppNavigation('vault-mode');
 }
+
 
 function resetVaultExamNav() {
 vaultNavState = { groupKey: null, subExamName: null };
 renderVaultExamHub();
 }
 
-function selectVaultGroup(groupKey) {
+function selectVaultGroup(groupKey, pushHistory=true) {
 vaultNavState = { groupKey, subExamName: null };
 renderVaultExamHub();
+if (pushHistory) pushAppNavigation('vault-group');
 }
 
-function selectVaultSubExam(subExamName) {
+function selectVaultSubExam(subExamName, pushHistory=true) {
 vaultNavState.subExamName = subExamName;
 renderVaultExamHub();
+if (pushHistory) pushAppNavigation('vault-exam');
 }
 
 function renderVaultExamHub() {
@@ -3441,7 +3510,7 @@ setTimeout(() => { toast.classList.add('translate-y-24', 'opacity-0'); }, 3500);
 
 
 let practiceNavState = { groupKey: null, subExamName: null };
-function switchPracticeMode(mode) {
+function switchPracticeMode(mode, pushHistory = true) {
 const examsContainer = document.getElementById('practice-exams-container');
 const subjectsContainer = document.getElementById('practice-subjects-container');
 const examsBtn = document.getElementById('pmode-exams-btn');
@@ -3460,21 +3529,26 @@ subjectsBtn.className = 'px-4 py-2 text-xs font-bold rounded-lg bg-indigo-600 te
 examsBtn.className = 'px-4 py-2 text-xs font-semibold rounded-lg text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition cursor-pointer';
 selectPracticeSubjectStream('mathematics');
 }
+window.__targetTirePracticeMode = mode;
+if (pushHistory) pushAppNavigation('practice-mode');
 }
+
 
 function resetPracticeExamNav() {
 practiceNavState = { groupKey: null, subExamName: null };
 renderPracticeExamHub();
 }
 
-function selectPracticeGroup(groupKey) {
+function selectPracticeGroup(groupKey, pushHistory=true) {
 practiceNavState = { groupKey, subExamName: null };
 renderPracticeExamHub();
+if (pushHistory) pushAppNavigation('practice-group');
 }
 
-function selectPracticeSubExam(subExamName) {
+function selectPracticeSubExam(subExamName, pushHistory=true) {
 practiceNavState.subExamName = subExamName;
 renderPracticeExamHub();
+if (pushHistory) pushAppNavigation('practice-exam');
 }
 
 function renderPracticeExamHub() {
@@ -3622,6 +3696,7 @@ function renderPracticeHub() {
 }
 
 window.onload = function() {
+replaceAppNavigation();
 const savedUser = localStorage.getItem('targettire_user');
 if (savedUser) {
 try { currentUser = JSON.parse(savedUser); } catch(err) { currentUser = null; }
