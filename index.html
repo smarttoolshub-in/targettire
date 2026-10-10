@@ -157,6 +157,9 @@ user-select: text;
 .global-search-result-meta { font-size:9px;color:rgb(100 116 139);margin-top:2px; }
 .dark .global-search-result-meta { color:rgb(148 163 184); }
 
+
+/* Dynamic stage navigation: supports any number of selection stages without a fixed limit. */
+#exam-stages-container { grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); }
 </style>
 </head>
 <body class="bg-slate-50 dark:bg-[#0b0f19] text-slate-800 dark:text-slate-300 min-h-screen flex flex-col transition-colors duration-300">
@@ -471,7 +474,7 @@ Launch Mock Test
 </div>
 <span class="text-[9px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full bg-indigo-500/10 text-indigo-600 dark:text-indigo-300 border border-indigo-500/20">Stage-wise</span>
 </div>
-<div id="exam-stages-container" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4"></div>
+<div id="exam-stages-container" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4"></div>
 </div>
 
 <!-- Dynamic Syllabus -->
@@ -1716,7 +1719,7 @@ function changeExamNotificationYear(year) {
     if (examName) renderExamNotifications(examName);
 }
 
-function selectExamCategory(category) {
+function selectExamCategory(category, pushHistory = true) {
 const menu = document.getElementById('exam-dropdown-menu');
 const icon = document.getElementById('exam-dropdown-icon');
 if(menu) menu.classList.add('hidden');
@@ -1749,6 +1752,9 @@ const editableContent =
         : {};
 
 const examName = selectedExam?.name || category;
+if (pushHistory) {
+    history.pushState({ tab: 'exam-detail', examName: examName }, "", "#exam/" + encodeURIComponent(examName));
+}
 const splitBilingual = (value) => { const parts = String(value || '').split(/\s+\/\s+/); return { en:(parts[0]||'').trim(), hi:(parts.length>1?parts.slice(1).join(' / '):(parts[0]||'')).trim() }; };
 const overviewPair = { en: editableContent.overview_en || splitBilingual(editableContent.overview).en || selectedExam?.overviewText || selectedExam?.desc || `${category} examination information is currently being prepared.`, hi: editableContent.overview_hi || splitBilingual(editableContent.overview).hi || selectedExam?.overviewText || selectedExam?.desc || `${category} परीक्षा की जानकारी अभी तैयार की जा रही है।` };
 const informationPair = { en: editableContent.information_en || splitBilingual(editableContent.information).en || selectedExam?.examInfoText || "Exam information is currently being prepared.", hi: editableContent.information_hi || splitBilingual(editableContent.information).hi || selectedExam?.examInfoText || "परीक्षा की जानकारी अभी तैयार की जा रही है।" };
@@ -2092,8 +2098,8 @@ switchVaultMode('exams');
 if (tabId === 'chapters') {
 renderCustomChapters();
 }
-if (tabId === 'pyq') {
-resetPYQHub();
+if (tabId === 'pyq' && !window.__ttRestoringNav) {
+resetPYQHub(false);
 }
 if (tabId === 'my_exams') {
 renderMyExamsTab();
@@ -2107,6 +2113,10 @@ history.pushState({ tab: tabId }, "", "#" + tabId);
 }
 }
 
+if (!history.state || !history.state.tab) {
+    history.replaceState({ tab: 'dashboard' }, "", location.hash || '#dashboard');
+}
+
 window.addEventListener('popstate', function(event) {
 const practiceRunning = !!window.__targetTireActiveSession &&
     !document.getElementById('practice-runner-view')?.classList.contains('hidden');
@@ -2114,14 +2124,35 @@ const mockRunning = !!window.__targetTireActiveSession &&
     !document.getElementById('vault-runner-view')?.classList.contains('hidden');
 if (practiceRunning || mockRunning) {
     try { window.__targetTirePauseNow && window.__targetTirePauseNow(); } catch(e) {}
-    // Keep the user on the current test screen; progress is preserved.
     history.pushState({ tab: practiceRunning ? 'practice' : 'vault' }, "", location.href);
     return;
 }
-if (event.state && event.state.tab) {
-switchTab(event.state.tab, false);
+
+const state = event.state || {};
+if (state.tab === 'exam-detail' && state.examName) {
+    selectExamCategory(state.examName, false);
+    return;
+}
+if (state.tab === 'pyq' && state.pyq) {
+    pyqNavState = JSON.parse(JSON.stringify(state.pyq));
+    window.__ttRestoringNav = true;
+    switchTab('pyq', false);
+    window.__ttRestoringNav = false;
+    renderPYQHub();
+    return;
+}
+if (state.tab === 'practice' && state.practice) {
+    practiceNavState = JSON.parse(JSON.stringify(state.practice));
+    window.__ttRestoringNav = true;
+    switchTab('practice', false);
+    window.__ttRestoringNav = false;
+    renderPracticeExamHub();
+    return;
+}
+if (state.tab) {
+    switchTab(state.tab, false);
 } else {
-switchTab('dashboard', false);
+    switchTab('dashboard', false);
 }
 });
 
@@ -2212,17 +2243,20 @@ function returnFromRunner() {
 }
 
 
-function resetPYQHub() { pyqNavState={groupKey:null,subExamName:null,year:null,month:null}; renderPYQHub(); }
-function selectPYQGroup(groupKey) { pyqNavState={groupKey,subExamName:null,year:null,month:null}; renderPYQHub(); }
-function selectPYQSubExam(subExamName) {
+function pushPYQHistory() {
+  history.pushState({ tab:'pyq', pyq: JSON.parse(JSON.stringify(pyqNavState)) }, "", "#pyq");
+}
+function resetPYQHub(pushHistory = false) { pyqNavState={groupKey:null,subExamName:null,year:null,month:null}; renderPYQHub(); if(pushHistory) pushPYQHistory(); }
+function selectPYQGroup(groupKey, pushHistory = true) { pyqNavState={groupKey,subExamName:null,year:null,month:null}; renderPYQHub(); if(pushHistory) pushPYQHistory(); }
+function selectPYQSubExam(subExamName, pushHistory = true) {
   const groups=window.examGroupsData||{};
   for(const gKey in groups){ if((groups[gKey].subExams||[]).some(s=>s.name===subExamName)){pyqNavState.groupKey=gKey;break;} }
-  pyqNavState.subExamName=subExamName; pyqNavState.year=null; pyqNavState.month=null; renderPYQHub();
+  pyqNavState.subExamName=subExamName; pyqNavState.year=null; pyqNavState.month=null; renderPYQHub(); if(pushHistory) pushPYQHistory();
 }
-function selectPYQYear(year){pyqNavState.year=String(year);pyqNavState.month=null;renderPYQHub();}
-function selectPYQMonth(month){pyqNavState.month=String(month);renderPYQHub();}
-function pyqBackToYears(){pyqNavState.month=null;renderPYQHub();}
-function pyqBackToSubExam(){pyqNavState.year=null;pyqNavState.month=null;renderPYQHub();}
+function selectPYQYear(year, pushHistory = true){pyqNavState.year=String(year);pyqNavState.month=null;renderPYQHub();if(pushHistory)pushPYQHistory();}
+function selectPYQMonth(month, pushHistory = true){pyqNavState.month=String(month);renderPYQHub();if(pushHistory)pushPYQHistory();}
+function pyqBackToYears(pushHistory = true){pyqNavState.month=null;renderPYQHub();if(pushHistory)pushPYQHistory();}
+function pyqBackToSubExam(pushHistory = true){pyqNavState.year=null;pyqNavState.month=null;renderPYQHub();if(pushHistory)pushPYQHistory();}
 function normalizePYQYears(examName){
   const raw=(window.pyqDatabase||{})[examName]||{}, out={};
   Object.keys(raw).forEach(year=>{
@@ -3462,19 +3496,22 @@ selectPracticeSubjectStream('mathematics');
 }
 }
 
-function resetPracticeExamNav() {
+function resetPracticeExamNav(pushHistory = false) {
 practiceNavState = { groupKey: null, subExamName: null };
 renderPracticeExamHub();
+    if (pushHistory) history.pushState({ tab: 'practice', practice: JSON.parse(JSON.stringify(practiceNavState)) }, "", "#practice");
 }
 
-function selectPracticeGroup(groupKey) {
+function selectPracticeGroup(groupKey, pushHistory = true) {
 practiceNavState = { groupKey, subExamName: null };
 renderPracticeExamHub();
+if (pushHistory) history.pushState({ tab: 'practice', practice: JSON.parse(JSON.stringify(practiceNavState)) }, "", "#practice/group/" + encodeURIComponent(groupKey));
 }
 
-function selectPracticeSubExam(subExamName) {
+function selectPracticeSubExam(subExamName, pushHistory = true) {
 practiceNavState.subExamName = subExamName;
 renderPracticeExamHub();
+if (pushHistory) history.pushState({ tab: 'practice', practice: JSON.parse(JSON.stringify(practiceNavState)) }, "", "#practice/exam/" + encodeURIComponent(subExamName));
 }
 
 function renderPracticeExamHub() {
