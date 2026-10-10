@@ -1864,9 +1864,8 @@ Object.assign(window.pyqDatabase, {
       }
     },
     "CBT-2": {
-      "2025": {
-        "January": {
-          "18 January 2025 - Shift 1": [
+      
+   "18 January 2025 - Shift 1": [
             {
               "qEn": "$\\Delta ABC$ is inscribed in a circle with Centre $O$. If $AB = 21$ cm, $BC = 20$ cm and $AC = 29$ cm, then what is the length of the circumradius of the triangle?",
               "qHi": "$\\Delta ABC$ केंद्र $O$ वाले एक वृत्त में अंतःस्थापित है। यदि $AB = 21$ सेमी, $BC = 20$ सेमी और $AC = 29$ सेमी है, तो त्रिभुज की परिवृत्त त्रिज्या की लंबाई क्या है?",
@@ -2690,12 +2689,8 @@ Object.assign(window.pyqDatabase, {
               "optionsHi": ["हेनरी बेकरेल", "मैरी क्यूरी", "पियरे क्यूरी", "रदरफोर्ड"],
               "answer": 0,
               "exp": "En: Henri Becquerel discovered radioactivity.\nHi: हेनरी बेकरेल ने रेडियोधर्मिता खोजी थी।"
-            }
-            // Note: Remaining questions from 71 to 150 follow the exact same structured format covering Quant, Reasoning, English, General Awareness, and Computer modules as per official SSC CGL Tier 2 exam specifications.
-          ]
-        }
-      }
-    },
+            }]
+             }, 
   
   "SSC CHSL": {
     "CBT-1": {
