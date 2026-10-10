@@ -2216,7 +2216,7 @@ grid.appendChild(card);
 });
 }
 
-let pyqNavState = { groupKey: null, subExamName: null, year: null, month: null };
+let pyqNavState = { groupKey: null, subExamName: null, stage: null, year: null, month: null };
 // Preserve the exact hub/context that launched a Practice or Mock runner.
 let runnerReturnContext = null;
 function captureRunnerReturnContext(tabId) {
@@ -2246,29 +2246,67 @@ function returnFromRunner() {
 function pushPYQHistory() {
   history.pushState({ tab:'pyq', pyq: JSON.parse(JSON.stringify(pyqNavState)) }, "", "#pyq");
 }
-function resetPYQHub(pushHistory = false) { pyqNavState={groupKey:null,subExamName:null,year:null,month:null}; renderPYQHub(); if(pushHistory) pushPYQHistory(); }
-function selectPYQGroup(groupKey, pushHistory = true) { pyqNavState={groupKey,subExamName:null,year:null,month:null}; renderPYQHub(); if(pushHistory) pushPYQHistory(); }
+function resetPYQHub(pushHistory = false) {
+  pyqNavState={groupKey:null,subExamName:null,stage:null,year:null,month:null};
+  renderPYQHub(); if(pushHistory) pushPYQHistory();
+}
+function selectPYQGroup(groupKey, pushHistory = true) {
+  pyqNavState={groupKey,subExamName:null,stage:null,year:null,month:null};
+  renderPYQHub(); if(pushHistory) pushPYQHistory();
+}
 function selectPYQSubExam(subExamName, pushHistory = true) {
   const groups=window.examGroupsData||{};
-  for(const gKey in groups){ if((groups[gKey].subExams||[]).some(s=>s.name===subExamName)){pyqNavState.groupKey=gKey;break;} }
-  pyqNavState.subExamName=subExamName; pyqNavState.year=null; pyqNavState.month=null; renderPYQHub(); if(pushHistory) pushPYQHistory();
+  for(const gKey in groups){
+    if((groups[gKey].subExams||[]).some(s=>s.name===subExamName)){pyqNavState.groupKey=gKey;break;}
+  }
+  pyqNavState.subExamName=subExamName; pyqNavState.stage=null; pyqNavState.year=null; pyqNavState.month=null;
+  renderPYQHub(); if(pushHistory) pushPYQHistory();
 }
-function selectPYQYear(year, pushHistory = true){pyqNavState.year=String(year);pyqNavState.month=null;renderPYQHub();if(pushHistory)pushPYQHistory();}
-function selectPYQMonth(month, pushHistory = true){pyqNavState.month=String(month);renderPYQHub();if(pushHistory)pushPYQHistory();}
-function pyqBackToYears(pushHistory = true){pyqNavState.month=null;renderPYQHub();if(pushHistory)pushPYQHistory();}
-function pyqBackToSubExam(pushHistory = true){pyqNavState.year=null;pyqNavState.month=null;renderPYQHub();if(pushHistory)pushPYQHistory();}
-function normalizePYQYears(examName){
-  const raw=(window.pyqDatabase||{})[examName]||{}, out={};
+function getPYQStageOptions(examName){
+  const configured=(window.pyqStageOptions||{})[examName];
+  if(Array.isArray(configured) && configured.length) return configured;
+  const raw=(window.pyqDatabase||{})[examName]||{};
+  return Object.keys(raw);
+}
+function selectPYQStage(stage, pushHistory = true){
+  pyqNavState.stage=String(stage); pyqNavState.year=null; pyqNavState.month=null;
+  renderPYQHub(); if(pushHistory) pushPYQHistory();
+}
+function selectPYQYear(year, pushHistory = true){
+  pyqNavState.year=String(year); pyqNavState.month=null;
+  renderPYQHub(); if(pushHistory) pushPYQHistory();
+}
+function selectPYQMonth(month, pushHistory = true){
+  pyqNavState.month=String(month);
+  renderPYQHub(); if(pushHistory) pushPYQHistory();
+}
+function pyqBackToStages(pushHistory = true){
+  pyqNavState.stage=null; pyqNavState.year=null; pyqNavState.month=null;
+  renderPYQHub(); if(pushHistory) pushPYQHistory();
+}
+function pyqBackToYears(pushHistory = true){
+  pyqNavState.month=null; renderPYQHub(); if(pushHistory) pushPYQHistory();
+}
+function pyqBackToSubExam(pushHistory = true){
+  pyqNavState.stage=null; pyqNavState.year=null; pyqNavState.month=null;
+  renderPYQHub(); if(pushHistory) pushPYQHistory();
+}
+function normalizePYQYears(examName, stage){
+  const raw=((window.pyqDatabase||{})[examName]||{})[stage]||{}, out={};
   Object.keys(raw).forEach(year=>{
     const node=raw[year]; out[year]={};
-    if(Array.isArray(node)){out[year]['Month not specified']={'All Shifts':node};return;}
+    if(Array.isArray(node)){
+      out[year]['Month not specified']={'All Shifts':node}; return;
+    }
     Object.keys(node||{}).forEach(k=>{
       if(Array.isArray(node[k])){
         out[year]['Month not specified']=out[year]['Month not specified']||{};
         out[year]['Month not specified'][k]=node[k];
       }else if(node[k]&&typeof node[k]==='object'){
         out[year][k]={};
-        Object.keys(node[k]).forEach(shift=>{if(Array.isArray(node[k][shift]))out[year][k][shift]=node[k][shift];});
+        Object.keys(node[k]).forEach(shift=>{
+          if(Array.isArray(node[k][shift])) out[year][k][shift]=node[k][shift];
+        });
       }
     });
   });
@@ -2287,15 +2325,82 @@ const grid=document.getElementById('pyq-container-grid'),breadcrumb=document.get
 if(!grid)return;grid.innerHTML='';
 const groups=window.examGroupsData||{},s=pyqNavState;
 const groupSpan=document.getElementById('pyq-breadcrumb-group'),subSpan=document.getElementById('pyq-breadcrumb-sub');
-if(!s.groupKey){breadcrumb?.classList.add('hidden');Object.keys(groups).forEach(key=>{const g=groups[key],c=document.createElement('div');c.className='bg-white dark:bg-[#131b2e] border border-slate-200 dark:border-slate-800/80 p-6 rounded-2xl shadow-sm hover:border-indigo-500 transition cursor-pointer';c.onclick=()=>selectPYQGroup(key);c.innerHTML=`<span class="text-[10px] bg-indigo-500/10 text-indigo-600 dark:text-indigo-300 font-bold uppercase px-2.5 py-1 rounded">PYQ Repository</span><h3 class="text-lg font-bold mt-3 mb-2 text-slate-900 dark:text-white"><i class="fa-solid ${g.icon} text-indigo-500 mr-2"></i>${g.name} PYQs</h3><p class="text-xs text-slate-500 dark:text-slate-400 mb-5">Year → Month → Shift → Practice / Full Test</p><div class="text-xs font-bold text-indigo-600">View Sub-Exams <i class="fa-solid fa-arrow-right ml-1"></i></div>`;grid.appendChild(c);});return;}
-const g=groups[s.groupKey];if(!g)return;breadcrumb?.classList.remove('hidden');document.getElementById('pyq-sep-1')?.classList.remove('hidden');groupSpan.classList.remove('hidden');groupSpan.innerText=g.name;groupSpan.onclick=resetPYQHub;
-if(!s.subExamName){subSpan?.classList.add('hidden');document.getElementById('pyq-sep-2')?.classList.add('hidden');(g.subExams||[]).forEach(sub=>{const c=document.createElement('div');c.className='bg-white dark:bg-[#131b2e] border border-slate-200 dark:border-slate-800/80 p-6 rounded-2xl shadow-sm hover:border-teal-500 transition cursor-pointer';c.onclick=()=>selectPYQSubExam(sub.name);c.innerHTML=`<span class="text-[10px] bg-teal-500/10 text-teal-600 dark:text-teal-300 font-bold uppercase px-2.5 py-1 rounded">Official PYQs</span><h3 class="text-base font-bold mt-3 mb-2 text-slate-900 dark:text-white">${sub.name}</h3><p class="text-xs text-slate-500 dark:text-slate-400 mb-5">${sub.desc||'Open year-wise PYQs.'}</p><div class="text-xs font-bold text-teal-600">Open ${sub.name} <i class="fa-solid fa-arrow-right ml-1"></i></div>`;grid.appendChild(c);});return;}
-document.getElementById('pyq-sep-2')?.classList.remove('hidden');subSpan.classList.remove('hidden');subSpan.innerText=s.subExamName;subSpan.onclick=pyqBackToSubExam;
-const years=normalizePYQYears(s.subExamName);
-if(!s.year){Object.keys(years).sort((a,b)=>Number(b)-Number(a)).forEach(y=>{const c=document.createElement('div');c.className='bg-white dark:bg-[#131b2e] border border-slate-200 dark:border-slate-800/80 p-6 rounded-2xl shadow-sm hover:border-indigo-500 transition cursor-pointer';c.onclick=()=>selectPYQYear(y);c.innerHTML=`<span class="text-[10px] bg-indigo-500/10 text-indigo-600 dark:text-indigo-300 font-bold uppercase px-2.5 py-1 rounded">Year ${y}</span><h3 class="text-lg font-bold mt-3 text-slate-900 dark:text-white">${y} PYQs</h3><p class="text-xs text-slate-500 dark:text-slate-400 mt-2 mb-5">Open months and shift papers for ${y}.</p><div class="text-xs font-bold text-indigo-600">View Months <i class="fa-solid fa-arrow-right ml-1"></i></div>`;grid.appendChild(c);});if(!Object.keys(years).length)grid.innerHTML='<div class="col-span-full p-8 text-center text-xs text-slate-500">No PYQ data available for this exam yet.</div>';return;}
-if(!s.month){const months=years[s.year]||{};Object.keys(months).forEach(m=>{const count=Object.values(months[m]).reduce((n,q)=>n+q.length,0),c=document.createElement('div');c.className='bg-white dark:bg-[#131b2e] border border-slate-200 dark:border-slate-800/80 p-6 rounded-2xl shadow-sm hover:border-teal-500 transition cursor-pointer';c.onclick=()=>selectPYQMonth(m);c.innerHTML=`<span class="text-[10px] bg-teal-500/10 text-teal-600 dark:text-teal-300 font-bold uppercase px-2.5 py-1 rounded">${count} Questions</span><h3 class="text-base font-bold mt-3 text-slate-900 dark:text-white">${m}</h3><p class="text-xs text-slate-500 dark:text-slate-400 mt-2 mb-5">${s.year} • Select shift</p><div class="text-xs font-bold text-teal-600">View Shifts <i class="fa-solid fa-arrow-right ml-1"></i></div>`;grid.appendChild(c);});return;}
+if(!s.groupKey){
+  breadcrumb?.classList.add('hidden');
+  Object.keys(groups).forEach(key=>{
+    const g=groups[key],c=document.createElement('div');
+    c.className='bg-white dark:bg-[#131b2e] border border-slate-200 dark:border-slate-800/80 p-6 rounded-2xl shadow-sm hover:border-indigo-500 transition cursor-pointer';
+    c.onclick=()=>selectPYQGroup(key);
+    c.innerHTML=`<span class="text-[10px] bg-indigo-500/10 text-indigo-600 dark:text-indigo-300 font-bold uppercase px-2.5 py-1 rounded">PYQ Repository</span><h3 class="text-lg font-bold mt-3 mb-2 text-slate-900 dark:text-white"><i class="fa-solid ${g.icon} text-indigo-500 mr-2"></i>${g.name} PYQs</h3><p class="text-xs text-slate-500 dark:text-slate-400 mb-5">Exam → Stage → Year → Month → Shift</p><div class="text-xs font-bold text-indigo-600">View Sub-Exams <i class="fa-solid fa-arrow-right ml-1"></i></div>`;
+    grid.appendChild(c);
+  });
+  return;
+}
+const g=groups[s.groupKey];if(!g)return;
+breadcrumb?.classList.remove('hidden');
+document.getElementById('pyq-sep-1')?.classList.remove('hidden');
+groupSpan.classList.remove('hidden');groupSpan.innerText=g.name;groupSpan.onclick=resetPYQHub;
+
+if(!s.subExamName){
+  subSpan?.classList.add('hidden');document.getElementById('pyq-sep-2')?.classList.add('hidden');
+  (g.subExams||[]).forEach(sub=>{
+    const c=document.createElement('div');
+    c.className='bg-white dark:bg-[#131b2e] border border-slate-200 dark:border-slate-800/80 p-6 rounded-2xl shadow-sm hover:border-teal-500 transition cursor-pointer';
+    c.onclick=()=>selectPYQSubExam(sub.name);
+    c.innerHTML=`<span class="text-[10px] bg-teal-500/10 text-teal-600 dark:text-teal-300 font-bold uppercase px-2.5 py-1 rounded">Official PYQs</span><h3 class="text-base font-bold mt-3 mb-2 text-slate-900 dark:text-white">${sub.name}</h3><p class="text-xs text-slate-500 dark:text-slate-400 mb-5">${sub.desc||'Open PYQ stages.'}</p><div class="text-xs font-bold text-teal-600">Open ${sub.name} <i class="fa-solid fa-arrow-right ml-1"></i></div>`;
+    grid.appendChild(c);
+  });
+  return;
+}
+document.getElementById('pyq-sep-2')?.classList.remove('hidden');
+subSpan.classList.remove('hidden');subSpan.innerText=s.subExamName;subSpan.onclick=pyqBackToSubExam;
+
+const stages=getPYQStageOptions(s.subExamName);
+if(!s.stage){
+  stages.forEach(stage=>{
+    const raw=((window.pyqDatabase||{})[s.subExamName]||{})[stage]||{};
+    const hasData=Object.keys(raw).length>0;
+    const c=document.createElement('div');
+    c.className='bg-white dark:bg-[#131b2e] border border-slate-200 dark:border-slate-800/80 p-6 rounded-2xl shadow-sm hover:border-indigo-500 transition cursor-pointer';
+    c.onclick=()=>selectPYQStage(stage);
+    c.innerHTML=`<span class="text-[10px] bg-indigo-500/10 text-indigo-600 dark:text-indigo-300 font-bold uppercase px-2.5 py-1 rounded">${hasData?'PYQ Available':'PYQ Coming Soon'}</span><h3 class="text-lg font-bold mt-3 text-slate-900 dark:text-white">${stage}</h3><p class="text-xs text-slate-500 dark:text-slate-400 mt-2 mb-5">Open year-wise PYQs for ${stage}.</p><div class="text-xs font-bold text-indigo-600">Open ${stage} <i class="fa-solid fa-arrow-right ml-1"></i></div>`;
+    grid.appendChild(c);
+  });
+  return;
+}
+const years=normalizePYQYears(s.subExamName,s.stage);
+if(!s.year){
+  Object.keys(years).sort((a,b)=>Number(b)-Number(a)).forEach(y=>{
+    const c=document.createElement('div');
+    c.className='bg-white dark:bg-[#131b2e] border border-slate-200 dark:border-slate-800/80 p-6 rounded-2xl shadow-sm hover:border-indigo-500 transition cursor-pointer';
+    c.onclick=()=>selectPYQYear(y);
+    c.innerHTML=`<span class="text-[10px] bg-indigo-500/10 text-indigo-600 dark:text-indigo-300 font-bold uppercase px-2.5 py-1 rounded">Year ${y}</span><h3 class="text-lg font-bold mt-3 text-slate-900 dark:text-white">${y} PYQs</h3><p class="text-xs text-slate-500 dark:text-slate-400 mt-2 mb-5">${s.stage} • Open months and shifts</p><div class="text-xs font-bold text-indigo-600">View Months <i class="fa-solid fa-arrow-right ml-1"></i></div>`;
+    grid.appendChild(c);
+  });
+  if(!Object.keys(years).length)grid.innerHTML=`<div class="col-span-full p-8 text-center text-xs text-slate-500">No PYQ data available for ${s.stage} yet.</div>`;
+  return;
+}
+if(!s.month){
+  const months=years[s.year]||{};
+  Object.keys(months).forEach(m=>{
+    const count=Object.values(months[m]).reduce((n,q)=>n+q.length,0),c=document.createElement('div');
+    c.className='bg-white dark:bg-[#131b2e] border border-slate-200 dark:border-slate-800/80 p-6 rounded-2xl shadow-sm hover:border-teal-500 transition cursor-pointer';
+    c.onclick=()=>selectPYQMonth(m);
+    c.innerHTML=`<span class="text-[10px] bg-teal-500/10 text-teal-600 dark:text-teal-300 font-bold uppercase px-2.5 py-1 rounded">${count} Questions</span><h3 class="text-base font-bold mt-3 text-slate-900 dark:text-white">${m}</h3><p class="text-xs text-slate-500 dark:text-slate-400 mt-2 mb-5">${s.year} • ${s.stage} • Select shift</p><div class="text-xs font-bold text-teal-600">View Shifts <i class="fa-solid fa-arrow-right ml-1"></i></div>`;
+    grid.appendChild(c);
+  });
+  return;
+}
 const shifts=(years[s.year]||{})[s.month]||{};
-Object.keys(shifts).forEach(shift=>{const qs=shifts[shift]||[],title=`${s.subExamName} | ${s.year} | ${s.month} | ${shift}`;const c=document.createElement('div');c.className='bg-white dark:bg-[#131b2e] border border-slate-200 dark:border-slate-800/80 p-6 rounded-2xl shadow-sm';c.innerHTML=`<div class="flex items-center justify-between"><span class="text-[10px] bg-indigo-500/10 text-indigo-600 dark:text-indigo-300 font-bold uppercase px-2.5 py-1 rounded">${qs.length} Questions</span><span class="text-[10px] text-amber-500 font-bold"><i class="fa-solid fa-clock mr-1"></i>Shift Paper</span></div><h3 class="text-base font-bold mt-4 text-slate-900 dark:text-white">${shift}</h3><p class="text-xs text-slate-500 dark:text-slate-400 mt-2 mb-5">${s.year} • ${s.month} • ${s.subExamName}</p><div class="grid grid-cols-1 sm:grid-cols-2 gap-2"><button class="pyq-practice bg-teal-600 hover:bg-teal-500 text-white text-[11px] font-bold py-2.5 rounded-xl">Daily Practice</button><button class="pyq-full bg-indigo-600 hover:bg-indigo-500 text-white text-[11px] font-bold py-2.5 rounded-xl">Full Test</button></div>`;c.querySelector('.pyq-practice').onclick=e=>{e.stopPropagation();pyqLaunchQuestions(title,qs,'practice')};c.querySelector('.pyq-full').onclick=e=>{e.stopPropagation();pyqLaunchQuestions(title,qs,'full')};grid.appendChild(c);});
+Object.keys(shifts).forEach(shift=>{
+  const qs=shifts[shift]||[],title=`${s.subExamName} | ${s.stage} | ${s.year} | ${s.month} | ${shift}`;
+  const c=document.createElement('div');
+  c.className='bg-white dark:bg-[#131b2e] border border-slate-200 dark:border-slate-800/80 p-6 rounded-2xl shadow-sm';
+  c.innerHTML=`<div class="flex items-center justify-between"><span class="text-[10px] bg-indigo-500/10 text-indigo-600 dark:text-indigo-300 font-bold uppercase px-2.5 py-1 rounded">${qs.length} Questions</span><span class="text-[10px] text-amber-500 font-bold"><i class="fa-solid fa-clock mr-1"></i>Shift Paper</span></div><h3 class="text-base font-bold mt-4 text-slate-900 dark:text-white">${shift}</h3><p class="text-xs text-slate-500 dark:text-slate-400 mt-2 mb-5">${s.year} • ${s.month} • ${s.stage}</p><div class="grid grid-cols-1 sm:grid-cols-2 gap-2"><button class="pyq-practice bg-teal-600 hover:bg-teal-500 text-white text-[11px] font-bold py-2.5 rounded-xl">Daily Practice</button><button class="pyq-full bg-indigo-600 hover:bg-indigo-500 text-white text-[11px] font-bold py-2.5 rounded-xl">Full Test</button></div>`;
+  c.querySelector('.pyq-practice').onclick=e=>{e.stopPropagation();pyqLaunchQuestions(title,qs,'practice')};
+  c.querySelector('.pyq-full').onclick=e=>{e.stopPropagation();pyqLaunchQuestions(title,qs,'full')};
+  grid.appendChild(c);
+});
 }
 
 let vaultNavState = { groupKey: null, subExamName: null };
