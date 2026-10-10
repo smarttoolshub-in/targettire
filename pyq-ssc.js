@@ -2690,7 +2690,10 @@ Object.assign(window.pyqDatabase, {
               "answer": 0,
               "exp": "En: Henri Becquerel discovered radioactivity.\nHi: हेनरी बेकरेल ने रेडियोधर्मिता खोजी थी।"
             }]
-             }, 
+    }
+  }
+}
+  }, 
   
   "SSC CHSL": {
     "CBT-1": {
