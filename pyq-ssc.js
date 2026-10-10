@@ -1,7 +1,158 @@
-// TargetTire SSC PYQ Database
-// Structure: Exam -> Year -> Month -> Shift -> Questions
-// Authentic questions already present in the supplied PYQ source are preserved.
-// Newly created entries marked isSample:true are DEMO questions for testing the UI structure; replace them with authentic PYQs.
+// TargetTire PYQ Database
+// Structure preserved: Exam -> Year -> Month -> Shift -> Questions
+// Stage definitions synchronized from exam-content.js.
+// Existing PYQ question data is preserved exactly; stage is NOT guessed where the source paper does not identify it.
+
+window.pyqExamStages = {
+  "SSC CGL": [
+    {
+      "key": "tier_i_cbt_1",
+      "title": "Tier-I / CBT-1",
+      "description": "Objective Computer Based Examination"
+    },
+    {
+      "key": "tier_ii_cbt_2",
+      "title": "Tier-II / CBT-2",
+      "description": "Computer Based Examination with multiple sections/modules"
+    },
+    {
+      "key": "document_verification",
+      "title": "Document Verification",
+      "description": "Verification of required documents"
+    },
+    {
+      "key": "medical_physical_standards",
+      "title": "Medical / Physical Standards",
+      "description": "Applicable to specific posts where prescribed"
+    }
+  ],
+  "SSC CHSL": [
+    {
+      "key": "tier_i_cbt_1",
+      "title": "Tier-I / CBT-1",
+      "description": "Computer Based Examination"
+    },
+    {
+      "key": "tier_ii",
+      "title": "Tier-II",
+      "description": "Computer Based Examination / Skill or Typing assessment as applicable"
+    },
+    {
+      "key": "document_verification",
+      "title": "Document Verification",
+      "description": "Verification of required documents"
+    }
+  ],
+  "SSC GD Constable": [
+    {
+      "key": "computer_based_examination",
+      "title": "Computer Based Examination",
+      "description": "Objective computer based test"
+    },
+    {
+      "key": "pet",
+      "title": "PET",
+      "description": "Physical Efficiency Test"
+    },
+    {
+      "key": "pst",
+      "title": "PST",
+      "description": "Physical Standard Test"
+    },
+    {
+      "key": "medical_examination",
+      "title": "Medical Examination",
+      "description": "Medical fitness assessment"
+    }
+  ],
+  "SSC Selection Post": [
+    {
+      "key": "computer_based_examination",
+      "title": "Computer Based Examination",
+      "description": "Objective multiple-choice computer based examination"
+    },
+    {
+      "key": "document_verification",
+      "title": "Document Verification",
+      "description": "Post/qualification-specific verification"
+    }
+  ],
+  "SSC MTS": [
+    {
+      "key": "computer_based_examination",
+      "title": "Computer Based Examination",
+      "description": "Computer based examination in sessions"
+    },
+    {
+      "key": "pet_pst",
+      "title": "PET / PST",
+      "description": "Applicable for Havaldar posts"
+    },
+    {
+      "key": "document_verification",
+      "title": "Document Verification",
+      "description": "Verification of required documents"
+    }
+  ],
+  "SSC CPO": [
+    {
+      "key": "paper_i_cbt",
+      "title": "Paper-I / CBT",
+      "description": "Computer Based Examination"
+    },
+    {
+      "key": "pst_pet",
+      "title": "PST / PET",
+      "description": "Physical Standard and Physical Endurance Tests"
+    },
+    {
+      "key": "paper_ii",
+      "title": "Paper-II",
+      "description": "English Language & Comprehension"
+    },
+    {
+      "key": "detailed_medical_examination",
+      "title": "Detailed Medical Examination",
+      "description": "Medical fitness assessment"
+    }
+  ],
+  "SSC Stenographer": [
+    {
+      "key": "computer_based_examination",
+      "title": "Computer Based Examination",
+      "description": "General Intelligence, General Awareness and English"
+    },
+    {
+      "key": "skill_test",
+      "title": "Skill Test",
+      "description": "Stenography skill assessment"
+    },
+    {
+      "key": "document_verification",
+      "title": "Document Verification",
+      "description": "Verification of required documents"
+    }
+  ],
+  "SSC JE": [
+    {
+      "key": "paper_i_cbt",
+      "title": "Paper-I / CBT",
+      "description": "Objective Computer Based Examination"
+    },
+    {
+      "key": "paper_ii",
+      "title": "Paper-II",
+      "description": "Subject-specific technical examination"
+    },
+    {
+      "key": "document_verification",
+      "title": "Document Verification",
+      "description": "Verification of required documents"
+    }
+  ]
+};
+window.pyqExamStageMap = {};
+
 window.pyqDatabase = window.pyqDatabase || {};
 Object.assign(window.pyqDatabase, {
   "SSC CGL": {
