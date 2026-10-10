@@ -1,5 +1,5 @@
 window.TARGETTIRE_CA_DATABASE = {
-  date: "9 October 2026",
+  date: "10 October 2026",
   bulletinTitle: "Daily Current Affairs — 9 October 2026",
 
   points: [
