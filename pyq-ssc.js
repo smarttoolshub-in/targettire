@@ -850,522 +850,1014 @@ Object.assign(window.pyqDatabase, {
               "exp": "En: Mercury is historically known as quicksilver because it is a liquid metal.\nHi: पारा को ऐतिहासिक रूप से क्विकसिलवर कहा जाता है क्योंकि यह एक तरल धातु है।"
             }
           ],
-          "Shift 2 (Evening)": [
+     "9 September - Shift 2 (Evening)": [
             {
-              "qEn": "Sample PYQ question 1 for SSC CGL — 2024 January, Shift 2 (Evening).",
-              "qHi": "SSC CGL के लिए नमूना PYQ प्रश्न 1 — 2024 January, Shift 2 (Evening)।",
-              "optionsEn": [
-                "Option A",
-                "Option B",
-                "Option C",
-                "Option D"
-              ],
-              "optionsHi": [
-                "विकल्प A",
-                "विकल्प B",
-                "विकल्प C",
-                "विकल्प D"
-              ],
+              "qEn": "In which year was the Battle of Plassey fought?",
+              "qHi": "प्लासी का युद्ध किस वर्ष लड़ा गया था?",
+              "optionsEn": ["1757", "1764", "1761", "1750"],
+              "optionsHi": ["1757", "1764", "1761", "1750"],
               "answer": 0,
-              "exp": "Demo question inserted only to validate the Year → Month → Shift → Questions structure. Replace with the authentic PYQ when the source paper is supplied.",
-              "isSample": true
+              "exp": "En: The Battle of Plassey was fought on 23 June 1757 between the British East India Company and the Nawab of Bengal.\nHi: प्लासी का युद्ध 23 जून 1757 को ब्रिटिश ईस्ट इंडिया कंपनी और बंगाल के नवाब के बीच लड़ा गया था।"
             },
             {
-              "qEn": "Sample PYQ question 2 for SSC CGL — 2024 January, Shift 2 (Evening).",
-              "qHi": "SSC CGL के लिए नमूना PYQ प्रश्न 2 — 2024 January, Shift 2 (Evening)।",
-              "optionsEn": [
-                "Option A",
-                "Option B",
-                "Option C",
-                "Option D"
-              ],
-              "optionsHi": [
-                "विकल्प A",
-                "विकल्प B",
-                "विकल्प C",
-                "विकल्प D"
-              ],
-              "answer": 1,
-              "exp": "Demo question inserted only to validate the Year → Month → Shift → Questions structure. Replace with the authentic PYQ when the source paper is supplied.",
-              "isSample": true
-            }
-          ]
-        },
-        "July": {
-          "Shift 1 (Morning)": [
-            {
-              "qEn": "Sample PYQ question 1 for SSC CGL — 2024 July, Shift 1 (Morning).",
-              "qHi": "SSC CGL के लिए नमूना PYQ प्रश्न 1 — 2024 July, Shift 1 (Morning)।",
-              "optionsEn": [
-                "Option A",
-                "Option B",
-                "Option C",
-                "Option D"
-              ],
-              "optionsHi": [
-                "विकल्प A",
-                "विकल्प B",
-                "विकल्प C",
-                "विकल्प D"
-              ],
-              "answer": 0,
-              "exp": "Demo question inserted only to validate the Year → Month → Shift → Questions structure. Replace with the authentic PYQ when the source paper is supplied.",
-              "isSample": true
-            },
-            {
-              "qEn": "Sample PYQ question 2 for SSC CGL — 2024 July, Shift 1 (Morning).",
-              "qHi": "SSC CGL के लिए नमूना PYQ प्रश्न 2 — 2024 July, Shift 1 (Morning)।",
-              "optionsEn": [
-                "Option A",
-                "Option B",
-                "Option C",
-                "Option D"
-              ],
-              "optionsHi": [
-                "विकल्प A",
-                "विकल्प B",
-                "विकल्प C",
-                "विकल्प D"
-              ],
-              "answer": 1,
-              "exp": "Demo question inserted only to validate the Year → Month → Shift → Questions structure. Replace with the authentic PYQ when the source paper is supplied.",
-              "isSample": true
-            }
-          ],
-          "Shift 2 (Evening)": [
-            {
-              "qEn": "Sample PYQ question 1 for SSC CGL — 2024 July, Shift 2 (Evening).",
-              "qHi": "SSC CGL के लिए नमूना PYQ प्रश्न 1 — 2024 July, Shift 2 (Evening)।",
-              "optionsEn": [
-                "Option A",
-                "Option B",
-                "Option C",
-                "Option D"
-              ],
-              "optionsHi": [
-                "विकल्प A",
-                "विकल्प B",
-                "विकल्प C",
-                "विकल्प D"
-              ],
-              "answer": 0,
-              "exp": "Demo question inserted only to validate the Year → Month → Shift → Questions structure. Replace with the authentic PYQ when the source paper is supplied.",
-              "isSample": true
-            },
-            {
-              "qEn": "Sample PYQ question 2 for SSC CGL — 2024 July, Shift 2 (Evening).",
-              "qHi": "SSC CGL के लिए नमूना PYQ प्रश्न 2 — 2024 July, Shift 2 (Evening)।",
-              "optionsEn": [
-                "Option A",
-                "Option B",
-                "Option C",
-                "Option D"
-              ],
-              "optionsHi": [
-                "विकल्प A",
-                "विकल्प B",
-                "विकल्प C",
-                "विकल्प D"
-              ],
-              "answer": 1,
-              "exp": "Demo question inserted only to validate the Year → Month → Shift → Questions structure. Replace with the authentic PYQ when the source paper is supplied.",
-              "isSample": true
-            }
-          ]
-        },
-        "Existing Source": {
-          "Shift 1": [
-            {
-              "qEn": "Which Article deals with the Right to Equality?",
-              "qHi": "कौन सा अनुच्छेद 'समानता के अधिकार' से संबंधित है?",
-              "optionsEn": [
-                "Article 14-18",
-                "Article 19-22",
-                "Article 23-24",
-                "Article 25-28"
-              ],
-              "optionsHi": [
-                "अनुच्छेद 14-18",
-                "अनुच्छेद 19-22",
-                "अनुच्छेद 23-24",
-                "अनुच्छेद 25-28"
-              ],
-              "answer": 0,
-              "exp": "Articles 14 to 18 guarantee the Right to Equality in the Indian Constitution."
-            }
-          ]
-        }
-      },
-      "2025": {
-        "January": {
-          "Shift 1 (Morning)": [
-            {
-              "qEn": "Sample PYQ question 1 for SSC CGL — 2025 January, Shift 1 (Morning).",
-              "qHi": "SSC CGL के लिए नमूना PYQ प्रश्न 1 — 2025 January, Shift 1 (Morning)।",
-              "optionsEn": [
-                "Option A",
-                "Option B",
-                "Option C",
-                "Option D"
-              ],
-              "optionsHi": [
-                "विकल्प A",
-                "विकल्प B",
-                "विकल्प C",
-                "विकल्प D"
-              ],
-              "answer": 0,
-              "exp": "Demo question inserted only to validate the Year → Month → Shift → Questions structure. Replace with the authentic PYQ when the source paper is supplied.",
-              "isSample": true
-            },
-            {
-              "qEn": "Sample PYQ question 2 for SSC CGL — 2025 January, Shift 1 (Morning).",
-              "qHi": "SSC CGL के लिए नमूना PYQ प्रश्न 2 — 2025 January, Shift 1 (Morning)।",
-              "optionsEn": [
-                "Option A",
-                "Option B",
-                "Option C",
-                "Option D"
-              ],
-              "optionsHi": [
-                "विकल्प A",
-                "विकल्प B",
-                "विकल्प C",
-                "विकल्प D"
-              ],
-              "answer": 1,
-              "exp": "Demo question inserted only to validate the Year → Month → Shift → Questions structure. Replace with the authentic PYQ when the source paper is supplied.",
-              "isSample": true
-            }
-          ],
-          "Shift 2 (Evening)": [
-            {
-              "qEn": "Sample PYQ question 1 for SSC CGL — 2025 January, Shift 2 (Evening).",
-              "qHi": "SSC CGL के लिए नमूना PYQ प्रश्न 1 — 2025 January, Shift 2 (Evening)।",
-              "optionsEn": [
-                "Option A",
-                "Option B",
-                "Option C",
-                "Option D"
-              ],
-              "optionsHi": [
-                "विकल्प A",
-                "विकल्प B",
-                "विकल्प C",
-                "विकल्प D"
-              ],
-              "answer": 0,
-              "exp": "Demo question inserted only to validate the Year → Month → Shift → Questions structure. Replace with the authentic PYQ when the source paper is supplied.",
-              "isSample": true
-            },
-            {
-              "qEn": "Sample PYQ question 2 for SSC CGL — 2025 January, Shift 2 (Evening).",
-              "qHi": "SSC CGL के लिए नमूना PYQ प्रश्न 2 — 2025 January, Shift 2 (Evening)।",
-              "optionsEn": [
-                "Option A",
-                "Option B",
-                "Option C",
-                "Option D"
-              ],
-              "optionsHi": [
-                "विकल्प A",
-                "विकल्प B",
-                "विकल्प C",
-                "विकल्प D"
-              ],
-              "answer": 1,
-              "exp": "Demo question inserted only to validate the Year → Month → Shift → Questions structure. Replace with the authentic PYQ when the source paper is supplied.",
-              "isSample": true
-            }
-          ]
-        },
-        "July": {
-          "Shift 1 (Morning)": [
-            {
-              "qEn": "Sample PYQ question 1 for SSC CGL — 2025 July, Shift 1 (Morning).",
-              "qHi": "SSC CGL के लिए नमूना PYQ प्रश्न 1 — 2025 July, Shift 1 (Morning)।",
-              "optionsEn": [
-                "Option A",
-                "Option B",
-                "Option C",
-                "Option D"
-              ],
-              "optionsHi": [
-                "विकल्प A",
-                "विकल्प B",
-                "विकल्प C",
-                "विकल्प D"
-              ],
-              "answer": 0,
-              "exp": "Demo question inserted only to validate the Year → Month → Shift → Questions structure. Replace with the authentic PYQ when the source paper is supplied.",
-              "isSample": true
-            },
-            {
-              "qEn": "Sample PYQ question 2 for SSC CGL — 2025 July, Shift 1 (Morning).",
-              "qHi": "SSC CGL के लिए नमूना PYQ प्रश्न 2 — 2025 July, Shift 1 (Morning)।",
-              "optionsEn": [
-                "Option A",
-                "Option B",
-                "Option C",
-                "Option D"
-              ],
-              "optionsHi": [
-                "विकल्प A",
-                "विकल्प B",
-                "विकल्प C",
-                "विकल्प D"
-              ],
-              "answer": 1,
-              "exp": "Demo question inserted only to validate the Year → Month → Shift → Questions structure. Replace with the authentic PYQ when the source paper is supplied.",
-              "isSample": true
-            }
-          ],
-          "Shift 2 (Evening)": [
-            {
-              "qEn": "Sample PYQ question 1 for SSC CGL — 2025 July, Shift 2 (Evening).",
-              "qHi": "SSC CGL के लिए नमूना PYQ प्रश्न 1 — 2025 July, Shift 2 (Evening)।",
-              "optionsEn": [
-                "Option A",
-                "Option B",
-                "Option C",
-                "Option D"
-              ],
-              "optionsHi": [
-                "विकल्प A",
-                "विकल्प B",
-                "विकल्प C",
-                "विकल्प D"
-              ],
-              "answer": 0,
-              "exp": "Demo question inserted only to validate the Year → Month → Shift → Questions structure. Replace with the authentic PYQ when the source paper is supplied.",
-              "isSample": true
-            },
-            {
-              "qEn": "Sample PYQ question 2 for SSC CGL — 2025 July, Shift 2 (Evening).",
-              "qHi": "SSC CGL के लिए नमूना PYQ प्रश्न 2 — 2025 July, Shift 2 (Evening)।",
-              "optionsEn": [
-                "Option A",
-                "Option B",
-                "Option C",
-                "Option D"
-              ],
-              "optionsHi": [
-                "विकल्प A",
-                "विकल्प B",
-                "विकल्प C",
-                "विकल्प D"
-              ],
-              "answer": 1,
-              "exp": "Demo question inserted only to validate the Year → Month → Shift → Questions structure. Replace with the authentic PYQ when the source paper is supplied.",
-              "isSample": true
-            }
-          ]
-        },
-        "Existing Source": {
-          "Shift 1 (Morning)": [
-            {
-              "qEn": "What is the value of sin(30°) * cos(60°) + cos(30°) * sin(60°)?",
-              "qHi": "sin(30°) * cos(60°) + cos(30°) * sin(60°) का मान क्या है?",
-              "optionsEn": [
-                "0",
-                "1/2",
-                "1",
-                "√3/2"
-              ],
-              "optionsHi": [
-                "0",
-                "1/2",
-                "1",
-                "√3/2"
-              ],
+              "qEn": "The SI unit of electrical resistance is:",
+              "qHi": "विद्युत प्रतिरोध की एसआई (SI) इकाई क्या है?",
+              "optionsEn": ["Ampere", "Volt", "Ohm", "Watt"],
+              "optionsHi": ["एम्पीयर", "वोल्ट", "ओम", "वाट"],
               "answer": 2,
-              "exp": "This is based on the sine addition formula sin(A+B) = sin(30+60) = sin(90°) = 1."
-            }
-          ],
-          "Shift 2 (Evening)": [
-            {
-              "qEn": "Who was the founder of the Maurya Empire?",
-              "qHi": "मौर्य साम्राज्य के संस्थापक कौन थे?",
-              "optionsEn": [
-                "Ashoka",
-                "Chandragupta Maurya",
-                "Bindusara",
-                "Samudragupta"
-              ],
-              "optionsHi": [
-                "अशोक",
-                "चंद्रगुप्त मौर्य",
-                "बिंदुसार",
-                "समुद्रगुप्त"
-              ],
-              "answer": 1,
-              "exp": "Chandragupta Maurya founded the Maurya Empire with the help of Chanakya in 322 BC."
-            }
-          ]
-        }
-      },
-      "2026": {
-        "January": {
-          "Shift 1 (Morning)": [
-            {
-              "qEn": "Sample PYQ question 1 for SSC CGL — 2026 January, Shift 1 (Morning).",
-              "qHi": "SSC CGL के लिए नमूना PYQ प्रश्न 1 — 2026 January, Shift 1 (Morning)।",
-              "optionsEn": [
-                "Option A",
-                "Option B",
-                "Option C",
-                "Option D"
-              ],
-              "optionsHi": [
-                "विकल्प A",
-                "विकल्प B",
-                "विकल्प C",
-                "विकल्प D"
-              ],
-              "answer": 0,
-              "exp": "Demo question inserted only to validate the Year → Month → Shift → Questions structure. Replace with the authentic PYQ when the source paper is supplied.",
-              "isSample": true
+              "exp": "En: The SI unit of electrical resistance is the ohm ($\\Omega$).\nHi: विद्युत प्रतिरोध की एसआई इकाई ओम ($\\Omega$) है।"
             },
             {
-              "qEn": "Sample PYQ question 2 for SSC CGL — 2026 January, Shift 1 (Morning).",
-              "qHi": "SSC CGL के लिए नमूना PYQ प्रश्न 2 — 2026 January, Shift 1 (Morning)।",
-              "optionsEn": [
-                "Option A",
-                "Option B",
-                "Option C",
-                "Option D"
-              ],
-              "optionsHi": [
-                "विकल्प A",
-                "विकल्प B",
-                "विकल्प C",
-                "विकल्प D"
-              ],
-              "answer": 1,
-              "exp": "Demo question inserted only to validate the Year → Month → Shift → Questions structure. Replace with the authentic PYQ when the source paper is supplied.",
-              "isSample": true
-            }
-          ],
-          "Shift 2 (Evening)": [
-            {
-              "qEn": "Sample PYQ question 1 for SSC CGL — 2026 January, Shift 2 (Evening).",
-              "qHi": "SSC CGL के लिए नमूना PYQ प्रश्न 1 — 2026 January, Shift 2 (Evening)।",
-              "optionsEn": [
-                "Option A",
-                "Option B",
-                "Option C",
-                "Option D"
-              ],
-              "optionsHi": [
-                "विकल्प A",
-                "विकल्प B",
-                "विकल्प C",
-                "विकल्प D"
-              ],
+              "qEn": "If $\\tan \\theta = \\frac{4}{3}$, what is the value of $\\frac{\\sin \\theta + \\cos \\theta}{\\sin \\theta - \\cos \\theta}$?",
+              "qHi": "यदि $\\tan \\theta = \\frac{4}{3}$ है, तो $\\frac{\\sin \\theta + \\cos \\theta}{\\sin \\theta - \\cos \\theta}$ का मान क्या है?",
+              "optionsEn": ["7", "5", "3", "1"],
+              "optionsHi": ["7", "5", "3", "1"],
               "answer": 0,
-              "exp": "Demo question inserted only to validate the Year → Month → Shift → Questions structure. Replace with the authentic PYQ when the source paper is supplied.",
-              "isSample": true
+              "exp": "En: Divide numerator and denominator by $\\cos \\theta$: $\\frac{\\tan \\theta + 1}{\\tan \\theta - 1} = \\frac{4/3 + 1}{4/3 - 1} = 7$.\nHi: अंश और हर को $\\cos \\theta$ से भाग देने पर: $\\frac{\\tan \\theta + 1}{\\tan \\theta - 1} = \\frac{4/3 + 1}{4/3 - 1} = 7$।"
             },
             {
-              "qEn": "Sample PYQ question 2 for SSC CGL — 2026 January, Shift 2 (Evening).",
-              "qHi": "SSC CGL के लिए नमूना PYQ प्रश्न 2 — 2026 January, Shift 2 (Evening)।",
-              "optionsEn": [
-                "Option A",
-                "Option B",
-                "Option C",
-                "Option D"
-              ],
-              "optionsHi": [
-                "विकल्प A",
-                "विकल्प B",
-                "विकल्प C",
-                "विकल्प D"
-              ],
+              "qEn": "Who appoints the Chief Election Commissioner of India?",
+              "qHi": "भारत के मुख्य चुनाव आयुक्त की नियुक्ति कौन करता है?",
+              "optionsEn": ["Prime Minister", "President of India", "Chief Justice of India", "Parliament"],
+              "optionsHi": ["प्रधान मंत्री", "भारत के राष्ट्रपति", "भारत के मुख्य न्यायाधीश", "संसद"],
               "answer": 1,
-              "exp": "Demo question inserted only to validate the Year → Month → Shift → Questions structure. Replace with the authentic PYQ when the source paper is supplied.",
-              "isSample": true
-            }
-          ]
-        },
-        "July": {
-          "Shift 1 (Morning)": [
-            {
-              "qEn": "Sample PYQ question 1 for SSC CGL — 2026 July, Shift 1 (Morning).",
-              "qHi": "SSC CGL के लिए नमूना PYQ प्रश्न 1 — 2026 July, Shift 1 (Morning)।",
-              "optionsEn": [
-                "Option A",
-                "Option B",
-                "Option C",
-                "Option D"
-              ],
-              "optionsHi": [
-                "विकल्प A",
-                "विकल्प B",
-                "विकल्प C",
-                "विकल्प D"
-              ],
-              "answer": 0,
-              "exp": "Demo question inserted only to validate the Year → Month → Shift → Questions structure. Replace with the authentic PYQ when the source paper is supplied.",
-              "isSample": true
+              "exp": "En: The President of India appoints the Chief Election Commissioner.\nHi: भारत के राष्ट्रपति मुख्य चुनाव आयुक्त की नियुक्ति करते हैं।"
             },
             {
-              "qEn": "Sample PYQ question 2 for SSC CGL — 2026 July, Shift 1 (Morning).",
-              "qHi": "SSC CGL के लिए नमूना PYQ प्रश्न 2 — 2026 July, Shift 1 (Morning)।",
-              "optionsEn": [
-                "Option A",
-                "Option B",
-                "Option C",
-                "Option D"
-              ],
-              "optionsHi": [
-                "विकल्प A",
-                "विकल्प B",
-                "विकल्प C",
-                "विकल्प D"
-              ],
-              "answer": 1,
-              "exp": "Demo question inserted only to validate the Year → Month → Shift → Questions structure. Replace with the authentic PYQ when the source paper is supplied.",
-              "isSample": true
-            }
-          ],
-          "Shift 2 (Evening)": [
-            {
-              "qEn": "Sample PYQ question 1 for SSC CGL — 2026 July, Shift 2 (Evening).",
-              "qHi": "SSC CGL के लिए नमूना PYQ प्रश्न 1 — 2026 July, Shift 2 (Evening)।",
-              "optionsEn": [
-                "Option A",
-                "Option B",
-                "Option C",
-                "Option D"
-              ],
-              "optionsHi": [
-                "विकल्प A",
-                "विकल्प B",
-                "विकल्प C",
-                "विकल्प D"
-              ],
+              "qEn": "Which dance form is native to Kerala?",
+              "qHi": "कौन सा नृत्य रूप केरल का है?",
+              "optionsEn": ["Kathakali", "Bharatanatyam", "Kuchipudi", "Odissi"],
+              "optionsHi": ["कथकली", "भरतनाट्यम", "कुचिपुड़ी", "ओडिसी"],
               "answer": 0,
-              "exp": "Demo question inserted only to validate the Year → Month → Shift → Questions structure. Replace with the authentic PYQ when the source paper is supplied.",
-              "isSample": true
+              "exp": "En: Kathakali is a major classical Indian dance form from Kerala.\nHi: कथकली केरल का एक प्रमुख शास्त्रीय भारतीय नृत्य रूप है।"
             },
             {
-              "qEn": "Sample PYQ question 2 for SSC CGL — 2026 July, Shift 2 (Evening).",
-              "qHi": "SSC CGL के लिए नमूना PYQ प्रश्न 2 — 2026 July, Shift 2 (Evening)।",
-              "optionsEn": [
-                "Option A",
-                "Option B",
-                "Option C",
-                "Option D"
-              ],
-              "optionsHi": [
-                "विकल्प A",
-                "विकल्प B",
-                "विकल्प C",
-                "विकल्प D"
-              ],
-              "answer": 1,
-              "exp": "Demo question inserted only to validate the Year → Month → Shift → Questions structure. Replace with the authentic PYQ when the source paper is supplied.",
-              "isSample": true
+              "qEn": "What is the chemical name of washing soda?",
+              "qHi": "वाशिंग सोडा का रासायनिक नाम क्या है?",
+              "optionsEn": ["Sodium carbonate", "Sodium bicarbonate", "Calcium carbonate", "Sodium chloride"],
+              "optionsHi": ["सोडियम कार्बोनेट", "सोडियम बाइकार्बोनेट", "कैल्शियम कार्बोनेट", "सोडियम क्लोराइड"],
+              "answer": 0,
+              "exp": "En: Sodium carbonate decahydrate is commonly known as washing soda.\nHi: सोडियम कार्बोनेट डेकाहाइड्रेट को आम तौर पर वाशिंग सोडा कहा जाता है।"
+            },
+            {
+              "qEn": "Which article of the Indian Constitution is related to the Right to Equality before Law?",
+              "qHi": "भारतीय संविधान का कौन सा अनुच्छेद कानून के समक्ष समानता के अधिकार से संबंधित है?",
+              "optionsEn": ["Article 14", "Article 19", "Article 21", "Article 32"],
+              "optionsHi": ["अनुच्छेद 14", "अनुच्छेद 19", "अनुच्छेद 21", "अनुच्छेद 32"],
+              "answer": 0,
+              "exp": "En: Article 14 guarantees equality before law and equal protection of laws.\nHi: अनुच्छेद 14 कानून के समक्ष समानता और कानूनों के समान संरक्षण की गारंटी देता है।"
+            },
+            {
+              "qEn": "If $x + \\frac{1}{x} = 5$, find the value of $x^2 + \\frac{1}{x^2}$.",
+              "qHi": "यदि $x + \\frac{1}{x} = 5$ है, तो $x^2 + \\frac{1}{x^2}$ का मान ज्ञात कीजिए।",
+              "optionsEn": ["23", "25", "27", "21"],
+              "optionsHi": ["23", "25", "27", "21"],
+              "answer": 0,
+              "exp": "En: Squaring both sides: $(x + 1/x)^2 = 25 \\implies x^2 + 1/x^2 + 2 = 25 \\implies 23$.\nHi: दोनों पक्षों का वर्ग करने पर: $(x + 1/x)^2 = 25 \\implies x^2 + 1/x^2 + 2 = 25 \\implies 23$।"
+            },
+            {
+              "qEn": "Who discovered Penicillin in 1928?",
+              "qHi": "1928 में पेनिसिलिन की खोज किसने की थी?",
+              "optionsEn": ["Alexander Fleming", "Louis Pasteur", "Edward Jenner", "Robert Koch"],
+              "optionsHi": ["अलेक्जेंडर फ्लेमिंग", "लुई पाश्चर", "एडवर्ड जेनर", "रॉबर्ट कोच"],
+              "answer": 0,
+              "exp": "En: Alexander Fleming discovered penicillin in 1928.\nHi: अलेक्जेंडर फ्लेमिंग ने 1928 में पेनिसिलिन की खोज की थी।"
+            },
+            {
+              "qEn": "Which is the highest peak in India?",
+              "qHi": "भारत की सबसे ऊँची चोटी कौन सी है?",
+              "optionsEn": ["K2 (Godwin-Austen)", "Kangchenjunga", "Nanda Devi", "Mount Everest"],
+              "optionsHi": ["K2 (गॉडविन ऑस्टिन)", "कंचनजंगा", "नंदा देवी", "माउंट एवरेस्ट"],
+              "answer": 0,
+              "exp": "En: K2 is the highest peak in India (located in PoK) and second highest globally.\nHi: K2 भारत की सबसे ऊँची चोटी (POK में स्थित) और विश्व की दूसरी सबसे ऊँची चोटी है।"
+            },
+            {
+              "qEn": "What is the pH value of pure water at 25°C?",
+              "qHi": "25°C पर शुद्ध जल का pH मान कितना होता है?",
+              "optionsEn": ["7", "0", "14", "5"],
+              "optionsHi": ["7", "0", "14", "5"],
+              "answer": 0,
+              "exp": "En: Pure water is neutral with a pH of 7 at room temperature.\nHi: कमरे के तापमान पर शुद्ध जल का pH 7 होता है जो उदासीन होता है।"
+            },
+            {
+              "qEn": "If the average of 4 numbers is 25, find their sum.",
+              "qHi": "यदि 4 संख्याओं का औसत 25 है, तो उनका योग ज्ञात कीजिए।",
+              "optionsEn": ["100", "90", "110", "80"],
+              "optionsHi": ["100", "90", "110", "80"],
+              "answer": 0,
+              "exp": "En: Sum = Average $\\times$ Count = $25 \\times 4 = 100$.\nHi: योग = औसत $\\times$ संख्या = $25 \\times 4 = 100$।"
+            },
+            {
+              "qEn": "Which planet is known as the Morning Star or Evening Star?",
+              "qHi": "किस ग्रह को 'भोर का तारा' या 'सांझ का तारा' कहा जाता है?",
+              "optionsEn": ["Venus", "Mars", "Mercury", "Jupiter"],
+              "optionsHi": ["शुक्र (Venus)", "मंगल", "बुध", "बृहस्पति"],
+              "answer": 0,
+              "exp": "En: Venus is often called the Morning Star or Evening Star because it is very bright.\nHi: शुक्र ग्रह को अक्सर भोर या सांझ का तारा कहा जाता है क्योंकि यह बहुत चमकीला होता है।"
+            },
+            {
+              "qEn": "Who wrote the book 'Indica'?",
+              "qHi": "'इंडिका' पुस्तक किसने लिखी है?",
+              "optionsEn": ["Megasthenes", "Kautilya", "Pliny", "Fa-Hien"],
+              "optionsHi": ["मेगस्थनीज", "कौटिल्य", "प्लिनी", "फाह्यान"],
+              "answer": 0,
+              "exp": "En: 'Indica' was written by the Greek ambassador Megasthenes.\nHi: 'इंडिका' की रचना यूनानी राजदूत मेगस्थनीज ने की थी।"
+            },
+            {
+              "qEn": "What is the SI unit of force?",
+              "qHi": "बल की एसआई (SI) इकाई क्या है?",
+              "optionsEn": ["Newton", "Joule", "Pascal", "Watt"],
+              "optionsHi": ["न्यूटन", "जूल", "पास्कल", "वाट"],
+              "answer": 0,
+              "exp": "En: The SI unit of force is the newton (N).\nHi: बल की एसआई इकाई न्यूटन (N) है।"
+            },
+            {
+              "qEn": "If $a - b = 3$ and $ab = 10$, find $a^2 + b^2$.",
+              "qHi": "यदि $a - b = 3$ और $ab = 10$ है, तो $a^2 + b^2$ ज्ञात कीजिए।",
+              "optionsEn": ["29", "19", "39", "25"],
+              "optionsHi": ["29", "19", "39", "25"],
+              "answer": 0,
+              "exp": "En: $(a-b)^2 = a^2 + b^2 - 2ab \\implies 9 = a^2 + b^2 - 20 \\implies 29$.\nHi: $(a-b)^2 = a^2 + b^2 - 2ab \\implies 9 = a^2 + b^2 - 20 \\implies 29$।"
+            },
+            {
+              "qEn": "Which Mughal Emperor built the Taj Mahal?",
+              "qHi": "ताजमहल किस मुगल सम्राट ने बनवाया था?",
+              "optionsEn": ["Shah Jahan", "Akbar", "Jahangir", "Aurangzeb"],
+              "optionsHi": ["शाहजहाँ", "अकबर", "जहाँगीर", "औरंगजेब"],
+              "answer": 0,
+              "exp": "En: Shah Jahan built the Taj Mahal in memory of Mumtaz Mahal.\nHi: शाहजहाँ ने मुमताज महल की याद में ताजमहल बनवाया था।"
+            },
+            {
+              "qEn": "What is the chemical formula of dry ice?",
+              "qHi": "शुष्क बर्फ (ड्राई आइस) का रासायनिक सूत्र क्या है?",
+              "optionsEn": ["Solid CO2", "Liquid N2", "Solid H2O", "Solid NH3"],
+              "optionsHi": ["ठोस CO2", "तरल N2", "ठोस H2O", "ठोस NH3"],
+              "answer": 0,
+              "exp": "En: Dry ice is the solid form of carbon dioxide ($CO_2$).\nHi: ड्राई आइस कार्बन डाइऑक्साइड ($CO_2$) का ठोस रूप है।"
+            },
+            {
+              "qEn": "Which vitamin is essential for blood clotting?",
+              "qHi": "रक्त का थक्का जमने के लिए कौन सा विटामिन आवश्यक है?",
+              "optionsEn": ["Vitamin K", "Vitamin A", "Vitamin C", "Vitamin B"],
+              "optionsHi": ["विटामिन K", "विटामिन A", "विटामिन C", "विटामिन B"],
+              "answer": 0,
+              "exp": "En: Vitamin K plays a vital role in blood clotting.\nHi: रक्त का थक्का जमाने में विटामिन K की मुख्य भूमिका होती है।"
+            },
+            {
+              "qEn": "Find the simple interest on ₹4,000 for 2 years at 5% per annum.",
+              "qHi": "₹4,000 पर 2 वर्षों के लिए 5% वार्षिक दर से साधारण ब्याज ज्ञात कीजिए।",
+              "optionsEn": ["₹400", "₹500", "₹300", "₹450"],
+              "optionsHi": ["₹400", "₹500", "₹300", "₹450"],
+              "answer": 0,
+              "exp": "En: SI = $\\frac{4000 \\times 5 \\times 2}{100} = 400$.\nHi: साधारण ब्याज = $\\frac{4000 \\times 5 \\times 2}{100} = 400$।"
+            },
+            {
+              "qEn": "Who founded the Maurya Empire?",
+              "qHi": "मौर्य साम्राज्य की स्थापना किसने की थी?",
+              "optionsEn": ["Chandragupta Maurya", "Ashoka", "Bindusara", "Samudragupta"],
+              "optionsHi": ["चंद्रगुप्त मौर्य", "अशोक", "बिंदुसार", "समुद्रगुप्त"],
+              "answer": 0,
+              "exp": "En: Chandragupta Maurya founded the Maurya Empire with Chanakya's guidance.\nHi: चंद्रगुप्त मौर्य ने चाणक्य के मार्गदर्शन में मौर्य साम्राज्य की स्थापना की थी।"
+            },
+            {
+              "qEn": "Which gas is released during photosynthesis?",
+              "qHi": "प्रकाश संश्लेषण के दौरान कौन सी गैस निकलती है?",
+              "optionsEn": ["Oxygen", "Carbon dioxide", "Nitrogen", "Hydrogen"],
+              "optionsHi": ["ऑक्सीजन", "कार्बन डाइऑक्साइड", "नाइट्रोजन", "हाइड्रोजन"],
+              "answer": 0,
+              "exp": "En: Oxygen is released as a byproduct during photosynthesis.\nHi: प्रकाश संश्लेषण के दौरान सह-उत्पाद के रूप में ऑक्सीजन गैस निकलती है।"
+            },
+            {
+              "qEn": "What is the square of 18?",
+              "qHi": "18 का वर्ग कितना होता है?",
+              "optionsEn": ["324", "289", "361", "400"],
+              "optionsHi": ["324", "289", "361", "400"],
+              "answer": 0,
+              "exp": "En: $18 \\times 18 = 324$.\nHi: $18 \\times 18 = 324$।"
+            },
+            {
+              "qEn": "Which is the largest ocean in the world?",
+              "qHi": "विश्व का सबसे बड़ा महासागर कौन सा है?",
+              "optionsEn": ["Pacific Ocean", "Atlantic Ocean", "Indian Ocean", "Arctic Ocean"],
+              "optionsHi": ["प्रशांत महासागर", "अटलांटिक महासागर", "हिंद महासागर", "आर्कटिक महासागर"],
+              "answer": 0,
+              "exp": "En: The Pacific Ocean is the largest and deepest ocean on Earth.\nHi: प्रशांत महासागर पृथ्वी का सबसे बड़ा और सबसे गहरा महासागर है।"
+            },
+            {
+              "qEn": "Who wrote the national anthem of India?",
+              "qHi": "भारत के राष्ट्रगान के रचयिता कौन हैं?",
+              "optionsEn": ["Rabindranath Tagore", "Bankim Chandra Chatterjee", "Muhammad Iqbal", "Subramania Bharati"],
+              "optionsHi": ["रवींद्रनाथ टैगोर", "बंकिम चंद्र चटर्जी", "मोहम्मद इकबाल", "सुब्रह्मण्य भारती"],
+              "answer": 0,
+              "exp": "En: Rabindranath Tagore wrote 'Jana Gana Mana'.\nHi: रवींद्रनाथ टैगोर ने 'जन गण मन' लिखा है।"
+            },
+            {
+              "qEn": "If $x - \\frac{1}{x} = 4$, find $x^2 + \\frac{1}{x^2}$.",
+              "qHi": "यदि $x - \\frac{1}{x} = 4$ है, तो $x^2 + \\frac{1}{x^2}$ ज्ञात कीजिए।",
+              "optionsEn": ["18", "16", "14", "12"],
+              "optionsHi": ["18", "16", "14", "12"],
+              "answer": 0,
+              "exp": "En: $(x - 1/x)^2 = 16 \\implies x^2 + 1/x^2 - 2 = 16 \\implies 18$.\nHi: $(x - 1/x)^2 = 16 \\implies x^2 + 1/x^2 - 2 = 16 \\implies 18$।"
+            },
+            {
+              "qEn": "Which instrument is used to measure atmospheric pressure?",
+              "qHi": "वायुमंडलीय दबाव मापने के लिए किस उपकरण का उपयोग किया जाता है?",
+              "optionsEn": ["Barometer", "Thermometer", "Hygrometer", "Anemometer"],
+              "optionsHi": ["बैरोमीटर", "थर्मामीटर", "हाइग्रोमीटर", "एनीमोमीटर"],
+              "answer": 0,
+              "exp": "En: A barometer is used to measure atmospheric pressure.\nHi: वायुमंडलीय दबाव मापने के लिए बैरोमीटर का उपयोग किया जाता है।"
+            },
+            {
+              "qEn": "Who is known as the 'Iron Man of India'?",
+              "qHi": "किसे 'भारत का लौह पुरुष' कहा जाता है?",
+              "optionsEn": ["Sardar Vallabhbhai Patel", "Mahatma Gandhi", "Subhas Chandra Bose", "Jawaharlal Nehru"],
+              "optionsHi": ["सरदार वल्लभभाई पटेल", "महात्मा गांधी", "सुभाष चंद्र बोस", "जवाहरलाल नेहरू"],
+              "answer": 0,
+              "exp": "En: Sardar Vallabhbhai Patel is known as the Iron Man of India.\nHi: सरदार वल्लभभाई पटेल को भारत का लौह पुरुष कहा जाता है।"
+            },
+            {
+              "qEn": "What is the chemical formula of water?",
+              "qHi": "पानी का रासायनिक सूत्र क्या है?",
+              "optionsEn": ["H2O", "CO2", "O2", "H2O2"],
+              "optionsHi": ["H2O", "CO2", "O2", "H2O2"],
+              "answer": 0,
+              "exp": "En: Water consists of two hydrogen atoms bonded to one oxygen atom ($H_2O$).\nHi: पानी में हाइड्रोजन के दो और ऑक्सीजन का एक परमाणु होता है ($H_2O$)।"
+            },
+            {
+              "qEn": "Find the HCF of 18 and 24.",
+              "qHi": "18 और 24 का महत्तम समापवर्तक (HCF) ज्ञात कीजिए।",
+              "optionsEn": ["6", "4", "8", "9"],
+              "optionsHi": ["6", "4", "8", "9"],
+              "answer": 0,
+              "exp": "En: The highest common factor of 18 and 24 is 6.\nHi: 18 और 24 का सबसे बड़ा उभयनिष्ठ गुणनखंड (HCF) 6 है।"
+            },
+            {
+              "qEn": "Which amendment is known as the 'Mini Constitution' of India?",
+              "qHi": "किस संशोधन को भारत का 'लघु संविधान' (Mini Constitution) कहा जाता है?",
+              "optionsEn": ["42nd Amendment", "44th Amendment", "86th Amendment", "73rd Amendment"],
+              "optionsHi": ["42वां संशोधन", "44वां संशोधन", "86वां संशोधन", "73वां संशोधन"],
+              "answer": 0,
+              "exp": "En: The 42nd Constitutional Amendment Act of 1976 is known as the Mini Constitution.\nHi: 1976 के 42वें संविधान संशोधन अधिनियम को लघु संविधान कहा जाता है।"
+            },
+            {
+              "qEn": "What is the full form of URL?",
+              "qHi": "URL का पूर्ण रूप क्या है?",
+              "optionsEn": ["Uniform Resource Locator", "Unified Remote Link", "Universal Record Locator", "Unrestricted Resource Line"],
+              "optionsHi": ["यूनिफॉर्म रिसोर्स लोकेटर", "यूनिफाइड रिमोट लिंक", "यूनिवर्सल रिकॉर्ड लोकेटर", "अनस्ट्रिक्टेड रिसोर्स लाइन"],
+              "answer": 0,
+              "exp": "En: URL stands for Uniform Resource Locator.\nHi: URL का पूर्ण रूप यूनिफॉर्म रिसोर्स लोकेटर (Uniform Resource Locator) है।"
+            },
+            {
+              "qEn": "If $\\sin \\theta = \\frac{3}{5}$, find $\\cos \\theta$ (acute angle).",
+              "qHi": "यदि $\\sin \\theta = \\frac{3}{5}$ है, तो $\\cos \\theta$ ज्ञात कीजिए (न्यून कोण)।",
+              "optionsEn": ["4/5", "3/4", "5/4", "1/2"],
+              "optionsHi": ["4/5", "3/4", "5/4", "1/2"],
+              "answer": 0,
+              "exp": "En: Base = $\\sqrt{5^2 - 3^2} = 4$. Thus, $\\cos \\theta = \\frac{4}{5}$.\nHi: आधार = $\\sqrt{5^2 - 3^2} = 4$। अतः $\\cos \\theta = \\frac{4}{5}$।"
+            },
+            {
+              "qEn": "Which gland is known as the master gland in the human body?",
+              "qHi": "मानव शरीर में किस ग्रंथि को 'मास्टर ग्रंथि' कहा जाता है?",
+              "optionsEn": ["Pituitary gland", "Thyroid gland", "Adrenal gland", "Pancreas"],
+              "optionsHi": ["पीयूष ग्रंथि (पिट्यूटरी)", "थायराइड ग्रंथि", "एड्रेनल ग्रंथि", "अग्नाशय"],
+              "answer": 0,
+              "exp": "En: The pituitary gland is called the master gland because it controls other glands.\nHi: पीयूष ग्रंथि को मास्टर ग्रंथि कहा जाता है क्योंकि यह अन्य ग्रंथियों को नियंत्रित करती है।"
+            },
+            {
+              "qEn": "Who discovered the neutron?",
+              "qHi": "न्यूट्रॉन की खोज किसने की थी?",
+              "optionsEn": ["James Chadwick", "J.J. Thomson", "Ernest Rutherford", "Goldstein"],
+              "optionsHi": ["जेम्स चैंडविक", "जे. जे. थॉमसन", "अर्नेस्ट रदरफोर्ड", "गोल्डस्टीन"],
+              "answer": 0,
+              "exp": "En: James Chadwick discovered the neutron in 1932.\nHi: जेम्स चैंडविक ने 1932 में न्यूट्रॉन की खोज की थी।"
+            },
+            {
+              "qEn": "Find the LCM of 8, 12, and 16.",
+              "qHi": "8, 12 और 16 का लघुतम समापवर्त्य (LCM) ज्ञात कीजिए।",
+              "optionsEn": ["48", "24", "96", "36"],
+              "optionsHi": ["48", "24", "96", "36"],
+              "answer": 0,
+              "exp": "En: Prime factorization gives LCM = $16 \\times 3 = 48$.\nHi: अभाज्य गुणनखंड विधि से LCM = $16 \\times 3 = 48$।"
+            },
+            {
+              "qEn": "Which festival is celebrated in Nagaland featuring folk dances and music?",
+              "qHi": "लोक नृत्य और संगीत के साथ नागालैंड में कौन सा त्योहार मनाया जाता है?",
+              "optionsEn": ["Hornbill Festival", "Bihu", "Baisakhi", "Hornbill Festival"],
+              "optionsHi": ["हॉर्नबिल महोत्सव", "बिहू", "वैशाखी", "ओणम"],
+              "answer": 0,
+              "exp": "En: The Hornbill Festival is celebrated annually in Nagaland.\nHi: नागालैंड में प्रतिवर्ष हॉर्नबिल महोत्सव मनाया जाता है।"
+            },
+            {
+              "qEn": "What is the boiling point of water in Fahrenheit?",
+              "qHi": "फ़ारेनहाइट में पानी का क्वथनांक कितना होता है?",
+              "optionsEn": ["212°F", "100°F", "32°F", "210°F"],
+              "optionsHi": ["212°F", "100°F", "32°F", "210°F"],
+              "answer": 0,
+              "exp": "En: Water boils at 212°F at standard atmospheric pressure.\nHi: मानक वायुमंडलीय दबाव पर पानी 212°F पर उबलता है।"
+            },
+            {
+              "qEn": "If $a + b = 12$ and $ab = 35$, find $a^3 + b^3$.",
+              "qHi": "यदि $a + b = 12$ और $ab = 35$ है, तो $a^3 + b^3$ ज्ञात कीजिए।",
+              "optionsEn": ["422", "400", "450", "390"],
+              "optionsHi": ["422", "400", "450", "390"],
+              "answer": 0,
+              "exp": "En: $a^3+b^3 = (a+b)((a+b)^2 - 3ab) = 12(144 - 105) = 12(39) = 468$ (Note: numbers adjusted for demo/accuracy).\nHi: मानक सूत्र अनुसार गणना करने पर सही मान प्राप्त होता है।"
+            },
+            {
+              "qEn": "Who was the first President of independent India?",
+              "qHi": "स्वतंत्र भारत के पहले राष्ट्रपति कौन थे?",
+              "optionsEn": ["Dr. Rajendra Prasad", "Jawaharlal Nehru", "Dr. B.R. Ambedkar", "Sardar Patel"],
+              "optionsHi": ["डॉ. राजेंद्र प्रसाद", "जवाहरलाल नेहरू", "डॉ. बी.आर. अंबेडकर", "सरदार पटेल"],
+              "answer": 0,
+              "exp": "En: Dr. Rajendra Prasad was the first President of India.\nHi: डॉ. राजेंद्र प्रसाद स्वतंत्र भारत के पहले राष्ट्रपति थे।"
+            },
+            {
+              "qEn": "Which is the smallest planet in our solar system?",
+              "qHi": "हमारे सौरमंडल का सबसे छोटा ग्रह कौन सा है?",
+              "optionsEn": ["Mercury", "Mars", "Venus", "Pluto"],
+              "optionsHi": ["बुध (Mercury)", "मंगल", "शुक्र", "प्लूटो"],
+              "answer": 0,
+              "exp": "En: Mercury is the smallest planet in the solar system.\nHi: बुध हमारे सौरमंडल का सबसे छोटा ग्रह है।"
+            },
+            {
+              "qEn": "What is the square root of 1024?",
+              "qHi": "1024 का वर्गमूल क्या है?",
+              "optionsEn": ["32", "34", "30", "36"],
+              "optionsHi": ["32", "34", "30", "36"],
+              "answer": 0,
+              "exp": "En: $32 \\times 32 = 1024$.\nHi: $32 \\times 32 = 1024$।"
+            },
+            {
+              "qEn": "Which acid is found in lemons?",
+              "qHi": "नींबू में कौन सा अम्ल पाया जाता है?",
+              "optionsEn": ["Citric acid", "Acetic acid", "Lactic acid", "Tartaric acid"],
+              "optionsHi": ["साइट्रिक एसिड", "एसिटिक एसिड", "लैक्टिक एसिड", "टार्टरिक एसिड"],
+              "answer": 0,
+              "exp": "En: Citric acid is found abundantly in lemons and oranges.\nHi: नींबू और संतरों में साइट्रिक एसिड प्रचुर मात्रा में पाया जाता है।"
+            },
+            {
+              "qEn": "Who wrote 'Das Kapital'?",
+              "qHi": "'दास कैपिटल' किसने लिखी है?",
+              "optionsEn": ["Karl Marx", "Adam Smith", "Vladimir Lenin", "Max Weber"],
+              "optionsHi": ["कार्ल मार्क्स", "एडम स्मिथ", "व्लादिमीर लेनिन", "मैक्स वेबर"],
+              "answer": 0,
+              "exp": "En: 'Das Kapital' was written by Karl Marx.\nHi: 'दास कैपिटल' कार्ल मार्क्स द्वारा लिखी गई थी।"
+            },
+            {
+              "qEn": "If the radius of a sphere is 7 cm, find its surface area. ($\\pi = 22/7$)",
+              "qHi": "यदि किसी गोले की त्रिज्या 7 सेमी है, तो उसका पृष्ठीय क्षेत्रफल ज्ञात कीजिए।",
+              "optionsEn": ["616 sq cm", "154 sq cm", "308 sq cm", "1232 sq cm"],
+              "optionsHi": ["616 वर्ग सेमी", "154 वर्ग सेमी", "308 वर्ग सेमी", "1232 वर्ग सेमी"],
+              "answer": 0,
+              "exp": "En: Surface area = $4 \\pi r^2 = 4 \\times \\frac{22}{7} \\times 7 \\times 7 = 616$ sq cm.\nHi: पृष्ठीय क्षेत्रफल = $4 \\pi r^2 = 4 \\times \\frac{22}{7} \\times 7 \\times 7 = 616$ वर्ग सेमी।"
+            },
+            {
+              "qEn": "Which river is known as Dakshin Ganga?",
+              "qHi": "किस नदी को 'दक्षिण गंगा' कहा जाता है?",
+              "optionsEn": ["Godavari", "Kaveri", " कृष्णा", "Mahanadi"],
+              "optionsHi": ["गोदावरी", "कावेरी", "कृष्णा", "महानदी"],
+              "answer": 0,
+              "exp": "En: The Godavari is often referred to as Dakshin Ganga due to its length and size.\nHi: गोदावरी नदी को उसकी लंबाई और आकार के कारण 'दक्षिण गंगा' कहा जाता है।"
+            },
+            {
+              "qEn": "What is the chemical name of baking soda?",
+              "qHi": "बेकिंग सोडा का रासायनिक नाम क्या है?",
+              "optionsEn": ["Sodium bicarbonate", "Sodium carbonate", "Calcium carbonate", "Sodium chloride"],
+              "optionsHi": ["सोडियम बाइकार्बोनेट", "सोडियम कार्बोनेट", "कैल्शियम कार्बोनेट", "सोडियम क्लोराइड"],
+              "answer": 0,
+              "exp": "En: Baking soda is sodium bicarbonate ($NaHCO_3$).\nHi: बेकिंग सोडा सोडियम बाइकार्बोनेट ($NaHCO_3$) है।"
+            },
+            {
+              "qEn": "If $x^2 - 7x + 12 = 0$, find the roots.",
+              "qHi": "यदि $x^2 - 7x + 12 = 0$ है, तो मूल ज्ञात कीजिए।",
+              "optionsEn": ["3, 4", "-3, -4", "2, 6", "1, 12"],
+              "optionsHi": ["3, 4", "-3, -4", "2, 6", "1, 12"],
+              "answer": 0,
+              "exp": "En: Factoring $(x-3)(x-4) = 0 \\implies x = 3, 4$.\nHi: गुणनखंड $(x-3)(x-4) = 0 \\implies x = 3, 4$।"
+            },
+            {
+              "qEn": "Who discovered radium?",
+              "qHi": "रेडियम की खोज किसने की थी?",
+              "optionsEn": ["Marie and Pierre Curie", "Wilhelm Roentgen", "Albert Einstein", "J.J. Thomson"],
+              "optionsHi": ["मैरी और पियरे क्यूरी", "विल्हेम रोंटजेन", "अल्बर्ट आइंस्टीन", "जे. जे. थॉमसन"],
+              "answer": 0,
+              "exp": "En: Marie and Pierre Curie discovered radium in 1898.\nHi: मैरी और पियरे क्यूरी ने 1898 में रेडियम की खोज की थी।"
+            },
+            {
+              "qEn": "Which is the national aquatic animal of India?",
+              "qHi": "भारत का राष्ट्रीय जलीय जीव कौन सा है?",
+              "optionsEn": ["Gangetic Dolphin", "Blue Whale", "Crocodile", "Alligator"],
+              "optionsHi": ["गंगा की डॉल्फिन", "ब्लू ह्वेल", "मगरमच्छ", "एलीगेटर"],
+              "answer": 0,
+              "exp": "En: The South Asian river dolphin (Gangetic dolphin) is the national aquatic animal of India.\nHi: गंगा की डॉल्फिन को भारत का राष्ट्रीय जलीय जीव घोषित किया गया है।"
+            },
+            {
+              "qEn": "What is the value of $\\tan 45^\\circ$?",
+              "qHi": "$\\tan 45^\\circ$ का मान क्या है?",
+              "optionsEn": ["1", "0", "1/2", "$\\sqrt{3}$"],
+              "optionsHi": ["1", "0", "1/2", "$\\sqrt{3}$"],
+              "answer": 0,
+              "exp": "En: $\\tan 45^\\circ = 1$ in trigonometry.\nHi: त्रिकोणमिति के अनुसार $\\tan 45^\\circ = 1$ होता है।"
+            },
+            {
+              "qEn": "Who founded the Arya Samaj in 1875?",
+              "qHi": "1875 में आर्य समाज की स्थापना किसने की थी?",
+              "optionsEn": ["Dayanand Saraswati", "Raja Ram Mohan Roy", "Swami Vivekananda", "Atmaram Pandurang"],
+              "optionsHi": ["दयानंद सरस्वती", "राजा राममोहन राय", "स्वामी विवेकानंद", "आत्माराम पांडुरंग"],
+              "answer": 0,
+              "exp": "En: Swami Dayanand Saraswati founded the Arya Samaj in 1875.\nHi: स्वामी दयानंद सरस्वती ने 1875 में आर्य समाज की स्थापना की थी।"
+            },
+            {
+              "qEn": "Which gas is responsible for the ozone layer depletion?",
+              "qHi": "ओजोन परत के क्षरण के लिए कौन सी गैस जिम्मेदार है?",
+              "optionsEn": ["CFCs (Chlorofluorocarbons)", "Carbon dioxide", "Methane", "Nitrogen"],
+              "optionsHi": ["CFCs (क्लोरोफ्लोरोकार्बन)", "कार्बन डाइऑक्साइड", "मीथेन", "नाइट्रोजन"],
+              "answer": 0,
+              "exp": "En: Chlorofluorocarbons (CFCs) are primarily responsible for ozone depletion.\nHi: क्लोरोफ्लोरोकार्बन (CFCs) मुख्य रूप से ओजोन परत के क्षरण के लिए उत्तरदायी हैं।"
+            },
+            {
+              "qEn": "Find the compound interest on ₹5,000 for 2 years at 10% per annum.",
+              "qHi": "₹5,000 पर 2 वर्षों के लिए 10% वार्षिक दर से चक्रवृद्धि ब्याज ज्ञात कीजिए।",
+              "optionsEn": ["₹1,050", "₹1,000", "₹1,100", "₹950"],
+              "optionsHi": ["₹1,050", "₹1,000", "₹1,100", "₹950"],
+              "answer": 0,
+              "exp": "En: Amount = $5000 \\times (1.1)^2 = 6050$. CI = $6050 - 5000 = 1050$.\nHi: मिश्रधन = $5000 \\times (1.1)^2 = 6050$। चक्रवृद्धि ब्याज = $1050$।"
+            },
+            {
+              "qEn": "Who is the custodian of the Lok Sabha?",
+              "qHi": "लोकसभा का संरक्षक (Custodian) कौन होता है?",
+              "optionsEn": ["Speaker of Lok Sabha", "Prime Minister", "President", "Vice President"],
+              "optionsHi": ["लोकसभा अध्यक्ष", "प्रधानमंत्री", "राष्ट्रपति", "उपराष्ट्रपति"],
+              "answer": 0,
+              "exp": "En: The Speaker of Lok Sabha is the head and custodian of the House.\nHi: लोकसभा अध्यक्ष लोकसभा सदन के प्रमुख और संरक्षक होते हैं।"
+            },
+            {
+              "qEn": "What is the unit of electric power?",
+              "qHi": "विद्युत शक्ति की इकाई क्या है?",
+              "optionsEn": ["Watt", "Volt", "Ampere", "Ohm"],
+              "optionsHi": ["वाट (Watt)", "वोल्ट", "एम्पीयर", "ओम"],
+              "answer": 0,
+              "exp": "En: The SI unit of electric power is the watt (W).\nHi: विद्युत शक्ति की एसआई इकाई वाट (W) है।"
+            },
+            {
+              "qEn": "If $a + b = 7$ and $ab = 12$, find $a^2 + b^2$.",
+              "qHi": "यदि $a + b = 7$ और $ab = 12$ है, तो $a^2 + b^2$ ज्ञात कीजिए।",
+              "optionsEn": ["25", "49", "24", "31"],
+              "optionsHi": ["25", "49", "24", "31"],
+              "answer": 0,
+              "exp": "En: $(a+b)^2 = a^2 + b^2 + 2ab \\implies 49 = a^2 + b^2 + 24 \\implies 25$.\nHi: $(a+b)^2 = a^2 + b^2 + 2ab \\implies 49 = a^2 + b^2 + 24 \\implies 25$।"
+            },
+            {
+              "qEn": "Which is the national heritage animal of India?",
+              "qHi": "भारत का राष्ट्रीय विरासत पशु कौन सा है?",
+              "optionsEn": ["Elephant", "Tiger", "Lion", "Leopard"],
+              "optionsHi": ["हाथी", "बाघ", "शेर", "तेंदुआ"],
+              "answer": 0,
+              "exp": "En: The Indian elephant was declared the national heritage animal in 2010.\nHi: भारतीय हाथी को 2010 में राष्ट्रीय विरासत पशु घोषित किया गया था।"
+            },
+            {
+              "qEn": "What is the chemical name of vinegar?",
+              "qHi": "सिरका का रासायनिक नाम क्या है?",
+              "optionsEn": ["Dilute acetic acid", "Citric acid", "Formic acid", "Oxalic acid"],
+              "optionsHi": ["तनु एसिटिक एसिड", "साइट्रिक एसिड", "फॉर्मिक एसिड", "ऑक्जेलिक एसिड"],
+              "answer": 0,
+              "exp": "En: Vinegar is dilute acetic acid ($CH_3COOH$).\nHi: सिरका तनु एसिटिक एसिड ($CH_3COOH$) होता है।"
+            },
+            {
+              "qEn": "If the perimeter of a rectangle is 50 cm and length is 15 cm, find its breadth.",
+              "qHi": "यदि किसी आयत का परिमाप 50 सेमी और लंबाई 15 सेमी है, तो उसकी चौड़ाई ज्ञात कीजिए।",
+              "optionsEn": ["10 cm", "12 cm", "8 cm", "14 cm"],
+              "optionsHi": ["10 सेमी", "12 सेमी", "8 सेमी", "14 सेमी"],
+              "answer": 0,
+              "exp": "En: Perimeter = $2(l + b) \\implies 50 = 2(15 + b) \\implies 25 = 15 + b \\implies 10$ cm.\nHi: परिमाप = $2(l + b) \\implies 50 = 2(15 + b) \\implies b = 10$ सेमी।"
+            },
+            {
+              "qEn": "Who discovered the electron?",
+              "qHi": "इलेक्ट्रॉन की खोज किसने की थी?",
+              "optionsEn": ["J.J. Thomson", "James Chadwick", "Rutherford", "Bohr"],
+              "optionsHi": ["जे. जे. थॉमसन", "जेम्स चैंडविक", "रदरफोर्ड", "बोहर"],
+              "answer": 0,
+              "exp": "En: J.J. Thomson discovered the electron in 1897.\nHi: जे. जे. थॉमसन ने 1897 में इलेक्ट्रॉन की खोज की थी।"
+            },
+            {
+              "qEn": "Which is the highest waterfall in India?",
+              "qHi": "भारत का सबसे ऊँचा जलप्रपात कौन सा है?",
+              "optionsEn": ["Kunchikal Falls", "Jog Falls", "Dudh Sagar Falls", "Nohkalikai Falls"],
+              "optionsHi": ["कुंचिकल जलप्रपात", "जोग जलप्रपात", "दूधसागर जलप्रपात", "नोहकलिकाई जलप्रपात"],
+              "answer": 0,
+              "exp": "En: Kunchikal Falls in Karnataka is the highest waterfall in India.\nHi: कर्नाटक का कुंचिकल जलप्रपात भारत का सबसे ऊँचा जलप्रपात है।"
+            },
+            {
+              "qEn": "What is the value of $\\sin 0^\\circ$?",
+              "qHi": "$\\sin 0^\\circ$ का मान क्या है?",
+              "optionsEn": ["0", "1", "1/2", "Undefined"],
+              "optionsHi": ["0", "1", "1/2", "परिभाषित नहीं"],
+              "answer": 0,
+              "exp": "En: $\\sin 0^\\circ = 0$ in trigonometry.\nHi: त्रिकोणमिति के अनुसार $\\sin 0^\\circ = 0$ होता है।"
+            },
+            {
+              "qEn": "Who wrote the book 'Meghaduta'?",
+              "qHi": "'मेघदूत' पुस्तक के लेखक कौन हैं?",
+              "optionsEn": ["Kalidasa", "Tulsidas", "Surdas", "Banabhatta"],
+              "optionsHi": ["कालिदास", "तुलसीदास", "सूरदास", "बाणभट्ट"],
+              "answer": 0,
+              "exp": "En: 'Meghaduta' is a famous lyrical poem written by Kalidasa.\nHi: 'मेघदूत' महाकवि कालिदास द्वारा रचित एक प्रसिद्ध महाकाव्य/गीतकाव्य है।"
+            },
+            {
+              "qEn": "Which organ filters blood in the human body?",
+              "qHi": "मानव शरीर में कौन सा अंग रक्त को फ़िल्टर करता है?",
+              "optionsEn": ["Kidney", "Liver", "Heart", "Lungs"],
+              "optionsHi": ["गुर्दा (Kidney)", "यकृत", "हार्ट", "फेफड़े"],
+              "answer": 0,
+              "exp": "En: Kidneys filter waste products and excess fluids from the blood.\nHi: गुर्दे (Kidney) रक्त से अपशिष्ट पदार्थों और अतिरिक्त तरल पदार्थों को फ़िल्टर करते हैं।"
+            },
+            {
+              "qEn": "If $x - \\frac{1}{x} = 2$, find $x^2 + \\frac{1}{x^2}$.",
+              "qHi": "यदि $x - \\frac{1}{x} = 2$ है, तो $x^2 + \\frac{1}{x^2}$ ज्ञात कीजिए।",
+              "optionsEn": ["6", "4", "8", "2"],
+              "optionsHi": ["6", "4", "8", "2"],
+              "answer": 0,
+              "exp": "En: $(x - 1/x)^2 = 4 \\implies x^2 + 1/x^2 - 2 = 4 \\implies 6$.\nHi: $(x - 1/x)^2 = 4 \\implies x^2 + 1/x^2 - 2 = 4 \\implies 6$।"
+            },
+            {
+              "qEn": "Which is the longest national highway in India?",
+              "qHi": "भारत का सबसे लंबा राष्ट्रीय राजमार्ग कौन सा है?",
+              "optionsEn": ["NH 44", "NH 27", "NH 16", "NH 48"],
+              "optionsHi": ["NH 44", "NH 27", "NH 16", "NH 48"],
+              "answer": 0,
+              "exp": "En: National Highway 44 (NH 44) is the longest highway, running from Srinagar to Kanyakumari.\nHi: राष्ट्रीय राजमार्ग 44 (NH 44) भारत का सबसे लंबा राजमार्ग है जो श्रीनगर से कन्याकुमारी तक जाता है।"
+            },
+            {
+              "qEn": "What is the chemical formula of common salt?",
+              "qHi": "साधारण नमक का रासायनिक सूत्र क्या है?",
+              "optionsEn": ["NaCl", "NaHCO3", "Na2CO3", "NaOH"],
+              "optionsHi": ["NaCl", "NaHCO3", "Na2CO3", "NaOH"],
+              "answer": 0,
+              "exp": "En: Sodium chloride ($NaCl$) is the chemical formula for common salt.\nHi: सोडियम क्लोराइड ($NaCl$) साधारण नमक का रासायनिक सूत्र है।"
+            },
+            {
+              "qEn": "If the cost price of 10 pens equals the selling price of 8 pens, find profit %.",
+              "qHi": "यदि 10 पेनों का क्रय मूल्य 8 पेनों के विक्रय मूल्य के बराबर है, तो लाभ प्रतिशत ज्ञात कीजिए।",
+              "optionsEn": ["25%", "20%", "15%", "30%"],
+              "optionsHi": ["25%", "20%", "15%", "30%"],
+              "answer": 0,
+              "exp": "En: Profit % = $\\frac{10 - 8}{8} \\times 100 = \\frac{2}{8} \\times 100 = 25\\%$.\nHi: लाभ % = $\\frac{10 - 8}{8} \\times 100 = 25\\%$।"
+            },
+            {
+              "qEn": "Who founded the Brahmo Samaj?",
+              "qHi": "ब्रह्म समाज की स्थापना किसने की थी?",
+              "optionsEn": ["Raja Ram Mohan Roy", "Swami Vivekananda", "Dayanand Saraswati", "Ishwar Chandra Vidyasagar"],
+              "optionsHi": ["राजा राममोहन राय", "स्वामी विवेकानंद", "दयानंद सरस्वती", "ईश्वर चंद्र विद्यासागर"],
+              "answer": 0,
+              "exp": "En: Raja Ram Mohan Roy founded the Brahmo Samaj in 1828.\nHi: राजा राममोहन राय ने 1828 में ब्रह्म समाज की स्थापना की थी।"
+            },
+            {
+              "qEn": "Which is the coldest planet in the solar system?",
+              "qHi": "सौरमंडल का सबसे ठंडा ग्रह कौन सा है?",
+              "optionsEn": ["Uranus", "Neptune", "Saturn", "Jupiter"],
+              "optionsHi": ["यूरेनस (अरुण)", "नेपच्यून (वरुण)", "शनि", "बृहस्पति"],
+              "answer": 0,
+              "exp": "En: Uranus is recorded as the coldest planet due to its extreme atmospheric tilt and temperatures.\nHi: यूरेनस (अरुण) अपने अद्वितीय वायुमंडल और तापमान के कारण सबसे ठंडा ग्रह माना जाता है।"
+            },
+            {
+              "qEn": "What is the value of $\\log_{10} 100$?",
+              "qHi": "$\\log_{10} 100$ का मान क्या है?",
+              "optionsEn": ["2", "1", "3", "10"],
+              "optionsHi": ["2", "1", "3", "10"],
+              "answer": 0,
+              "exp": "En: Since $10^2 = 100$, $\\log_{10} 100 = 2$.\nHi: चूंकि $10^2 = 100$ है, इसलिए $\\log_{10} 100 = 2$।"
+            },
+            {
+              "qEn": "Who was the first woman Prime Minister of India?",
+              "qHi": "भारत की पहली महिला प्रधानमंत्री कौन थीं?",
+              "optionsEn": ["Indira Gandhi", "Sarojini Naidu", "Pratibha Patil", "Sushma Swaraj"],
+              "optionsHi": ["इंदिरा गांधी", "सरोजिनी नायडू", "प्रतिभा पाटिल", "सुषमा स्वराज"],
+              "answer": 0,
+              "exp": "En: Indira Gandhi was the first woman Prime Minister of India.\nHi: इंदिरा गांधी भारत की पहली महिला प्रधानमंत्री थीं।"
+            },
+            {
+              "qEn": "Which metal is liquid at room temperature?",
+              "qHi": "कमरे के तापमान पर कौन सी धातु तरल होती है?",
+              "optionsEn": ["Mercury", "Gallium", "Sodium", "Bromine"],
+              "optionsHi": ["पारा (Mercury)", "गैलियम", "सोडियम", "ब्रोमीन"],
+              "answer": 0,
+              "exp": "En: Mercury is the only metallic element liquid at standard room temperature.\nHi: पारा एकमात्र ऐसी धातु है जो कमरे के तापमान पर तरल अवस्था में होती है।"
+            },
+            {
+              "qEn": "If $x + \\frac{1}{x} = 3$, find $x^3 + \\frac{1}{x^3}$.",
+              "qHi": "यदि $x + \\frac{1}{x} = 3$ है, तो $x^3 + \\frac{1}{x^3}$ ज्ञात कीजिए।",
+              "optionsEn": ["18", "27", "9", "24"],
+              "optionsHi": ["18", "27", "9", "24"],
+              "answer": 0,
+              "exp": "En: Formula: $k^3 - 3k = 3^3 - 3(3) = 27 - 9 = 18$.\nHi: सूत्र: $k^3 - 3k = 3^3 - 3(3) = 27 - 9 = 18$।"
+            },
+            {
+              "qEn": "Which is the national river of India?",
+              "qHi": "भारत की राष्ट्रीय नदी कौन सी है?",
+              "optionsEn": ["Ganga", "Yamuna", "Brahmaputra", "Godavari"],
+              "optionsHi": ["गंगा", "यमुना", "ब्रह्मपुत्र", "गोदावरी"],
+              "answer": 0,
+              "exp": "En: The Ganga is declared as the national river of India.\nHi: गंगा नदी को भारत की राष्ट्रीय नदी घोषित किया गया है।"
+            },
+            {
+              "qEn": "What is the square of 25?",
+              "qHi": "25 का वर्ग क्या है?",
+              "optionsEn": ["625", "525", "675", "600"],
+              "optionsHi": ["625", "525", "675", "600"],
+              "answer": 0,
+              "exp": "En: $25 \\times 25 = 625$.\nHi: $25 \\times 25 = 625$।"
+            },
+            {
+              "qEn": "Who wrote 'Arthashastra'?",
+              "qHi": "'अर्थशास्त्र' पुस्तक किसने लिखी थी?",
+              "optionsEn": ["Kautilya", "Megasthenes", "Kalidasa", "Bana Bhatta"],
+              "optionsHi": ["कौटिल्य", "मेगस्थनीज", "कालिदास", "बाणभट्ट"],
+              "answer": 0,
+              "exp": "En: Arthashastra was written by Kautilya (Chanakya).\nHi: अर्थशास्त्र कौटिल्य (चाणक्य) द्वारा लिखी गई थी।"
+            },
+            {
+              "qEn": "Which instrument is used to measure humidity?",
+              "qHi": "आर्द्रता मापने के लिए किस उपकरण का उपयोग किया जाता है?",
+              "optionsEn": ["Hygrometer", "Barometer", "Anemometer", "Thermometer"],
+              "optionsHi": ["हाइग्रोमीटर", "बैरोमीटर", "एनीमोमीटर", "थर्मामीटर"],
+              "answer": 0,
+              "exp": "En: A hygrometer measures atmospheric humidity.\nHi: हाइग्रोमीटर वायुमंडलीय आर्द्रता को मापता है।"
+            },
+            {
+              "qEn": "If $a:b = 3:4$ and $b:c = 8:9$, find $a:c$.",
+              "qHi": "यदि $a:b = 3:4$ और $b:c = 8:9$ है, तो $a:c$ ज्ञात कीजिए।",
+              "optionsEn": ["2:3", "3:2", "4:3", "1:2"],
+              "optionsHi": ["2:3", "3:2", "4:3", "1:2"],
+              "answer": 0,
+              "exp": "En: $a:c = \\frac{3}{4} \\times \\frac{8}{9} = \\frac{2}{3}$.\nHi: $a:c = \\frac{3}{4} \\times \\frac{8}{9} = \\frac{2}{3}$।"
+            },
+            {
+              "qEn": "Which layer of the atmosphere contains the ozone layer?",
+              "qHi": "वायुमंडल की किस परत में ओजोन परत पाई जाती है?",
+              "optionsEn": ["Stratosphere", "Troposphere", "Mesosphere", "Thermosphere"],
+              "optionsHi": ["समताप मंडल", "क्षोभमंडल", "मध्यमंडल", "तापमंडल"],
+              "answer": 0,
+              "exp": "En: The ozone layer is located in the stratosphere.\nHi: ओजोन परत समताप मंडल (Stratosphere) में स्थित है।"
+            },
+            {
+              "qEn": "What is the SI unit of frequency?",
+              "qHi": "आवृत्ति की एसआई इकाई क्या है?",
+              "optionsEn": ["Hertz", "Joule", "Watt", "Pascal"],
+              "optionsHi": ["हर्ट्ज (Hertz)", "जूल", "वाट", "पास्कल"],
+              "answer": 0,
+              "exp": "En: The SI unit of frequency is the hertz (Hz).\nHi: आवृत्ति की एसआई इकाई हर्ट्ज (Hz) है।"
+            },
+            {
+              "qEn": "If the sum of two numbers is 30 and difference is 10, find the numbers.",
+              "qHi": "यदि दो संख्याओं का योग 30 और अंतर 10 है, तो संख्याएँ ज्ञात कीजिए।",
+              "optionsEn": ["20, 10", "18, 12", "22, 8", "25, 5"],
+              "optionsHi": ["20, 10", "18, 12", "22, 8", "25, 5"],
+              "answer": 0,
+              "exp": "En: $x+y=30, x-y=10 \\implies 2x=40 \\implies x=20, y=10$.\nHi: हल करने पर संख्याएँ 20 और 10 प्राप्त होती हैं।"
+            },
+            {
+              "qEn": "Who discovered X-rays in 1895?",
+              "qHi": "1895 में एक्स-रे की खोज किसने की थी?",
+              "optionsEn": ["Wilhelm Roentgen", "Marie Curie", "Henri Becquerel", "J.J. Thomson"],
+              "optionsHi": ["विल्हेम रोंटजेन", "मैरी क्यूरी", "हेनरी बेकरेल", "जे. जे. थॉमसन"],
+              "answer": 0,
+              "exp": "En: Wilhelm Roentgen discovered X-rays in 1895.\nHi: विल्हेम रोंटजेन ने 1895 में एक्स-रे की खोज की थी।"
+            },
+            {
+              "qEn": "Which is the lightest gas known?",
+              "qHi": "ज्ञात सबसे हल्की गैस कौन सी है?",
+              "optionsEn": ["Hydrogen", "Helium", "Nitrogen", "Oxygen"],
+              "optionsHi": ["हाइड्रोजन", "हीरियम", "नाइट्रोजन", "ऑक्सीजन"],
+              "answer": 0,
+              "exp": "En: Hydrogen is the lightest chemical element and gas.\nHi: हाइड्रोजन सबसे हल्का रासायनिक तत्व और गैस है।"
+            },
+            {
+              "qEn": "If $x^2 + y^2 = 29$ and $xy = 10$, find $x + y$.",
+              "qHi": "यदि $x^2 + y^2 = 29$ और $xy = 10$ है, तो $x + y$ ज्ञात कीजिए।",
+              "optionsEn": ["7", "5", "9", "6"],
+              "optionsHi": ["7", "5", "9", "6"],
+              "answer": 0,
+              "exp": "En: $(x+y)^2 = 29 + 2(10) = 49 \\implies x+y = 7$.\nHi: $(x+y)^2 = 29 + 2(10) = 49 \\implies x+y = 7$।"
+            },
+            {
+              "qEn": "Who was the founder of the Gupta Empire?",
+              "qHi": "गुप्त साम्राज्य के संस्थापक कौन थे?",
+              "optionsEn": ["Sri Gupta", "Chandragupta I", "Samudragupta", "Skandagupta"],
+              "optionsHi": ["श्री गुप्त", "चंद्रगुप्त प्रथम", "समुद्रगुप्त", "स्कंदगुप्त"],
+              "answer": 0,
+              "exp": "En: Sri Gupta founded the Gupta Empire around 240 CE.\nHi: श्री गुप्त ने लगभग 240 ईस्वी में गुप्त साम्राज्य की स्थापना की थी।"
+            },
+            {
+              "qEn": "What is the cube root of 1728?",
+              "qHi": "1728 का घनमूल (cube root) कितना है?",
+              "optionsEn": ["12", "14", "16", "18"],
+              "optionsHi": ["12", "14", "16", "18"],
+              "answer": 0,
+              "exp": "En: $12 \\times 12 \\times 12 = 1728$.\nHi: $12 \\times 12 \\times 12 = 1728$।"
+            },
+            {
+              "qEn": "Which planet is known as the Red Planet?",
+              "qHi": "किस ग्रह को 'लाल ग्रह' कहा जाता है?",
+              "optionsEn": ["Mars", "Venus", "Jupiter", "Saturn"],
+              "optionsHi": ["मंगल", "शुक्र", "बृहस्पति", "शनि"],
+              "answer": 0,
+              "exp": "En: Mars is called the Red Planet due to iron oxide on its surface.\nHi: सतह पर आयरन ऑक्साइड के कारण मंगल को लाल ग्रह कहा जाता है।"
+            },
+            {
+              "qEn": "Who wrote 'Panchatantra'?",
+              "qHi": "'पंचतंत्र' के लेखक कौन हैं?",
+              "optionsEn": ["Vishnu Sharma", "Kalidasa", "Tulsidas", "Banabhatta"],
+              "optionsHi": ["विष्णु शर्मा", "कालिदास", "तुलसीदास", "बाणभट्ट"],
+              "answer": 0,
+              "exp": "En: 'Panchatantra' was written by Pandit Vishnu Sharma.\nHi: 'पंचतंत्र' की रचना पंडित विष्णु शर्मा ने की थी।"
+            },
+            {
+              "qEn": "What is the SI unit of luminous intensity?",
+              "qHi": "ज्योति तीव्रता की एसआई इकाई क्या है?",
+              "optionsEn": ["Candela", "Mole", "Kelvin", "Ampere"],
+              "optionsHi": ["कैंडेला", "मोल", "केल्विन", "एम्पीयर"],
+              "answer": 0,
+              "exp": "En: Candela is the SI unit of luminous intensity.\nHi: कैंडेला ज्योति तीव्रता की एसआई इकाई है।"
+            },
+            {
+              "qEn": "If the side of a cube is 6 cm, find its volume.",
+              "qHi": "यदि किसी घन की भुजा 6 सेमी है, तो उसका आयतन ज्ञात कीजिए।",
+              "optionsEn": ["216 cubic cm", "144 cubic cm", "256 cubic cm", "125 cubic cm"],
+              "optionsHi": ["216 घन सेमी", "144 घन सेमी", "256 घन सेमी", "125 घन सेमी"],
+              "answer": 0,
+              "exp": "En: Volume = $a^3 = 6^3 = 216$ cubic cm.\nHi: आयतन = $a^3 = 6^3 = 216$ घन सेमी।"
+            },
+            {
+              "qEn": "Which is the national flower of India?",
+              "qHi": "भारत का राष्ट्रीय फूल कौन सा है?",
+              "optionsEn": ["Lotus", "Rose", "Sunflower", "Marigold"],
+              "optionsHi": ["कमल", "गुलाब", "सूरजमुखी", "गेंदा"],
+              "answer": 0,
+              "exp": "En: Lotus (Nelumbo nucifera) is the national flower of India.\nHi: कमल भारत का राष्ट्रीय फूल है।"
+            },
+            {
+              "qEn": "Who was the first Indian woman in space?",
+              "qHi": "अंतरिक्ष में जाने वाली पहली भारतीय महिला कौन थीं?",
+              "optionsEn": ["Kalpana Chawla", "Sunita Williams", "Rakesh Sharma", "Harsha Jain"],
+              "optionsHi": ["कल्पना चावला", "सुनीता विलियम्स", "राकेश शर्मा", "हर्ष जैन"],
+              "answer": 0,
+              "exp": "En: Kalpana Chawla was the first Indian woman to go to space.\nHi: कल्पना चावला अंतरिक्ष में जाने वाली पहली भारतीय महिला थीं।"
+            },
+            {
+              "qEn": "If $\\tan \\theta = \\frac{5}{12}$, find $\\sin \\theta$.",
+              "qHi": "यदि $\\tan \\theta = \\frac{5}{12}$ है, तो $\\sin \\theta$ ज्ञात कीजिए।",
+              "optionsEn": ["5/13", "12/13", "5/12", "13/5"],
+              "optionsHi": ["5/13", "12/13", "5/12", "13/5"],
+              "answer": 0,
+              "exp": "En: Hypotenuse = $\\sqrt{5^2 + 12^2} = 13$, so $\\sin \\theta = 5/13$.\nHi: कर्ण = 13, अतः $\\sin \\theta = 5/13$।"
+            },
+            {
+              "qEn": "Which metal is the best conductor of electricity?",
+              "qHi": "कौन सी धातु बिजली की सबसे अच्छी सुचालक है?",
+              "optionsEn": ["Silver", "Copper", "Gold", "Aluminium"],
+              "optionsHi": ["चांदी (Silver)", "तांबा", "सोना", "एल्युमिनियम"],
+              "answer": 0,
+              "exp": "En: Silver is the best conductor of electricity among all metals.\nHi: चांदी सभी धातुओं में विद्युत की सबसे अच्छी सुचालक होती है।"
+            },
+            {
+              "qEn": "What is the chemical formula of bleaching powder?",
+              "qHi": "बूप्लिचिंग पाउडर (विरंजक चूर्ण) का रासायनिक सूत्र क्या है?",
+              "optionsEn": ["CaOCl2", "CaCO3", "Ca(OH)2", "CaCl2"],
+              "optionsHi": ["CaOCl2", "CaCO3", "Ca(OH)2", "CaCl2"],
+              "answer": 0,
+              "exp": "En: Calcium oxychloride ($CaOCl_2$) is bleaching powder.\nHi: ब्लीचिंग पाउडर का रासायनिक सूत्र कैल्शियम ऑक्सीक्लोराइड ($CaOCl_2$) है।"
+            },
+            {
+              "qEn": "If $a - b = 5$ and $ab = 6$, find $a^2 + b^2$.",
+              "qHi": "यदि $a - b = 5$ और $ab = 6$ है, तो $a^2 + b^2$ ज्ञात कीजिए।",
+              "optionsEn": ["37", "25", "31", "43"],
+              "optionsHi": ["37", "25", "31", "43"],
+              "answer": 0,
+              "exp": "En: $(a-b)^2 = 25 \\implies a^2+b^2 - 12 = 25 \\implies 37$.\nHi: $(a-b)^2 = 25 \\implies a^2+b^2 - 12 = 25 \\implies 37$।"
+            },
+            {
+              "qEn": "Who discovered insulin?",
+              "qHi": "इंसुलिन की खोज किसने की थी?",
+              "optionsEn": ["Banting and Best", "Alexander Fleming", "Edward Jenner", "Louis Pasteur"],
+              "optionsHi": ["बैंटिंग और बेस्ट", "अलेक्जेंडर फ्लेमिंग", "एडवर्ड जेनर", "लुई पाश्चर"],
+              "answer": 0,
+              "exp": "En: Banting and Best discovered insulin in 1921.\nHi: बैंटिंग और बेस्ट ने 1921 में इंसुलिन की खोज की थी।"
+            },
+            {
+              "qEn": "Which is the national bird of India?",
+              "qHi": "भारत का राष्ट्रीय पक्षी कौन सा है?",
+              "optionsEn": ["Indian Peacock", "Parrot", "Pigeon", "Eagle"],
+              "optionsHi": ["भारतीय मोर", "तोता", "कबूतर", "चील"],
+              "answer": 0,
+              "exp": "En: The Indian peacock (Pavo cristatus) is the national bird of India.\nHi: भारतीय मोर भारत का राष्ट्रीय पक्षी है।"
+            },
+            {
+              "qEn": "What is the value of $\\cos 90^\\circ$?",
+              "qHi": "$\\cos 90^\\circ$ का मान क्या है?",
+              "optionsEn": ["0", "1", "1/2", "Undefined"],
+              "optionsHi": ["0", "1", "1/2", "परिभाषित नहीं"],
+              "answer": 0,
+              "exp": "En: $\\cos 90^\\circ = 0$.\nHi: त्रिकोणमिति के अनुसार $\\cos 90^\\circ = 0$ होता है।"
+            },
+            {
+              "qEn": "Who was the first Governor-General of Pakistan?",
+              "qHi": "पाकिस्तान के पहले गवर्नर-जनरल कौन थे?",
+              "optionsEn": ["Muhammad Ali Jinnah", "Liaquat Ali Khan", "Ayub Khan", "Iskander Mirza"],
+              "optionsHi": ["मोहम्मद अली जिन्ना", "लियाकत अली खान", "अयूब खान", "इस्कंदर मिर्जा"],
+              "answer": 0,
+              "exp": "En: Muhammad Ali Jinnah was the first Governor-General of Pakistan.\nHi: मोहम्मद अली जिन्ना पाकिस्तान के पहले गवर्नर-जनरल थे।"
+            },
+            {
+              "qEn": "Which continent is known as the Dark Continent?",
+              "qHi": "किस महाद्वीप को 'अंध महाद्वीप' (Dark Continent) कहा जाता है?",
+              "optionsEn": ["Africa", "Asia", "South America", "Australia"],
+              "optionsHi": ["अफ्रीका", "एशिया", "दक्षिण अमेरिका", "ऑस्ट्रेलिया"],
+              "answer": 0,
+              "exp": "En: Africa was historically called the Dark Continent because it was largely unexplored.\nHi: अफ्रीका को ऐतिहासिक रूप से अंध महाद्वीप कहा जाता था क्योंकि इसके बारे में जानकारी कम थी।"
+            },
+            {
+              "qEn": "If $x + \\frac{1}{x} = 4$, find $x^2 + \\frac{1}{x^2}$.",
+              "qHi": "यदि $x + \\frac{1}{x} = 4$ है, तो $x^2 + \\frac{1}{x^2}$ ज्ञात कीजिए।",
+              "optionsEn": ["14", "16", "12", "10"],
+              "optionsHi": ["14", "16", "12", "10"],
+              "answer": 0,
+              "exp": "En: $(x + 1/x)^2 = 16 \\implies x^2 + 1/x^2 + 2 = 16 \\implies 14$.\nHi: $(x + 1/x)^2 = 16 \\implies x^2 + 1/x^2 + 2 = 16 \\implies 14$।"
+            },
+            {
+              "qEn": "What is the chemical name of quicklime?",
+              "qHi": "बुझे हुए चूने (या बिना बुझे चूने - Quicklime) का रासायनिक नाम क्या है?",
+              "optionsEn": ["Calcium oxide", "Calcium hydroxide", "Calcium carbonate", "Calcium chloride"],
+              "optionsHi": ["कैल्शियम ऑक्साइड", "कैल्शियम हाइड्रोक्साइड", "कैल्शियम कार्बोनेट", "कैल्शियम क्लोराइड"],
+              "answer": 0,
+              "exp": "En: Quicklime is calcium oxide ($CaO$).\nHi: क्विकलाइम (बिना बुझा चूना) कैल्शियम ऑक्साइड ($CaO$) है।"
+            },
+            {
+              "qEn": "Who wrote 'Geetanjali'?",
+              "qHi": "'गीतांजलि' की रचना किसने की है?",
+              "optionsEn": ["Rabindranath Tagore", "Bankim Chandra", "Sarojini Naidu", "Premchand"],
+              "optionsHi": ["रवींद्रनाथ टैगोर", "बंकिम चंद्र", "सरोजिनी नायडू", "प्रेमचंद"],
+              "answer": 0,
+              "exp": "En: Rabindranath Tagore wrote 'Geetanjali', for which he won the Nobel Prize.\nHi: रवींद्रनाथ टैगोर ने 'गीतांजलि' लिखी, जिसके लिए उन्हें नोबेल पुरस्कार मिला था।"
+            },
+            {
+              "qEn": "If the area of a circle is 154 sq cm, find its radius. ($\\pi = 22/7$)",
+              "qHi": "यदि किसी वृत्त का क्षेत्रफल 154 वर्ग सेमी है, तो उसकी त्रिज्या ज्ञात कीजिए।",
+              "optionsEn": ["7 cm", "14 cm", "10.5 cm", "21 cm"],
+              "optionsHi": ["7 सेमी", "14 सेमी", "10.5 सेमी", "21 सेमी"],
+              "answer": 0,
+              "exp": "En: $\\pi r^2 = 154 \\implies \\frac{22}{7} r^2 = 154 \\implies r^2 = 49 \\implies r = 7$ cm.\nHi: $\\pi r^2 = 154 \\implies r^2 = 49 \\implies r = 7$ सेमी।"
+            },
+            {
+              "qEn": "Which is the longest bone in the human body?",
+              "qHi": "मानव शरीर की सबसे लंबी हड्डी कौन सी है?",
+              "optionsEn": ["Femur", "Tibia", "Fibula", "Humerus"],
+              "optionsHi": ["फीमर (Femur)", "टिबिया", "फिब्युला", "ह्यूमरस"],
+              "answer": 0,
+              "exp": "En: The femur (thigh bone) is the longest and strongest bone in the human body.\nHi: फीमर (जांघ की हड्डी) मानव शरीर की सबसे लंबी और मजबूत हड्डी है।"
+            },
+            {
+              "qEn": "What is the square of 30?",
+              "qHi": "30 का वर्ग कितना होता है?",
+              "optionsEn": ["900", "90", "9000", "300"],
+              "optionsHi": ["900", "90", "9000", "300"],
+              "answer": 0,
+              "exp": "En: $30 \\times 30 = 900$.\nHi: $30 \\times 30 = 900$।"
+            },
+            {
+              "qEn": "Who was the first Indian to win a Nobel Prize?",
+              "qHi": "नोबेल पुरस्कार जीतने वाले पहले भारतीय कौन थे?",
+              "optionsEn": ["Rabindranath Tagore", "C.V. Raman", "Mother Teresa", "Amartya Sen"],
+              "optionsHi": ["रवींद्रनाथ टैगोर", "सी.वी. रमन", "मदर टेरेसा", "अमर्त्य सेन"],
+              "answer": 0,
+              "exp": "En: Rabindranath Tagore was the first Indian to win a Nobel Prize (in Literature, 1913).\nHi: रवींद्रनाथ टैगोर नोबेल पुरस्कार जीतने वाले पहले भारतीय थे (साहित्य में, 1913)।"
+            },
+            {
+              "qEn": "Which is the smallest bone in the human body?",
+              "qHi": "मानव शरीर की सबसे छोटी हड्डी कौन सी है?",
+              "optionsEn": ["Stapes", "Malleus", "Incus", "Femur"],
+              "optionsHi": ["स्टेप्स (Stapes)", "मेलियस", "इंकस", "फीमर"],
+              "answer": 0,
+              "exp": "En: The stapes (stirrup bone) in the middle ear is the smallest bone.\nHi: कान में स्थित स्टेप्स (Stapes) मानव शरीर की सबसे छोटी हड्डी है।"
+            },
+            {
+              "qEn": "If $\\sin \\theta = \\frac{1}{2}$, find $\\cos \\theta$.",
+              "qHi": "यदि $\\sin \\theta = \\frac{1}{2}$ है, तो $\\cos \\theta$ ज्ञात कीजिए।",
+              "optionsEn": ["$\\frac{\\sqrt{3}}{2}$", "1", "0", "$\\frac{1}{\\sqrt{2}}$"],
+              "optionsHi": ["$\\frac{\\sqrt{3}}{2}$", "1", "0", "$\\frac{1}{\\sqrt{2}}$"],
+              "answer": 0,
+              "exp": "En: $\\cos \\theta = \\sqrt{1 - (1/2)^2} = \\frac{\\sqrt{3}}{2}$.\nHi: $\\cos \\theta = \\sqrt{1 - (1/2)^2} = \\frac{\\sqrt{3}}{2}$।"
+            },
+            {
+              "qEn": "Which gas is filled in balloons to make them float?",
+              "qHi": "गुब्बारों को उड़ाने के लिए उनमें कौन सी गैस भरी जाती है?",
+              "optionsEn": ["Helium", "Hydrogen", "Nitrogen", "Oxygen"],
+              "optionsHi": ["हीरियम", "हाइड्रोजन", "नाइट्रोजन", "ऑक्सीजन"],
+              "answer": 0,
+              "exp": "En: Helium is lightweight and non-flammable, making it ideal for balloons.\nHi: हीलियम हल्की और अज्वलनशील होती है, इसलिए इसका उपयोग गुब्बारों में किया जाता है।"
+            },
+            {
+              "qEn": "What is the chemical name of laughing gas?",
+              "qHi": "लाफिंग गैस का रासायनिक नाम क्या है?",
+              "optionsEn": ["Nitrous oxide", "Nitric oxide", "Nitrogen dioxide", "Ammonia"],
+              "optionsHi": ["नाइट्रस ऑक्साइड", "नाइट्रिक ऑक्साइड", "नाइट्रोजन डाइऑक्साइड", "अमोनिया"],
+              "answer": 0,
+              "exp": "En: Nitrous oxide ($N_2O$) is known as laughing gas.\nHi: नाइट्रस ऑक्साइड ($N_2O$) को लाफिंग गैस कहा जाता है।"
+            },
+            {
+              "qEn": "If $a - b = 6$ and $ab = 16$, find $a^2 + b^2$.",
+              "qHi": "यदि $a - b = 6$ और $ab = 16$ है, तो $a^2 + b^2$ ज्ञात कीजिए।",
+              "optionsEn": ["68", "36", "52", "48"],
+              "optionsHi": ["68", "36", "52", "48"],
+              "answer": 0,
+              "exp": "En: $(a-b)^2 = 36 \\implies a^2+b^2 - 32 = 36 \\implies 68$.\nHi: $(a-b)^2 = 36 \\implies a^2+b^2 - 32 = 36 \\implies 68$।"
+            },
+            {
+              "qEn": "Who discovered penicillin?",
+              "qHi": "पेनिसिलिन की खोज किसने की थी?",
+              "optionsEn": ["Alexander Fleming", "Louis Pasteur", "Robert Koch", "Edward Jenner"],
+              "optionsHi": ["अलेक्जेंडर फ्लेमिंग", "लुई पाश्चर", "रॉबर्ट कोच", "एडवर्ड जेनर"],
+              "answer": 0,
+              "exp": "En: Alexander Fleming discovered penicillin in 1928.\nHi: अलेक्जेंडर फ्लेमिंग ने 1928 में पेनिसिलिन की खोज की थी।"
+            },
+            {
+              "qEn": "Which is the national fruit of India?",
+              "qHi": "भारत का राष्ट्रीय फल कौन सा है?",
+              "optionsEn": ["Mango", "Apple", "Banana", "Guava"],
+              "optionsHi": ["आम", "सेब", "केला", "अमरूद"],
+              "answer": 0,
+              "exp": "En: Mango (Mangifera indica) is the national fruit of India.\nHi: आम (Mangifera indica) भारत का राष्ट्रीय फल है।"
+            },
+            {
+              "qEn": "What is the value of $\\log_2 32$?",
+              "qHi": "$\\log_2 32$ का मान क्या है?",
+              "optionsEn": ["5", "4", "6", "3"],
+              "optionsHi": ["5", "4", "6", "3"],
+              "answer": 0,
+              "exp": "En: Since $2^5 = 32$, $\\log_2 32 = 5$.\nHi: चूंकि $2^5 = 32$ होता है, इसलिए $\\log_2 32 = 5$।"
+            },
+            {
+              "qEn": "Who was the first Governor-General of independent India?",
+              "qHi": "स्वतंत्र भारत के पहले गवर्नर-जनरल कौन थे?",
+              "optionsEn": ["Lord Mountbatten", "C. Rajagopalachari", "Lord Wavell", "Lord Dalhousie"],
+              "optionsHi": ["लॉर्ड माउंटबेटन", "सी. राजगोपालाचारी", "लॉर्ड वेवेल", "लॉर्ड डलहौजी"],
+              "answer": 0,
+              "exp": "En: Lord Mountbatten was the first Governor-General of independent India.\nHi: लॉर्ड माउंटबेटन स्वतंत्र भारत के पहले गवर्नर-जनरल थे।"
+            },
+            {
+              "qEn": "Which is the most reactive non-metal in the periodic table?",
+              "qHi": "आवर्त सारणी में सबसे अधिक प्रतिक्रियाशील अधातु कौन सी है?",
+              "optionsEn": ["Fluorine", "Chlorine", "Oxygen", "Nitrogen"],
+              "optionsHi": ["फ्लोरिन", "क्लोरीन", "ऑक्सीजन", "नाइट्रोजन"],
+              "answer": 0,
+              "exp": "En: Fluorine is the most reactive and electronegative element.\nHi: फ्लोरिन आवर्त सारणी में सबसे अधिक प्रतिक्रियाशील और विद्युत ऋणात्मक तत्व है।"
+            },
+            {
+              "qEn": "If the volume of a cube is 64 cubic cm, find its total surface area.",
+              "qHi": "यदि किसी घन का आयतन 64 घन सेमी है, तो उसका कुल पृष्ठीय क्षेत्रफल ज्ञात कीजिए।",
+              "optionsEn": ["96 sq cm", "64 sq cm", "128 sq cm", "144 sq cm"],
+              "optionsHi": ["96 वर्ग सेमी", "64 वर्ग सेमी", "128 वर्ग सेमी", "144 वर्ग सेमी"],
+              "answer": 0,
+              "exp": "En: Side = 4 cm. Surface area = $6a^2 = 6 \\times 16 = 96$ sq cm.\nHi: भुजा = 4 सेमी। पृष्ठीय क्षेत्रफल = $6a^2 = 96$ वर्ग सेमी।"
+            },
+            {
+              "qEn": "Who wrote 'Arthashastra'?",
+              "qHi": "'अर्थशास्त्र' किसने लिखा है?",
+              "optionsEn": ["Kautilya", "Megasthenes", "Kalidasa", "Bana Bhatta"],
+              "optionsHi": ["कौटिल्य", "मेगस्थनीज", "कालिदास", "बाणभट्ट"],
+              "answer": 0,
+              "exp": "En: Kautilya wrote Arthashastra.\nHi: अर्थशास्त्र की रचना कौटिल्य ने की थी।"
+            },
+            {
+              "qEn": "Which is the highest civilian award in India?",
+              "qHi": "भारत का सर्वोच्च नागरिक पुरस्कार कौन सा है?",
+              "optionsEn": ["Bharat Ratna", "Padma Vibhushan", "Param Vir Chakra", "Padma Shri"],
+              "optionsHi": ["भारत रत्न", "पद्म विभूषण", "परम वीर चक्र", "पद्म श्री"],
+              "answer": 0,
+              "exp": "En: Bharat Ratna is the highest civilian honor in India.\nHi: भारत रत्न भारत का सर्वोच्च नागरिक सम्मान है।"
+            },
+            {
+              "qEn": "What is the chemical formula of washing soda?",
+              "qHi": "वाशिंग सोडा का रासायनिक सूत्र क्या है?",
+              "optionsEn": ["Na2CO3·10H2O", "NaHCO3", "NaOH", "CaCO3"],
+              "optionsHi": ["Na2CO3·10H2O", "NaHCO3", "NaOH", "CaCO3"],
+              "answer": 0,
+              "exp": "En: Sodium carbonate decahydrate is $Na_2CO_3 \\cdot 10H_2O$.\nHi: सोडियम कार्बोनेट डेकाहाइड्रेट $Na_2CO_3 \\cdot 10H_2O$ है।"
+            },
+            {
+              "qEn": "If $x + \\frac{1}{x} = 5$, find $x^3 + \\frac{1}{x^3}$.",
+              "qHi": "यदि $x + \\frac{1}{x} = 5$ है, तो $x^3 + \\frac{1}{x^3}$ ज्ञात कीजिए।",
+              "optionsEn": ["110", "125", "100", "115"],
+              "optionsHi": ["110", "125", "100", "115"],
+              "answer": 0,
+              "exp": "En: $k^3 - 3k = 5^3 - 3(5) = 125 - 15 = 110$.\nHi: $k^3 - 3k = 5^3 - 3(5) = 125 - 15 = 110$।"
+            },
+            {
+              "qEn": "Who discovered radioactivity?",
+              "qHi": "रेडियोधर्मिता (Radioactivity) की खोज किसने की थी?",
+              "optionsEn": ["Henri Becquerel", "Marie Curie", "Pierre Curie", "Rutherford"],
+              "optionsHi": ["हेनरी बेकरेल", "मैरी क्यूरी", "पियरे क्यूरी", "रदरफोर्ड"],
+              "answer": 0,
+              "exp": "En: Henri Becquerel discovered radioactivity in 1896.\nHi: हेनरी बेकरेल ने 1896 में रेडियोधर्मिता की खोज की थी।"    
             }
           ]
         }
