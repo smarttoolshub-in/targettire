@@ -1,230 +1,129 @@
 window.TARGETTIRE_CA_DATABASE = {
-  date: "10 October 2026",
-  bulletinTitle: "Daily Current Affairs — 9 October 2026",
+  date: "12 October 2026",
+  bulletinTitle: "Daily Current Affairs — 12 October 2026",
 
   points: [
-    "1. World Post Day is observed every year on 9 October to commemorate the establishment of the Universal Postal Union (UPU) in 1874. / विश्व डाक दिवस हर वर्ष 9 अक्टूबर को 1874 में यूनिवर्सल पोस्टल यूनियन (UPU) की स्थापना की स्मृति में मनाया जाता है।",
+    "1. The Indian Navy is scheduled to commission INS Mangrol, the third Anti-Submarine Warfare Shallow Water Craft (ASW-SWC), at the Naval Dockyard in Mumbai on 12 October 2026. / भारतीय नौसेना 12 अक्टूबर 2026 को मुंबई के नेवल डॉकयार्ड में तीसरे Anti-Submarine Warfare Shallow Water Craft (ASW-SWC) INS Mangrol को कमीशन करने वाली है।",
 
-    "2. The Universal Postal Union was established in Bern, Switzerland, in 1874. / यूनिवर्सल पोस्टल यूनियन की स्थापना 1874 में स्विट्जरलैंड के बर्न में हुई थी।",
+    "2. ISRO's Human Space Flight Centre has floated a tender to establish a Human Space Analog System at its Astronaut Training Facility in Bengaluru. The facility is intended to simulate conditions relevant to long-duration human space missions. / ISRO के Human Space Flight Centre ने बेंगलुरु स्थित अंतरिक्ष यात्री प्रशिक्षण केंद्र में Human Space Analog System स्थापित करने के लिए निविदा जारी की है। यह सुविधा लंबे मानव अंतरिक्ष अभियानों जैसी परिस्थितियों का अनुकरण करेगी।",
 
-    "3. India Post operates one of the world's largest postal networks and is expanding digital and financial-inclusion services through India Post Payments Bank. / इंडिया पोस्ट दुनिया के सबसे बड़े डाक नेटवर्कों में से एक संचालित करता है और इंडिया पोस्ट पेमेंट्स बैंक के माध्यम से डिजिटल तथा वित्तीय समावेशन सेवाओं का विस्तार कर रहा है।",
+    "3. UNICEF India appointed Indian cricketer Smriti Mandhana as a Celebrity Advocate on 11 October 2026, the International Day of the Girl. The role focuses on equal opportunities, health and well-being for adolescent girls. / UNICEF India ने 11 अक्टूबर 2026 को, यानी International Day of the Girl पर, भारतीय क्रिकेटर स्मृति मंधाना को Celebrity Advocate नियुक्त किया। यह भूमिका किशोरियों के लिए समान अवसर, स्वास्थ्य और कल्याण को बढ़ावा देने पर केंद्रित है।",
 
-    "4. The Reserve Bank of India raised the policy repo rate by 25 basis points to 5.50% in its October 2026 policy decision. / भारतीय रिजर्व बैंक ने अक्टूबर 2026 की मौद्रिक नीति में नीतिगत रेपो दर को 25 आधार अंक बढ़ाकर 5.50% कर दिया।",
+    "4. The Ministry of Steel has released a draft National Steel Policy Vision 2047 proposing to raise India's crude steel capacity to 604 million tonnes per year by 2047. / इस्पात मंत्रालय ने मसौदा National Steel Policy Vision 2047 जारी किया है, जिसमें 2047 तक भारत की कच्चे इस्पात की क्षमता 604 मिलियन टन प्रति वर्ष करने का प्रस्ताव है।",
 
-    "5. The RBI changed its monetary policy stance from 'neutral' to 'calibrated tightening' in the October 2026 policy decision. / RBI ने अक्टूबर 2026 की मौद्रिक नीति में अपना रुख 'न्यूट्रल' से बदलकर 'कैलिब्रेटेड टाइटनिंग' कर दिया।",
+    "5. The second Regional Review Conference on the Forest Rights Act was held in Kolkata on 9 October 2026 for eight States. The review discussed implementation of forest rights and the status of claims and titles. / Forest Rights Act पर दूसरी Regional Review Conference 9 अक्टूबर 2026 को कोलकाता में आठ राज्यों के लिए आयोजित की गई। इसमें वन अधिकारों के क्रियान्वयन तथा दावों और अधिकार-पत्रों की स्थिति पर चर्चा हुई।",
 
-    "6. The 2026 Nobel Prize in Literature was awarded to Anne Carson. / वर्ष 2026 का साहित्य का नोबेल पुरस्कार ऐन कार्सन को प्रदान किया गया।",
+    "6. The Living Planet Report 2026 was highlighted in current-affairs coverage during the week of 5–11 October 2026. Such reports assess trends in monitored wildlife populations and broader biodiversity pressures. / 5–11 अक्टूबर 2026 के सप्ताह की करंट अफेयर्स रिपोर्टों में Living Planet Report 2026 प्रमुख रहा। इस प्रकार की रिपोर्टें निगरानी की गई वन्यजीव आबादियों के रुझानों और जैव-विविधता पर पड़ रहे दबावों का आकलन करती हैं।",
 
-    "7. India is playing a five-match T20I series against the West Indies in October 2026. / भारत अक्टूबर 2026 में वेस्टइंडीज के खिलाफ पांच मैचों की T20I श्रृंखला खेल रहा है।",
+    "7. India and the United Kingdom have been involved in maritime cooperation activities, including the KONKAN-26 exercise. Such naval exercises support interoperability and coordination between the participating navies. / भारत और यूनाइटेड किंगडम की नौसेनाओं के बीच KONKAN-26 सहित समुद्री सहयोग गतिविधियाँ हुईं। ऐसे अभ्यास भाग लेने वाली नौसेनाओं के बीच संयुक्त संचालन क्षमता और तालमेल बढ़ाते हैं।",
 
-    "8. The second T20I of the India–West Indies series is scheduled to be played in Ranchi on 9 October 2026. / भारत–वेस्टइंडीज श्रृंखला का दूसरा T20I 9 अक्टूबर 2026 को रांची में निर्धारित है।",
+    "8. India’s human spaceflight programme, Gaganyaan, includes uncrewed test missions to validate systems and crew-safety capabilities before human spaceflight. / भारत के मानव अंतरिक्ष उड़ान कार्यक्रम गगनयान में मानव मिशन से पहले प्रणालियों और अंतरिक्ष यात्रियों की सुरक्षा क्षमताओं को परखने के लिए बिना चालक दल वाले परीक्षण मिशन शामिल हैं।",
 
-    "9. India secured 85 medals at the 2026 Asian Games and finished fourth in the overall medal tally. / भारत ने 2026 एशियाई खेलों में कुल 85 पदक जीते और समग्र पदक तालिका में चौथे स्थान पर रहा।",
+    "9. The National Biodiversity Authority was reported to have released ₹2.02 crore in benefit-sharing funds from the seed sector. Benefit sharing is linked to the use of biological resources and associated traditional knowledge under applicable rules. / National Biodiversity Authority द्वारा बीज क्षेत्र से लाभ-साझाकरण के तहत ₹2.02 करोड़ जारी किए जाने की खबर आई। लाभ-साझाकरण जैविक संसाधनों और उनसे जुड़े पारंपरिक ज्ञान के उपयोग से संबंधित है।",
 
-    "10. India continues to participate in international postal cooperation through the Universal Postal Union and related digitalisation initiatives. / भारत यूनिवर्सल पोस्टल यूनियन और उससे जुड़ी डाक-डिजिटलीकरण पहलों के माध्यम से अंतरराष्ट्रीय डाक सहयोग में भाग लेता है।"
+    "10. Current-affairs coverage on 12 October 2026 also highlighted the proposed Cybertech Asia 2027 event in Mumbai, Maharashtra. Technology conferences provide a platform for discussion of cybersecurity and digital infrastructure. / 12 अक्टूबर 2026 की करंट अफेयर्स रिपोर्टों में मुंबई, महाराष्ट्र में प्रस्तावित Cybertech Asia 2027 कार्यक्रम का भी उल्लेख हुआ। प्रौद्योगिकी सम्मेलन साइबर सुरक्षा और डिजिटल बुनियादी ढाँचे पर चर्चा का मंच प्रदान करते हैं।"
   ],
 
   quizList: [
-
     {
-      qEn: "1. World Post Day is observed on which date?",
-      qHi: "1. विश्व डाक दिवस किस तारीख को मनाया जाता है?",
+      qEn: "1. INS Mangrol belongs to which category of Indian naval vessels?",
+      qHi: "1. INS Mangrol भारतीय नौसेना के किस प्रकार के पोत की श्रेणी में आता है?",
       optionsEn: [
-        "9 October",
-        "10 October",
-        "2 October",
-        "14 November"
+        "Aircraft carrier",
+        "Anti-Submarine Warfare Shallow Water Craft",
+        "Nuclear-powered submarine",
+        "Survey ship"
       ],
       optionsHi: [
-        "9 अक्टूबर",
-        "10 अक्टूबर",
-        "2 अक्टूबर",
-        "14 नवंबर"
-      ],
-      answer: 0,
-      expEn: "World Post Day is observed every year on 9 October.",
-      expHi: "विश्व डाक दिवस हर वर्ष 9 अक्टूबर को मनाया जाता है।"
-    },
-
-    {
-      qEn: "2. Where was the Universal Postal Union established in 1874?",
-      qHi: "2. 1874 में यूनिवर्सल पोस्टल यूनियन की स्थापना कहाँ हुई थी?",
-      optionsEn: [
-        "Geneva, Switzerland",
-        "Bern, Switzerland",
-        "Paris, France",
-        "London, UK"
-      ],
-      optionsHi: [
-        "जिनेवा, स्विट्जरलैंड",
-        "बर्न, स्विट्जरलैंड",
-        "पेरिस, फ्रांस",
-        "लंदन, यूके"
+        "विमानवाहक पोत",
+        "पनडुब्बी-रोधी युद्धक उथले जल का पोत",
+        "परमाणु-संचालित पनडुब्बी",
+        "सर्वेक्षण पोत"
       ],
       answer: 1,
-      expEn: "The Universal Postal Union was established in Bern, Switzerland, in 1874.",
-      expHi: "यूनिवर्सल पोस्टल यूनियन की स्थापना 1874 में बर्न, स्विट्जरलैंड में हुई थी।"
+      expEn: "INS Mangrol is the third Anti-Submarine Warfare Shallow Water Craft (ASW-SWC).",
+      expHi: "INS Mangrol तीसरा Anti-Submarine Warfare Shallow Water Craft (ASW-SWC) है।"
     },
-
     {
-      qEn: "3. Which institution provides banking and financial-inclusion services through the postal network in India?",
-      qHi: "3. भारत में डाक नेटवर्क के माध्यम से बैंकिंग और वित्तीय समावेशन सेवाएँ कौन-सी संस्था प्रदान करती है?",
-      optionsEn: [
-        "SEBI",
-        "NABARD",
-        "India Post Payments Bank",
-        "SIDBI"
-      ],
-      optionsHi: [
-        "सेबी",
-        "नाबार्ड",
-        "इंडिया पोस्ट पेमेंट्स बैंक",
-        "सिडबी"
-      ],
+      qEn: "2. ISRO's proposed Human Space Analog System is planned for which city?",
+      qHi: "2. ISRO का प्रस्तावित Human Space Analog System किस शहर में स्थापित किया जाना है?",
+      optionsEn: ["Chennai", "Mumbai", "Bengaluru", "Hyderabad"],
+      optionsHi: ["चेन्नई", "मुंबई", "बेंगलुरु", "हैदराबाद"],
       answer: 2,
-      expEn: "India Post Payments Bank uses the postal network to provide banking and financial-inclusion services.",
-      expHi: "इंडिया पोस्ट पेमेंट्स बैंक डाक नेटवर्क के माध्यम से बैंकिंग और वित्तीय समावेशन सेवाएँ प्रदान करता है।"
+      expEn: "The system is planned at ISRO's Astronaut Training Facility in Bengaluru.",
+      expHi: "यह प्रणाली बेंगलुरु स्थित ISRO के अंतरिक्ष यात्री प्रशिक्षण केंद्र में प्रस्तावित है।"
     },
-
     {
-      qEn: "4. What was the RBI policy repo rate after the October 2026 rate hike?",
-      qHi: "4. अक्टूबर 2026 की दर वृद्धि के बाद RBI की नीतिगत रेपो दर कितनी हो गई?",
-      optionsEn: [
-        "5.25%",
-        "5.00%",
-        "5.75%",
-        "5.50%"
-      ],
-      optionsHi: [
-        "5.25%",
-        "5.00%",
-        "5.75%",
-        "5.50%"
-      ],
-      answer: 3,
-      expEn: "The RBI raised the repo rate by 25 basis points to 5.50%.",
-      expHi: "RBI ने रेपो दर में 25 आधार अंकों की वृद्धि करके इसे 5.50% कर दिया।"
-    },
-
-    {
-      qEn: "5. From which stance did the RBI move to 'calibrated tightening' in October 2026?",
-      qHi: "5. अक्टूबर 2026 में RBI ने किस रुख से 'कैलिब्रेटेड टाइटनिंग' की ओर बदलाव किया?",
-      optionsEn: [
-        "Neutral",
-        "Accommodative",
-        "Hawkish",
-        "Withdrawal of accommodation"
-      ],
-      optionsHi: [
-        "न्यूट्रल",
-        "अकोमोडेटिव",
-        "हॉकिश",
-        "विदड्रॉल ऑफ अकोमोडेशन"
-      ],
-      answer: 0,
-      expEn: "The RBI changed its policy stance from neutral to calibrated tightening.",
-      expHi: "RBI ने अपने मौद्रिक नीति रुख को न्यूट्रल से कैलिब्रेटेड टाइटनिंग में बदल दिया।"
-    },
-
-    {
-      qEn: "6. Who received the 2026 Nobel Prize in Literature?",
-      qHi: "6. वर्ष 2026 का साहित्य का नोबेल पुरस्कार किसे मिला?",
-      optionsEn: [
-        "Annie Ernaux",
-        "Anne Carson",
-        "Han Kang",
-        "Margaret Atwood"
-      ],
-      optionsHi: [
-        "एनी एर्नॉ",
-        "ऐन कार्सन",
-        "हान कांग",
-        "मार्गरेट एटवुड"
-      ],
+      qEn: "3. Who was appointed UNICEF India Celebrity Advocate on 11 October 2026?",
+      qHi: "3. 11 अक्टूबर 2026 को UNICEF India की Celebrity Advocate किसे नियुक्त किया गया?",
+      optionsEn: ["Harmanpreet Kaur", "Smriti Mandhana", "P. V. Sindhu", "Mirabai Chanu"],
+      optionsHi: ["हरमनप्रीत कौर", "स्मृति मंधाना", "पी. वी. सिंधु", "मीराबाई चानू"],
       answer: 1,
-      expEn: "Anne Carson was awarded the 2026 Nobel Prize in Literature.",
-      expHi: "ऐन कार्सन को वर्ष 2026 का साहित्य का नोबेल पुरस्कार प्रदान किया गया।"
+      expEn: "UNICEF India appointed cricketer Smriti Mandhana as a Celebrity Advocate.",
+      expHi: "UNICEF India ने क्रिकेटर स्मृति मंधाना को Celebrity Advocate नियुक्त किया।"
     },
-
     {
-      qEn: "7. India is playing a five-match T20I series against which team in October 2026?",
-      qHi: "7. भारत अक्टूबर 2026 में किस टीम के खिलाफ पांच मैचों की T20I श्रृंखला खेल रहा है?",
-      optionsEn: [
-        "Australia",
-        "South Africa",
-        "West Indies",
-        "New Zealand"
-      ],
-      optionsHi: [
-        "ऑस्ट्रेलिया",
-        "दक्षिण अफ्रीका",
-        "वेस्टइंडीज",
-        "न्यूजीलैंड"
-      ],
-      answer: 2,
-      expEn: "India is playing a five-match T20I series against the West Indies.",
-      expHi: "भारत वेस्टइंडीज के खिलाफ पांच मैचों की T20I श्रृंखला खेल रहा है।"
-    },
-
-    {
-      qEn: "8. Where is the second India–West Indies T20I scheduled on 9 October 2026?",
-      qHi: "8. 9 अक्टूबर 2026 को भारत–वेस्टइंडीज का दूसरा T20I कहाँ निर्धारित है?",
-      optionsEn: [
-        "Lucknow",
-        "Indore",
-        "Ranchi",
-        "Hyderabad"
-      ],
-      optionsHi: [
-        "लखनऊ",
-        "इंदौर",
-        "रांची",
-        "हैदराबाद"
-      ],
-      answer: 2,
-      expEn: "The second T20I is scheduled to be played in Ranchi on 9 October 2026.",
-      expHi: "दूसरा T20I 9 अक्टूबर 2026 को रांची में निर्धारित है।"
-    },
-
-    {
-      qEn: "9. How many medals did India win at the 2026 Asian Games?",
-      qHi: "9. 2026 एशियाई खेलों में भारत ने कुल कितने पदक जीते?",
-      optionsEn: [
-        "75",
-        "80",
-        "90",
-        "85"
-      ],
-      optionsHi: [
-        "75",
-        "80",
-        "90",
-        "85"
-      ],
+      qEn: "4. The draft National Steel Policy Vision 2047 proposes what annual crude steel capacity for India by 2047?",
+      qHi: "4. मसौदा National Steel Policy Vision 2047 में 2047 तक भारत की कच्चे इस्पात की वार्षिक क्षमता कितनी करने का प्रस्ताव है?",
+      optionsEn: ["304 million tonnes", "404 million tonnes", "504 million tonnes", "604 million tonnes"],
+      optionsHi: ["304 मिलियन टन", "404 मिलियन टन", "504 मिलियन टन", "604 मिलियन टन"],
       answer: 3,
-      expEn: "India won a total of 85 medals at the 2026 Asian Games.",
-      expHi: "भारत ने 2026 एशियाई खेलों में कुल 85 पदक जीते।"
+      expEn: "The draft policy proposes crude steel capacity of 604 million tonnes per year by 2047.",
+      expHi: "मसौदा नीति में 2047 तक 604 मिलियन टन प्रति वर्ष क्षमता का प्रस्ताव है।"
     },
-
     {
-      qEn: "10. The Universal Postal Union is commonly abbreviated as what?",
-      qHi: "10. Universal Postal Union का सामान्य संक्षिप्त नाम क्या है?",
-      optionsEn: [
-        "UPU",
-        "UNO",
-        "WTO",
-        "UNP"
-      ],
-      optionsHi: [
-        "UPU",
-        "UNO",
-        "WTO",
-        "UNP"
-      ],
+      qEn: "5. Where was the Regional Review Conference on the Forest Rights Act held on 9 October 2026?",
+      qHi: "5. Forest Rights Act पर Regional Review Conference 9 अक्टूबर 2026 को कहाँ आयोजित हुई?",
+      optionsEn: ["Kolkata", "Bhopal", "Jaipur", "Guwahati"],
+      optionsHi: ["कोलकाता", "भोपाल", "जयपुर", "गुवाहाटी"],
       answer: 0,
-      expEn: "The Universal Postal Union is abbreviated as UPU.",
-      expHi: "Universal Postal Union का संक्षिप्त नाम UPU है।"
+      expEn: "The conference was held in Kolkata and covered eight States.",
+      expHi: "यह सम्मेलन कोलकाता में आठ राज्यों के लिए आयोजित किया गया।"
+    },
+    {
+      qEn: "6. What is the main focus of the Living Planet Report?",
+      qHi: "6. Living Planet Report का मुख्य विषय क्या है?",
+      optionsEn: ["Global banking systems", "Wildlife population trends and biodiversity", "Space launch schedules", "International postal rates"],
+      optionsHi: ["वैश्विक बैंकिंग प्रणाली", "वन्यजीव आबादी के रुझान और जैव-विविधता", "अंतरिक्ष प्रक्षेपण कार्यक्रम", "अंतरराष्ट्रीय डाक दरें"],
+      answer: 1,
+      expEn: "The report examines monitored wildlife population trends and biodiversity pressures.",
+      expHi: "यह रिपोर्ट वन्यजीव आबादी के रुझानों और जैव-विविधता पर दबावों का आकलन करती है।"
+    },
+    {
+      qEn: "7. KONKAN is a maritime exercise involving India and which country?",
+      qHi: "7. KONKAN समुद्री अभ्यास भारत और किस देश के बीच होता है?",
+      optionsEn: ["France", "United Kingdom", "Japan", "Australia"],
+      optionsHi: ["फ्रांस", "यूनाइटेड किंगडम", "जापान", "ऑस्ट्रेलिया"],
+      answer: 1,
+      expEn: "KONKAN is a naval exercise between India and the United Kingdom.",
+      expHi: "KONKAN भारत और यूनाइटेड किंगडम की नौसेनाओं के बीच होने वाला अभ्यास है।"
+    },
+    {
+      qEn: "8. Gaganyaan is India's programme for what?",
+      qHi: "8. गगनयान भारत का किस क्षेत्र से संबंधित कार्यक्रम है?",
+      optionsEn: ["Human spaceflight", "Deep-sea mining", "Solar power generation", "High-speed rail"],
+      optionsHi: ["मानव अंतरिक्ष उड़ान", "गहरे समुद्र में खनन", "सौर ऊर्जा उत्पादन", "हाई-स्पीड रेल"],
+      answer: 0,
+      expEn: "Gaganyaan is India's human spaceflight programme.",
+      expHi: "गगनयान भारत का मानव अंतरिक्ष उड़ान कार्यक्रम है।"
+    },
+    {
+      qEn: "9. Which body was reported to have released ₹2.02 crore in benefit-sharing funds from the seed sector?",
+      qHi: "9. बीज क्षेत्र से लाभ-साझाकरण के तहत ₹2.02 करोड़ जारी करने की खबर किस संस्था से संबंधित है?",
+      optionsEn: ["National Biodiversity Authority", "Election Commission of India", "NITI Aayog", "University Grants Commission"],
+      optionsHi: ["National Biodiversity Authority", "भारत निर्वाचन आयोग", "नीति आयोग", "विश्वविद्यालय अनुदान आयोग"],
+      answer: 0,
+      expEn: "The report concerns benefit-sharing funds released by the National Biodiversity Authority.",
+      expHi: "यह खबर National Biodiversity Authority द्वारा जारी लाभ-साझाकरण राशि से संबंधित है।"
+    },
+    {
+      qEn: "10. Cybertech Asia 2027 is proposed to be held in which Indian city?",
+      qHi: "10. Cybertech Asia 2027 भारत के किस शहर में आयोजित होने का प्रस्ताव है?",
+      optionsEn: ["Pune", "Mumbai", "Kochi", "Lucknow"],
+      optionsHi: ["पुणे", "मुंबई", "कोच्चि", "लखनऊ"],
+      answer: 1,
+      expEn: "The event is listed as a proposed event in Mumbai, Maharashtra.",
+      expHi: "यह कार्यक्रम महाराष्ट्र के मुंबई में प्रस्तावित बताया गया है।"
     }
-
   ]
 };
