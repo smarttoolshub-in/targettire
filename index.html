@@ -45,6 +45,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore-compat.js"></script>
 <script>
 tailwind.config = {
 darkMode: 'class',
@@ -1070,8 +1071,8 @@ Done
 
 <form id="auth-form-login" onsubmit="handleLoginSubmit(event)" class="space-y-4">
 <div>
-<label class="block text-[11px] font-bold text-slate-600 dark:text-slate-400 uppercase tracking-wider mb-1.5">Gmail or Email Address *</label>
-<input type="email" id="login-identifier" required placeholder="aspirant@gmail.com" class="w-full px-3.5 py-3 text-xs bg-slate-50 dark:bg-[#0b0f19] border border-slate-200 dark:border-slate-800 rounded-xl focus:outline-none focus:border-indigo-500 text-slate-900 dark:text-white">
+<label class="block text-[11px] font-bold text-slate-600 dark:text-slate-400 uppercase tracking-wider mb-1.5">Mobile Number *</label>
+<input type="tel" id="login-phone" required inputmode="numeric" pattern="[0-9]{10}" maxlength="10" placeholder="Enter 10-digit mobile number" class="w-full px-3.5 py-3 text-xs bg-slate-50 dark:bg-[#0b0f19] border border-slate-200 dark:border-slate-800 rounded-xl focus:outline-none focus:border-indigo-500 text-slate-900 dark:text-white">
 </div>
 <div>
 <label class="block text-[11px] font-bold text-slate-600 dark:text-slate-400 uppercase tracking-wider mb-1.5">Secure Passcode *</label>
@@ -1088,46 +1089,22 @@ Done
 <input type="text" id="reg-name" required placeholder="Enter your full name" class="w-full px-3 py-2.5 text-xs bg-slate-50 dark:bg-[#0b0f19] border border-slate-200 dark:border-slate-800 rounded-xl focus:outline-none focus:border-indigo-500 text-slate-900 dark:text-white">
 </div>
 <div class="mt-2.5">
+<label class="block text-[10px] font-bold text-slate-600 dark:text-slate-400 uppercase tracking-wider mb-1">Mobile Number *</label>
+<input type="tel" id="reg-phone" required inputmode="numeric" pattern="[0-9]{10}" maxlength="10" placeholder="10-digit mobile number" class="w-full px-3 py-2.5 text-xs bg-slate-50 dark:bg-[#0b0f19] border border-slate-200 dark:border-slate-800 rounded-xl focus:outline-none focus:border-indigo-500 text-slate-900 dark:text-white">
+</div>
+<div class="mt-2.5">
 <label class="block text-[10px] font-bold text-slate-600 dark:text-slate-400 uppercase tracking-wider mb-1">Gmail / Email Address *</label>
-<input type="email" id="reg-email" required placeholder="aspirant@gmail.com" class="w-full px-3 py-2.5 text-xs bg-slate-50 dark:bg-[#0b0f19] border border-slate-200 dark:border-slate-800 rounded-xl focus:outline-none focus:border-indigo-500 text-slate-900 dark:text-white">
+<input type="email" id="reg-email" required autocomplete="email" placeholder="yourname@gmail.com" class="w-full px-3 py-2.5 text-xs bg-slate-50 dark:bg-[#0b0f19] border border-slate-200 dark:border-slate-800 rounded-xl focus:outline-none focus:border-indigo-500 text-slate-900 dark:text-white">
 </div>
 <div class="mt-2.5">
 <label class="block text-[10px] font-bold text-slate-600 dark:text-slate-400 uppercase tracking-wider mb-1">Secure Passcode *</label>
-<input type="password" id="reg-password" required minlength="6" placeholder="Minimum 6 characters" class="w-full px-3 py-2.5 text-xs bg-slate-50 dark:bg-[#0b0f19] border border-slate-200 dark:border-slate-800 rounded-xl focus:outline-none focus:border-indigo-500 text-slate-900 dark:text-white">
+<input type="password" id="reg-password" required minlength="6" autocomplete="new-password" placeholder="Minimum 6 characters" class="w-full px-3 py-2.5 text-xs bg-slate-50 dark:bg-[#0b0f19] border border-slate-200 dark:border-slate-800 rounded-xl focus:outline-none focus:border-indigo-500 text-slate-900 dark:text-white">
 </div>
 <div id="reg-status-msg" class="text-xs text-center min-h-[20px] text-teal-400 font-medium my-2"></div>
-<button type="submit" class="w-full bg-teal-600 hover:bg-teal-500 text-white font-bold py-3 rounded-xl text-xs uppercase tracking-wider shadow transition cursor-pointer">Register & Send Verification Link</button>
+<button type="submit" class="w-full bg-teal-600 hover:bg-teal-500 text-white font-bold py-3 rounded-xl text-xs uppercase tracking-wider shadow transition cursor-pointer">Create Account — No OTP</button>
 </div>
 
-<div id="reg-step-verify-email" class="hidden space-y-4 text-center">
-<div class="w-12 h-12 bg-teal-500/10 text-teal-600 dark:text-teal-400 rounded-full flex items-center justify-center text-xl mx-auto">
-<i class="fa-solid fa-envelope-circle-check"></i>
-</div>
-<h4 class="text-sm font-bold text-slate-900 dark:text-white">Verify Your Email Address</h4>
-<p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
-Firebase has dispatched a verification link to 
-<span id="verify-email-display" class="font-bold text-indigo-600 dark:text-indigo-400"></span>.
-</p>
 
-<div class="p-3 bg-amber-500/10 border border-amber-500/30 rounded-xl text-xs text-amber-700 dark:text-amber-300 text-left space-y-1">
-<p class="font-bold flex items-center gap-1.5">
-<i class="fa-solid fa-triangle-exclamation text-amber-500"></i> ज़रूरी सूचना / Important Notice:
-</p>
-<p class="text-[11px] leading-relaxed">
-अगर आपको इनबॉक्स (Inbox) में मेल नहीं दिख रहा है, तो कृपया अपने Gmail ऐप में <strong>Spam (स्पैम)</strong> या <strong>Junk</strong> फ़ोल्डर खोलकर चेक करें। वहाँ आए लिंक पर क्लिक करके वेरिफाई करें।
-</p>
-</div>
-
-<div id="email-verify-status-msg" class="text-xs text-center min-h-[20px] font-medium"></div>
-<div class="space-y-2 pt-2">
-<button type="button" onclick="checkEmailVerified()" class="w-full bg-indigo-600 hover:bg-indigo-500 text-white font-bold py-2.5 rounded-xl text-xs uppercase tracking-wider shadow transition cursor-pointer">
-<i class="fa-solid fa-circle-check mr-1"></i> I Have Verified (Check Status)
-</button>
-<button type="button" onclick="resendVerificationEmail()" class="w-full bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 font-semibold py-2 rounded-xl text-xs transition cursor-pointer">
-Resend Verification Email
-</button>
-</div>
-</div>
 </form>
 </div>
 </div>
@@ -1185,19 +1162,51 @@ let myExamsList = ["SSC CGL", "IBPS PO", "RRB NTPC"];
 let currentUser = null;
 let userTestHistory = [];
 
+let activeSessionUnsubscribe = null;
+let activeSessionId = null;
+
+function getSessionId() {
+  return (window.crypto && crypto.randomUUID) ? crypto.randomUUID() :
+    ('sess_' + Date.now() + '_' + Math.random().toString(36).slice(2));
+}
+function watchSingleDeviceSession(user, sessionId) {
+  if (activeSessionUnsubscribe) { activeSessionUnsubscribe(); activeSessionUnsubscribe = null; }
+  activeSessionId = sessionId;
+  if (!firebase.firestore) return;
+  activeSessionUnsubscribe = firebase.firestore().collection('users').doc(user.uid)
+    .onSnapshot((doc) => {
+      if (!doc.exists) return;
+      const latest = doc.data().activeSessionId;
+      if (latest && activeSessionId && latest !== activeSessionId) {
+        if (activeSessionUnsubscribe) activeSessionUnsubscribe();
+        activeSessionUnsubscribe = null;
+        firebase.auth().signOut().then(() => showToast('यह अकाउंट दूसरी जगह लॉगिन हुआ है। इस डिवाइस से लॉगआउट कर दिया गया।'));
+      }
+    }, (err) => console.warn('Session watcher unavailable; check Firestore rules:', err));
+}
 if (typeof firebase !== 'undefined') {
 firebase.auth().onAuthStateChanged((user) => {
-if (user) {
-if (user.emailVerified) {
-currentUser = { name: user.displayName || user.email.split('@')[0], email: user.email };
-localStorage.setItem('targettire_user', JSON.stringify(currentUser));
-updateHeaderAuthUI();
-}
-} else {
-currentUser = null;
-localStorage.removeItem('targettire_user');
-updateHeaderAuthUI();
-}
+  if (user) {
+    const sid = sessionStorage.getItem('targettire_session_id');
+    if (sid) watchSingleDeviceSession(user, sid);
+    firebase.firestore().collection('users').doc(user.uid).get().then((profileDoc) => {
+      const profile = profileDoc.exists ? profileDoc.data() : {};
+      currentUser = { name: user.displayName || profile.name || 'Student', phone: profile.phone || '', uid: user.uid };
+      localStorage.setItem('targettire_user', JSON.stringify(currentUser));
+      updateHeaderAuthUI();
+    }).catch(() => {
+      const saved = JSON.parse(localStorage.getItem('targettire_user') || '{}');
+      currentUser = { name: user.displayName || saved.name || 'Student', phone: saved.phone || '', uid: user.uid };
+      updateHeaderAuthUI();
+    });
+  } else {
+    if (activeSessionUnsubscribe) { activeSessionUnsubscribe(); activeSessionUnsubscribe = null; }
+    activeSessionId = null;
+    currentUser = null;
+    localStorage.removeItem('targettire_user');
+    sessionStorage.removeItem('targettire_session_id');
+    updateHeaderAuthUI();
+  }
 });
 }
 
@@ -3435,7 +3444,7 @@ function openAuthModal() {
 document.getElementById('auth-modal').classList.remove('hidden');
 switchAuthMode('login');
 document.getElementById('reg-step-1').classList.remove('hidden');
-document.getElementById('reg-step-verify-email').classList.add('hidden');
+
 }
 function closeAuthModal() { document.getElementById('auth-modal').classList.add('hidden'); }
 function switchAuthMode(mode) {
@@ -3465,7 +3474,7 @@ else loginGateBanner.classList.remove('hidden');
 }
 if(!container) return;
 if (currentUser) {
-container.innerHTML = `<div class="relative group"><button class="flex items-center gap-2 bg-indigo-500/10 border border-indigo-500/30 text-indigo-600 dark:text-indigo-300 font-bold text-xs px-3.5 py-2.5 rounded-xl transition cursor-pointer"><i class="fa-solid fa-user-check"></i> <span>Hi, ${currentUser.name}</span> <i class="fa-solid fa-chevron-down text-[10px]"></i></button><div class="absolute right-0 mt-2 w-48 bg-white dark:bg-[#131b2e] border border-slate-200 dark:border-slate-800 rounded-2xl shadow-xl py-2 hidden group-hover:block z-50"><div class="px-4 py-2 border-b border-slate-100 dark:border-slate-800 text-[10px] text-slate-400 truncate">${currentUser.email}</div><button onclick="handleLogout()" class="w-full text-left px-4 py-2 text-xs text-rose-600 dark:text-rose-400 hover:bg-rose-500/10 font-semibold transition flex items-center gap-2 cursor-pointer"><i class="fa-solid fa-right-from-bracket"></i> Sign Out / Logout</button></div></div>`;
+container.innerHTML = `<div class="relative group"><button class="flex items-center gap-2 bg-indigo-500/10 border border-indigo-500/30 text-indigo-600 dark:text-indigo-300 font-bold text-xs px-3.5 py-2.5 rounded-xl transition cursor-pointer"><i class="fa-solid fa-user-check"></i> <span>Hi, ${currentUser.name}</span> <i class="fa-solid fa-chevron-down text-[10px]"></i></button><div class="absolute right-0 mt-2 w-48 bg-white dark:bg-[#131b2e] border border-slate-200 dark:border-slate-800 rounded-2xl shadow-xl py-2 hidden group-hover:block z-50"><div class="px-4 py-2 border-b border-slate-100 dark:border-slate-800 text-[10px] text-slate-400 truncate">${currentUser.phone ? 'Mobile: ' + currentUser.phone : 'Student account'}${currentUser.email ? '<br>Email: ' + currentUser.email : ''}</div><button onclick="handleLogout()" class="w-full text-left px-4 py-2 text-xs text-rose-600 dark:text-rose-400 hover:bg-rose-500/10 font-semibold transition flex items-center gap-2 cursor-pointer"><i class="fa-solid fa-right-from-bracket"></i> Sign Out / Logout</button></div></div>`;
 } else {
 container.innerHTML = `<button onclick="openAuthModal()" class="bg-indigo-600 hover:bg-indigo-500 text-white font-semibold text-xs px-3.5 py-2.5 rounded-xl shadow transition flex items-center gap-1.5 cursor-pointer"><i class="fa-solid fa-user-shield"></i> <span data-i18n="portalLogin">Portal Login</span></button>`;
 }
@@ -3481,79 +3490,119 @@ renderPYQHub();
 }
 }
 
-function handleLoginSubmit(e) {
-e.preventDefault();
-const email = document.getElementById('login-identifier').value.trim();
-const passcode = document.getElementById('login-passcode').value.trim();
-const statusMsg = document.getElementById('login-status-msg');
-statusMsg.innerHTML = `<span class="text-amber-500">Authenticating session...</span>`;
-firebase.auth().signInWithEmailAndPassword(email, passcode)
-.then((userCredential) => {
-const user = userCredential.user;
-if (!user.emailVerified) {
-statusMsg.innerHTML = `<span class="text-amber-400">कृपया पहले ईमेल वेरिफाई करें। लिंक इनबॉक्स या Spam फ़ोल्डर में चेक करें।</span>`;
-firebase.auth().signOut();
-return;
+// Firebase Auth does not natively support password login with a phone number.
+// A synthetic Firebase Auth email is used internally; the student's real email is stored in Firestore. No email verification is performed.
+// students use their 10-digit phone number on the website.
+function phoneToAuthEmail(phone) {
+  return 'phone-' + phone + '@auth.targettire.in';
 }
-currentUser = { name: user.displayName || email.split('@')[0], email };
-localStorage.setItem('targettire_user', JSON.stringify(currentUser));
-closeAuthModal();
-updateHeaderAuthUI();
-renderHeaderExamDropdown(); renderMobileExamMenu();
-showToast(`Welcome back, ${currentUser.name}! All content unlocked.`);
-statusMsg.innerHTML = '';
-e.target.reset();
-}).catch((err) => { statusMsg.innerHTML = `<span class="text-rose-500">Error: ${err.message}</span>`; });
+
+function handleLoginSubmit(e) {
+  e.preventDefault();
+  const phone = document.getElementById('login-phone').value.trim();
+  const passcode = document.getElementById('login-passcode').value;
+  const statusMsg = document.getElementById('login-status-msg');
+  if (!/^[0-9]{10}$/.test(phone)) {
+    statusMsg.innerHTML = `<span class="text-rose-500">कृपया सही 10 अंकों का मोबाइल नंबर डालें।</span>`;
+    return;
+  }
+  statusMsg.innerHTML = `<span class="text-amber-500">लॉगिन हो रहा है...</span>`;
+  firebase.auth().signInWithEmailAndPassword(phoneToAuthEmail(phone), passcode)
+    .then(async (userCredential) => {
+      const user = userCredential.user;
+      const sid = getSessionId();
+      sessionStorage.setItem('targettire_session_id', sid);
+      await firebase.firestore().collection('users').doc(user.uid).set({
+        uid: user.uid,
+        name: user.displayName || 'Student',
+        phone,
+        lastLoginAt: firebase.firestore.FieldValue.serverTimestamp(),
+        activeSessionId: sid
+      }, { merge: true });
+      const profileDoc = await firebase.firestore().collection('users').doc(user.uid).get();
+      const savedEmail = profileDoc.exists ? (profileDoc.data().email || '') : '';
+      currentUser = { name: user.displayName || 'Student', phone, email: savedEmail, uid: user.uid };
+      localStorage.setItem('targettire_user', JSON.stringify(currentUser));
+      watchSingleDeviceSession(user, sid);
+      closeAuthModal();
+      updateHeaderAuthUI();
+      renderHeaderExamDropdown(); renderMobileExamMenu();
+      showToast(`स्वागत है, ${currentUser.name}!`);
+      statusMsg.innerHTML = '';
+      e.target.reset();
+    })
+    .catch((err) => {
+      const msg = (err.code === 'auth/invalid-credential' || err.code === 'auth/user-not-found' || err.code === 'auth/wrong-password')
+        ? 'मोबाइल नंबर या पासवर्ड गलत है।'
+        : err.message;
+      statusMsg.innerHTML = `<span class="text-rose-500">लॉगिन नहीं हुआ: ${msg}</span>`;
+    });
 }
 
 function handleRegisterSubmit(e) {
-e.preventDefault();
-const name = document.getElementById('reg-name').value.trim();
-const email = document.getElementById('reg-email').value.trim();
-const password = document.getElementById('reg-password').value.trim();
-const statusMsg = document.getElementById('reg-status-msg');
-statusMsg.innerHTML = `<span class="text-teal-400"><i class="fa-solid fa-spinner fa-spin mr-1"></i> Creating account & sending verification email...</span>`;
-firebase.auth().createUserWithEmailAndPassword(email, password)
-.then((userCredential) => {
-return userCredential.user.updateProfile({ displayName: name }).then(() => {
-return userCredential.user.sendEmailVerification();
-}).then(() => {
-statusMsg.innerHTML = '';
-document.getElementById('verify-email-display').innerText = email;
-document.getElementById('reg-step-1').classList.add('hidden');
-document.getElementById('reg-step-verify-email').classList.remove('hidden');
-showToast(`वेरिफिकेशन लिंक भेज दिया गया है। Inbox या Spam फ़ोल्डर चेक करें!`);
-});
-}).catch((error) => { statusMsg.innerHTML = `<span class="text-rose-500">Firebase Error: ${error.message}</span>`; });
+  e.preventDefault();
+  const name = document.getElementById('reg-name').value.trim();
+  const phone = document.getElementById('reg-phone').value.trim();
+  const email = document.getElementById('reg-email').value.trim().toLowerCase();
+  const password = document.getElementById('reg-password').value;
+  const statusMsg = document.getElementById('reg-status-msg');
+  if (!name) {
+    statusMsg.innerHTML = `<span class="text-rose-500">कृपया अपना नाम डालें।</span>`;
+    return;
+  }
+  if (!/^[0-9]{10}$/.test(phone)) {
+    statusMsg.innerHTML = `<span class="text-rose-500">कृपया सही 10 अंकों का मोबाइल नंबर डालें।</span>`;
+    return;
+  }
+  if (!/^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/.test(email)) {
+    statusMsg.innerHTML = `<span class="text-rose-500">कृपया सही Gmail / ईमेल पता डालें।</span>`;
+    return;
+  }
+  if (password.length < 6) {
+    statusMsg.innerHTML = `<span class="text-rose-500">पासवर्ड कम-से-कम 6 अक्षर का होना चाहिए।</span>`;
+    return;
+  }
+  statusMsg.innerHTML = `<span class="text-teal-400"><i class="fa-solid fa-spinner fa-spin mr-1"></i> अकाउंट बनाया जा रहा है...</span>`;
+  const authEmail = phoneToAuthEmail(phone);
+  firebase.auth().createUserWithEmailAndPassword(authEmail, password)
+    .then(async (userCredential) => {
+      const user = userCredential.user;
+      await user.updateProfile({ displayName: name });
+      const sid = getSessionId();
+      sessionStorage.setItem('targettire_session_id', sid);
+      await firebase.firestore().collection('users').doc(user.uid).set({
+        uid: user.uid,
+        name,
+        phone,
+        email,
+        emailVerified: false,
+        createdAt: firebase.firestore.FieldValue.serverTimestamp(),
+        lastLoginAt: firebase.firestore.FieldValue.serverTimestamp(),
+        activeSessionId: sid
+      }, { merge: true });
+      currentUser = { name, phone, email, uid: user.uid };
+      localStorage.setItem('targettire_user', JSON.stringify(currentUser));
+      watchSingleDeviceSession(user, sid);
+      statusMsg.innerHTML = '';
+      e.target.reset();
+      closeAuthModal();
+      updateHeaderAuthUI();
+      renderHeaderExamDropdown(); renderMobileExamMenu();
+      showToast('अकाउंट बन गया। अभी OTP या ईमेल वेरिफिकेशन नहीं है।');
+    })
+    .catch((error) => {
+      const msg = error.code === 'auth/email-already-in-use'
+        ? 'इस मोबाइल नंबर से अकाउंट पहले से बना है। लॉगिन करें।'
+        : error.message;
+      statusMsg.innerHTML = `<span class="text-rose-500">अकाउंट नहीं बना: ${msg}</span>`;
+    });
 }
 
 function checkEmailVerified() {
-const user = firebase.auth().currentUser;
-const verifyMsg = document.getElementById('email-verify-status-msg');
-if (!user) return;
-user.reload().then(() => {
-if (user.emailVerified) {
-currentUser = { name: user.displayName || user.email.split('@')[0], email: user.email };
-localStorage.setItem('targettire_user', JSON.stringify(currentUser));
-verifyMsg.innerHTML = `<span class="text-teal-300 font-bold">✓ Email verified successfully!</span>`;
-setTimeout(() => {
-closeAuthModal();
-updateHeaderAuthUI();
-renderHeaderExamDropdown(); renderMobileExamMenu();
-showToast(`Welcome to TargetTire, ${currentUser.name}! Full access unlocked.`);
-document.getElementById('auth-form-register').reset();
-document.getElementById('reg-step-verify-email').classList.add('hidden');
-document.getElementById('reg-step-1').classList.remove('hidden');
-}, 1500);
-} else {
-verifyMsg.innerHTML = `<span class="text-amber-400">Email not verified yet! Check Spam folder.</span>`;
+  showToast('लॉगिन के लिए मोबाइल नंबर और पासवर्ड का उपयोग करें।');
 }
-});
-}
-
 function resendVerificationEmail() {
-const user = firebase.auth().currentUser;
-if (user) user.sendEmailVerification().then(() => showToast('Verification email resent.'));
+  showToast('अभी पासवर्ड रिकवरी उपलब्ध नहीं है। आगे OTP रिकवरी जोड़ी जा सकती है।');
 }
 
 (function cleanHardcodedData() {
@@ -3561,6 +3610,7 @@ if (user) user.sendEmailVerification().then(() => showToast('Verification email 
 })();
 
 function handleLogout() {
+if (activeSessionUnsubscribe) { activeSessionUnsubscribe(); activeSessionUnsubscribe = null; }
 firebase.auth().signOut().then(() => {
 currentUser = null;
 localStorage.removeItem('targettire_user');
