@@ -969,14 +969,6 @@ Return to Mock Vault
 </div>
 </main>
 
-<!-- Question Review Modal -->
-<div id="question-review-modal" class="fixed inset-0 bg-slate-950/70 backdrop-blur-sm z-[100] hidden items-center justify-center p-3 sm:p-5">
- <div class="bg-white dark:bg-[#131b2e] w-full max-w-3xl max-h-[90vh] overflow-hidden rounded-2xl border border-slate-200 dark:border-slate-700 shadow-2xl flex flex-col">
-  <div class="flex items-center justify-between gap-3 p-4 border-b border-slate-200 dark:border-slate-700"><div><h3 id="question-review-title" class="font-bold text-base text-slate-900 dark:text-white">Question Review</h3><p id="question-review-summary" class="text-xs text-slate-500 mt-1"></p></div><button onclick="closeQuestionReview()" class="p-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800" aria-label="Close review"><i class="fa-solid fa-xmark"></i></button></div>
-  <div id="question-review-list" class="p-4 space-y-3 overflow-y-auto"></div>
- </div>
-</div>
-
 <!-- Current Affairs Modal Popup -->
 <div id="current-affairs-modal" class="fixed inset-0 bg-slate-900/60 backdrop-blur-md z-50 hidden flex items-center justify-center p-4">
 <div class="bg-white dark:bg-[#131b2e] w-full max-w-2xl rounded-2xl shadow-2xl border border-slate-200 dark:border-slate-800 p-7 flex flex-col max-h-[85vh]">
@@ -1194,289 +1186,7 @@ console.error("Firebase init error:", e);
 let currentLang = 'en';
 let myExamsList = ["SSC CGL", "IBPS PO", "RRB NTPC"];
 let currentUser = null;
-const TT_HISTORY_KEY = 'targettire_test_history_v1';
 let userTestHistory = [];
-try { userTestHistory = JSON.parse(localStorage.getItem(TT_HISTORY_KEY) || '[]'); if (!Array.isArray(userTestHistory)) userTestHistory = []; } catch (_) { userTestHistory = []; }
-function persistTestHistory() { try { localStorage.setItem(TT_HISTORY_KEY, JSON.stringify(userTestHistory.slice(-100))); } catch(e) { console.warn('Unable to save test history', e); } }
-function ttEscapeHtml(v) { return String(v ?? '').replace(/[&<>\"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','\"':'&quot;',"'":'&#39;'}[c])); }
-function ttQuestionSnapshot(q, selected) {
-  const options = (q.optionsEn || []).map((en,i) => ({ en:String(en ?? ''), hi:String((q.optionsHi||[])[i] ?? '') }));
-  const correct = Number.isInteger(q.answer) ? q.answer : Number(q.correctAnswer ?? -1);
-  const chosen = (selected === undefined || selected === -1) ? -1 : Number(selected);
-  return { qEn:String(q.qEn || q.question || q.text || ''), qHi:String(q.qHi || ''), options, correct, selected:chosen, status:chosen < 0 ? 'Skipped' : (chosen === correct ? 'Correct' : 'Incorrect'), explanation:String(q.exp || q.explanation || '') };
-}
-function saveTestAttempt(record) {
-  const userKey = currentUser && (currentUser.uid || currentUser.email || currentUser.phone) || 'guest';
-  record.id = 'attempt_' + Date.now() + '_' + Math.random().toString(36).slice(2,8);
-  record.userKey = userKey; record.timestamp = new Date().toISOString();
-  userTestHistory.push(record); persistTestHistory(); renderUserTestHistory();
-  // Best-effort cloud persistence for signed-in users; local history remains available if cloud rules are not configured.
-  try {
-    if (typeof firebase !== 'undefined' && firebase.auth && firebase.auth().currentUser && firebase.firestore) {
-      const u = firebase.auth().currentUser;
-      firebase.firestore().collection('users').doc(u.uid).collection('testAttempts').doc(record.id).set(record).catch(err => console.warn('Cloud attempt save failed:', err));
-    }
-  } catch(e) { console.warn('Cloud attempt save failed:', e); }
-}
-function closeQuestionReview() { const m=document.getElementById('question-review-modal'); if(m){m.classList.add('hidden');m.classList.remove('flex');} }
-<!-- Current Affairs Modal Popup -->
-<div id="current-affairs-modal" class="fixed inset-0 bg-slate-900/60 backdrop-blur-md z-50 hidden flex items-center justify-center p-4">
-<div class="bg-white dark:bg-[#131b2e] w-full max-w-2xl rounded-2xl shadow-2xl border border-slate-200 dark:border-slate-800 p-7 flex flex-col max-h-[85vh]">
-<div class="flex flex-col gap-3 mb-4 pb-3 border-b border-slate-200 dark:border-slate-800">
-<div class="flex justify-between items-center">
-<h3 id="modal-ca-heading" class="text-base font-bold flex items-center gap-2 text-slate-900 dark:text-white">
-<i class="fa-solid fa-newspaper text-indigo-600 dark:text-indigo-400"></i> Current Affairs
-</h3>
-<button onclick="closeCurrentAffairsModal()" class="text-slate-500 hover:text-slate-900 dark:hover:text-white cursor-pointer"><i class="fa-solid fa-xmark text-lg"></i></button>
-</div>
-<div class="flex gap-2 bg-slate-100 dark:bg-slate-900 p-1 rounded-xl">
-<button id="ca-modal-daily-btn" onclick="switchCurrentAffairsMode('daily')" class="flex-1 py-2 rounded-lg text-[11px] font-bold bg-indigo-600 text-white">Daily Current Affairs</button>
-<button id="ca-modal-monthly-btn" onclick="switchCurrentAffairsMode('monthly')" class="flex-1 py-2 rounded-lg text-[11px] font-bold text-slate-600 dark:text-slate-300">Monthly Current Affairs</button>
-</div>
-<div id="ca-month-selector-wrap" class="hidden mt-2">
-<select id="ca-month-selector" onchange="renderSelectedMonthlyCurrentAffairs()" class="w-full bg-white dark:bg-[#0b0f19] border border-slate-200 dark:border-slate-700 rounded-lg px-3 py-2 text-[11px] font-semibold text-slate-700 dark:text-slate-200 outline-none">
-<option value="">Select Month</option>
-</select>
-</div>
-</div>
-<div class="flex-grow overflow-y-auto space-y-4 pr-2 text-xs sm:text-sm text-slate-700 dark:text-slate-300 leading-relaxed">
-<div class="p-4 bg-slate-50 dark:bg-[#0b0f19] rounded-xl border border-slate-200 dark:border-slate-800">
-<span id="modal-ca-date" class="text-[10px] font-bold bg-indigo-500/10 text-indigo-600 dark:text-indigo-400 px-2.5 py-1 rounded">Today</span>
-<h4 id="modal-ca-title" class="font-bold text-slate-900 dark:text-white mt-2 mb-1">Current Affairs</h4>
-<ul id="modal-ca-points-list" class="space-y-2 pl-4 list-disc"></ul>
-</div>
-<div id="modal-ca-quiz-box" class="p-4 bg-slate-50 dark:bg-[#0b0f19] rounded-xl border border-slate-200 dark:border-slate-800">
-<span id="modal-ca-quiz-label" class="text-[10px] font-bold bg-teal-500/10 text-teal-600 dark:text-teal-400 px-2.5 py-1 rounded">Daily CA Practice Quiz</span>
-<div id="modal-ca-quiz-container" class="mt-3 space-y-3"></div>
-</div>
-<div id="modal-ca-monthly-empty" class="hidden p-5 rounded-xl border border-dashed border-slate-300 dark:border-slate-700 text-center text-xs text-slate-500 dark:text-slate-400">
-Monthly Current Affairs data is not connected yet. Add the monthly data to the current-affairs/CA data file and it will appear here automatically.
-</div>
-</div>
-<div class="pt-4 mt-4 border-t border-slate-200 dark:border-slate-800 flex justify-end">
-<button onclick="closeCurrentAffairsModal()" class="bg-indigo-600 hover:bg-indigo-500 text-white font-bold px-6 py-2.5 rounded-xl text-xs uppercase tracking-wider shadow transition cursor-pointer">
-Close Bulletin
-</button>
-</div>
-</div>
-</div>
-
-<div id="add-exam-modal" class="fixed inset-0 bg-slate-900/60 backdrop-blur-md z-50 hidden flex items-center justify-center p-4">
-<div class="bg-white dark:bg-[#131b2e] w-full max-w-xl rounded-2xl shadow-2xl border border-slate-200 dark:border-slate-800 p-7 flex flex-col max-h-[85vh]">
-<div class="flex justify-between items-center mb-4 pb-3 border-b border-slate-200 dark:border-slate-800">
-<h3 class="text-base font-bold flex items-center gap-2 text-slate-900 dark:text-white"><i class="fa-solid fa-graduation-cap text-indigo-600 dark:text-indigo-400"></i> Select Target Examinations to Add</h3>
-<button onclick="closeAddExamModal()" class="text-slate-500 hover:text-slate-900 dark:hover:text-white cursor-pointer"><i class="fa-solid fa-xmark text-lg"></i></button>
-</div>
-<p class="text-xs text-slate-500 dark:text-slate-400 mb-4">Choose exams below to pin them instantly to your My Exams tab.</p>
-<div id="add-exam-list-container" class="flex-grow overflow-y-auto space-y-4 pr-2"></div>
-<div class="pt-4 mt-4 border-t border-slate-200 dark:border-slate-800 flex justify-end">
-<button onclick="closeAddExamModal()" class="bg-indigo-600 hover:bg-indigo-500 text-white font-bold px-6 py-2.5 rounded-xl text-xs uppercase tracking-wider shadow transition cursor-pointer">
-Done
-</button>
-</div>
-</div>
-</div>
-
-<div id="add-chapter-modal" class="fixed inset-0 bg-slate-900/60 backdrop-blur-md z-50 hidden flex items-center justify-center p-4">
-<div class="bg-white dark:bg-[#131b2e] w-full max-w-lg rounded-2xl shadow-2xl border border-slate-200 dark:border-slate-800 p-7">
-<div class="flex justify-between items-center mb-6">
-<h3 class="text-base font-bold flex items-center gap-2 text-slate-900 dark:text-white"><i class="fa-solid fa-book-open text-indigo-600 dark:text-indigo-400"></i> <span data-i18n="addChapterModalTitle">Add Custom Chapter</span></h3>
-<button onclick="closeAddChapterModal()" class="text-slate-500 hover:text-slate-900 dark:hover:text-white cursor-pointer"><i class="fa-solid fa-xmark"></i></button>
-</div>
-<form onsubmit="handleChapterSubmit(event)" class="space-y-4">
-<div>
-<label class="block text-[11px] font-bold text-slate-600 dark:text-slate-400 uppercase tracking-wider mb-1.5">Select Subject Stream</label>
-<select id="new-chapter-subject" onchange="updateChapterSelectDropdown()" class="w-full px-3.5 py-3 text-xs bg-slate-50 dark:bg-[#0b0f19] border border-slate-200 dark:border-slate-800 rounded-xl focus:outline-none focus:border-indigo-500 text-slate-900 dark:text-white cursor-pointer">
-<option value="mathematics">Mathematics</option>
-<option value="reasoning">Reasoning</option>
-<option value="science">Science</option>
-<option value="social_science">Social Science</option>
-<option value="computer">Computer</option>
-<option value="english">English</option>
-<option value="current_affairs">Current Affairs</option>
-</select>
-</div>
-<div>
-<label class="block text-[11px] font-bold text-slate-600 dark:text-slate-400 uppercase tracking-wider mb-1.5">Search & Select Chapter</label>
-<input type="text" id="chapter-search-input" oninput="filterChapterDropdown(this.value)" placeholder="Type to search curriculum chapters..." class="w-full mb-2 px-3 py-2 text-xs bg-slate-50 dark:bg-[#0b0f19] border border-slate-200 dark:border-slate-800 rounded-xl focus:outline-none focus:border-indigo-500 text-slate-900 dark:text-white">
-<select id="new-chapter-select" required class="w-full px-3.5 py-3 text-xs bg-slate-50 dark:bg-[#0b0f19] border border-slate-200 dark:border-slate-800 rounded-xl focus:outline-none focus:border-indigo-500 text-slate-900 dark:text-white max-h-40 overflow-y-auto cursor-pointer">
-</select>
-</div>
-<button type="submit" class="w-full bg-indigo-600 hover:bg-indigo-500 text-white font-bold py-3 rounded-xl text-xs uppercase tracking-wider shadow transition cursor-pointer" data-i18n="saveChapterBtn">Save to Repository</button>
-</form>
-</div>
-</div>
-
-<div id="auth-modal" class="fixed inset-0 bg-slate-900/60 backdrop-blur-md z-50 hidden flex items-center justify-center p-4">
-<div class="bg-white dark:bg-[#131b2e] w-full max-w-md rounded-2xl shadow-2xl border border-slate-200 dark:border-slate-800 p-7 relative">
-<button onclick="closeAuthModal()" class="absolute top-4 right-4 text-slate-500 hover:text-slate-900 dark:hover:text-white cursor-pointer"><i class="fa-solid fa-xmark text-lg"></i></button>
-<div class="flex items-center space-x-3 mb-5">
-<div class="w-8 h-8 bg-indigo-600 text-white rounded-lg flex items-center justify-center text-sm font-bold">
-<i class="fa-solid fa-shield-halved"></i>
-</div>
-<h3 class="text-base font-bold text-slate-900 dark:text-white">TargetTire Portal Authentication</h3>
-</div>
-<div class="flex bg-slate-100 dark:bg-slate-900 p-1 rounded-xl mb-5">
-<button onclick="switchAuthMode('login')" id="auth-tab-login" class="flex-1 py-2 text-xs font-bold rounded-lg bg-indigo-600 text-white transition cursor-pointer">Sign In</button>
-<button onclick="switchAuthMode('register')" id="auth-tab-register" class="flex-1 py-2 text-xs font-semibold rounded-lg text-slate-600 dark:text-slate-400 hover:text-slate-900 transition cursor-pointer">Register</button>
-</div>
-
-<form id="auth-form-login" onsubmit="handleLoginSubmit(event)" class="space-y-4">
-<div>
-<label class="block text-[11px] font-bold text-slate-600 dark:text-slate-400 uppercase tracking-wider mb-1.5">Gmail or Email Address *</label>
-<input type="email" id="login-identifier" required placeholder="aspirant@gmail.com" class="w-full px-3.5 py-3 text-xs bg-slate-50 dark:bg-[#0b0f19] border border-slate-200 dark:border-slate-800 rounded-xl focus:outline-none focus:border-indigo-500 text-slate-900 dark:text-white">
-</div>
-<div>
-<label class="block text-[11px] font-bold text-slate-600 dark:text-slate-400 uppercase tracking-wider mb-1.5">Secure Passcode *</label>
-<input type="password" id="login-passcode" required placeholder="••••••••" class="w-full px-3.5 py-3 text-xs bg-slate-50 dark:bg-[#0b0f19] border border-slate-200 dark:border-slate-800 rounded-xl focus:outline-none focus:border-indigo-500 text-slate-900 dark:text-white">
-</div>
-<div id="login-status-msg" class="text-xs text-center min-h-[20px]"></div>
-<button type="submit" class="w-full bg-indigo-600 hover:bg-indigo-500 text-white font-bold py-3 rounded-xl text-xs uppercase tracking-wider shadow transition cursor-pointer">Authenticate Session</button>
-</form>
-
-<form id="auth-form-register" onsubmit="handleRegisterSubmit(event)" class="space-y-3.5 hidden">
-<div id="reg-step-1">
-<div>
-<label class="block text-[10px] font-bold text-slate-600 dark:text-slate-400 uppercase tracking-wider mb-1">Full Name *</label>
-<input type="text" id="reg-name" required placeholder="Enter your full name" class="w-full px-3 py-2.5 text-xs bg-slate-50 dark:bg-[#0b0f19] border border-slate-200 dark:border-slate-800 rounded-xl focus:outline-none focus:border-indigo-500 text-slate-900 dark:text-white">
-</div>
-<div class="mt-2.5">
-<label class="block text-[10px] font-bold text-slate-600 dark:text-slate-400 uppercase tracking-wider mb-1">Gmail / Email Address *</label>
-<input type="email" id="reg-email" required placeholder="aspirant@gmail.com" class="w-full px-3 py-2.5 text-xs bg-slate-50 dark:bg-[#0b0f19] border border-slate-200 dark:border-slate-800 rounded-xl focus:outline-none focus:border-indigo-500 text-slate-900 dark:text-white">
-</div>
-<div class="mt-2.5">
-<label class="block text-[10px] font-bold text-slate-600 dark:text-slate-400 uppercase tracking-wider mb-1">Secure Passcode *</label>
-<input type="password" id="reg-password" required minlength="6" placeholder="Minimum 6 characters" class="w-full px-3 py-2.5 text-xs bg-slate-50 dark:bg-[#0b0f19] border border-slate-200 dark:border-slate-800 rounded-xl focus:outline-none focus:border-indigo-500 text-slate-900 dark:text-white">
-</div>
-<div id="reg-status-msg" class="text-xs text-center min-h-[20px] text-teal-400 font-medium my-2"></div>
-<button type="submit" class="w-full bg-teal-600 hover:bg-teal-500 text-white font-bold py-3 rounded-xl text-xs uppercase tracking-wider shadow transition cursor-pointer">Register & Send Verification Link</button>
-</div>
-
-<div id="reg-step-verify-email" class="hidden space-y-4 text-center">
-<div class="w-12 h-12 bg-teal-500/10 text-teal-600 dark:text-teal-400 rounded-full flex items-center justify-center text-xl mx-auto">
-<i class="fa-solid fa-envelope-circle-check"></i>
-</div>
-<h4 class="text-sm font-bold text-slate-900 dark:text-white">Verify Your Email Address</h4>
-<p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
-Firebase has dispatched a verification link to 
-<span id="verify-email-display" class="font-bold text-indigo-600 dark:text-indigo-400"></span>.
-</p>
-
-<div class="p-3 bg-amber-500/10 border border-amber-500/30 rounded-xl text-xs text-amber-700 dark:text-amber-300 text-left space-y-1">
-<p class="font-bold flex items-center gap-1.5">
-<i class="fa-solid fa-triangle-exclamation text-amber-500"></i> ज़रूरी सूचना / Important Notice:
-</p>
-<p class="text-[11px] leading-relaxed">
-अगर आपको इनबॉक्स (Inbox) में मेल नहीं दिख रहा है, तो कृपया अपने Gmail ऐप में <strong>Spam (स्पैम)</strong> या <strong>Junk</strong> फ़ोल्डर खोलकर चेक करें। वहाँ आए लिंक पर क्लिक करके वेरिफाई करें।
-</p>
-</div>
-
-<div id="email-verify-status-msg" class="text-xs text-center min-h-[20px] font-medium"></div>
-<div class="space-y-2 pt-2">
-<button type="button" onclick="checkEmailVerified()" class="w-full bg-indigo-600 hover:bg-indigo-500 text-white font-bold py-2.5 rounded-xl text-xs uppercase tracking-wider shadow transition cursor-pointer">
-<i class="fa-solid fa-circle-check mr-1"></i> I Have Verified (Check Status)
-</button>
-<button type="button" onclick="resendVerificationEmail()" class="w-full bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 font-semibold py-2 rounded-xl text-xs transition cursor-pointer">
-Resend Verification Email
-</button>
-</div>
-</div>
-</form>
-</div>
-</div>
-
-<div id="custom-confirm-modal" class="fixed inset-0 bg-slate-900/60 backdrop-blur-md z-50 hidden flex items-center justify-center p-4">
-<div class="bg-white dark:bg-[#131b2e] w-full max-w-sm rounded-2xl shadow-2xl border border-slate-200 dark:border-slate-800 p-6 text-center">
-<div class="w-12 h-12 bg-amber-500/10 text-amber-500 rounded-full flex items-center justify-center text-lg mx-auto mb-3">
-<i class="fa-solid fa-triangle-exclamation"></i>
-</div>
-<h3 id="confirm-title" class="text-base font-bold text-slate-900 dark:text-white mb-2">Confirm Action</h3>
-<p id="confirm-desc" class="text-xs text-slate-600 dark:text-slate-400 mb-6">Are you sure you want to proceed?</p>
-<div class="flex gap-3">
-<button id="confirm-yes-btn" class="flex-1 bg-rose-600 hover:bg-rose-500 text-white font-bold py-2.5 rounded-xl text-xs uppercase tracking-wider shadow transition cursor-pointer">Yes</button>
-<button onclick="closeCustomConfirm()" class="flex-1 bg-slate-200 dark:bg-slate-800 hover:bg-slate-300 dark:hover:bg-slate-700 text-slate-800 dark:text-slate-200 font-bold py-2.5 rounded-xl text-xs uppercase tracking-wider transition cursor-pointer">Cancel</button>
-</div>
-</div>
-</div>
-
-<div id="toast" class="fixed bottom-6 right-6 bg-white dark:bg-[#131b2e] border border-slate-200 dark:border-slate-800 text-slate-900 dark:text-slate-300 px-4 py-3 rounded-xl shadow-xl transform translate-y-24 opacity-0 transition-all duration-300 z-50 flex items-center gap-3">
-<i class="fa-solid fa-circle-check text-teal-500 text-sm"></i>
-<span id="toast-message" class="text-xs font-medium">Modular telemetry updated successfully.</span>
-</div>
-
-<script>
-// --- CURRICULUM INTEGRATION FROM MODULAR FILES (INCLUDING CURRENT AFFAIRS) ---
-window.curriculumData = {
-  mathematics: window.mathData,
-  reasoning: window.reasoningData,
-  science: window.scienceData,
-  social_science: window.socialScienceData,
-  computer: window.computerData,
-  english: window.englishData,
-  current_affairs: window.currentAffairsData
-};
-
-const firebaseConfig = {
-apiKey: "AIzaSyC3ar3PmMmglXlBZA3zP05uXorPNt37GKE",
-authDomain: "targettire.firebaseapp.com",
-projectId: "targettire",
-storageBucket: "targettire.firebasestorage.app",
-messagingSenderId: "480086745143",
-appId: "1:480086745143:web:12d52cd4dc7184a0f75fb2",
-measurementId: "G-391KVE9LTN"
-};
-try {
-if (typeof firebase !== 'undefined' && !firebase.apps.length) {
-firebase.initializeApp(firebaseConfig);
-}
-} catch(e) {
-console.error("Firebase init error:", e);
-}
-
-let currentLang = 'en';
-let myExamsList = ["SSC CGL", "IBPS PO", "RRB NTPC"];
-let currentUser = null;
-const TT_HISTORY_KEY = 'targettire_test_history_v1';
-let userTestHistory = [];
-try { userTestHistory = JSON.parse(localStorage.getItem(TT_HISTORY_KEY) || '[]'); if (!Array.isArray(userTestHistory)) userTestHistory = []; } catch (_) { userTestHistory = []; }
-function persistTestHistory() { try { localStorage.setItem(TT_HISTORY_KEY, JSON.stringify(userTestHistory.slice(-100))); } catch(e) { console.warn('Unable to save test history', e); } }
-function ttEscapeHtml(v) { return String(v ?? '').replace(/[&<>\"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','\"':'&quot;',"'":'&#39;'}[c])); }
-function ttQuestionSnapshot(q, selected) {
-  const options = (q.optionsEn || []).map((en,i) => ({ en:String(en ?? ''), hi:String((q.optionsHi||[])[i] ?? '') }));
-  const correct = Number.isInteger(q.answer) ? q.answer : Number(q.correctAnswer ?? -1);
-  const chosen = (selected === undefined || selected === -1) ? -1 : Number(selected);
-  return { qEn:String(q.qEn || q.question || q.text || ''), qHi:String(q.qHi || ''), options, correct, selected:chosen, status:chosen < 0 ? 'Skipped' : (chosen === correct ? 'Correct' : 'Incorrect'), explanation:String(q.exp || q.explanation || '') };
-}
-function saveTestAttempt(record) {
-  const userKey = currentUser && (currentUser.uid || currentUser.email || currentUser.phone) || 'guest';
-  record.id = 'attempt_' + Date.now() + '_' + Math.random().toString(36).slice(2,8);
-  record.userKey = userKey; record.timestamp = new Date().toISOString();
-  userTestHistory.push(record); persistTestHistory(); renderUserTestHistory();
-  // Best-effort cloud persistence for signed-in users; local history remains available if cloud rules are not configured.
-  try {
-    if (typeof firebase !== 'undefined' && firebase.auth && firebase.auth().currentUser && firebase.firestore) {
-      const u = firebase.auth().currentUser;
-      firebase.firestore().collection('users').doc(u.uid).collection('testAttempts').doc(record.id).set(record).catch(err => console.warn('Cloud attempt save failed:', err));
-    }
-  } catch(e) { console.warn('Cloud attempt save failed:', e); }
-}
-function closeQuestionReview() { const m=document.getElementById('question-review-modal'); if(m){m.classList.add('hidden');m.classList.remove('flex');} }
-function openQuestionReview(id) {
-  const item = userTestHistory.find(x => x.id === id);
-  if (!item) { alert('इस टेस्ट की प्रश्न समीक्षा उपलब्ध नहीं है।'); return; }
-  document.getElementById('question-review-title').textContent = item.title || 'Question Review';
-  document.getElementById('question-review-summary').textContent = `${item.type || 'Test'} · स्कोर ${item.correct || 0}/${item.total || 0} · ${item.date || ''}`;
-  const list=document.getElementById('question-review-list'); list.innerHTML='';
-  (item.questions || []).forEach((q,i)=>{
-    const card=document.createElement('article'); card.className='rounded-xl border p-4 '+(q.status==='Correct'?'border-teal-500/40 bg-teal-500/5':q.status==='Incorrect'?'border-rose-500/40 bg-rose-500/5':'border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900/40');
-    const statusLabel=q.status==='Correct'?'सही उत्तर':q.status==='Incorrect'?'गलत उत्तर':'उत्तर नहीं दिया';
-    const opts=(q.options||[]).map((o,j)=>`<div class="mt-1 rounded-lg px-3 py-2 text-xs ${j===q.correct?'bg-teal-500/15 border border-teal-500/40':j===q.selected?'bg-rose-500/10 border border-rose-500/40':'bg-white/60 dark:bg-slate-900/40 border border-slate-200/50 dark:border-slate-700/50'}"><b>${String.fromCharCode(65+j)}.</b> ${escapeHtml(o.en)}${o.hi?` <span class="text-slate-500">/ ${escapeHtml(o.hi)}</span>`:''}${j===q.correct?' <b class="text-teal-600">✓ सही उत्तर</b>':''}${j===q.selected&&j!==q.correct?' <b class="text-rose-600">← आपका उत्तर</b>':''}</div>`).join('');
-    card.innerHTML=`<div class="flex justify-between gap-2 items-start"><h4 class="font-bold text-sm">Q${i+1}. ${escapeHtml(q.qEn||'प्रश्न उपलब्ध नहीं है')}${q.qHi?`<div class="text-xs text-slate-500 mt-1">${escapeHtml(q.qHi)}</div>`:''}</h4><span class="shrink-0 text-[10px] font-bold px-2 py-1 rounded-full ${q.status==='Correct'?'bg-teal-500/15 text-teal-700':q.status==='Incorrect'?'bg-rose-500/15 text-rose-700':'bg-slate-200 dark:bg-slate-700 text-slate-600 dark:text-slate-200'}">${statusLabel}</span></div><div class="mt-3">${opts}</div><p class="text-xs mt-3 text-slate-600 dark:text-slate-300"><b>आपका उत्तर:</b> ${q.selected<0?'नहीं दिया':(q.options?.[q.selected]?.en || '—')} · <b>सही उत्तर:</b> ${q.correct>=0?(q.options?.[q.correct]?.en || '—'):'डेटा उपलब्ध नहीं'}</p><div class="mt-3 text-xs text-slate-600 dark:text-slate-300"><b>Explanation:</b> ${escapeHtml(q.explanation||'इस प्रश्न का explanation उपलब्ध नहीं है।')}</div>`;
-    list.appendChild(card);
-  });
-  if(!(item.questions||[]).length) list.innerHTML='<p class="text-sm text-slate-500">इस पुराने attempt के लिए उत्तरों का विवरण सेव नहीं था। नए attempts में Question Review उपलब्ध होगा।</p>';
-  const m=document.getElementById('question-review-modal'); m.classList.remove('hidden'); m.classList.add('flex');
-}
 
 if (typeof firebase !== 'undefined') {
 firebase.auth().onAuthStateChanged((user) => {
@@ -3474,7 +3184,13 @@ document.getElementById('summary-incorrect').innerText = incorrect;
 document.getElementById('summary-unattempted').innerText = unattempted;
 document.getElementById('runner-final-summary').innerText = `You completed ${currentChapter.title} with ${correct} correct answers out of ${practiceQuestions.length} total questions.`;
 
-saveTestAttempt({ type: 'Practice', title: currentChapter.title, correct, total: practiceQuestions.length, date: new Date().toLocaleDateString(), attempted, incorrect, unattempted, questions: practiceQuestions.map((q,idx)=>ttQuestionSnapshot(q,userAnswers[idx])) });
+userTestHistory.push({
+type: 'Practice',
+title: currentChapter.title,
+correct: correct,
+total: practiceQuestions.length,
+date: new Date().toLocaleDateString()
+});
 }
 
 function exitPracticeRunner() {
@@ -3767,7 +3483,13 @@ document.getElementById('exam-summary-incorrect').innerText = incorrect;
 document.getElementById('exam-summary-unattempted').innerText = unattempted;
 document.getElementById('exam-final-summary').innerText = `You completed ${examTitle} with ${correct} correct answers out of ${examQuestions.length} total questions under proctored exam conditions.`;
 
-saveTestAttempt({ type: 'Mock Exam', title: examTitle, correct, total: examQuestions.length, date: new Date().toLocaleDateString(), attempted, incorrect, unattempted, questions: examQuestions.map((q,idx)=>ttQuestionSnapshot(q,examAnswers[idx])) });
+userTestHistory.push({
+type: 'Mock Exam',
+title: examTitle,
+correct: correct,
+total: examQuestions.length,
+date: new Date().toLocaleDateString()
+});
 }
 
 function exitExamVault() {
@@ -3793,15 +3515,11 @@ if (userTestHistory.length === 0) {
 container.innerHTML = `<div class="text-center py-6 text-slate-400 text-xs">No tests attempted yet. Complete a Practice or Mock test to view your scores here!</div>`;
 return;
 }
-[...userTestHistory].reverse().forEach(item => {
+userTestHistory.forEach(item => {
 const row = document.createElement('div');
-row.className = 'flex flex-col sm:flex-row sm:items-center justify-between gap-3 p-3.5 bg-slate-50 dark:bg-[#0b0f19] border border-slate-200 dark:border-slate-800 rounded-xl text-xs';
-const title=document.createElement('div');
-title.innerHTML=`<span class="font-bold text-indigo-600 dark:text-indigo-400 uppercase">[${escapeHtml(item.type||'Test')}]</span> <span class="text-slate-800 dark:text-slate-200 font-semibold ml-2">${escapeHtml(item.title||'Test')}</span><span class="block text-[10px] text-slate-400 mt-0.5">Date: ${escapeHtml(item.date||'')}</span>`;
-const actions=document.createElement('div'); actions.className='flex items-center gap-3 sm:justify-end';
-const score=document.createElement('span'); score.className='font-bold text-teal-600'; score.textContent=`Score: ${item.correct||0} / ${item.total||0}`;
-const btn=document.createElement('button'); btn.className='bg-indigo-600 hover:bg-indigo-500 text-white px-3 py-2 rounded-lg text-[11px] font-bold'; btn.textContent='View Question Review'; btn.onclick=()=>openQuestionReview(item.id);
-actions.append(score,btn); row.append(title,actions); container.appendChild(row);
+row.className = 'flex items-center justify-between p-3.5 bg-slate-50 dark:bg-[#0b0f19] border border-slate-200 dark:border-slate-800 rounded-xl text-xs';
+row.innerHTML = `<div><span class="font-bold text-indigo-600 dark:text-indigo-400 uppercase">[${item.type}]</span> <span class="text-slate-800 dark:text-slate-200 font-semibold ml-2">${item.title}</span><span class="block text-[10px] text-slate-400 mt-0.5">Date: ${item.date}</span></div><div class="text-right font-bold text-teal-600">Score: ${item.correct} / ${item.total}</div>`;
+container.appendChild(row);
 });
 }
 
@@ -4521,6 +4239,28 @@ window.playBrandNewErrorTune = function(){ __ttPlayTone(false); };
 
   if(document.readyState==='loading') window.addEventListener('DOMContentLoaded',()=>{setupSearch();restoreAfterReload();});
   else { setupSearch(); restoreAfterReload(); }
+})();
+</script>
+
+
+<!-- TargetTire Question Review Modal -->
+<div id="tt-review-modal" class="fixed inset-0 z-[100] hidden items-center justify-center bg-black/70 p-3">
+ <section class="flex max-h-[90vh] w-full max-w-3xl flex-col overflow-hidden rounded-2xl border border-slate-300 bg-white shadow-2xl dark:border-slate-700 dark:bg-[#131b2e]">
+  <header class="flex items-center justify-between border-b border-slate-200 p-4 dark:border-slate-700"><div><h2 id="tt-review-title" class="font-bold text-lg">Question Review</h2><p id="tt-review-summary" class="text-xs text-slate-500"></p></div><button type="button" id="tt-review-close" class="rounded-lg px-3 py-2 hover:bg-slate-100 dark:hover:bg-slate-800">✕</button></header>
+  <div id="tt-review-body" class="space-y-3 overflow-y-auto p-4"></div>
+ </section>
+</div>
+<script>
+/* Isolated review feature: does not replace or wrap any existing TargetTire functions. */
+(function(){
+ const KEY='targettire_review_attempts_v1';
+ function esc(v){return String(v==null?'':v).replace(/[&<>\"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','\"':'&quot;',"'":'&#39;'}[c]));}
+ function read(){try{const a=JSON.parse(localStorage.getItem(KEY)||'[]');return Array.isArray(a)?a:[]}catch(e){return []}}
+ function write(a){try{localStorage.setItem(KEY,JSON.stringify(a.slice(-100)))}catch(e){console.warn('Review history local save failed',e)}}
+ window.ttSaveReviewAttempt=function(record){if(!record||!Array.isArray(record.questions))return;const a=read();record.id=record.id||('tt_'+Date.now()+'_'+Math.random().toString(36).slice(2,8));record.savedAt=new Date().toISOString();a.push(record);write(a);return record.id};
+ window.ttOpenQuestionReview=function(id){const item=read().find(x=>x.id===id);if(!item)return;document.getElementById('tt-review-title').textContent=item.title||'Question Review';document.getElementById('tt-review-summary').textContent=(item.type||'Test')+' · Score '+(item.correct||0)+'/'+(item.total||item.questions.length);const body=document.getElementById('tt-review-body');body.innerHTML='';(item.questions||[]).forEach((q,i)=>{const chosen=Number(q.selected),correct=Number(q.correct),status=chosen<0?'छोड़ा गया':chosen===correct?'सही':'गलत';const opts=(q.options||[]).map((o,j)=>'<div class="mt-1 rounded-lg border p-2 text-sm '+(j===correct?'border-emerald-400 bg-emerald-50 dark:bg-emerald-900/20':j===chosen?'border-rose-400 bg-rose-50 dark:bg-rose-900/20':'border-slate-200 dark:border-slate-700')+'">'+String.fromCharCode(65+j)+'. '+esc(typeof o==='string'?o:(o.en||o.text||o.hi||''))+(j===correct?' ✓ सही उत्तर':'')+(j===chosen?' · आपका उत्तर':'')+'</div>').join('');const card=document.createElement('article');card.className='rounded-xl border p-3 '+(status==='सही'?'border-emerald-400':status==='गलत'?'border-rose-400':'border-slate-300 dark:border-slate-700');card.innerHTML='<div class="flex justify-between gap-3"><h3 class="font-semibold text-sm">Q'+(i+1)+'. '+esc(q.qEn||q.question||q.text||'प्रश्न')+(q.qHi?'<div class="mt-1 text-slate-500">'+esc(q.qHi)+'</div>':'')+'</h3><span class="shrink-0 text-xs font-bold">'+status+'</span></div><div class="mt-2">'+opts+'</div><p class="mt-3 text-xs"><b>आपका उत्तर:</b> '+(chosen<0?'नहीं दिया':esc((q.options||[])[chosen]&&((q.options||[])[chosen].en||(q.options||[])[chosen].text||(q.options||[])[chosen])) )+'<br><b>सही उत्तर:</b> '+esc((q.options||[])[correct]&&((q.options||[])[correct].en||(q.options||[])[correct].text||(q.options||[])[correct]))+'</p><p class="mt-2 text-xs"><b>Explanation:</b> '+esc(q.explanation||q.exp||'उपलब्ध नहीं')+'</p>';body.appendChild(card)});const m=document.getElementById('tt-review-modal');m.classList.remove('hidden');m.classList.add('flex')};
+ document.addEventListener('click',function(e){if(e.target.id==='tt-review-close'||e.target.id==='tt-review-modal'){const m=document.getElementById('tt-review-modal');m.classList.add('hidden');m.classList.remove('flex')}});
+ window.ttRenderReviewButton=function(container,id){if(!container||!id)return;const b=document.createElement('button');b.type='button';b.className='rounded-lg bg-indigo-600 px-3 py-2 text-xs font-bold text-white';b.textContent='View Question Review';b.onclick=()=>window.ttOpenQuestionReview(id);container.appendChild(b)};
 })();
 </script>
 
