@@ -1083,6 +1083,7 @@ Done
 </div>
 <div id="login-status-msg" class="text-xs text-center min-h-[20px]"></div>
 <button type="submit" class="w-full bg-indigo-600 hover:bg-indigo-500 text-white font-bold py-3 rounded-xl text-xs uppercase tracking-wider shadow transition cursor-pointer">Authenticate Session</button>
+<button type="button" onclick="handleForgotPassword()" class="w-full text-xs font-semibold text-indigo-600 hover:text-indigo-500 py-1">Forgot Password?</button>
 </form>
 
 <form id="auth-form-register" onsubmit="handleRegisterSubmit(event)" class="space-y-3.5 hidden">
@@ -3582,7 +3583,7 @@ function handleRegisterSubmit(e) {
     statusMsg.innerHTML = `<span class="text-rose-500">कृपया सही 10 अंकों का मोबाइल नंबर डालें।</span>`;
     return;
   }
-  if (!/^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/.test(email)) {
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
     statusMsg.innerHTML = `<span class="text-rose-500">कृपया सही Gmail / ईमेल पता डालें।</span>`;
     return;
   }
@@ -3629,6 +3630,17 @@ function handleRegisterSubmit(e) {
         : error.message;
       statusMsg.innerHTML = `<span class="text-rose-500">अकाउंट नहीं बना: ${msg}</span>`;
     });
+}
+
+function handleForgotPassword() {
+  const phone = (document.getElementById('login-phone')?.value || '').trim();
+  const status = document.getElementById('login-status-msg');
+  if (!/^[0-9]{10}$/.test(phone)) {
+    status.innerHTML = '<span class="text-amber-500">पहले अपना 10 अंकों का मोबाइल नंबर डालें। पासवर्ड रिकवरी के लिए अभी OTP सेटअप जरूरी है।</span>';
+    document.getElementById('login-phone')?.focus();
+    return;
+  }
+  status.innerHTML = '<span class="text-amber-500">इस पुराने सेटअप में Firebase अकाउंट का लॉगिन ईमेल तकनीकी (synthetic) है, इसलिए Gmail पर reset link भेजना सही तरह काम नहीं करेगा। अभी पासवर्ड रिकवरी उपलब्ध नहीं है। अकाउंट लॉक न करें; आगे सुरक्षित email/OTP recovery सेटअप करना होगा।</span>';
 }
 
 function checkEmailVerified() {
