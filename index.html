@@ -46,6 +46,7 @@
 <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-auth-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-storage-compat.js"></script>
 <script>
 tailwind.config = {
 darkMode: 'class',
@@ -1072,7 +1073,7 @@ Done
 <form id="auth-form-login" onsubmit="handleLoginSubmit(event)" class="space-y-4">
 <div>
 <label class="block text-[11px] font-bold text-slate-600 dark:text-slate-400 uppercase tracking-wider mb-1.5">Mobile Number *</label>
-<input type="tel" id="login-phone" required inputmode="numeric" pattern="[0-9]{10}" maxlength="10" placeholder="Enter 10-digit mobile number" class="w-full px-3.5 py-3 text-xs bg-slate-50 dark:bg-[#0b0f19] border border-slate-200 dark:border-slate-800 rounded-xl focus:outline-none focus:border-indigo-500 text-slate-900 dark:text-white">
+<input type="tel" id="login-identifier" required inputmode="numeric" pattern="[0-9]{10}" maxlength="10" autocomplete="tel" placeholder="10-digit mobile number" class="w-full px-3.5 py-3 text-xs bg-slate-50 dark:bg-[#0b0f19] border border-slate-200 dark:border-slate-800 rounded-xl focus:outline-none focus:border-indigo-500 text-slate-900 dark:text-white">
 </div>
 <div>
 <label class="block text-[11px] font-bold text-slate-600 dark:text-slate-400 uppercase tracking-wider mb-1.5">Secure Passcode *</label>
@@ -1086,28 +1087,40 @@ Done
 <div id="reg-step-1">
 <div>
 <label class="block text-[10px] font-bold text-slate-600 dark:text-slate-400 uppercase tracking-wider mb-1">Full Name *</label>
-<input type="text" id="reg-name" required placeholder="Enter your full name" class="w-full px-3 py-2.5 text-xs bg-slate-50 dark:bg-[#0b0f19] border border-slate-200 dark:border-slate-800 rounded-xl focus:outline-none focus:border-indigo-500 text-slate-900 dark:text-white">
+<input type="text" id="reg-name" required autocomplete="name" placeholder="Enter your full name" class="w-full px-3 py-2.5 text-xs bg-slate-50 dark:bg-[#0b0f19] border border-slate-200 dark:border-slate-800 rounded-xl focus:outline-none focus:border-indigo-500 text-slate-900 dark:text-white">
 </div>
 <div class="mt-2.5">
 <label class="block text-[10px] font-bold text-slate-600 dark:text-slate-400 uppercase tracking-wider mb-1">Mobile Number *</label>
-<input type="tel" id="reg-phone" required inputmode="numeric" pattern="[0-9]{10}" maxlength="10" placeholder="10-digit mobile number" class="w-full px-3 py-2.5 text-xs bg-slate-50 dark:bg-[#0b0f19] border border-slate-200 dark:border-slate-800 rounded-xl focus:outline-none focus:border-indigo-500 text-slate-900 dark:text-white">
+<input type="tel" id="reg-phone" required inputmode="numeric" pattern="[0-9]{10}" maxlength="10" autocomplete="tel" placeholder="10-digit mobile number" class="w-full px-3 py-2.5 text-xs bg-slate-50 dark:bg-[#0b0f19] border border-slate-200 dark:border-slate-800 rounded-xl focus:outline-none focus:border-indigo-500 text-slate-900 dark:text-white">
 </div>
 <div class="mt-2.5">
 <label class="block text-[10px] font-bold text-slate-600 dark:text-slate-400 uppercase tracking-wider mb-1">Gmail / Email Address *</label>
-<input type="email" id="reg-email" required autocomplete="email" placeholder="yourname@gmail.com" class="w-full px-3 py-2.5 text-xs bg-slate-50 dark:bg-[#0b0f19] border border-slate-200 dark:border-slate-800 rounded-xl focus:outline-none focus:border-indigo-500 text-slate-900 dark:text-white">
+<input type="email" id="reg-email" required placeholder="aspirant@gmail.com" class="w-full px-3 py-2.5 text-xs bg-slate-50 dark:bg-[#0b0f19] border border-slate-200 dark:border-slate-800 rounded-xl focus:outline-none focus:border-indigo-500 text-slate-900 dark:text-white">
 </div>
 <div class="mt-2.5">
 <label class="block text-[10px] font-bold text-slate-600 dark:text-slate-400 uppercase tracking-wider mb-1">Secure Passcode *</label>
-<input type="password" id="reg-password" required minlength="6" autocomplete="new-password" placeholder="Minimum 6 characters" class="w-full px-3 py-2.5 text-xs bg-slate-50 dark:bg-[#0b0f19] border border-slate-200 dark:border-slate-800 rounded-xl focus:outline-none focus:border-indigo-500 text-slate-900 dark:text-white">
+<input type="password" id="reg-password" required minlength="6" placeholder="Minimum 6 characters" class="w-full px-3 py-2.5 text-xs bg-slate-50 dark:bg-[#0b0f19] border border-slate-200 dark:border-slate-800 rounded-xl focus:outline-none focus:border-indigo-500 text-slate-900 dark:text-white">
 </div>
 <div id="reg-status-msg" class="text-xs text-center min-h-[20px] text-teal-400 font-medium my-2"></div>
-<button type="submit" class="w-full bg-teal-600 hover:bg-teal-500 text-white font-bold py-3 rounded-xl text-xs uppercase tracking-wider shadow transition cursor-pointer">Create Account — No OTP</button>
+<button type="submit" class="w-full bg-teal-600 hover:bg-teal-500 text-white font-bold py-3 rounded-xl text-xs uppercase tracking-wider shadow transition cursor-pointer">Create Account</button>
 </div>
-
 
 </form>
 </div>
 </div>
+
+<div id="user-profile-modal" class="fixed inset-0 bg-slate-900/60 backdrop-blur-md z-[60] hidden flex items-center justify-center p-4">
+<div class="bg-white dark:bg-[#131b2e] w-full max-w-md rounded-2xl shadow-2xl border border-slate-200 dark:border-slate-800 p-6 relative max-h-[90vh] overflow-y-auto">
+<button onclick="closeUserProfile()" class="absolute top-4 right-4 text-slate-500 hover:text-slate-900 dark:hover:text-white"><i class="fa-solid fa-xmark text-lg"></i></button>
+<h3 class="text-base font-bold text-slate-900 dark:text-white mb-4">User Profile</h3>
+<div class="flex items-center gap-3 mb-4"><img id="profile-photo-preview" alt="Profile photo" src="" class="w-16 h-16 rounded-full object-cover bg-slate-200 hidden"><div id="profile-photo-placeholder" class="w-16 h-16 rounded-full bg-indigo-500/10 text-indigo-600 flex items-center justify-center text-2xl"><i class="fa-solid fa-user"></i></div><div class="flex-1"><label class="block text-xs font-semibold mb-1">Profile photo</label><input id="profile-photo-file" type="file" accept="image/*" class="w-full text-xs"></div></div>
+<form id="user-profile-form" onsubmit="saveUserProfile(event)" class="space-y-3">
+<div><label class="block text-xs font-semibold mb-1">Name</label><input id="profile-name" required maxlength="80" class="w-full px-3 py-2.5 text-sm rounded-xl border border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-[#0b0f19]"></div>
+<div><label class="block text-xs font-semibold mb-1">Mobile number</label><input id="profile-phone" disabled class="w-full px-3 py-2.5 text-sm rounded-xl border border-slate-300 dark:border-slate-700 bg-slate-100 dark:bg-slate-900"></div>
+<div><label class="block text-xs font-semibold mb-1">Gmail / Email</label><input id="profile-email" type="email" required class="w-full px-3 py-2.5 text-sm rounded-xl border border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-[#0b0f19]"><p class="text-[11px] text-amber-600 mt-1">ईमेल अभी सत्यापित नहीं है; OTP/verification बाद में जोड़ा जा सकता है।</p></div>
+<div id="profile-status" class="text-xs min-h-[18px]"></div>
+<button type="submit" class="w-full bg-indigo-600 hover:bg-indigo-500 text-white font-bold py-2.5 rounded-xl text-xs">Save Profile</button>
+</form></div></div>
 
 <div id="custom-confirm-modal" class="fixed inset-0 bg-slate-900/60 backdrop-blur-md z-50 hidden flex items-center justify-center p-4">
 <div class="bg-white dark:bg-[#131b2e] w-full max-w-sm rounded-2xl shadow-2xl border border-slate-200 dark:border-slate-800 p-6 text-center">
@@ -1162,50 +1175,34 @@ let myExamsList = ["SSC CGL", "IBPS PO", "RRB NTPC"];
 let currentUser = null;
 let userTestHistory = [];
 
-let activeSessionUnsubscribe = null;
-let activeSessionId = null;
-
-function getSessionId() {
-  return (window.crypto && crypto.randomUUID) ? crypto.randomUUID() :
-    ('sess_' + Date.now() + '_' + Math.random().toString(36).slice(2));
-}
-function watchSingleDeviceSession(user, sessionId) {
-  if (activeSessionUnsubscribe) { activeSessionUnsubscribe(); activeSessionUnsubscribe = null; }
-  activeSessionId = sessionId;
-  if (!firebase.firestore) return;
-  activeSessionUnsubscribe = firebase.firestore().collection('users').doc(user.uid)
-    .onSnapshot((doc) => {
-      if (!doc.exists) return;
-      const latest = doc.data().activeSessionId;
-      if (latest && activeSessionId && latest !== activeSessionId) {
-        if (activeSessionUnsubscribe) activeSessionUnsubscribe();
-        activeSessionUnsubscribe = null;
-        firebase.auth().signOut().then(() => showToast('यह अकाउंट दूसरी जगह लॉगिन हुआ है। इस डिवाइस से लॉगआउट कर दिया गया।'));
-      }
-    }, (err) => console.warn('Session watcher unavailable; check Firestore rules:', err));
-}
+let profileDocUnsubscribe = null;
 if (typeof firebase !== 'undefined') {
-firebase.auth().onAuthStateChanged((user) => {
+firebase.auth().onAuthStateChanged(async (user) => {
+  if (profileDocUnsubscribe) { profileDocUnsubscribe(); profileDocUnsubscribe = null; }
   if (user) {
-    const sid = sessionStorage.getItem('targettire_session_id');
-    if (sid) watchSingleDeviceSession(user, sid);
-    firebase.firestore().collection('users').doc(user.uid).get().then((profileDoc) => {
-      const profile = profileDoc.exists ? profileDoc.data() : {};
-      currentUser = { name: user.displayName || profile.name || 'Student', phone: profile.phone || '', uid: user.uid };
+    try {
+      const doc = await firebase.firestore().collection('users').doc(user.uid).get();
+      const profile = doc.exists ? doc.data() : {};
+      currentUser = { uid: user.uid, name: profile.name || user.displayName || 'Student', phone: profile.phone || '', email: profile.email || '', photoURL: profile.photoURL || '' };
       localStorage.setItem('targettire_user', JSON.stringify(currentUser));
       updateHeaderAuthUI();
-    }).catch(() => {
-      const saved = JSON.parse(localStorage.getItem('targettire_user') || '{}');
-      currentUser = { name: user.displayName || saved.name || 'Student', phone: saved.phone || '', uid: user.uid };
-      updateHeaderAuthUI();
-    });
+      profileDocUnsubscribe = firebase.firestore().collection('users').doc(user.uid).onSnapshot((snap) => {
+        if (snap.exists && currentUser && currentUser.uid === user.uid) {
+          const p = snap.data();
+          const mySession = sessionStorage.getItem('targettire_session_id');
+          if (p.activeSessionId && mySession && p.activeSessionId !== mySession) {
+            if (profileDocUnsubscribe) { profileDocUnsubscribe(); profileDocUnsubscribe = null; }
+            sessionStorage.removeItem('targettire_session_id');
+            firebase.auth().signOut().then(() => showToast('यह अकाउंट दूसरी जगह लॉगिन हुआ है। इस डिवाइस से लॉगआउट कर दिया गया।'));
+            return;
+          }
+          currentUser = { ...currentUser, name: p.name || currentUser.name, phone: p.phone || currentUser.phone, email: p.email || currentUser.email, photoURL: p.photoURL || currentUser.photoURL };
+          localStorage.setItem('targettire_user', JSON.stringify(currentUser)); updateHeaderAuthUI();
+        }
+      });
+    } catch (err) { console.warn('Unable to load student profile from Firestore:', err); }
   } else {
-    if (activeSessionUnsubscribe) { activeSessionUnsubscribe(); activeSessionUnsubscribe = null; }
-    activeSessionId = null;
-    currentUser = null;
-    localStorage.removeItem('targettire_user');
-    sessionStorage.removeItem('targettire_session_id');
-    updateHeaderAuthUI();
+    currentUser = null; localStorage.removeItem('targettire_user'); updateHeaderAuthUI();
   }
 });
 }
@@ -3474,7 +3471,7 @@ else loginGateBanner.classList.remove('hidden');
 }
 if(!container) return;
 if (currentUser) {
-container.innerHTML = `<div class="relative group"><button class="flex items-center gap-2 bg-indigo-500/10 border border-indigo-500/30 text-indigo-600 dark:text-indigo-300 font-bold text-xs px-3.5 py-2.5 rounded-xl transition cursor-pointer"><i class="fa-solid fa-user-check"></i> <span>Hi, ${currentUser.name}</span> <i class="fa-solid fa-chevron-down text-[10px]"></i></button><div class="absolute right-0 mt-2 w-48 bg-white dark:bg-[#131b2e] border border-slate-200 dark:border-slate-800 rounded-2xl shadow-xl py-2 hidden group-hover:block z-50"><div class="px-4 py-2 border-b border-slate-100 dark:border-slate-800 text-[10px] text-slate-400 truncate">${currentUser.phone ? 'Mobile: ' + currentUser.phone : 'Student account'}${currentUser.email ? '<br>Email: ' + currentUser.email : ''}</div><button onclick="handleLogout()" class="w-full text-left px-4 py-2 text-xs text-rose-600 dark:text-rose-400 hover:bg-rose-500/10 font-semibold transition flex items-center gap-2 cursor-pointer"><i class="fa-solid fa-right-from-bracket"></i> Sign Out / Logout</button></div></div>`;
+container.innerHTML = `<div class="relative group"><button class="flex items-center gap-2 bg-indigo-500/10 border border-indigo-500/30 text-indigo-600 dark:text-indigo-300 font-bold text-xs px-3.5 py-2.5 rounded-xl transition cursor-pointer">${currentUser.photoURL ? `<img src="${currentUser.photoURL}" class="w-6 h-6 rounded-full object-cover" alt="">` : '<i class="fa-solid fa-user-check"></i>'} <span>Hi, ${escapeAuthText(currentUser.name)}</span> <i class="fa-solid fa-chevron-down text-[10px]"></i></button><div class="absolute right-0 mt-2 w-56 bg-white dark:bg-[#131b2e] border border-slate-200 dark:border-slate-800 rounded-2xl shadow-xl py-2 hidden group-hover:block z-50"><div class="px-4 py-2 border-b border-slate-100 dark:border-slate-800 text-[10px] text-slate-400 truncate">${escapeAuthText(currentUser.email || '')}<br>${escapeAuthText(currentUser.phone || '')}</div><button onclick="openUserProfile()" class="w-full text-left px-4 py-2 text-xs hover:bg-indigo-500/10 font-semibold transition flex items-center gap-2 cursor-pointer"><i class="fa-solid fa-user-pen"></i> User Profile</button><button onclick="handleLogout()" class="w-full text-left px-4 py-2 text-xs text-rose-600 dark:text-rose-400 hover:bg-rose-500/10 font-semibold transition flex items-center gap-2 cursor-pointer"><i class="fa-solid fa-right-from-bracket"></i> Sign Out / Logout</button></div></div>`;
 } else {
 container.innerHTML = `<button onclick="openAuthModal()" class="bg-indigo-600 hover:bg-indigo-500 text-white font-semibold text-xs px-3.5 py-2.5 rounded-xl shadow transition flex items-center gap-1.5 cursor-pointer"><i class="fa-solid fa-user-shield"></i> <span data-i18n="portalLogin">Portal Login</span></button>`;
 }
@@ -3490,119 +3487,114 @@ renderPYQHub();
 }
 }
 
-// Firebase Auth does not natively support password login with a phone number.
-// A synthetic Firebase Auth email is used internally; the student's real email is stored in Firestore. No email verification is performed.
-// students use their 10-digit phone number on the website.
-function phoneToAuthEmail(phone) {
-  return 'phone-' + phone + '@auth.targettire.in';
+function escapeAuthText(value) {
+  return String(value || '').replace(/[&<>"']/g, ch => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]));
 }
-
+function normalizePhone(phone) { return String(phone || '').replace(/\D/g, ''); }
+// Firebase Email/Password is used internally with a private synthetic email based on the phone.
+// The student's real Gmail is stored in Firestore; no verification email is sent in this temporary setup.
+function phoneAuthEmail(phone) { return normalizePhone(phone) + '@phone.targettire.invalid'; }
 function handleLoginSubmit(e) {
   e.preventDefault();
-  const phone = document.getElementById('login-phone').value.trim();
-  const passcode = document.getElementById('login-passcode').value;
+  const phone = normalizePhone(document.getElementById('login-identifier').value);
+  const password = document.getElementById('login-passcode').value;
   const statusMsg = document.getElementById('login-status-msg');
-  if (!/^[0-9]{10}$/.test(phone)) {
-    statusMsg.innerHTML = `<span class="text-rose-500">कृपया सही 10 अंकों का मोबाइल नंबर डालें।</span>`;
-    return;
-  }
-  statusMsg.innerHTML = `<span class="text-amber-500">लॉगिन हो रहा है...</span>`;
-  firebase.auth().signInWithEmailAndPassword(phoneToAuthEmail(phone), passcode)
-    .then(async (userCredential) => {
-      const user = userCredential.user;
-      const sid = getSessionId();
-      sessionStorage.setItem('targettire_session_id', sid);
-      await firebase.firestore().collection('users').doc(user.uid).set({
-        uid: user.uid,
-        name: user.displayName || 'Student',
-        phone,
-        lastLoginAt: firebase.firestore.FieldValue.serverTimestamp(),
-        activeSessionId: sid
-      }, { merge: true });
-      const profileDoc = await firebase.firestore().collection('users').doc(user.uid).get();
-      const savedEmail = profileDoc.exists ? (profileDoc.data().email || '') : '';
-      currentUser = { name: user.displayName || 'Student', phone, email: savedEmail, uid: user.uid };
-      localStorage.setItem('targettire_user', JSON.stringify(currentUser));
-      watchSingleDeviceSession(user, sid);
-      closeAuthModal();
-      updateHeaderAuthUI();
-      renderHeaderExamDropdown(); renderMobileExamMenu();
-      showToast(`स्वागत है, ${currentUser.name}!`);
-      statusMsg.innerHTML = '';
-      e.target.reset();
-    })
-    .catch((err) => {
-      const msg = (err.code === 'auth/invalid-credential' || err.code === 'auth/user-not-found' || err.code === 'auth/wrong-password')
-        ? 'मोबाइल नंबर या पासवर्ड गलत है।'
-        : err.message;
-      statusMsg.innerHTML = `<span class="text-rose-500">लॉगिन नहीं हुआ: ${msg}</span>`;
-    });
+  if (!/^\d{10}$/.test(phone)) { statusMsg.innerHTML = '<span class="text-rose-500">कृपया सही 10 अंकों का मोबाइल नंबर डालें।</span>'; return; }
+  statusMsg.innerHTML = '<span class="text-amber-500">लॉगिन हो रहा है...</span>';
+  firebase.auth().signInWithEmailAndPassword(phoneAuthEmail(phone), password).then(async (cred) => {
+    const user = cred.user;
+    const ref = firebase.firestore().collection('users').doc(user.uid);
+    const snap = await ref.get();
+    if (!snap.exists || normalizePhone((snap.data() || {}).phone) !== phone) {
+      await firebase.auth().signOut();
+      throw new Error('इस मोबाइल नंबर का रजिस्ट्रेशन नहीं मिला। पहले Register करके अकाउंट बनाइए।');
+    }
+    const sid = (window.crypto && crypto.randomUUID) ? crypto.randomUUID() : ('sess_' + Date.now() + '_' + Math.random().toString(36).slice(2));
+    sessionStorage.setItem('targettire_session_id', sid);
+    await ref.set({ lastLoginAt: firebase.firestore.FieldValue.serverTimestamp(), activeSessionId: sid }, { merge: true });
+    currentUser = { uid: user.uid, name: snap.data().name || user.displayName || 'Student', phone, email: snap.data().email || '', photoURL: snap.data().photoURL || '' };
+    localStorage.setItem('targettire_user', JSON.stringify(currentUser));
+    closeAuthModal(); updateHeaderAuthUI(); renderHeaderExamDropdown(); renderMobileExamMenu();
+    showToast('लॉगिन सफल हुआ। स्वागत है, ' + currentUser.name + '!'); statusMsg.innerHTML = ''; e.target.reset();
+  }).catch((err) => {
+    let message = err.message || 'लॉगिन नहीं हुआ।';
+    if (err.code === 'auth/invalid-credential' || err.code === 'auth/user-not-found' || err.code === 'auth/wrong-password') message = 'लॉगिन नहीं हुआ। मोबाइल नंबर/पासवर्ड जाँचें। अगर अकाउंट नहीं बनाया है, तो पहले Register करके अकाउंट बनाइए।';
+    statusMsg.innerHTML = '<span class="text-rose-500">' + escapeAuthText(message) + '</span>';
+  });
 }
-
 function handleRegisterSubmit(e) {
   e.preventDefault();
   const name = document.getElementById('reg-name').value.trim();
-  const phone = document.getElementById('reg-phone').value.trim();
+  const phone = normalizePhone(document.getElementById('reg-phone').value);
   const email = document.getElementById('reg-email').value.trim().toLowerCase();
   const password = document.getElementById('reg-password').value;
   const statusMsg = document.getElementById('reg-status-msg');
-  if (!name) {
-    statusMsg.innerHTML = `<span class="text-rose-500">कृपया अपना नाम डालें।</span>`;
-    return;
-  }
-  if (!/^[0-9]{10}$/.test(phone)) {
-    statusMsg.innerHTML = `<span class="text-rose-500">कृपया सही 10 अंकों का मोबाइल नंबर डालें।</span>`;
-    return;
-  }
-  if (!/^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/.test(email)) {
-    statusMsg.innerHTML = `<span class="text-rose-500">कृपया सही Gmail / ईमेल पता डालें।</span>`;
-    return;
-  }
-  if (password.length < 6) {
-    statusMsg.innerHTML = `<span class="text-rose-500">पासवर्ड कम-से-कम 6 अक्षर का होना चाहिए।</span>`;
-    return;
-  }
-  statusMsg.innerHTML = `<span class="text-teal-400"><i class="fa-solid fa-spinner fa-spin mr-1"></i> अकाउंट बनाया जा रहा है...</span>`;
-  const authEmail = phoneToAuthEmail(phone);
-  firebase.auth().createUserWithEmailAndPassword(authEmail, password)
-    .then(async (userCredential) => {
-      const user = userCredential.user;
-      await user.updateProfile({ displayName: name });
-      const sid = getSessionId();
-      sessionStorage.setItem('targettire_session_id', sid);
-      await firebase.firestore().collection('users').doc(user.uid).set({
-        uid: user.uid,
-        name,
-        phone,
-        email,
-        emailVerified: false,
-        createdAt: firebase.firestore.FieldValue.serverTimestamp(),
-        lastLoginAt: firebase.firestore.FieldValue.serverTimestamp(),
-        activeSessionId: sid
-      }, { merge: true });
-      currentUser = { name, phone, email, uid: user.uid };
-      localStorage.setItem('targettire_user', JSON.stringify(currentUser));
-      watchSingleDeviceSession(user, sid);
-      statusMsg.innerHTML = '';
-      e.target.reset();
-      closeAuthModal();
-      updateHeaderAuthUI();
-      renderHeaderExamDropdown(); renderMobileExamMenu();
-      showToast('अकाउंट बन गया। अभी OTP या ईमेल वेरिफिकेशन नहीं है।');
-    })
-    .catch((error) => {
-      const msg = error.code === 'auth/email-already-in-use'
-        ? 'इस मोबाइल नंबर से अकाउंट पहले से बना है। लॉगिन करें।'
-        : error.message;
-      statusMsg.innerHTML = `<span class="text-rose-500">अकाउंट नहीं बना: ${msg}</span>`;
-    });
+  if (!name) { statusMsg.innerHTML = '<span class="text-rose-500">कृपया अपना नाम डालें।</span>'; return; }
+  if (!/^\d{10}$/.test(phone)) { statusMsg.innerHTML = '<span class="text-rose-500">कृपया सही 10 अंकों का मोबाइल नंबर डालें।</span>'; return; }
+  // Browser type=email already validates syntax; this simple check avoids rejecting valid email domains.
+  if (!email || !email.includes('@') || !email.split('@')[1]?.includes('.')) { statusMsg.innerHTML = '<span class="text-rose-500">कृपया सही Gmail / ईमेल पता डालें।</span>'; return; }
+  if (password.length < 6) { statusMsg.innerHTML = '<span class="text-rose-500">पासवर्ड कम-से-कम 6 अक्षरों का होना चाहिए।</span>'; return; }
+  statusMsg.innerHTML = '<span class="text-amber-500">अकाउंट बनाया जा रहा है...</span>';
+  const authEmail = phoneAuthEmail(phone);
+  firebase.auth().createUserWithEmailAndPassword(authEmail, password).then(async (cred) => {
+    const user = cred.user;
+    await user.updateProfile({ displayName: name });
+    const sid = (window.crypto && crypto.randomUUID) ? crypto.randomUUID() : ('sess_' + Date.now() + '_' + Math.random().toString(36).slice(2));
+    sessionStorage.setItem('targettire_session_id', sid);
+    await firebase.firestore().collection('users').doc(user.uid).set({ uid: user.uid, name, phone, email, emailVerified: false, photoURL: '', createdAt: firebase.firestore.FieldValue.serverTimestamp(), lastLoginAt: firebase.firestore.FieldValue.serverTimestamp(), activeSessionId: sid }, { merge: true });
+    currentUser = { uid: user.uid, name, phone, email, photoURL: '' };
+    localStorage.setItem('targettire_user', JSON.stringify(currentUser));
+    closeAuthModal(); updateHeaderAuthUI(); renderHeaderExamDropdown(); renderMobileExamMenu();
+    showToast('रजिस्ट्रेशन सफल हुआ। अभी Gmail/मोबाइल OTP सत्यापन चालू नहीं है।');
+    statusMsg.innerHTML = ''; e.target.reset();
+  }).catch((err) => {
+    let message = err.message || 'रजिस्ट्रेशन नहीं हो पाया।';
+    if (err.code === 'auth/email-already-in-use') message = 'यह मोबाइल नंबर पहले से रजिस्टर है। लॉगिन करें।';
+    if (err.code === 'auth/weak-password') message = 'पासवर्ड कम-से-कम 6 अक्षरों का रखें।';
+    statusMsg.innerHTML = '<span class="text-rose-500">' + escapeAuthText(message) + '</span>';
+  });
 }
-
-function checkEmailVerified() {
-  showToast('लॉगिन के लिए मोबाइल नंबर और पासवर्ड का उपयोग करें।');
+function checkEmailVerified() { showToast('अभी ईमेल वेरिफिकेशन बंद है।'); }
+function resendVerificationEmail() { showToast('अभी ईमेल वेरिफिकेशन बंद है।'); }
+function openUserProfile() {
+  if (!currentUser) { openAuthModal(); return; }
+  document.getElementById('profile-name').value = currentUser.name || '';
+  document.getElementById('profile-phone').value = currentUser.phone || '';
+  document.getElementById('profile-email').value = currentUser.email || '';
+  document.getElementById('profile-status').textContent = '';
+  const img = document.getElementById('profile-photo-preview'), placeholder = document.getElementById('profile-photo-placeholder');
+  if (currentUser.photoURL) { img.src = currentUser.photoURL; img.classList.remove('hidden'); placeholder.classList.add('hidden'); }
+  else { img.src = ''; img.classList.add('hidden'); placeholder.classList.remove('hidden'); }
+  document.getElementById('profile-photo-file').value = '';
+  document.getElementById('user-profile-modal').classList.remove('hidden');
 }
-function resendVerificationEmail() {
-  showToast('अभी पासवर्ड रिकवरी उपलब्ध नहीं है। आगे OTP रिकवरी जोड़ी जा सकती है।');
+function closeUserProfile() { document.getElementById('user-profile-modal').classList.add('hidden'); }
+async function saveUserProfile(e) {
+  e.preventDefault();
+  const status = document.getElementById('profile-status');
+  const user = firebase.auth().currentUser;
+  if (!user || !currentUser) { status.textContent = 'पहले लॉगिन करें।'; return; }
+  const name = document.getElementById('profile-name').value.trim();
+  const email = document.getElementById('profile-email').value.trim().toLowerCase();
+  if (!name || !email || !email.includes('@') || !email.split('@')[1]?.includes('.')) { status.textContent = 'नाम और सही ईमेल डालें।'; return; }
+  status.textContent = 'सेव हो रहा है...';
+  try {
+    let photoURL = currentUser.photoURL || '';
+    const file = document.getElementById('profile-photo-file').files[0];
+    if (file) {
+      if (!file.type.startsWith('image/')) throw new Error('कृपया फोटो फाइल चुनें।');
+      if (file.size > 3 * 1024 * 1024) throw new Error('फोटो 3 MB से छोटी रखें।');
+      const ref = firebase.storage().ref().child('profilePhotos/' + user.uid + '/profile');
+      const uploaded = await ref.put(file);
+      photoURL = await uploaded.ref.getDownloadURL();
+      await user.updateProfile({ photoURL });
+    }
+    await firebase.firestore().collection('users').doc(user.uid).set({ name, email, photoURL, profileUpdatedAt: firebase.firestore.FieldValue.serverTimestamp() }, { merge: true });
+    await user.updateProfile({ displayName: name });
+    currentUser = { ...currentUser, name, email, photoURL };
+    localStorage.setItem('targettire_user', JSON.stringify(currentUser));
+    updateHeaderAuthUI(); status.textContent = 'प्रोफाइल अपडेट हो गई।'; showToast('User Profile अपडेट हो गई।');
+  } catch (err) { status.textContent = err.message || 'प्रोफाइल सेव नहीं हो पाई।'; }
 }
 
 (function cleanHardcodedData() {
@@ -3610,7 +3602,8 @@ function resendVerificationEmail() {
 })();
 
 function handleLogout() {
-if (activeSessionUnsubscribe) { activeSessionUnsubscribe(); activeSessionUnsubscribe = null; }
+if (profileDocUnsubscribe) { profileDocUnsubscribe(); profileDocUnsubscribe = null; }
+sessionStorage.removeItem('targettire_session_id');
 firebase.auth().signOut().then(() => {
 currentUser = null;
 localStorage.removeItem('targettire_user');
@@ -4140,3 +4133,4 @@ window.playBrandNewErrorTune = function(){ __ttPlayTone(false); };
 
 </body>
 </html>
+
