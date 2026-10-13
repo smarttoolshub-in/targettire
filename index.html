@@ -34,7 +34,7 @@
 <script src="syllabus-data.js"></script>
 <script src="exam-notification-data.js"></script>
 <!-- Modular PYQ data files -->
-<script src="pyq-ssc-date-wise.js"></script>
+<script src="pyq-ssc.js"></script>
 <script src="pyq-railway.js"></script>
 <script src="pyq-banking.js"></script>
 <script src="pyq-upsc.js"></script>
@@ -45,6 +45,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore-compat.js"></script>
 <script>
 tailwind.config = {
 darkMode: 'class',
@@ -157,6 +158,9 @@ user-select: text;
 .global-search-result-meta { font-size:9px;color:rgb(100 116 139);margin-top:2px; }
 .dark .global-search-result-meta { color:rgb(148 163 184); }
 
+
+/* Dynamic stage navigation: supports any number of selection stages without a fixed limit. */
+#exam-stages-container { grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); }
 </style>
 </head>
 <body class="bg-slate-50 dark:bg-[#0b0f19] text-slate-800 dark:text-slate-300 min-h-screen flex flex-col transition-colors duration-300">
@@ -471,7 +475,7 @@ Launch Mock Test
 </div>
 <span class="text-[9px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full bg-indigo-500/10 text-indigo-600 dark:text-indigo-300 border border-indigo-500/20">Stage-wise</span>
 </div>
-<div id="exam-stages-container" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4"></div>
+<div id="exam-stages-container" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4"></div>
 </div>
 
 <!-- Dynamic Syllabus -->
@@ -901,12 +905,6 @@ Return to Mock Vault
 <span id="pyq-breadcrumb-group" class="hidden text-indigo-600 dark:text-indigo-400"></span>
 <span id="pyq-sep-2" class="hidden text-slate-400">/</span>
 <span id="pyq-breadcrumb-sub" class="hidden text-amber-500"></span>
-<span id="pyq-sep-3" class="hidden text-slate-400">/</span>
-<span id="pyq-breadcrumb-year" class="hidden text-indigo-500"></span>
-<span id="pyq-sep-4" class="hidden text-slate-400">/</span>
-<span id="pyq-breadcrumb-month" class="hidden text-teal-500"></span>
-<span id="pyq-sep-5" class="hidden text-slate-400">/</span>
-<span id="pyq-breadcrumb-date" class="hidden text-amber-500"></span>
 </div>
 <div id="pyq-container-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"></div>
 </div>
@@ -1073,15 +1071,19 @@ Done
 
 <form id="auth-form-login" onsubmit="handleLoginSubmit(event)" class="space-y-4">
 <div>
-<label class="block text-[11px] font-bold text-slate-600 dark:text-slate-400 uppercase tracking-wider mb-1.5">Gmail or Email Address *</label>
-<input type="email" id="login-identifier" required placeholder="aspirant@gmail.com" class="w-full px-3.5 py-3 text-xs bg-slate-50 dark:bg-[#0b0f19] border border-slate-200 dark:border-slate-800 rounded-xl focus:outline-none focus:border-indigo-500 text-slate-900 dark:text-white">
+<label class="block text-[11px] font-bold text-slate-600 dark:text-slate-400 uppercase tracking-wider mb-1.5">Mobile Number *</label>
+<input type="tel" id="login-phone" required inputmode="numeric" pattern="[0-9]{10}" maxlength="10" placeholder="Enter 10-digit mobile number" class="w-full px-3.5 py-3 text-xs bg-slate-50 dark:bg-[#0b0f19] border border-slate-200 dark:border-slate-800 rounded-xl focus:outline-none focus:border-indigo-500 text-slate-900 dark:text-white">
 </div>
 <div>
 <label class="block text-[11px] font-bold text-slate-600 dark:text-slate-400 uppercase tracking-wider mb-1.5">Secure Passcode *</label>
-<input type="password" id="login-passcode" required placeholder="••••••••" class="w-full px-3.5 py-3 text-xs bg-slate-50 dark:bg-[#0b0f19] border border-slate-200 dark:border-slate-800 rounded-xl focus:outline-none focus:border-indigo-500 text-slate-900 dark:text-white">
+<div class="relative">
+<input type="password" id="login-passcode" required autocomplete="current-password" placeholder="Enter your password" class="w-full px-3.5 py-3 pr-12 text-xs bg-slate-50 dark:bg-[#0b0f19] border border-slate-200 dark:border-slate-800 rounded-xl focus:outline-none focus:border-indigo-500 text-slate-900 dark:text-white">
+<button type="button" class="password-toggle absolute right-2 top-1/2 -translate-y-1/2 px-2 py-1 text-slate-500 hover:text-indigo-500" data-target="login-passcode" aria-label="Show password" aria-pressed="false"><i class="fa-regular fa-eye"></i></button>
+</div>
 </div>
 <div id="login-status-msg" class="text-xs text-center min-h-[20px]"></div>
 <button type="submit" class="w-full bg-indigo-600 hover:bg-indigo-500 text-white font-bold py-3 rounded-xl text-xs uppercase tracking-wider shadow transition cursor-pointer">Authenticate Session</button>
+<button type="button" onclick="handleForgotPassword()" class="w-full text-xs font-semibold text-indigo-600 hover:text-indigo-500 py-1">Forgot Password?</button>
 </form>
 
 <form id="auth-form-register" onsubmit="handleRegisterSubmit(event)" class="space-y-3.5 hidden">
@@ -1091,46 +1093,32 @@ Done
 <input type="text" id="reg-name" required placeholder="Enter your full name" class="w-full px-3 py-2.5 text-xs bg-slate-50 dark:bg-[#0b0f19] border border-slate-200 dark:border-slate-800 rounded-xl focus:outline-none focus:border-indigo-500 text-slate-900 dark:text-white">
 </div>
 <div class="mt-2.5">
-<label class="block text-[10px] font-bold text-slate-600 dark:text-slate-400 uppercase tracking-wider mb-1">Gmail / Email Address *</label>
-<input type="email" id="reg-email" required placeholder="aspirant@gmail.com" class="w-full px-3 py-2.5 text-xs bg-slate-50 dark:bg-[#0b0f19] border border-slate-200 dark:border-slate-800 rounded-xl focus:outline-none focus:border-indigo-500 text-slate-900 dark:text-white">
+<label class="block text-[10px] font-bold text-slate-600 dark:text-slate-400 uppercase tracking-wider mb-1">Mobile Number *</label>
+<input type="tel" id="reg-phone" required inputmode="numeric" pattern="[0-9]{10}" maxlength="10" placeholder="10-digit mobile number" class="w-full px-3 py-2.5 text-xs bg-slate-50 dark:bg-[#0b0f19] border border-slate-200 dark:border-slate-800 rounded-xl focus:outline-none focus:border-indigo-500 text-slate-900 dark:text-white">
 </div>
 <div class="mt-2.5">
-<label class="block text-[10px] font-bold text-slate-600 dark:text-slate-400 uppercase tracking-wider mb-1">Secure Passcode *</label>
-<input type="password" id="reg-password" required minlength="6" placeholder="Minimum 6 characters" class="w-full px-3 py-2.5 text-xs bg-slate-50 dark:bg-[#0b0f19] border border-slate-200 dark:border-slate-800 rounded-xl focus:outline-none focus:border-indigo-500 text-slate-900 dark:text-white">
+<label class="block text-[10px] font-bold text-slate-600 dark:text-slate-400 uppercase tracking-wider mb-1">Gmail / Email Address *</label>
+<input type="email" id="reg-email" required autocomplete="email" placeholder="yourname@gmail.com" class="w-full px-3 py-2.5 text-xs bg-slate-50 dark:bg-[#0b0f19] border border-slate-200 dark:border-slate-800 rounded-xl focus:outline-none focus:border-indigo-500 text-slate-900 dark:text-white">
+</div>
+<div class="mt-2.5">
+<label class="block text-[10px] font-bold text-slate-600 dark:text-slate-400 uppercase tracking-wider mb-1">Create Password *</label>
+<div class="relative">
+<input type="password" id="reg-password" required minlength="6" autocomplete="new-password" placeholder="Minimum 6 characters" class="w-full px-3 py-2.5 pr-11 text-xs bg-slate-50 dark:bg-[#0b0f19] border border-slate-200 dark:border-slate-800 rounded-xl focus:outline-none focus:border-indigo-500 text-slate-900 dark:text-white">
+<button type="button" class="password-toggle absolute right-2 top-1/2 -translate-y-1/2 px-2 py-1 text-slate-500 hover:text-indigo-500" data-target="reg-password" aria-label="Show password" aria-pressed="false"><i class="fa-regular fa-eye"></i></button>
+</div>
+</div>
+<div class="mt-2.5">
+<label class="block text-[10px] font-bold text-slate-600 dark:text-slate-400 uppercase tracking-wider mb-1">Confirm Password *</label>
+<div class="relative">
+<input type="password" id="reg-confirm-password" required minlength="6" autocomplete="new-password" placeholder="Re-enter password" class="w-full px-3 py-2.5 pr-11 text-xs bg-slate-50 dark:bg-[#0b0f19] border border-slate-200 dark:border-slate-800 rounded-xl focus:outline-none focus:border-indigo-500 text-slate-900 dark:text-white">
+<button type="button" class="password-toggle absolute right-2 top-1/2 -translate-y-1/2 px-2 py-1 text-slate-500 hover:text-indigo-500" data-target="reg-confirm-password" aria-label="Show password" aria-pressed="false"><i class="fa-regular fa-eye"></i></button>
+</div>
 </div>
 <div id="reg-status-msg" class="text-xs text-center min-h-[20px] text-teal-400 font-medium my-2"></div>
-<button type="submit" class="w-full bg-teal-600 hover:bg-teal-500 text-white font-bold py-3 rounded-xl text-xs uppercase tracking-wider shadow transition cursor-pointer">Register & Send Verification Link</button>
+<button type="submit" class="w-full bg-teal-600 hover:bg-teal-500 text-white font-bold py-3 rounded-xl text-xs uppercase tracking-wider shadow transition cursor-pointer">Create Account — No OTP</button>
 </div>
 
-<div id="reg-step-verify-email" class="hidden space-y-4 text-center">
-<div class="w-12 h-12 bg-teal-500/10 text-teal-600 dark:text-teal-400 rounded-full flex items-center justify-center text-xl mx-auto">
-<i class="fa-solid fa-envelope-circle-check"></i>
-</div>
-<h4 class="text-sm font-bold text-slate-900 dark:text-white">Verify Your Email Address</h4>
-<p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
-Firebase has dispatched a verification link to 
-<span id="verify-email-display" class="font-bold text-indigo-600 dark:text-indigo-400"></span>.
-</p>
 
-<div class="p-3 bg-amber-500/10 border border-amber-500/30 rounded-xl text-xs text-amber-700 dark:text-amber-300 text-left space-y-1">
-<p class="font-bold flex items-center gap-1.5">
-<i class="fa-solid fa-triangle-exclamation text-amber-500"></i> ज़रूरी सूचना / Important Notice:
-</p>
-<p class="text-[11px] leading-relaxed">
-अगर आपको इनबॉक्स (Inbox) में मेल नहीं दिख रहा है, तो कृपया अपने Gmail ऐप में <strong>Spam (स्पैम)</strong> या <strong>Junk</strong> फ़ोल्डर खोलकर चेक करें। वहाँ आए लिंक पर क्लिक करके वेरिफाई करें।
-</p>
-</div>
-
-<div id="email-verify-status-msg" class="text-xs text-center min-h-[20px] font-medium"></div>
-<div class="space-y-2 pt-2">
-<button type="button" onclick="checkEmailVerified()" class="w-full bg-indigo-600 hover:bg-indigo-500 text-white font-bold py-2.5 rounded-xl text-xs uppercase tracking-wider shadow transition cursor-pointer">
-<i class="fa-solid fa-circle-check mr-1"></i> I Have Verified (Check Status)
-</button>
-<button type="button" onclick="resendVerificationEmail()" class="w-full bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 font-semibold py-2 rounded-xl text-xs transition cursor-pointer">
-Resend Verification Email
-</button>
-</div>
-</div>
 </form>
 </div>
 </div>
@@ -1188,19 +1176,51 @@ let myExamsList = ["SSC CGL", "IBPS PO", "RRB NTPC"];
 let currentUser = null;
 let userTestHistory = [];
 
+let activeSessionUnsubscribe = null;
+let activeSessionId = null;
+
+function getSessionId() {
+  return (window.crypto && crypto.randomUUID) ? crypto.randomUUID() :
+    ('sess_' + Date.now() + '_' + Math.random().toString(36).slice(2));
+}
+function watchSingleDeviceSession(user, sessionId) {
+  if (activeSessionUnsubscribe) { activeSessionUnsubscribe(); activeSessionUnsubscribe = null; }
+  activeSessionId = sessionId;
+  if (!firebase.firestore) return;
+  activeSessionUnsubscribe = firebase.firestore().collection('users').doc(user.uid)
+    .onSnapshot((doc) => {
+      if (!doc.exists) return;
+      const latest = doc.data().activeSessionId;
+      if (latest && activeSessionId && latest !== activeSessionId) {
+        if (activeSessionUnsubscribe) activeSessionUnsubscribe();
+        activeSessionUnsubscribe = null;
+        firebase.auth().signOut().then(() => showToast('यह अकाउंट दूसरी जगह लॉगिन हुआ है। इस डिवाइस से लॉगआउट कर दिया गया।'));
+      }
+    }, (err) => console.warn('Session watcher unavailable; check Firestore rules:', err));
+}
 if (typeof firebase !== 'undefined') {
 firebase.auth().onAuthStateChanged((user) => {
-if (user) {
-if (user.emailVerified) {
-currentUser = { name: user.displayName || user.email.split('@')[0], email: user.email };
-localStorage.setItem('targettire_user', JSON.stringify(currentUser));
-updateHeaderAuthUI();
-}
-} else {
-currentUser = null;
-localStorage.removeItem('targettire_user');
-updateHeaderAuthUI();
-}
+  if (user) {
+    const sid = sessionStorage.getItem('targettire_session_id');
+    if (sid) watchSingleDeviceSession(user, sid);
+    firebase.firestore().collection('users').doc(user.uid).get().then((profileDoc) => {
+      const profile = profileDoc.exists ? profileDoc.data() : {};
+      currentUser = { name: user.displayName || profile.name || 'Student', phone: profile.phone || '', uid: user.uid };
+      localStorage.setItem('targettire_user', JSON.stringify(currentUser));
+      updateHeaderAuthUI();
+    }).catch(() => {
+      const saved = JSON.parse(localStorage.getItem('targettire_user') || '{}');
+      currentUser = { name: user.displayName || saved.name || 'Student', phone: saved.phone || '', uid: user.uid };
+      updateHeaderAuthUI();
+    });
+  } else {
+    if (activeSessionUnsubscribe) { activeSessionUnsubscribe(); activeSessionUnsubscribe = null; }
+    activeSessionId = null;
+    currentUser = null;
+    localStorage.removeItem('targettire_user');
+    sessionStorage.removeItem('targettire_session_id');
+    updateHeaderAuthUI();
+  }
 });
 }
 
@@ -1722,7 +1742,7 @@ function changeExamNotificationYear(year) {
     if (examName) renderExamNotifications(examName);
 }
 
-function selectExamCategory(category) {
+function selectExamCategory(category, pushHistory = true) {
 const menu = document.getElementById('exam-dropdown-menu');
 const icon = document.getElementById('exam-dropdown-icon');
 if(menu) menu.classList.add('hidden');
@@ -1755,6 +1775,9 @@ const editableContent =
         : {};
 
 const examName = selectedExam?.name || category;
+if (pushHistory) {
+    history.pushState({ tab: 'exam-detail', examName: examName }, "", "#exam/" + encodeURIComponent(examName));
+}
 const splitBilingual = (value) => { const parts = String(value || '').split(/\s+\/\s+/); return { en:(parts[0]||'').trim(), hi:(parts.length>1?parts.slice(1).join(' / '):(parts[0]||'')).trim() }; };
 const overviewPair = { en: editableContent.overview_en || splitBilingual(editableContent.overview).en || selectedExam?.overviewText || selectedExam?.desc || `${category} examination information is currently being prepared.`, hi: editableContent.overview_hi || splitBilingual(editableContent.overview).hi || selectedExam?.overviewText || selectedExam?.desc || `${category} परीक्षा की जानकारी अभी तैयार की जा रही है।` };
 const informationPair = { en: editableContent.information_en || splitBilingual(editableContent.information).en || selectedExam?.examInfoText || "Exam information is currently being prepared.", hi: editableContent.information_hi || splitBilingual(editableContent.information).hi || selectedExam?.examInfoText || "परीक्षा की जानकारी अभी तैयार की जा रही है।" };
@@ -2098,8 +2121,8 @@ switchVaultMode('exams');
 if (tabId === 'chapters') {
 renderCustomChapters();
 }
-if (tabId === 'pyq') {
-resetPYQHub();
+if (tabId === 'pyq' && !window.__ttRestoringNav) {
+resetPYQHub(false);
 }
 if (tabId === 'my_exams') {
 renderMyExamsTab();
@@ -2113,6 +2136,10 @@ history.pushState({ tab: tabId }, "", "#" + tabId);
 }
 }
 
+if (!history.state || !history.state.tab) {
+    history.replaceState({ tab: 'dashboard' }, "", location.hash || '#dashboard');
+}
+
 window.addEventListener('popstate', function(event) {
 const practiceRunning = !!window.__targetTireActiveSession &&
     !document.getElementById('practice-runner-view')?.classList.contains('hidden');
@@ -2120,14 +2147,35 @@ const mockRunning = !!window.__targetTireActiveSession &&
     !document.getElementById('vault-runner-view')?.classList.contains('hidden');
 if (practiceRunning || mockRunning) {
     try { window.__targetTirePauseNow && window.__targetTirePauseNow(); } catch(e) {}
-    // Keep the user on the current test screen; progress is preserved.
     history.pushState({ tab: practiceRunning ? 'practice' : 'vault' }, "", location.href);
     return;
 }
-if (event.state && event.state.tab) {
-switchTab(event.state.tab, false);
+
+const state = event.state || {};
+if (state.tab === 'exam-detail' && state.examName) {
+    selectExamCategory(state.examName, false);
+    return;
+}
+if (state.tab === 'pyq' && state.pyq) {
+    pyqNavState = JSON.parse(JSON.stringify(state.pyq));
+    window.__ttRestoringNav = true;
+    switchTab('pyq', false);
+    window.__ttRestoringNav = false;
+    renderPYQHub();
+    return;
+}
+if (state.tab === 'practice' && state.practice) {
+    practiceNavState = JSON.parse(JSON.stringify(state.practice));
+    window.__ttRestoringNav = true;
+    switchTab('practice', false);
+    window.__ttRestoringNav = false;
+    renderPracticeExamHub();
+    return;
+}
+if (state.tab) {
+    switchTab(state.tab, false);
 } else {
-switchTab('dashboard', false);
+    switchTab('dashboard', false);
 }
 });
 
@@ -2191,373 +2239,191 @@ grid.appendChild(card);
 });
 }
 
-let pyqNavState = {
-  groupKey: null,
-  subExamName: null,
-  year: null,
-  month: null,
-  date: null
-};
-
-function resetPYQHub() {
-  pyqNavState = { groupKey:null, subExamName:null, year:null, month:null, date:null };
-  renderPYQHub();
-}
-
-function selectPYQGroup(groupKey) {
-  pyqNavState = { groupKey, subExamName:null, year:null, month:null, date:null };
-  renderPYQHub();
-}
-
-function selectPYQSubExam(subExamName) {
-  const groups = window.examGroupsData || {};
-  for (const gKey in groups) {
-    if ((groups[gKey].subExams || []).some(s => s.name === subExamName)) {
-      pyqNavState.groupKey = gKey;
-      break;
-    }
+let pyqNavState = { groupKey: null, subExamName: null, stage: null, year: null, month: null };
+// Preserve the exact hub/context that launched a Practice or Mock runner.
+let runnerReturnContext = null;
+function captureRunnerReturnContext(tabId) {
+  const activeTab = tabId || (document.querySelector('.tab-content:not(.hidden)')?.id || '').replace('tab-','') || 'practice';
+  runnerReturnContext = { tab: activeTab };
+  if (activeTab === 'pyq') {
+    runnerReturnContext.pyq = JSON.parse(JSON.stringify(pyqNavState || {}));
   }
-  pyqNavState.subExamName = subExamName;
-  pyqNavState.year = null;
-  pyqNavState.month = null;
-  pyqNavState.date = null;
-  renderPYQHub();
+  return runnerReturnContext;
+}
+function returnFromRunner() {
+  const ctx = runnerReturnContext || { tab: 'practice' };
+  const tab = ctx.tab || 'practice';
+  if (tab === 'pyq') {
+    switchTab('pyq');
+    if (ctx.pyq) {
+      pyqNavState = JSON.parse(JSON.stringify(ctx.pyq));
+      renderPYQHub();
+    }
+  } else {
+    switchTab(tab);
+  }
+  runnerReturnContext = null;
 }
 
-function selectPYQYear(year) {
-  pyqNavState.year = String(year);
-  pyqNavState.month = null;
-  pyqNavState.date = null;
-  renderPYQHub();
+
+function pushPYQHistory() {
+  history.pushState({ tab:'pyq', pyq: JSON.parse(JSON.stringify(pyqNavState)) }, "", "#pyq");
 }
-
-function selectPYQMonth(month) {
-  pyqNavState.month = String(month);
-  pyqNavState.date = null;
-  renderPYQHub();
+function resetPYQHub(pushHistory = false) {
+  pyqNavState={groupKey:null,subExamName:null,stage:null,year:null,month:null};
+  renderPYQHub(); if(pushHistory) pushPYQHistory();
 }
-
-function selectPYQDate(date) {
-  pyqNavState.date = String(date);
-  renderPYQHub();
+function selectPYQGroup(groupKey, pushHistory = true) {
+  pyqNavState={groupKey,subExamName:null,stage:null,year:null,month:null};
+  renderPYQHub(); if(pushHistory) pushPYQHistory();
 }
-
-function pyqBackToYears() {
-  pyqNavState.year = null;
-  pyqNavState.month = null;
-  pyqNavState.date = null;
-  renderPYQHub();
+function selectPYQSubExam(subExamName, pushHistory = true) {
+  const groups=window.examGroupsData||{};
+  for(const gKey in groups){
+    if((groups[gKey].subExams||[]).some(s=>s.name===subExamName)){pyqNavState.groupKey=gKey;break;}
+  }
+  pyqNavState.subExamName=subExamName; pyqNavState.stage=null; pyqNavState.year=null; pyqNavState.month=null;
+  renderPYQHub(); if(pushHistory) pushPYQHistory();
 }
-
-function pyqBackToMonths() {
-  pyqNavState.month = null;
-  pyqNavState.date = null;
-  renderPYQHub();
+function getPYQStageOptions(examName){
+  const configured=(window.pyqStageOptions||{})[examName];
+  if(Array.isArray(configured) && configured.length) return configured;
+  const raw=(window.pyqDatabase||{})[examName]||{};
+  return Object.keys(raw);
 }
-
-function pyqBackToDates() {
-  pyqNavState.date = null;
-  renderPYQHub();
+function selectPYQStage(stage, pushHistory = true){
+  pyqNavState.stage=String(stage); pyqNavState.year=null; pyqNavState.month=null;
+  renderPYQHub(); if(pushHistory) pushPYQHistory();
 }
-
-function pyqBackToSubExam() {
-  pyqNavState.year = null;
-  pyqNavState.month = null;
-  pyqNavState.date = null;
-  renderPYQHub();
+function selectPYQYear(year, pushHistory = true){
+  pyqNavState.year=String(year); pyqNavState.month=null;
+  renderPYQHub(); if(pushHistory) pushPYQHistory();
 }
-
-/*
-  Supports both:
-  Old:  Exam -> Year -> Month -> Shift -> Questions
-  New:  Exam -> Year -> Month -> Date -> Shift/Paper -> Questions
-  The PYQ hub itself always renders the date level before Shift/Paper.
-*/
-function normalizePYQYears(examName) {
-  const raw = (window.pyqDatabase || {})[examName] || {};
-  const out = {};
-
-  Object.keys(raw).forEach(year => {
-    if (year === '_meta') return;
-
-    const yearNode = raw[year];
-    if (!yearNode || typeof yearNode !== 'object' || Array.isArray(yearNode)) return;
-
-    out[year] = {};
-
-    Object.keys(yearNode).forEach(month => {
-      if (month === '_meta') return;
-
-      const monthNode = yearNode[month];
-      if (!monthNode || typeof monthNode !== 'object' || Array.isArray(monthNode)) return;
-
-      const keys = Object.keys(monthNode).filter(k => k !== '_meta');
-      const hasDateLayer = keys.some(k => {
-        const v = monthNode[k];
-        return v && typeof v === 'object' && !Array.isArray(v) &&
-               Object.values(v).some(x => Array.isArray(x));
-      });
-
-      if (hasDateLayer) {
-        out[year][month] = {};
-        keys.forEach(date => {
-          const dateNode = monthNode[date];
-          if (!dateNode || typeof dateNode !== 'object' || Array.isArray(dateNode)) return;
-
-          const shifts = {};
-          Object.keys(dateNode).forEach(shift => {
-            if (Array.isArray(dateNode[shift])) shifts[shift] = dateNode[shift];
-          });
-
-          if (Object.keys(shifts).length) out[year][month][date] = shifts;
-        });
-      } else {
-        // Backward compatibility for old Month -> Shift -> Questions data.
-        out[year][month] = { "Date not specified": {} };
-        keys.forEach(shift => {
-          if (Array.isArray(monthNode[shift])) {
-            out[year][month]["Date not specified"][shift] = monthNode[shift];
-          }
+function selectPYQMonth(month, pushHistory = true){
+  pyqNavState.month=String(month);
+  renderPYQHub(); if(pushHistory) pushPYQHistory();
+}
+function pyqBackToStages(pushHistory = true){
+  pyqNavState.stage=null; pyqNavState.year=null; pyqNavState.month=null;
+  renderPYQHub(); if(pushHistory) pushPYQHistory();
+}
+function pyqBackToYears(pushHistory = true){
+  pyqNavState.month=null; renderPYQHub(); if(pushHistory) pushPYQHistory();
+}
+function pyqBackToSubExam(pushHistory = true){
+  pyqNavState.stage=null; pyqNavState.year=null; pyqNavState.month=null;
+  renderPYQHub(); if(pushHistory) pushPYQHistory();
+}
+function normalizePYQYears(examName, stage){
+  const raw=((window.pyqDatabase||{})[examName]||{})[stage]||{}, out={};
+  Object.keys(raw).forEach(year=>{
+    const node=raw[year]; out[year]={};
+    if(Array.isArray(node)){
+      out[year]['Month not specified']={'All Shifts':node}; return;
+    }
+    Object.keys(node||{}).forEach(k=>{
+      if(Array.isArray(node[k])){
+        out[year]['Month not specified']=out[year]['Month not specified']||{};
+        out[year]['Month not specified'][k]=node[k];
+      }else if(node[k]&&typeof node[k]==='object'){
+        out[year][k]={};
+        Object.keys(node[k]).forEach(shift=>{
+          if(Array.isArray(node[k][shift])) out[year][k][shift]=node[k][shift];
         });
       }
     });
   });
-
   return out;
 }
-
-function pyqLaunchQuestions(title, questions, mode) {
+function pyqLaunchQuestions(title, questions, mode){
   captureRunnerReturnContext('pyq');
-  window.chapterQuestionsDB = window.chapterQuestionsDB || {};
-  window.chapterQuestionsDB[title] = questions;
-
-  if (mode === 'practice') {
-    switchTab('practice');
-    startChapterPractice(title, 'PYQ');
-  } else {
-    switchTab('vault');
-    launchChapterSimulation(
-      title,
-      questions.length,
-      Math.max(10, Math.ceil(questions.length * 0.6))
-    );
-  }
+  window.chapterQuestionsDB=window.chapterQuestionsDB||{};
+  window.chapterQuestionsDB[title]=questions;
+  if(mode==='practice'){ switchTab('practice'); startChapterPractice(title,'PYQ'); }
+  else { switchTab('vault'); launchChapterSimulation(title,questions.length,Math.max(10,Math.ceil(questions.length*0.6))); }
 }
 
-function pyqMakeCard(html, onClick) {
-  const c = document.createElement('div');
-  c.className =
-    'bg-white dark:bg-[#131b2e] border border-slate-200 dark:border-slate-800/80 ' +
-    'p-6 rounded-2xl shadow-sm hover:border-indigo-500 transition cursor-pointer';
-  c.innerHTML = html;
-  if (onClick) c.onclick = onClick;
-  return c;
-}
-
-function renderPYQHub() {
-  const grid = document.getElementById('pyq-container-grid');
-  const breadcrumb = document.getElementById('pyq-exam-breadcrumb');
-  if (!grid) return;
-
-  grid.innerHTML = '';
-
-  const groups = window.examGroupsData || {};
-  const s = pyqNavState;
-
-  const groupSpan = document.getElementById('pyq-breadcrumb-group');
-  const subSpan = document.getElementById('pyq-breadcrumb-sub');
-  const yearSpan = document.getElementById('pyq-breadcrumb-year');
-  const monthSpan = document.getElementById('pyq-breadcrumb-month');
-  const dateSpan = document.getElementById('pyq-breadcrumb-date');
-
-  const sep1 = document.getElementById('pyq-sep-1');
-  const sep2 = document.getElementById('pyq-sep-2');
-  const sep3 = document.getElementById('pyq-sep-3');
-  const sep4 = document.getElementById('pyq-sep-4');
-  const sep5 = document.getElementById('pyq-sep-5');
-
-  const hide = el => el?.classList.add('hidden');
-  const show = el => el?.classList.remove('hidden');
-
-  // Clear all deeper breadcrumb pieces on every render.
-  [sep1, sep2, sep3, sep4, sep5,
-   groupSpan, subSpan, yearSpan, monthSpan, dateSpan].forEach(hide);
-
-  if (!s.groupKey) {
-    breadcrumb?.classList.add('hidden');
-
-    Object.keys(groups).forEach(key => {
-      const g = groups[key] || {};
-      const c = pyqMakeCard(
-        `<span class="text-[10px] bg-indigo-500/10 text-indigo-600 dark:text-indigo-300 font-bold uppercase px-2.5 py-1 rounded">PYQ Repository</span>
-         <h3 class="text-lg font-bold mt-3 mb-2 text-slate-900 dark:text-white">
-           <i class="fa-solid ${g.icon || 'fa-file-lines'} text-indigo-500 mr-2"></i>${g.name || key} PYQs
-         </h3>
-         <p class="text-xs text-slate-500 dark:text-slate-400 mb-5">Year → Month → Date → Shift/Paper</p>
-         <div class="text-xs font-bold text-indigo-600">View Sub-Exams <i class="fa-solid fa-arrow-right ml-1"></i></div>`,
-        () => selectPYQGroup(key)
-      );
-      grid.appendChild(c);
-    });
-    return;
-  }
-
-  const g = groups[s.groupKey];
-  if (!g) return;
-
-  breadcrumb?.classList.remove('hidden');
-
-  show(sep1);
-  show(groupSpan);
-  groupSpan.innerText = g.name || s.groupKey;
-  groupSpan.onclick = resetPYQHub;
-  groupSpan.className = 'hover:text-indigo-600 dark:hover:text-indigo-400 cursor-pointer';
-
-  if (!s.subExamName) {
-    (g.subExams || []).forEach(sub => {
-      const c = pyqMakeCard(
-        `<span class="text-[10px] bg-teal-500/10 text-teal-600 dark:text-teal-300 font-bold uppercase px-2.5 py-1 rounded">Official PYQs</span>
-         <h3 class="text-base font-bold mt-3 mb-2 text-slate-900 dark:text-white">${sub.name}</h3>
-         <p class="text-xs text-slate-500 dark:text-slate-400 mb-5">${sub.desc || 'Open year-wise PYQs.'}</p>
-         <div class="text-xs font-bold text-teal-600">Open ${sub.name} <i class="fa-solid fa-arrow-right ml-1"></i></div>`,
-        () => selectPYQSubExam(sub.name)
-      );
-      grid.appendChild(c);
-    });
-    return;
-  }
-
-  show(sep2);
-  show(subSpan);
-  subSpan.innerText = s.subExamName;
-  subSpan.onclick = pyqBackToSubExam;
-  subSpan.className = 'text-amber-500 hover:text-indigo-600 cursor-pointer';
-
-  const years = normalizePYQYears(s.subExamName);
-
-  if (!s.year) {
-    Object.keys(years)
-      .sort((a,b) => Number(b) - Number(a))
-      .forEach(year => {
-        const c = pyqMakeCard(
-          `<span class="text-[10px] bg-indigo-500/10 text-indigo-600 dark:text-indigo-300 font-bold uppercase px-2.5 py-1 rounded">Year ${year}</span>
-           <h3 class="text-lg font-bold mt-3 text-slate-900 dark:text-white">${year} PYQs</h3>
-           <p class="text-xs text-slate-500 dark:text-slate-400 mt-2 mb-5">Open months, dates and shift papers for ${year}.</p>
-           <div class="text-xs font-bold text-indigo-600">View Months <i class="fa-solid fa-arrow-right ml-1"></i></div>`,
-          () => selectPYQYear(year)
-        );
-        grid.appendChild(c);
-      });
-
-    if (!Object.keys(years).length) {
-      grid.innerHTML =
-        '<div class="col-span-full p-8 text-center text-xs text-slate-500">No PYQ data available for this exam yet.</div>';
-    }
-    return;
-  }
-
-  show(sep3);
-  show(yearSpan);
-  yearSpan.innerText = s.year;
-  yearSpan.onclick = pyqBackToYears;
-  yearSpan.className = 'text-indigo-500 hover:text-indigo-600 cursor-pointer';
-
-  const months = years[s.year] || {};
-
-  if (!s.month) {
-    Object.keys(months).forEach(month => {
-      const dateMap = months[month] || {};
-      const count = Object.values(dateMap)
-        .reduce((n, shifts) =>
-          n + Object.values(shifts || {}).reduce((m, q) => m + (Array.isArray(q) ? q.length : 0), 0), 0);
-
-      const c = pyqMakeCard(
-        `<span class="text-[10px] bg-teal-500/10 text-teal-600 dark:text-teal-300 font-bold uppercase px-2.5 py-1 rounded">${count} Questions</span>
-         <h3 class="text-base font-bold mt-3 text-slate-900 dark:text-white">${month}</h3>
-         <p class="text-xs text-slate-500 dark:text-slate-400 mt-2 mb-5">${s.year} • Select date</p>
-         <div class="text-xs font-bold text-teal-600">View Dates <i class="fa-solid fa-arrow-right ml-1"></i></div>`,
-        () => selectPYQMonth(month)
-      );
-      grid.appendChild(c);
-    });
-
-    if (!Object.keys(months).length) {
-      grid.innerHTML =
-        '<div class="col-span-full p-8 text-center text-xs text-slate-500">No month data available for this year.</div>';
-    }
-    return;
-  }
-
-  show(sep4);
-  show(monthSpan);
-  monthSpan.innerText = s.month;
-  monthSpan.onclick = pyqBackToMonths;
-  monthSpan.className = 'text-teal-500 hover:text-indigo-600 cursor-pointer';
-
-  const dates = months[s.month] || {};
-
-  if (!s.date) {
-    Object.keys(dates).forEach(date => {
-      const shiftMap = dates[date] || {};
-      const count = Object.values(shiftMap)
-        .reduce((n, q) => n + (Array.isArray(q) ? q.length : 0), 0);
-
-      const c = pyqMakeCard(
-        `<span class="text-[10px] bg-amber-500/10 text-amber-600 dark:text-amber-300 font-bold uppercase px-2.5 py-1 rounded">${count} Questions</span>
-         <h3 class="text-base font-bold mt-3 text-slate-900 dark:text-white">${date}</h3>
-         <p class="text-xs text-slate-500 dark:text-slate-400 mt-2 mb-5">${s.year} • ${s.month} • Select shift/paper</p>
-         <div class="text-xs font-bold text-amber-600">View Shift/Paper <i class="fa-solid fa-arrow-right ml-1"></i></div>`,
-        () => selectPYQDate(date)
-      );
-      grid.appendChild(c);
-    });
-
-    if (!Object.keys(dates).length) {
-      grid.innerHTML =
-        '<div class="col-span-full p-8 text-center text-xs text-slate-500">No date data available for this month.</div>';
-    }
-    return;
-  }
-
-  show(sep5);
-  show(dateSpan);
-  dateSpan.innerText = s.date;
-  dateSpan.onclick = pyqBackToDates;
-  dateSpan.className = 'text-amber-500 hover:text-indigo-600 cursor-pointer';
-
-  const shifts = dates[s.date] || {};
-
-  Object.keys(shifts).forEach(shift => {
-    const qs = Array.isArray(shifts[shift]) ? shifts[shift] : [];
-    const title = `${s.subExamName} | ${s.year} | ${s.month} | ${s.date} | ${shift}`;
-
-    const c = document.createElement('div');
-    c.className =
-      'bg-white dark:bg-[#131b2e] border border-slate-200 dark:border-slate-800/80 p-6 rounded-2xl shadow-sm';
-
-    c.innerHTML =
-      `<div class="flex items-center justify-between">
-         <span class="text-[10px] bg-indigo-500/10 text-indigo-600 dark:text-indigo-300 font-bold uppercase px-2.5 py-1 rounded">${qs.length} Questions</span>
-         <span class="text-[10px] text-amber-500 font-bold"><i class="fa-solid fa-clock mr-1"></i>Shift/Paper</span>
-       </div>
-       <h3 class="text-base font-bold mt-4 text-slate-900 dark:text-white">${shift}</h3>
-       <p class="text-xs text-slate-500 dark:text-slate-400 mt-2 mb-5">${s.year} • ${s.month} • ${s.date}</p>
-       <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
-         <button class="pyq-practice bg-teal-600 hover:bg-teal-500 text-white text-[11px] font-bold py-2.5 rounded-xl">Daily Practice</button>
-         <button class="pyq-full bg-indigo-600 hover:bg-indigo-500 text-white text-[11px] font-bold py-2.5 rounded-xl">Full Test</button>
-       </div>`;
-
-    c.querySelector('.pyq-practice').onclick = e => {
-      e.stopPropagation();
-      pyqLaunchQuestions(title, qs, 'practice');
-    };
-    c.querySelector('.pyq-full').onclick = e => {
-      e.stopPropagation();
-      pyqLaunchQuestions(title, qs, 'full');
-    };
-
+function renderPYQHub(){
+const grid=document.getElementById('pyq-container-grid'),breadcrumb=document.getElementById('pyq-exam-breadcrumb');
+if(!grid)return;grid.innerHTML='';
+const groups=window.examGroupsData||{},s=pyqNavState;
+const groupSpan=document.getElementById('pyq-breadcrumb-group'),subSpan=document.getElementById('pyq-breadcrumb-sub');
+if(!s.groupKey){
+  breadcrumb?.classList.add('hidden');
+  Object.keys(groups).forEach(key=>{
+    const g=groups[key],c=document.createElement('div');
+    c.className='bg-white dark:bg-[#131b2e] border border-slate-200 dark:border-slate-800/80 p-6 rounded-2xl shadow-sm hover:border-indigo-500 transition cursor-pointer';
+    c.onclick=()=>selectPYQGroup(key);
+    c.innerHTML=`<span class="text-[10px] bg-indigo-500/10 text-indigo-600 dark:text-indigo-300 font-bold uppercase px-2.5 py-1 rounded">PYQ Repository</span><h3 class="text-lg font-bold mt-3 mb-2 text-slate-900 dark:text-white"><i class="fa-solid ${g.icon} text-indigo-500 mr-2"></i>${g.name} PYQs</h3><p class="text-xs text-slate-500 dark:text-slate-400 mb-5">Exam → Stage → Year → Month → Shift</p><div class="text-xs font-bold text-indigo-600">View Sub-Exams <i class="fa-solid fa-arrow-right ml-1"></i></div>`;
     grid.appendChild(c);
   });
+  return;
+}
+const g=groups[s.groupKey];if(!g)return;
+breadcrumb?.classList.remove('hidden');
+document.getElementById('pyq-sep-1')?.classList.remove('hidden');
+groupSpan.classList.remove('hidden');groupSpan.innerText=g.name;groupSpan.onclick=resetPYQHub;
+
+if(!s.subExamName){
+  subSpan?.classList.add('hidden');document.getElementById('pyq-sep-2')?.classList.add('hidden');
+  (g.subExams||[]).forEach(sub=>{
+    const c=document.createElement('div');
+    c.className='bg-white dark:bg-[#131b2e] border border-slate-200 dark:border-slate-800/80 p-6 rounded-2xl shadow-sm hover:border-teal-500 transition cursor-pointer';
+    c.onclick=()=>selectPYQSubExam(sub.name);
+    c.innerHTML=`<span class="text-[10px] bg-teal-500/10 text-teal-600 dark:text-teal-300 font-bold uppercase px-2.5 py-1 rounded">Official PYQs</span><h3 class="text-base font-bold mt-3 mb-2 text-slate-900 dark:text-white">${sub.name}</h3><p class="text-xs text-slate-500 dark:text-slate-400 mb-5">${sub.desc||'Open PYQ stages.'}</p><div class="text-xs font-bold text-teal-600">Open ${sub.name} <i class="fa-solid fa-arrow-right ml-1"></i></div>`;
+    grid.appendChild(c);
+  });
+  return;
+}
+document.getElementById('pyq-sep-2')?.classList.remove('hidden');
+subSpan.classList.remove('hidden');subSpan.innerText=s.subExamName;subSpan.onclick=pyqBackToSubExam;
+
+const stages=getPYQStageOptions(s.subExamName);
+if(!s.stage){
+  stages.forEach(stage=>{
+    const raw=((window.pyqDatabase||{})[s.subExamName]||{})[stage]||{};
+    const hasData=Object.keys(raw).length>0;
+    const c=document.createElement('div');
+    c.className='bg-white dark:bg-[#131b2e] border border-slate-200 dark:border-slate-800/80 p-6 rounded-2xl shadow-sm hover:border-indigo-500 transition cursor-pointer';
+    c.onclick=()=>selectPYQStage(stage);
+    c.innerHTML=`<span class="text-[10px] bg-indigo-500/10 text-indigo-600 dark:text-indigo-300 font-bold uppercase px-2.5 py-1 rounded">${hasData?'PYQ Available':'PYQ Coming Soon'}</span><h3 class="text-lg font-bold mt-3 text-slate-900 dark:text-white">${stage}</h3><p class="text-xs text-slate-500 dark:text-slate-400 mt-2 mb-5">Open year-wise PYQs for ${stage}.</p><div class="text-xs font-bold text-indigo-600">Open ${stage} <i class="fa-solid fa-arrow-right ml-1"></i></div>`;
+    grid.appendChild(c);
+  });
+  return;
+}
+const years=normalizePYQYears(s.subExamName,s.stage);
+if(!s.year){
+  Object.keys(years).sort((a,b)=>Number(b)-Number(a)).forEach(y=>{
+    const c=document.createElement('div');
+    c.className='bg-white dark:bg-[#131b2e] border border-slate-200 dark:border-slate-800/80 p-6 rounded-2xl shadow-sm hover:border-indigo-500 transition cursor-pointer';
+    c.onclick=()=>selectPYQYear(y);
+    c.innerHTML=`<span class="text-[10px] bg-indigo-500/10 text-indigo-600 dark:text-indigo-300 font-bold uppercase px-2.5 py-1 rounded">Year ${y}</span><h3 class="text-lg font-bold mt-3 text-slate-900 dark:text-white">${y} PYQs</h3><p class="text-xs text-slate-500 dark:text-slate-400 mt-2 mb-5">${s.stage} • Open months and shifts</p><div class="text-xs font-bold text-indigo-600">View Months <i class="fa-solid fa-arrow-right ml-1"></i></div>`;
+    grid.appendChild(c);
+  });
+  if(!Object.keys(years).length)grid.innerHTML=`<div class="col-span-full p-8 text-center text-xs text-slate-500">No PYQ data available for ${s.stage} yet.</div>`;
+  return;
+}
+if(!s.month){
+  const months=years[s.year]||{};
+  Object.keys(months).forEach(m=>{
+    const count=Object.values(months[m]).reduce((n,q)=>n+q.length,0),c=document.createElement('div');
+    c.className='bg-white dark:bg-[#131b2e] border border-slate-200 dark:border-slate-800/80 p-6 rounded-2xl shadow-sm hover:border-teal-500 transition cursor-pointer';
+    c.onclick=()=>selectPYQMonth(m);
+    c.innerHTML=`<span class="text-[10px] bg-teal-500/10 text-teal-600 dark:text-teal-300 font-bold uppercase px-2.5 py-1 rounded">${count} Questions</span><h3 class="text-base font-bold mt-3 text-slate-900 dark:text-white">${m}</h3><p class="text-xs text-slate-500 dark:text-slate-400 mt-2 mb-5">${s.year} • ${s.stage} • Select shift</p><div class="text-xs font-bold text-teal-600">View Shifts <i class="fa-solid fa-arrow-right ml-1"></i></div>`;
+    grid.appendChild(c);
+  });
+  return;
+}
+const shifts=(years[s.year]||{})[s.month]||{};
+Object.keys(shifts).forEach(shift=>{
+  const qs=shifts[shift]||[],title=`${s.subExamName} | ${s.stage} | ${s.year} | ${s.month} | ${shift}`;
+  const c=document.createElement('div');
+  c.className='bg-white dark:bg-[#131b2e] border border-slate-200 dark:border-slate-800/80 p-6 rounded-2xl shadow-sm';
+  c.innerHTML=`<div class="flex items-center justify-between"><span class="text-[10px] bg-indigo-500/10 text-indigo-600 dark:text-indigo-300 font-bold uppercase px-2.5 py-1 rounded">${qs.length} Questions</span><span class="text-[10px] text-amber-500 font-bold"><i class="fa-solid fa-clock mr-1"></i>Shift Paper</span></div><h3 class="text-base font-bold mt-4 text-slate-900 dark:text-white">${shift}</h3><p class="text-xs text-slate-500 dark:text-slate-400 mt-2 mb-5">${s.year} • ${s.month} • ${s.stage}</p><div class="grid grid-cols-1 sm:grid-cols-2 gap-2"><button class="pyq-practice bg-teal-600 hover:bg-teal-500 text-white text-[11px] font-bold py-2.5 rounded-xl">Daily Practice</button><button class="pyq-full bg-indigo-600 hover:bg-indigo-500 text-white text-[11px] font-bold py-2.5 rounded-xl">Full Test</button></div>`;
+  c.querySelector('.pyq-practice').onclick=e=>{e.stopPropagation();pyqLaunchQuestions(title,qs,'practice')};
+  c.querySelector('.pyq-full').onclick=e=>{e.stopPropagation();pyqLaunchQuestions(title,qs,'full')};
+  grid.appendChild(c);
+});
 }
 
 let vaultNavState = { groupKey: null, subExamName: null };
@@ -3592,7 +3458,7 @@ function openAuthModal() {
 document.getElementById('auth-modal').classList.remove('hidden');
 switchAuthMode('login');
 document.getElementById('reg-step-1').classList.remove('hidden');
-document.getElementById('reg-step-verify-email').classList.add('hidden');
+
 }
 function closeAuthModal() { document.getElementById('auth-modal').classList.add('hidden'); }
 function switchAuthMode(mode) {
@@ -3622,7 +3488,7 @@ else loginGateBanner.classList.remove('hidden');
 }
 if(!container) return;
 if (currentUser) {
-container.innerHTML = `<div class="relative group"><button class="flex items-center gap-2 bg-indigo-500/10 border border-indigo-500/30 text-indigo-600 dark:text-indigo-300 font-bold text-xs px-3.5 py-2.5 rounded-xl transition cursor-pointer"><i class="fa-solid fa-user-check"></i> <span>Hi, ${currentUser.name}</span> <i class="fa-solid fa-chevron-down text-[10px]"></i></button><div class="absolute right-0 mt-2 w-48 bg-white dark:bg-[#131b2e] border border-slate-200 dark:border-slate-800 rounded-2xl shadow-xl py-2 hidden group-hover:block z-50"><div class="px-4 py-2 border-b border-slate-100 dark:border-slate-800 text-[10px] text-slate-400 truncate">${currentUser.email}</div><button onclick="handleLogout()" class="w-full text-left px-4 py-2 text-xs text-rose-600 dark:text-rose-400 hover:bg-rose-500/10 font-semibold transition flex items-center gap-2 cursor-pointer"><i class="fa-solid fa-right-from-bracket"></i> Sign Out / Logout</button></div></div>`;
+container.innerHTML = `<div class="relative group"><button class="flex items-center gap-2 bg-indigo-500/10 border border-indigo-500/30 text-indigo-600 dark:text-indigo-300 font-bold text-xs px-3.5 py-2.5 rounded-xl transition cursor-pointer"><i class="fa-solid fa-user-check"></i> <span>Hi, ${currentUser.name}</span> <i class="fa-solid fa-chevron-down text-[10px]"></i></button><div class="absolute right-0 mt-2 w-48 bg-white dark:bg-[#131b2e] border border-slate-200 dark:border-slate-800 rounded-2xl shadow-xl py-2 hidden group-hover:block z-50"><div class="px-4 py-2 border-b border-slate-100 dark:border-slate-800 text-[10px] text-slate-400 truncate">${currentUser.phone ? 'Mobile: ' + currentUser.phone : 'Student account'}${currentUser.email ? '<br>Email: ' + currentUser.email : ''}</div><button onclick="handleLogout()" class="w-full text-left px-4 py-2 text-xs text-rose-600 dark:text-rose-400 hover:bg-rose-500/10 font-semibold transition flex items-center gap-2 cursor-pointer"><i class="fa-solid fa-right-from-bracket"></i> Sign Out / Logout</button></div></div>`;
 } else {
 container.innerHTML = `<button onclick="openAuthModal()" class="bg-indigo-600 hover:bg-indigo-500 text-white font-semibold text-xs px-3.5 py-2.5 rounded-xl shadow transition flex items-center gap-1.5 cursor-pointer"><i class="fa-solid fa-user-shield"></i> <span data-i18n="portalLogin">Portal Login</span></button>`;
 }
@@ -3638,79 +3504,150 @@ renderPYQHub();
 }
 }
 
-function handleLoginSubmit(e) {
-e.preventDefault();
-const email = document.getElementById('login-identifier').value.trim();
-const passcode = document.getElementById('login-passcode').value.trim();
-const statusMsg = document.getElementById('login-status-msg');
-statusMsg.innerHTML = `<span class="text-amber-500">Authenticating session...</span>`;
-firebase.auth().signInWithEmailAndPassword(email, passcode)
-.then((userCredential) => {
-const user = userCredential.user;
-if (!user.emailVerified) {
-statusMsg.innerHTML = `<span class="text-amber-400">कृपया पहले ईमेल वेरिफाई करें। लिंक इनबॉक्स या Spam फ़ोल्डर में चेक करें।</span>`;
-firebase.auth().signOut();
-return;
+// Firebase Auth does not natively support password login with a phone number.
+// A synthetic Firebase Auth email is used internally; the student's real email is stored in Firestore. No email verification is performed.
+// students use their 10-digit phone number on the website.
+function phoneToAuthEmail(phone) {
+  return 'phone-' + phone + '@auth.targettire.in';
 }
-currentUser = { name: user.displayName || email.split('@')[0], email };
-localStorage.setItem('targettire_user', JSON.stringify(currentUser));
-closeAuthModal();
-updateHeaderAuthUI();
-renderHeaderExamDropdown(); renderMobileExamMenu();
-showToast(`Welcome back, ${currentUser.name}! All content unlocked.`);
-statusMsg.innerHTML = '';
-e.target.reset();
-}).catch((err) => { statusMsg.innerHTML = `<span class="text-rose-500">Error: ${err.message}</span>`; });
+
+// Show/hide password buttons for login, registration, and confirm-password fields.
+document.addEventListener('click', function (event) {
+  const button = event.target.closest('.password-toggle');
+  if (!button) return;
+  const input = document.getElementById(button.dataset.target);
+  if (!input) return;
+  const show = input.type === 'password';
+  input.type = show ? 'text' : 'password';
+  button.setAttribute('aria-label', show ? 'Hide password' : 'Show password');
+  button.setAttribute('aria-pressed', show ? 'true' : 'false');
+  const icon = button.querySelector('i');
+  if (icon) icon.className = show ? 'fa-regular fa-eye-slash' : 'fa-regular fa-eye';
+});
+
+function handleLoginSubmit(e) {
+  e.preventDefault();
+  const phone = document.getElementById('login-phone').value.trim();
+  const passcode = document.getElementById('login-passcode').value;
+  const statusMsg = document.getElementById('login-status-msg');
+  if (!/^[0-9]{10}$/.test(phone)) {
+    statusMsg.innerHTML = `<span class="text-rose-500">कृपया सही 10 अंकों का मोबाइल नंबर डालें।</span>`;
+    return;
+  }
+  statusMsg.innerHTML = `<span class="text-amber-500">लॉगिन हो रहा है...</span>`;
+  firebase.auth().signInWithEmailAndPassword(phoneToAuthEmail(phone), passcode)
+    .then(async (userCredential) => {
+      const user = userCredential.user;
+      const sid = getSessionId();
+      sessionStorage.setItem('targettire_session_id', sid);
+      await firebase.firestore().collection('users').doc(user.uid).set({
+        uid: user.uid,
+        name: user.displayName || 'Student',
+        phone,
+        lastLoginAt: firebase.firestore.FieldValue.serverTimestamp(),
+        activeSessionId: sid
+      }, { merge: true });
+      const profileDoc = await firebase.firestore().collection('users').doc(user.uid).get();
+      const savedEmail = profileDoc.exists ? (profileDoc.data().email || '') : '';
+      currentUser = { name: user.displayName || 'Student', phone, email: savedEmail, uid: user.uid };
+      localStorage.setItem('targettire_user', JSON.stringify(currentUser));
+      watchSingleDeviceSession(user, sid);
+      closeAuthModal();
+      updateHeaderAuthUI();
+      renderHeaderExamDropdown(); renderMobileExamMenu();
+      showToast(`स्वागत है, ${currentUser.name}!`);
+      statusMsg.innerHTML = '';
+      e.target.reset();
+    })
+    .catch((err) => {
+      const msg = (err.code === 'auth/invalid-credential' || err.code === 'auth/user-not-found' || err.code === 'auth/wrong-password')
+        ? 'मोबाइल नंबर या पासवर्ड गलत है।'
+        : err.message;
+      statusMsg.innerHTML = `<span class="text-rose-500">लॉगिन नहीं हुआ: ${msg}</span>`;
+    });
 }
 
 function handleRegisterSubmit(e) {
-e.preventDefault();
-const name = document.getElementById('reg-name').value.trim();
-const email = document.getElementById('reg-email').value.trim();
-const password = document.getElementById('reg-password').value.trim();
-const statusMsg = document.getElementById('reg-status-msg');
-statusMsg.innerHTML = `<span class="text-teal-400"><i class="fa-solid fa-spinner fa-spin mr-1"></i> Creating account & sending verification email...</span>`;
-firebase.auth().createUserWithEmailAndPassword(email, password)
-.then((userCredential) => {
-return userCredential.user.updateProfile({ displayName: name }).then(() => {
-return userCredential.user.sendEmailVerification();
-}).then(() => {
-statusMsg.innerHTML = '';
-document.getElementById('verify-email-display').innerText = email;
-document.getElementById('reg-step-1').classList.add('hidden');
-document.getElementById('reg-step-verify-email').classList.remove('hidden');
-showToast(`वेरिफिकेशन लिंक भेज दिया गया है। Inbox या Spam फ़ोल्डर चेक करें!`);
-});
-}).catch((error) => { statusMsg.innerHTML = `<span class="text-rose-500">Firebase Error: ${error.message}</span>`; });
+  e.preventDefault();
+  const name = document.getElementById('reg-name').value.trim();
+  const phone = document.getElementById('reg-phone').value.trim();
+  const email = document.getElementById('reg-email').value.trim().toLowerCase();
+  const password = document.getElementById('reg-password').value;
+  const confirmPassword = document.getElementById('reg-confirm-password').value;
+  const statusMsg = document.getElementById('reg-status-msg');
+  if (!name) {
+    statusMsg.innerHTML = `<span class="text-rose-500">कृपया अपना नाम डालें।</span>`;
+    return;
+  }
+  if (!/^[0-9]{10}$/.test(phone)) {
+    statusMsg.innerHTML = `<span class="text-rose-500">कृपया सही 10 अंकों का मोबाइल नंबर डालें।</span>`;
+    return;
+  }
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+    statusMsg.innerHTML = `<span class="text-rose-500">कृपया सही Gmail / ईमेल पता डालें।</span>`;
+    return;
+  }
+  if (password.length < 6) {
+    statusMsg.innerHTML = `<span class="text-rose-500">पासवर्ड कम-से-कम 6 अक्षर का होना चाहिए।</span>`;
+    return;
+  }
+  if (password !== confirmPassword) {
+    statusMsg.innerHTML = `<span class="text-rose-500">दोनों पासवर्ड एक जैसे नहीं हैं। कृपया दोबारा जाँचें।</span>`;
+    document.getElementById('reg-confirm-password').focus();
+    return;
+  }
+  statusMsg.innerHTML = `<span class="text-teal-400"><i class="fa-solid fa-spinner fa-spin mr-1"></i> अकाउंट बनाया जा रहा है...</span>`;
+  const authEmail = phoneToAuthEmail(phone);
+  firebase.auth().createUserWithEmailAndPassword(authEmail, password)
+    .then(async (userCredential) => {
+      const user = userCredential.user;
+      await user.updateProfile({ displayName: name });
+      const sid = getSessionId();
+      sessionStorage.setItem('targettire_session_id', sid);
+      await firebase.firestore().collection('users').doc(user.uid).set({
+        uid: user.uid,
+        name,
+        phone,
+        email,
+        emailVerified: false,
+        createdAt: firebase.firestore.FieldValue.serverTimestamp(),
+        lastLoginAt: firebase.firestore.FieldValue.serverTimestamp(),
+        activeSessionId: sid
+      }, { merge: true });
+      currentUser = { name, phone, email, uid: user.uid };
+      localStorage.setItem('targettire_user', JSON.stringify(currentUser));
+      watchSingleDeviceSession(user, sid);
+      statusMsg.innerHTML = '';
+      e.target.reset();
+      closeAuthModal();
+      updateHeaderAuthUI();
+      renderHeaderExamDropdown(); renderMobileExamMenu();
+      showToast('अकाउंट बन गया। अभी OTP या ईमेल वेरिफिकेशन नहीं है।');
+    })
+    .catch((error) => {
+      const msg = error.code === 'auth/email-already-in-use'
+        ? 'इस मोबाइल नंबर से अकाउंट पहले से बना है। लॉगिन करें।'
+        : error.message;
+      statusMsg.innerHTML = `<span class="text-rose-500">अकाउंट नहीं बना: ${msg}</span>`;
+    });
+}
+
+function handleForgotPassword() {
+  const phone = (document.getElementById('login-phone')?.value || '').trim();
+  const status = document.getElementById('login-status-msg');
+  if (!/^[0-9]{10}$/.test(phone)) {
+    status.innerHTML = '<span class="text-amber-500">पहले अपना 10 अंकों का मोबाइल नंबर डालें। पासवर्ड रिकवरी के लिए अभी OTP सेटअप जरूरी है।</span>';
+    document.getElementById('login-phone')?.focus();
+    return;
+  }
+  status.innerHTML = '<span class="text-amber-500">इस पुराने सेटअप में Firebase अकाउंट का लॉगिन ईमेल तकनीकी (synthetic) है, इसलिए Gmail पर reset link भेजना सही तरह काम नहीं करेगा। अभी पासवर्ड रिकवरी उपलब्ध नहीं है। अकाउंट लॉक न करें; आगे सुरक्षित email/OTP recovery सेटअप करना होगा।</span>';
 }
 
 function checkEmailVerified() {
-const user = firebase.auth().currentUser;
-const verifyMsg = document.getElementById('email-verify-status-msg');
-if (!user) return;
-user.reload().then(() => {
-if (user.emailVerified) {
-currentUser = { name: user.displayName || user.email.split('@')[0], email: user.email };
-localStorage.setItem('targettire_user', JSON.stringify(currentUser));
-verifyMsg.innerHTML = `<span class="text-teal-300 font-bold">✓ Email verified successfully!</span>`;
-setTimeout(() => {
-closeAuthModal();
-updateHeaderAuthUI();
-renderHeaderExamDropdown(); renderMobileExamMenu();
-showToast(`Welcome to TargetTire, ${currentUser.name}! Full access unlocked.`);
-document.getElementById('auth-form-register').reset();
-document.getElementById('reg-step-verify-email').classList.add('hidden');
-document.getElementById('reg-step-1').classList.remove('hidden');
-}, 1500);
-} else {
-verifyMsg.innerHTML = `<span class="text-amber-400">Email not verified yet! Check Spam folder.</span>`;
+  showToast('लॉगिन के लिए मोबाइल नंबर और पासवर्ड का उपयोग करें।');
 }
-});
-}
-
 function resendVerificationEmail() {
-const user = firebase.auth().currentUser;
-if (user) user.sendEmailVerification().then(() => showToast('Verification email resent.'));
+  showToast('अभी पासवर्ड रिकवरी उपलब्ध नहीं है। आगे OTP रिकवरी जोड़ी जा सकती है।');
 }
 
 (function cleanHardcodedData() {
@@ -3718,6 +3655,7 @@ if (user) user.sendEmailVerification().then(() => showToast('Verification email 
 })();
 
 function handleLogout() {
+if (activeSessionUnsubscribe) { activeSessionUnsubscribe(); activeSessionUnsubscribe = null; }
 firebase.auth().signOut().then(() => {
 currentUser = null;
 localStorage.removeItem('targettire_user');
@@ -3758,19 +3696,22 @@ selectPracticeSubjectStream('mathematics');
 }
 }
 
-function resetPracticeExamNav() {
+function resetPracticeExamNav(pushHistory = false) {
 practiceNavState = { groupKey: null, subExamName: null };
 renderPracticeExamHub();
+    if (pushHistory) history.pushState({ tab: 'practice', practice: JSON.parse(JSON.stringify(practiceNavState)) }, "", "#practice");
 }
 
-function selectPracticeGroup(groupKey) {
+function selectPracticeGroup(groupKey, pushHistory = true) {
 practiceNavState = { groupKey, subExamName: null };
 renderPracticeExamHub();
+if (pushHistory) history.pushState({ tab: 'practice', practice: JSON.parse(JSON.stringify(practiceNavState)) }, "", "#practice/group/" + encodeURIComponent(groupKey));
 }
 
-function selectPracticeSubExam(subExamName) {
+function selectPracticeSubExam(subExamName, pushHistory = true) {
 practiceNavState.subExamName = subExamName;
 renderPracticeExamHub();
+if (pushHistory) history.pushState({ tab: 'practice', practice: JSON.parse(JSON.stringify(practiceNavState)) }, "", "#practice/exam/" + encodeURIComponent(subExamName));
 }
 
 function renderPracticeExamHub() {
@@ -4239,28 +4180,6 @@ window.playBrandNewErrorTune = function(){ __ttPlayTone(false); };
 
   if(document.readyState==='loading') window.addEventListener('DOMContentLoaded',()=>{setupSearch();restoreAfterReload();});
   else { setupSearch(); restoreAfterReload(); }
-})();
-</script>
-
-
-<!-- TargetTire Question Review Modal -->
-<div id="tt-review-modal" class="fixed inset-0 z-[100] hidden items-center justify-center bg-black/70 p-3">
- <section class="flex max-h-[90vh] w-full max-w-3xl flex-col overflow-hidden rounded-2xl border border-slate-300 bg-white shadow-2xl dark:border-slate-700 dark:bg-[#131b2e]">
-  <header class="flex items-center justify-between border-b border-slate-200 p-4 dark:border-slate-700"><div><h2 id="tt-review-title" class="font-bold text-lg">Question Review</h2><p id="tt-review-summary" class="text-xs text-slate-500"></p></div><button type="button" id="tt-review-close" class="rounded-lg px-3 py-2 hover:bg-slate-100 dark:hover:bg-slate-800">✕</button></header>
-  <div id="tt-review-body" class="space-y-3 overflow-y-auto p-4"></div>
- </section>
-</div>
-<script>
-/* Isolated review feature: does not replace or wrap any existing TargetTire functions. */
-(function(){
- const KEY='targettire_review_attempts_v1';
- function esc(v){return String(v==null?'':v).replace(/[&<>\"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','\"':'&quot;',"'":'&#39;'}[c]));}
- function read(){try{const a=JSON.parse(localStorage.getItem(KEY)||'[]');return Array.isArray(a)?a:[]}catch(e){return []}}
- function write(a){try{localStorage.setItem(KEY,JSON.stringify(a.slice(-100)))}catch(e){console.warn('Review history local save failed',e)}}
- window.ttSaveReviewAttempt=function(record){if(!record||!Array.isArray(record.questions))return;const a=read();record.id=record.id||('tt_'+Date.now()+'_'+Math.random().toString(36).slice(2,8));record.savedAt=new Date().toISOString();a.push(record);write(a);return record.id};
- window.ttOpenQuestionReview=function(id){const item=read().find(x=>x.id===id);if(!item)return;document.getElementById('tt-review-title').textContent=item.title||'Question Review';document.getElementById('tt-review-summary').textContent=(item.type||'Test')+' · Score '+(item.correct||0)+'/'+(item.total||item.questions.length);const body=document.getElementById('tt-review-body');body.innerHTML='';(item.questions||[]).forEach((q,i)=>{const chosen=Number(q.selected),correct=Number(q.correct),status=chosen<0?'छोड़ा गया':chosen===correct?'सही':'गलत';const opts=(q.options||[]).map((o,j)=>'<div class="mt-1 rounded-lg border p-2 text-sm '+(j===correct?'border-emerald-400 bg-emerald-50 dark:bg-emerald-900/20':j===chosen?'border-rose-400 bg-rose-50 dark:bg-rose-900/20':'border-slate-200 dark:border-slate-700')+'">'+String.fromCharCode(65+j)+'. '+esc(typeof o==='string'?o:(o.en||o.text||o.hi||''))+(j===correct?' ✓ सही उत्तर':'')+(j===chosen?' · आपका उत्तर':'')+'</div>').join('');const card=document.createElement('article');card.className='rounded-xl border p-3 '+(status==='सही'?'border-emerald-400':status==='गलत'?'border-rose-400':'border-slate-300 dark:border-slate-700');card.innerHTML='<div class="flex justify-between gap-3"><h3 class="font-semibold text-sm">Q'+(i+1)+'. '+esc(q.qEn||q.question||q.text||'प्रश्न')+(q.qHi?'<div class="mt-1 text-slate-500">'+esc(q.qHi)+'</div>':'')+'</h3><span class="shrink-0 text-xs font-bold">'+status+'</span></div><div class="mt-2">'+opts+'</div><p class="mt-3 text-xs"><b>आपका उत्तर:</b> '+(chosen<0?'नहीं दिया':esc((q.options||[])[chosen]&&((q.options||[])[chosen].en||(q.options||[])[chosen].text||(q.options||[])[chosen])) )+'<br><b>सही उत्तर:</b> '+esc((q.options||[])[correct]&&((q.options||[])[correct].en||(q.options||[])[correct].text||(q.options||[])[correct]))+'</p><p class="mt-2 text-xs"><b>Explanation:</b> '+esc(q.explanation||q.exp||'उपलब्ध नहीं')+'</p>';body.appendChild(card)});const m=document.getElementById('tt-review-modal');m.classList.remove('hidden');m.classList.add('flex')};
- document.addEventListener('click',function(e){if(e.target.id==='tt-review-close'||e.target.id==='tt-review-modal'){const m=document.getElementById('tt-review-modal');m.classList.add('hidden');m.classList.remove('flex')}});
- window.ttRenderReviewButton=function(container,id){if(!container||!id)return;const b=document.createElement('button');b.type='button';b.className='rounded-lg bg-indigo-600 px-3 py-2 text-xs font-bold text-white';b.textContent='View Question Review';b.onclick=()=>window.ttOpenQuestionReview(id);container.appendChild(b)};
 })();
 </script>
 
