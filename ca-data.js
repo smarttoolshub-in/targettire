@@ -1,4 +1,4 @@
-Window.TARGETTIRE_CA_DATABASE = {
+window.TARGETTIRE_CA_DATABASE = {
   date: "14 October 2026",
   bulletinTitle: "Daily Current Affairs — 14 October 2026",
 
