@@ -7,47 +7,17 @@ window.TARGETTIRE_CA_DATABASE = {
   date: "24 October 2026 | 24 अक्टूबर 2026",
   bulletinTitle: "Daily Current Affairs | दैनिक करेंट अफेयर्स",
   points: [
-    {
-      en: "The 30th meeting of the Financial Stability and Development Council (FSDC) was held in New Delhi on 23 October 2026 under the chairpersonship of Union Finance Minister Nirmala Sitharaman.",
-      hi: "वित्त मंत्री निर्मला सीतारमण की अध्यक्षता में वित्तीय स्थिरता और विकास परिषद (FSDC) की 30वीं बैठक 23 अक्टूबर 2026 को नई दिल्ली में हुई।"
-    },
-    {
-      en: "The FSDC discusses issues related to financial stability, financial-sector development, inter-regulatory coordination and the economy.",
-      hi: "FSDC वित्तीय स्थिरता, वित्तीय क्षेत्र के विकास, नियामकों के बीच समन्वय और अर्थव्यवस्था से जुड़े मुद्दों पर चर्चा करती है।"
-    },
-    {
-      en: "The FSDC Sub-Committee is chaired by the Governor of the Reserve Bank of India (RBI).",
-      hi: "FSDC की उप-समिति की अध्यक्षता भारतीय रिज़र्व बैंक (RBI) के गवर्नर करते हैं।"
-    },
-    {
-      en: "The 7th AgriVoltaics World Conference, hosted by the Ministry of New and Renewable Energy (MNRE), concluded on 23 October 2026.",
-      hi: "नवीन और नवीकरणीय ऊर्जा मंत्रालय (MNRE) द्वारा आयोजित 7वाँ एग्रीवोल्टाइक विश्व सम्मेलन 23 अक्टूबर 2026 को संपन्न हुआ।"
-    },
-    {
-      en: "France is scheduled to host the 8th AgriVoltaics World Conference in 2027.",
-      hi: "8वें एग्रीवोल्टाइक विश्व सम्मेलन की मेजबानी 2027 में फ्रांस करेगा।"
-    },
-    {
-      en: "Agrivoltaics combines agricultural activity and solar power generation on the same land, where suitable.",
-      hi: "एग्रीवोल्टाइक्‍स में उपयुक्त परिस्थितियों में एक ही भूमि पर खेती और सौर ऊर्जा उत्पादन को साथ जोड़ा जाता है।"
-    },
-    {
-      en: "Discussions at the conference included farmer-focused approaches and the role of research institutions in agrivoltaics.",
-      hi: "सम्मेलन में किसान-केंद्रित तरीकों और एग्रीवोल्टाइक्‍स में अनुसंधान संस्थानों की भूमिका पर चर्चा हुई।"
-    },
-    {
-      en: "The Indian Council of Agricultural Research (ICAR) and the International Water Management Institute (IWMI) were associated with a conference session on agriculture and water-related issues.",
-      hi: "भारतीय कृषि अनुसंधान परिषद (ICAR) और अंतरराष्ट्रीय जल प्रबंधन संस्थान (IWMI) कृषि तथा जल से जुड़े मुद्दों पर सम्मेलन के एक सत्र से जुड़े थे।"
-    },
-    {
-      en: "A news report on 23 October discussed Section 125A of the Representation of the People Act, 1951, which concerns false affidavits filed in connection with elections. Verify the latest court details from an official source before exam use.",
-      hi: "23 अक्टूबर की एक समाचार रिपोर्ट में जनप्रतिनिधित्व अधिनियम, 1951 की धारा 125A पर चर्चा हुई, जो चुनाव से संबंधित झूठे हलफनामों से जुड़ी है। परीक्षा की तैयारी में उपयोग से पहले न्यायालय संबंधी नवीनतम विवरण आधिकारिक स्रोत से जाँच लें।"
-    },
-    {
-      en: "A reported snow-leopard assessment put the estimated population in India at 718, including 477 in Ladakh. Treat this as a reported figure and cross-check the official assessment before relying on it.",
-      hi: "एक रिपोर्ट के अनुसार भारत में हिम तेंदुओं की अनुमानित संख्या 718 बताई गई, जिनमें 477 लद्दाख में हैं। इसे समाचार में दी गई संख्या मानें और भरोसा करने से पहले आधिकारिक आकलन से पुष्टि करें।"
-    }
-  ],
+    "Point 1: The 30th meeting of the Financial Stability and Development Council (FSDC) was held in New Delhi on 23 October 2026 under the chairpersonship of Union Finance Minister Nirmala Sitharaman. | बिंदु 1: वित्त मंत्री निर्मला सीतारमण की अध्यक्षता में वित्तीय स्थिरता और विकास परिषद (FSDC) की 30वीं बैठक 23 अक्टूबर 2026 को नई दिल्ली में हुई।",
+    "Point 2: The FSDC discusses issues related to financial stability, financial-sector development, inter-regulatory coordination and the economy. | बिंदु 2: FSDC वित्तीय स्थिरता, वित्तीय क्षेत्र के विकास, नियामकों के बीच समन्वय और अर्थव्यवस्था से जुड़े मुद्दों पर चर्चा करती है।",
+    "Point 3: The FSDC Sub-Committee is chaired by the Governor of the Reserve Bank of India (RBI). | बिंदु 3: FSDC की उप-समिति की अध्यक्षता भारतीय रिज़र्व बैंक (RBI) के गवर्नर करते हैं।",
+    "Point 4: The 7th AgriVoltaics World Conference, hosted by the Ministry of New and Renewable Energy (MNRE), concluded on 23 October 2026. | बिंदु 4: नवीन और नवीकरणीय ऊर्जा मंत्रालय (MNRE) द्वारा आयोजित 7वाँ एग्रीवोल्टाइक विश्व सम्मेलन 23 अक्टूबर 2026 को संपन्न हुआ।",
+    "Point 5: France is scheduled to host the 8th AgriVoltaics World Conference in 2027. | बिंदु 5: 8वें एग्रीवोल्टाइक विश्व सम्मेलन की मेजबानी 2027 में फ्रांस करेगा।",
+    "Point 6: Agrivoltaics combines agricultural activity and solar power generation on the same land, where suitable. | बिंदु 6: एग्रीवोल्टाइक्‍स में उपयुक्त परिस्थितियों में एक ही भूमि पर खेती और सौर ऊर्जा उत्पादन को साथ जोड़ा जाता है।",
+    "Point 7: Discussions at the conference included farmer-focused approaches and the role of research institutions in agrivoltaics. | बिंदु 7: सम्मेलन में किसान-केंद्रित तरीकों और एग्रीवोल्टाइक्‍स में अनुसंधान संस्थानों की भूमिका पर चर्चा हुई।",
+    "Point 8: The Indian Council of Agricultural Research (ICAR) and the International Water Management Institute (IWMI) were associated with a conference session on agriculture and water-related issues. | बिंदु 8: भारतीय कृषि अनुसंधान परिषद (ICAR) और अंतरराष्ट्रीय जल प्रबंधन संस्थान (IWMI) कृषि तथा जल से जुड़े मुद्दों पर सम्मेलन के एक सत्र से जुड़े थे।",
+    "Point 9: A news report on 23 October discussed Section 125A of the Representation of the People Act, 1951, which concerns false affidavits filed in connection with elections. Verify the latest court details from an official source before exam use. | बिंदु 9: 23 अक्टूबर की एक समाचार रिपोर्ट में जनप्रतिनिधित्व अधिनियम, 1951 की धारा 125A पर चर्चा हुई, जो चुनाव से संबंधित झूठे हलफनामों से जुड़ी है। परीक्षा की तैयारी में उपयोग से पहले न्यायालय संबंधी नवीनतम विवरण आधिकारिक स्रोत से जाँच लें।",
+    "Point 10: A reported snow-leopard assessment put the estimated population in India at 718, including 477 in Ladakh. Treat this as a reported figure and cross-check the official assessment before relying on it. | बिंदु 10: एक रिपोर्ट के अनुसार भारत में हिम तेंदुओं की अनुमानित संख्या 718 बताई गई, जिनमें 477 लद्दाख में हैं। इसे समाचार में दी गई संख्या मानें और भरोसा करने से पहले आधिकारिक आकलन से पुष्टि करें।"
+  ]
   quizList: [
     {
       qEn: "Who chaired the 30th FSDC meeting held on 23 October 2026?",
