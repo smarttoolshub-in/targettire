@@ -1,119 +1,133 @@
-Window.TARGETTIRE_CA_DATABASE = {
-  date: "16 October 2026",
-  bulletinTitle: "Daily Current Affairs — 16 October 2026 (World Food Day Special)",
+// TargetTire Daily Current Affairs Data
+// Date: 24 October 2026
+// Save/rename this file as current-affairs-data.js before uploading.
+// This file contains JavaScript data, not an HTML webpage.
 
+window.TARGETTIRE_CA_DATABASE = {
+  date: "24 October 2026 | 24 अक्टूबर 2026",
+  bulletinTitle: "Daily Current Affairs | दैनिक करेंट अफेयर्स",
   points: [
-    "1. World Food Day is observed globally every year on 16 October. / 16 अक्टूबर को हर साल पूरी दुनिया में 'विश्व खाद्य दिवस' (World Food Day) मनाया जाता है।",
-
-    "2. It was established in 1945 to commemorate the founding of the United Nations Food and Agriculture Organization (FAO). / इसकी शुरुआत वर्ष 1945 में संयुक्त राष्ट्र के 'खाद्य और कृषि संगठन' (FAO) की स्थापना के उपलक्ष्य में हुई थी।",
-
-    "3. The main objective of this day is to eradicate hunger globally and promote food security. / इस दिन का मुख्य उद्देश्य विश्व स्तर पर भुखमरी को खत्म करना और खाद्य सुरक्षा को बढ़ावा देना है।",
-
-    "4. Each year, the day has a specific theme emphasizing the importance of agriculture, health, and nutrition. / हर साल इस दिवस की एक विशेष थीम रखी जाती है, जो कृषि, स्वास्थ्य और पोषण के महत्व पर जोर देती है।",
-
-    "5. Millions of people around the world still suffer from malnutrition and hunger, lacking access to adequate meals. / आज भी दुनिया में लाखों लोग कुपोषण और भुखमरी का शिकार हैं, जिन्हें दो वक्त का पर्याप्त भोजन नहीं मिल पाता है।",
-
-    "6. Preventing food waste and spreading awareness about it is a major message of this day. / खाद्य पदार्थों की बर्बादी को रोकना और उसके प्रति जागरूकता फैलाना इस दिन का एक बहुत बड़ा संदेश है।",
-
-    "7. The contribution and hard work of farmers who grow our food are also appreciated on this occasion. / अन्न उगाने वाले किसानों के योगदान और उनकी कड़ी मेहनत को भी इस अवसर पर सराहा जाता है।",
-
-    "8. A balanced and nutritious diet is the fundamental birthright of every human being for a healthy life. / स्वस्थ जीवन के लिए संतुलित और पौष्टिक आहार हर इंसान का जन्मसिद्ध और मौलिक अधिकार है।",
-
-    "9. This day inspires governments and organizations worldwide to improve their agricultural policies. / यह दिन दुनिया भर की सरकारों और संस्थाओं को अपनी कृषि नीतियों में सुधार के लिए प्रेरित करता है।",
-
-    "10. We all must take a pledge together never to disrespect or waste food. / हम सभी को मिलकर यह संकल्प लेना चाहिए कि हम कभी भी अन्न का अपमान या उसकी बर्बादी नहीं करेंगे।"
+    {
+      en: "The 30th meeting of the Financial Stability and Development Council (FSDC) was held in New Delhi on 23 October 2026 under the chairpersonship of Union Finance Minister Nirmala Sitharaman.",
+      hi: "वित्त मंत्री निर्मला सीतारमण की अध्यक्षता में वित्तीय स्थिरता और विकास परिषद (FSDC) की 30वीं बैठक 23 अक्टूबर 2026 को नई दिल्ली में हुई।"
+    },
+    {
+      en: "The FSDC discusses issues related to financial stability, financial-sector development, inter-regulatory coordination and the economy.",
+      hi: "FSDC वित्तीय स्थिरता, वित्तीय क्षेत्र के विकास, नियामकों के बीच समन्वय और अर्थव्यवस्था से जुड़े मुद्दों पर चर्चा करती है।"
+    },
+    {
+      en: "The FSDC Sub-Committee is chaired by the Governor of the Reserve Bank of India (RBI).",
+      hi: "FSDC की उप-समिति की अध्यक्षता भारतीय रिज़र्व बैंक (RBI) के गवर्नर करते हैं।"
+    },
+    {
+      en: "The 7th AgriVoltaics World Conference, hosted by the Ministry of New and Renewable Energy (MNRE), concluded on 23 October 2026.",
+      hi: "नवीन और नवीकरणीय ऊर्जा मंत्रालय (MNRE) द्वारा आयोजित 7वाँ एग्रीवोल्टाइक विश्व सम्मेलन 23 अक्टूबर 2026 को संपन्न हुआ।"
+    },
+    {
+      en: "France is scheduled to host the 8th AgriVoltaics World Conference in 2027.",
+      hi: "8वें एग्रीवोल्टाइक विश्व सम्मेलन की मेजबानी 2027 में फ्रांस करेगा।"
+    },
+    {
+      en: "Agrivoltaics combines agricultural activity and solar power generation on the same land, where suitable.",
+      hi: "एग्रीवोल्टाइक्‍स में उपयुक्त परिस्थितियों में एक ही भूमि पर खेती और सौर ऊर्जा उत्पादन को साथ जोड़ा जाता है।"
+    },
+    {
+      en: "Discussions at the conference included farmer-focused approaches and the role of research institutions in agrivoltaics.",
+      hi: "सम्मेलन में किसान-केंद्रित तरीकों और एग्रीवोल्टाइक्‍स में अनुसंधान संस्थानों की भूमिका पर चर्चा हुई।"
+    },
+    {
+      en: "The Indian Council of Agricultural Research (ICAR) and the International Water Management Institute (IWMI) were associated with a conference session on agriculture and water-related issues.",
+      hi: "भारतीय कृषि अनुसंधान परिषद (ICAR) और अंतरराष्ट्रीय जल प्रबंधन संस्थान (IWMI) कृषि तथा जल से जुड़े मुद्दों पर सम्मेलन के एक सत्र से जुड़े थे।"
+    },
+    {
+      en: "A news report on 23 October discussed Section 125A of the Representation of the People Act, 1951, which concerns false affidavits filed in connection with elections. Verify the latest court details from an official source before exam use.",
+      hi: "23 अक्टूबर की एक समाचार रिपोर्ट में जनप्रतिनिधित्व अधिनियम, 1951 की धारा 125A पर चर्चा हुई, जो चुनाव से संबंधित झूठे हलफनामों से जुड़ी है। परीक्षा की तैयारी में उपयोग से पहले न्यायालय संबंधी नवीनतम विवरण आधिकारिक स्रोत से जाँच लें।"
+    },
+    {
+      en: "A reported snow-leopard assessment put the estimated population in India at 718, including 477 in Ladakh. Treat this as a reported figure and cross-check the official assessment before relying on it.",
+      hi: "एक रिपोर्ट के अनुसार भारत में हिम तेंदुओं की अनुमानित संख्या 718 बताई गई, जिनमें 477 लद्दाख में हैं। इसे समाचार में दी गई संख्या मानें और भरोसा करने से पहले आधिकारिक आकलन से पुष्टि करें।"
+    }
   ],
-
   quizList: [
     {
-      qEn: "1. World Food Day is observed globally on which date?",
-      qHi: "1. विश्व खाद्य दिवस किस तिथि को मनाया जाता है?",
-      optionsEn: ["10 October", "14 October", "16 October", "20 October"],
-      optionsHi: ["10 अक्टूबर", "14 अक्टूबर", "16 अक्टूबर", "20 अक्टूबर"],
-      answer: 2,
-      expEn: "World Food Day is observed globally every year on 16 October.",
-      expHi: "विश्व खाद्य दिवस प्रतिवर्ष 16 अक्टूबर को विश्व स्तर पर मनाया जाता है।"
-    },
-    {
-      qEn: "2. World Food Day commemorates the founding of which organization?",
-      qHi: "2. विश्व खाद्य दिवस किस संगठन की स्थापना के उपलक्ष्य में मनाया जाता है?",
-      optionsEn: ["World Health Organization (WHO)", "Food and Agriculture Organization (FAO)", "UNESCO", "World Bank"],
-      optionsHi: ["विश्व स्वास्थ्य संगठन (WHO)", "खाद्य और कृषि संगठन (FAO)", "यूनेस्को (UNESCO)", "विश्व बैंक"],
+      qEn: "Who chaired the 30th FSDC meeting held on 23 October 2026?",
+      qHi: "23 अक्टूबर 2026 को हुई FSDC की 30वीं बैठक की अध्यक्षता किसने की?",
+      optionsEn: ["RBI Governor", "Union Finance Minister Nirmala Sitharaman", "Prime Minister of India", "SEBI Chairperson"],
+      optionsHi: ["RBI गवर्नर", "केंद्रीय वित्त मंत्री निर्मला सीतारमण", "भारत के प्रधानमंत्री", "SEBI अध्यक्ष"],
       answer: 1,
-      expEn: "It commemorates the founding of the UN's Food and Agriculture Organization (FAO) in 1945.",
-      expHi: "यह 1945 में संयुक्त राष्ट्र के खाद्य और कृषि संगठन (FAO) की स्थापना की याद में मनाया जाता है।"
+      exp: "The meeting was chaired by Union Finance Minister Nirmala Sitharaman. | बैठक की अध्यक्षता केंद्रीय वित्त मंत्री निर्मला सीतारमण ने की।"
     },
     {
-      qEn: "3. In which year was the Food and Agriculture Organization (FAO) established?",
-      qHi: "3. खाद्य और कृषि संगठन (FAO) की स्थापना किस वर्ष हुई थी?",
-      optionsEn: ["1945", "1947", "1950", "1955"],
-      optionsHi: ["1945", "1947", "1950", "1955"],
-      answer: 0,
-      expEn: "The FAO was established by the United Nations in 1945.",
-      expHi: "संयुक्त राष्ट्र द्वारा FAO की स्थापना 1945 में की गई थी।"
-    },
-    {
-      qEn: "4. What is the primary objective of observing World Food Day?",
-      qHi: "4. विश्व खाद्य दिवस मनाने का मुख्य उद्देश्य क्या है?",
-      optionsEn: ["Industrial development", "Promoting trade", "Eradicating hunger and promoting food security", "Controlling pollution"],
-      optionsHi: ["औद्योगिक विकास करना", "व्यापार को बढ़ावा देना", "भुखमरी खत्म करना और खाद्य सुरक्षा बढ़ाना", "प्रदूषण को नियंत्रित करना"],
+      qEn: "Where was the 30th FSDC meeting held?",
+      qHi: "FSDC की 30वीं बैठक कहाँ आयोजित हुई?",
+      optionsEn: ["Mumbai", "Chennai", "New Delhi", "Hyderabad"],
+      optionsHi: ["मुंबई", "चेन्नई", "नई दिल्ली", "हैदराबाद"],
       answer: 2,
-      expEn: "The main objective is to eradicate global hunger and ensure food security for all.",
-      expHi: "इसका मुख्य उद्देश्य विश्व स्तर पर भुखमरी को खत्म करना और सभी के लिए खाद्य सुरक्षा सुनिश्चित करना है।"
+      exp: "The meeting took place in New Delhi. | बैठक नई दिल्ली में हुई।"
     },
     {
-      qEn: "5. What major problem do millions of people still suffer from today?",
-      qHi: "5. आज भी दुनिया में लाखों लोग मुख्य रूप से किस समस्या का शिकार हैं?",
-      optionsEn: ["Malnutrition and hunger", "Obesity", "Excessive wealth", "None of the above"],
-      optionsHi: ["कुपोषण और भुखमरी", "मोटापा", "अत्यधिक धन", "इनमें से कोई नहीं"],
+      qEn: "Who chairs the FSDC Sub-Committee?",
+      qHi: "FSDC की उप-समिति की अध्यक्षता कौन करता है?",
+      optionsEn: ["RBI Governor", "Finance Secretary", "SEBI Chairperson", "Cabinet Secretary"],
+      optionsHi: ["RBI गवर्नर", "वित्त सचिव", "SEBI अध्यक्ष", "कैबिनेट सचिव"],
       answer: 0,
-      expEn: "Millions still suffer from malnutrition and hunger globally.",
-      expHi: "विश्व स्तर पर लाखों लोग अभी भी कुपोषण और भुखमरी से पीड़ित हैं।"
+      exp: "The RBI Governor chairs the FSDC Sub-Committee. | FSDC की उप-समिति की अध्यक्षता RBI गवर्नर करते हैं।"
     },
     {
-      qEn: "6. What is a major message of this day to prevent?",
-      qHi: "6. इस दिवस का एक बहुत बड़ा संदेश क्या रोकने का है?",
-      optionsEn: ["Water flow", "Food waste", "Deforestation", "Internet usage"],
-      optionsHi: ["जल का बहाव", "खाद्य पदार्थों की बर्बादी", "वनों की कटाई", "इंटरनेट का उपयोग"],
+      qEn: "Which ministry hosted the 7th AgriVoltaics World Conference?",
+      qHi: "7वें AgriVoltaics World Conference की मेजबानी किस मंत्रालय ने की?",
+      optionsEn: ["Ministry of Agriculture", "Ministry of Power", "Ministry of Environment", "Ministry of New and Renewable Energy"],
+      optionsHi: ["कृषि मंत्रालय", "विद्युत मंत्रालय", "पर्यावरण मंत्रालय", "नवीन और नवीकरणीय ऊर्जा मंत्रालय"],
+      answer: 3,
+      exp: "The conference was hosted by MNRE. | सम्मेलन की मेजबानी MNRE ने की।"
+    },
+    {
+      qEn: "Which country is scheduled to host the 8th AgriVoltaics World Conference in 2027?",
+      qHi: "2027 में 8वें AgriVoltaics World Conference की मेजबानी कौन-सा देश करेगा?",
+      optionsEn: ["Germany", "France", "India", "Japan"],
+      optionsHi: ["जर्मनी", "फ्रांस", "भारत", "जापान"],
       answer: 1,
-      expEn: "Preventing food waste and spreading awareness about it is a major message.",
-      expHi: "खाद्य पदार्थों की बर्बादी को रोकना और जागरूकता फैलाना इसका एक प्रमुख संदेश है।"
+      exp: "France is scheduled to host the next edition in 2027. | अगला सम्मेलन 2027 में फ्रांस में आयोजित होना निर्धारित है।"
     },
     {
-      qEn: "7. Whose contribution is primarily appreciated on World Food Day?",
-      qHi: "7. विश्व खाद्य दिवस के अवसर पर मुख्य रूप से किसके योगदान को सराहा जाता है?",
-      optionsEn: ["Industrialists", "Doctors", "Farmers", "Engineers"],
-      optionsHi: ["उद्योगपतियों के", "डॉक्टरों के", "किसानों के", "इंजीनियरों के"],
+      qEn: "What does agrivoltaics combine?",
+      qHi: "एग्रीवोल्टाइक्‍स में किन दो गतिविधियों को जोड़ा जाता है?",
+      optionsEn: ["Fishing and wind power", "Forestry and hydropower", "Agriculture and solar power generation", "Mining and solar power"],
+      optionsHi: ["मछली पालन और पवन ऊर्जा", "वानिकी और जलविद्युत", "खेती और सौर ऊर्जा उत्पादन", "खनन और सौर ऊर्जा"],
       answer: 2,
-      expEn: "The contribution and hard work of farmers who grow our food are appreciated.",
-      expHi: "अन्न उगाने वाले किसानों के योगदान और उनकी कड़ी मेहनत को सराहा जाता है।"
+      exp: "Agrivoltaics combines agriculture with solar power generation on the same land where appropriate. | एग्रीवोल्टाइक्‍स उपयुक्त स्थिति में एक ही भूमि पर खेती और सौर ऊर्जा उत्पादन को जोड़ता है।"
     },
     {
-      qEn: "8. According to the facts, what is a fundamental birthright of every human being?",
-      qHi: "8. तथ्यों के अनुसार, हर इंसान का जन्मसिद्ध और मौलिक अधिकार क्या है?",
-      optionsEn: ["Expensive house", "Luxury car", "Balanced and nutritious diet", "Foreign travel"],
-      optionsHi: ["महंगा घर", "लग्जरी कार", "संतुलित और पौष्टिक आहार", "विदेश यात्रा"],
+      qEn: "What is the full form of ICAR?",
+      qHi: "ICAR का पूरा नाम क्या है?",
+      optionsEn: ["Indian Council of Agricultural Research", "International Council for Agro Resources", "Indian Centre for Animal Research", "Institute of Crop and Agriculture Regulation"],
+      optionsHi: ["भारतीय कृषि अनुसंधान परिषद", "अंतरराष्ट्रीय कृषि संसाधन परिषद", "भारतीय पशु अनुसंधान केंद्र", "फसल एवं कृषि नियमन संस्थान"],
+      answer: 0,
+      exp: "ICAR stands for Indian Council of Agricultural Research. | ICAR का पूरा नाम भारतीय कृषि अनुसंधान परिषद है।"
+    },
+    {
+      qEn: "What is the main focus of the FSDC?",
+      qHi: "FSDC का मुख्य कार्यक्षेत्र क्या है?",
+      optionsEn: ["Conducting school examinations", "Managing railway recruitment", "Issuing passports", "Financial stability and coordination in the financial sector"],
+      optionsHi: ["स्कूली परीक्षाएँ आयोजित करना", "रेलवे भर्ती का प्रबंधन", "पासपोर्ट जारी करना", "वित्तीय स्थिरता और वित्तीय क्षेत्र में समन्वय"],
+      answer: 3,
+      exp: "FSDC supports financial stability and coordination among financial-sector regulators. | FSDC वित्तीय स्थिरता और वित्तीय क्षेत्र के नियामकों के बीच समन्वय से जुड़ी है।"
+    },
+    {
+      qEn: "Section 125A mentioned in the report belongs to which law?",
+      qHi: "रिपोर्ट में उल्लिखित धारा 125A किस कानून का हिस्सा है?",
+      optionsEn: ["Companies Act, 2013", "Representation of the People Act, 1951", "Indian Contract Act, 1872", "Right to Information Act, 2005"],
+      optionsHi: ["कंपनी अधिनियम, 2013", "जनप्रतिनिधित्व अधिनियम, 1951", "भारतीय संविदा अधिनियम, 1872", "सूचना का अधिकार अधिनियम, 2005"],
+      answer: 1,
+      exp: "Section 125A is part of the Representation of the People Act, 1951. Check official legal sources for the latest case details. | धारा 125A जनप्रतिनिधित्व अधिनियम, 1951 का हिस्सा है। नवीनतम मामले के विवरण आधिकारिक कानूनी स्रोत से जाँचें।"
+    },
+    {
+      qEn: "According to the cited news report, how many snow leopards were estimated in India?",
+      qHi: "उल्लिखित समाचार रिपोर्ट के अनुसार भारत में हिम तेंदुओं की अनुमानित संख्या कितनी बताई गई?",
+      optionsEn: ["518", "618", "718", "818"],
+      optionsHi: ["518", "618", "718", "818"],
       answer: 2,
-      expEn: "A balanced and nutritious diet is the fundamental right of every human.",
-      expHi: "संतुलित और पौष्टिक आहार हर इंसान का मौलिक अधिकार है।"
-    },
-    {
-      qEn: "9. This day inspires governments to improve policies in which sector?",
-      qHi: "9. यह दिन सरकारों को किस क्षेत्र की नीतियों में सुधार के लिए प्रेरित करता है?",
-      optionsEn: ["Agricultural policies", "Defense policies", "Sports policies", "Transport policies"],
-      optionsHi: ["कृषि नीतियों में", "रक्षा नीतियों में", "खेल नीतियों में", "परिवहन नीतियों में"],
-      answer: 0,
-      expEn: "It inspires governments worldwide to improve their agricultural policies.",
-      expHi: "यह दुनिया भर की सरकारों को अपनी कृषि नीतियों में सुधार के लिए प्रेरित करता है।"
-    },
-    {
-      qEn: "10. What pledge should we all take together on this day?",
-      qHi: "10. इस दिन हम सभी को मिलकर क्या संकल्प लेना चाहिए?",
-      optionsEn: ["Not to disrespect or waste food", "To eat out every day", "To quit farming", "To eat only junk food"],
-      optionsHi: ["अन्न की बर्बादी और अपमान न करने का", "रोज़ बाहर खाना खाने का", "खेती छोड़ देने का", "सिर्फ जंक फूड खाने का"],
-      answer: 0,
-      expEn: "We must pledge never to disrespect or waste food.",
-      expHi: "हमें संकल्प लेना चाहिए कि हम कभी भी अन्न का अपमान या बर्बादी नहीं करेंगे।"
+      exp: "The report gave an estimate of 718; verify this figure against the official assessment. | रिपोर्ट में 718 का अनुमान दिया गया; आधिकारिक आकलन से इसकी पुष्टि करें।"
     }
   ]
 };
