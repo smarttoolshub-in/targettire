@@ -1,35 +1,4 @@
-// TargetTire Smart Local AI Assistant (No API Key Required - Zero Error)
-function initAIChatWidget() {
-    const chatHTML = `
-        <div id="ai-chat-container" style="position: fixed; bottom: 20px; left: 20px; z-index: 9999; font-family: 'Plus Jakarta Sans', sans-serif;">
-            <button onclick="toggleAIChatWindow()" style="background: linear-gradient(135deg, #6366f1, #14b8a6); color: white; border: none; padding: 12px 20px; border-radius: 50px; font-weight: bold; cursor: pointer; box-shadow: 0 4px 15px rgba(99, 102, 241, 0.4); display: flex; align-items: center; gap: 8px;">
-                <i class="fa-solid fa-robot"></i> AI \u092a\u0930\u0940\u0915\u094d\u0937\u093e \u0917\u0941\u0930\u0941
-            </button>
-            <div id="ai-chat-window" style="position: absolute; bottom: 60px; left: 0; width: 320px; height: 420px; background: #131b2e; border: 1px solid #1e293b; border-radius: 20px; box-shadow: 0 10px 25px rgba(0,0,0,0.5); display: none; flex-direction: column; overflow: hidden;">
-                <div style="background: #1e293b; padding: 12px 16px; display: flex; justify-content: space-between; align-items: center; color: white; font-weight: bold; font-size: 13px;">
-                    <span>\ud83e\udd16 TargetTire AI Assistant</span>
-                    <button onclick="toggleAIChatWindow()" style="background: none; border: none; color: #94a3b8; cursor: pointer; font-size: 16px;"><i class="fa-solid fa-xmark"></i></button>
-                </div>
-                <div id="ai-chat-messages" style="flex-grow: 1; padding: 12px; overflow-y: auto; font-size: 12px; color: #cbd5e1; display: flex; flex-direction: column; gap: 8px;">
-                    <div style="background: #1e293b; padding: 8px 12px; border-radius: 10px; max-width: 85%;">\u0928\u092e\u0938\u094d\u0924\u0947! \u092e\u0948\u0902 \u0906\u092a\u0915\u093e TargetTire AI \u092a\u0930\u0940\u0915\u094d\u0937\u093e \u0917\u0941\u0930\u0941 \u0939\u0942\u0901\u0964 SSC, Railway, Banking, UPSC \u092f\u093e \u0915\u093f\u0938\u0940 \u092d\u0940 \u092a\u0922\u093c\u093e\u0908 \u0938\u0947 \u091c\u0941\u0921\u093c\u0947 \u0938\u0935\u093e\u0932 \u0915\u0947 \u092c\u093e\u0930\u0947 \u092e\u0947\u0902 \u092e\u0941\u091d\u0938\u0947 \u092a\u0942\u091b\u0947\u0902!</div>
-                </div>
-                <div style="padding: 10px; background: #0b0f19; border-top: 1px solid #1e293b; display: flex; gap: 6px;">
-                    <input type="text" id="ai-user-input" placeholder="\u092f\u0939\u093e\u0901 \u0905\u092a\u0928\u093e \u0938\u0935\u093e\u0932 \u0932\u093f\u0916\u0947\u0902..." style="flex-grow: 1; background: #131b2e; border: 1px solid #1e293b; padding: 8px; border-radius: 8px; color: white; font-size: 12px; outline: none;" onkeypress="if(event.key === 'Enter') sendAIQuery()">
-                    <button onclick="sendAIQuery()" style="background: #6366f1; color: white; border: none; padding: 8px 12px; border-radius: 8px; cursor: pointer; font-weight: bold;"><i class="fa-solid fa-paper-plane"></i></button>
-                </div>
-            </div>
-        </div>
-    `;
-    const div = document.createElement('div');
-    div.innerHTML = chatHTML;
-    document.body.appendChild(div);
-}
-
-function toggleAIChatWindow() {
-    const win = document.getElementById('ai-chat-window');
-    win.style.display = (win.style.display === 'flex') ? 'none' : 'flex';
-}
-
+// TargetTire website-data assistant. Uses only loaded TargetTire page data.
 function ttAIText(value) {
     if (value === null || value === undefined) return '';
     if (typeof value === 'string') return value;
@@ -166,6 +135,27 @@ function ttAISearch(query, docs) {
     return scored.slice(0, 5);
 }
 
+
+// Public entry point used by the main TargetTire AI window.
+// Answers only from data already loaded on this page; no API key or external request.
+window.targetTireAnswerQuestion = function(query) {
+    const docs = ttAIBuildIndex();
+    const results = ttAISearch(query, docs);
+    if (!results.length) {
+        return 'मुझे वेबसाइट के उपलब्ध डेटा में इस सवाल का स्पष्ट उत्तर नहीं मिला। कृपया परीक्षा/विषय का नाम जोड़कर दोबारा पूछें। मैं अनुमान से तारीख, पात्रता या वैकेंसी नहीं बताऊँगा।';
+    }
+    const best = results[0];
+    const type = ttAIQuestionType(query);
+    const excerpts = ttAIRelevantExcerpt(best.doc, query, type);
+    const lines = excerpts.length ? excerpts : (best.doc.text || '').split(/\n+/).filter(Boolean).slice(0, 5);
+    let reply = '📌 ' + best.doc.title + '\n' + lines.slice(0, 6).join('\n');
+    if (results.length > 1 && results[1].score >= Math.max(5, best.score * 0.55)) {
+        reply += '\n\nसंबंधित सेक्शन: ' + results.slice(1, 3).map(x => x.doc.title).join(' • ');
+    }
+    reply += '\n\nनोट: यह जवाब TargetTire वेबसाइट में अभी उपलब्ध डेटा पर आधारित है।';
+    return reply;
+};
+
 function ttAIQuestionType(q) {
     const n = ttAINormalize(q);
     if (/^(hi|hello|hey|namaste|\u0928\u092e\u0938\u094d\u0924\u0947)\b/.test(n)) return 'greeting';
@@ -270,4 +260,3 @@ function sendAIQuery() {
     }, 120);
 }
 
-window.addEventListener('DOMContentLoaded', initAIChatWidget);
