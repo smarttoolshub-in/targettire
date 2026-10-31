@@ -1492,10 +1492,12 @@ const res = document.getElementById(`ca-quiz-result-${qIndex}`);
 if (!res) return;
 const ca = window.TARGETTIRE_CA_DATABASE;
 const q = ca.quizList[qIndex];
+const lang = document.getElementById('lang-selector')?.value || 'en';
+const explanation = lang === 'hi' ? (q.expHi || q.expEn || q.exp || '') : (q.expEn || q.exp || q.expHi || '');
 if (selected === correct) {
-res.innerHTML = `<span class="text-teal-500 font-bold">✓ Correct! ${q.exp}</span>`;
+res.innerHTML = `<span class="text-teal-500 font-bold">✓ Correct! ${explanation}</span>`;
 } else {
-res.innerHTML = `<span class="text-rose-500 font-bold">✗ Incorrect. Correct option was: ${q.optionsEn[correct]}. ${q.exp}</span>`;
+res.innerHTML = `<span class="text-rose-500 font-bold">✗ Incorrect. Correct option was: ${(q.optionsEn || [])[correct] || ''}. ${explanation}</span>`;
 }
 }
 
@@ -4530,14 +4532,14 @@ window.playBrandNewErrorTune = function(){ __ttPlayTone(false); };
       const isAI = sender === 'ai';
       const msg = document.createElement('div');
       msg.className = `flex items-start gap-2.5 ${isAI ? '' : 'flex-row-reverse'}`;
-      msg.innerHTML = `
-        <div class="w-7 h-7 rounded-lg ${isAI ? 'bg-indigo-600' : 'bg-teal-600'} text-white flex items-center justify-center text-xs shrink-0 font-bold shadow-sm">
-          ${isAI ? 'AI' : '<i class="fa-solid fa-user"></i>'}
-        </div>
-        <div class="p-3 ${isAI ? 'bg-white dark:bg-[#131b2e] border border-slate-200 dark:border-slate-800 text-slate-800 dark:text-slate-200 rounded-tl-none' : 'bg-indigo-600 text-white rounded-tr-none'} rounded-2xl shadow-sm leading-relaxed whitespace-pre-wrap max-w-[85%]">
-          ${text}
-        </div>
-      `;
+      const avatar = document.createElement('div');
+      avatar.className = `w-7 h-7 rounded-lg ${isAI ? 'bg-indigo-600' : 'bg-teal-600'} text-white flex items-center justify-center text-xs shrink-0 font-bold shadow-sm`;
+      avatar.textContent = isAI ? 'AI' : 'U';
+      const bubble = document.createElement('div');
+      bubble.className = `p-3 ${isAI ? 'bg-white dark:bg-[#131b2e] border border-slate-200 dark:border-slate-800 text-slate-800 dark:text-slate-200 rounded-tl-none' : 'bg-indigo-600 text-white rounded-tr-none'} rounded-2xl shadow-sm leading-relaxed whitespace-pre-wrap max-w-[85%]`;
+      bubble.textContent = String(text == null ? '' : text);
+      msg.appendChild(avatar);
+      msg.appendChild(bubble);
       box.appendChild(msg);
       box.scrollTop = box.scrollHeight;
     }
@@ -4549,7 +4551,20 @@ window.playBrandNewErrorTune = function(){ __ttPlayTone(false); };
       if (!question) return;
       appendAIMessage('user', question);
       input.value = '';
-      appendAIMessage('ai', 'AI chat का interface तैयार है। Live AI answers चालू करने के लिए सुरक्षित server-side Gemini/API endpoint जोड़ना होगा; API key को इस HTML में रखना सुरक्षित नहीं है। अभी आप Practice Hub, PYQ Hub और Current Affairs से पढ़ाई जारी रख सकते हैं।');
+      appendAIMessage('ai', 'TargetTire के उपलब्ध डेटा में खोज रहा हूँ…');
+      const box = document.getElementById('ai-chat-messages');
+      const loading = box ? box.lastElementChild : null;
+      try {
+        const answer = (typeof window.targetTireAnswerQuestion === 'function')
+          ? window.targetTireAnswerQuestion(question)
+          : 'AI डेटा-सर्च मॉड्यूल लोड नहीं हुआ। कृपया ai-chat.js फाइल और उसका script path जाँचें।';
+        if (loading && loading.parentNode) loading.remove();
+        appendAIMessage('ai', answer);
+      } catch (err) {
+        if (loading && loading.parentNode) loading.remove();
+        appendAIMessage('ai', 'अभी वेबसाइट डेटा पढ़ने में समस्या आई। कृपया सवाल थोड़े स्पष्ट शब्दों में पूछें।');
+        console.error('TargetTire AI local search error:', err);
+      }
     }
 
     function sendAIQuickPrompt(promptText) {
