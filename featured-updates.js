@@ -1,0 +1,12 @@
+/* TargetTire Featured Updates
+   इस फाइल में पोस्टर का क्रम और टेक्स्ट बदलें।
+   ये तैयारी/एग्जाम स्पॉटलाइट हैं, लाइव भर्ती या आधिकारिक नोटिफिकेशन की पुष्टि नहीं।
+*/
+window.TARGETTIRE_FEATURED_UPDATES = [
+ {id:"bihar-police",examMatch:["Bihar Police Constable","Bihar Police","Police Constable"],layout:"split",category:"BIHAR GOVERNMENT EXAMS",badge:"EXAM SPOTLIGHT",title:"BIHAR POLICE",highlight:"CONSTABLE PREPARATION",subtitle:"Syllabus • Practice • PYQ",description:"बिहार पुलिस परीक्षा की तैयारी के लिए जानकारी, सिलेबस और अभ्यास सामग्री।",icon:"fa-shield-halved",theme:"blue",buttonText:"Explore Bihar Exams",action:"my_exams"},
+ {id:"bpsc",examMatch:["BPSC","Bihar Public Service Commission"],layout:"seal",category:"BIHAR GOVERNMENT EXAMS",badge:"STATE EXAM HUB",title:"BPSC",highlight:"CIVIL SERVICES",subtitle:"Exam Overview • Syllabus • Study",description:"BPSC परीक्षा की जानकारी और उपलब्ध तैयारी सामग्री देखें।",icon:"fa-landmark",theme:"amber",buttonText:"Explore Bihar Exams",action:"my_exams"},
+ {id:"bssc",examMatch:["BSSC Inter Level","BSSC Graduate Level","BSSC"],layout:"editorial",category:"BIHAR GOVERNMENT EXAMS",badge:"STATE EXAM HUB",title:"BSSC",highlight:"INTER • GRADUATE LEVEL",subtitle:"Exam Info • Syllabus • Practice",description:"BSSC और बिहार राज्य परीक्षाओं के तैयारी सेक्शन।",icon:"fa-building-columns",theme:"rose",buttonText:"Explore Bihar Exams",action:"my_exams"},
+ {id:"ssc-cgl",examMatch:["SSC CGL","Combined Graduate Level"],layout:"grid",category:"SSC EXAM HUB",badge:"FEATURED EXAM",title:"SSC CGL",highlight:"COMPLETE PREPARATION",subtitle:"Syllabus • PYQ • Mock Tests",description:"SSC CGL की तैयारी के लिए जरूरी अध्ययन और अभ्यास सेक्शन।",icon:"fa-graduation-cap",theme:"violet",buttonText:"Explore SSC",action:"my_exams"},
+ {id:"railway",examMatch:["RRB NTPC","Railway NTPC","RRB Group D","Railway Group D"],layout:"command",category:"RAILWAY EXAMS",badge:"FEATURED EXAM",title:"RAILWAY RRB",highlight:"NTPC • GROUP D",subtitle:"Exam Info • Practice • PYQ",description:"रेलवे परीक्षाओं की जानकारी और तैयारी सामग्री एक जगह।",icon:"fa-train",theme:"teal",buttonText:"Explore Railway",action:"my_exams"},
+ {id:"upsc",examMatch:["UPSC Civil Services","Civil Services Examination","UPSC"],layout:"ribbon",category:"NATIONAL EXAMS",badge:"FEATURED EXAM",title:"UPSC",highlight:"CIVIL SERVICES",subtitle:"Study • Syllabus • Practice",description:"UPSC की तैयारी के लिए वेबसाइट पर उपलब्ध अध्ययन सामग्री।",icon:"fa-book-open",theme:"blue",buttonText:"Explore UPSC",action:"my_exams"}
+];
