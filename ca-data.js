@@ -1,219 +1,219 @@
 window.TARGETTIRE_CA_DATABASE = {
-  date: "31 October 2026",
-  bulletinTitle: "Daily Current Affairs — 31 October 2026",
+  date: "1 November 2026",
+  bulletinTitle: "Daily Current Affairs — 1 November 2026",
 
   points: [
-    "1. India observes National Unity Day (Rashtriya Ekta Diwas) on 31 October 2026 to mark the birth anniversary of Sardar Vallabhbhai Patel, commemorating his immense contribution to national integration. / भारत 31 अक्टूबर 2026 को सरदार वल्लभभाई पटेल की जयंती के अवसर पर राष्ट्रीय एकता दिवस (Rashtriya Ekta Diwas) मना रहा है, जो राष्ट्र के एकीकरण में उनके अपूर्व योगदान को याद करता है।",
+    "1. Several Indian states, including Madhya Pradesh, Karnataka, Kerala, Andhra Pradesh, Chhattisgarh, and Haryana, celebrate their foundation day (Rajyotsava) on 1 November 2026. / मध्य प्रदेश, कर्नाटक, केरल, आंध्र प्रदेश, छत्तीसगढ़ और हरियाणा सहित कई भारतीय राज्य 1 नवंबर 2026 को अपना स्थापना दिवस (राज्योत्सव) मना रहे हैं।",
 
-    "2. The Ministry of Defence highlighted progress on domestic defence manufacturing initiatives, emphasizing increased indigenous procurement targets for India's armed forces to boost self-reliance (Aatmanirbhar Bharat). / रक्षा मंत्रालय ने घरेलू रक्षा विनिर्माण पहलों पर प्रगति को रेखांकित किया, जिसमें आत्मनिर्भर भारत को बढ़ावा देने के लिए भारतीय सशस्त्र बलों के वास्ते स्वदेशी खरीद लक्ष्यों को बढ़ाने पर जोर दिया गया।",
+    "2. The Ministry of Finance reported robust GST revenue collections for October 2026, reflecting continued economic momentum and enhanced compliance across sectors. / वित्त मंत्रालय ने अक्टूबर 2026 के लिए मजबूत जीएसटी राजस्व संग्रह की सूचना दी, जो निरंतर आर्थिक गति और सभी क्षेत्रों में बेहतर अनुपालन को दर्शाता है।",
 
-    "3. Isro announced updates regarding upcoming scientific missions and satellite launches scheduled for late 2026, aimed at enhancing earth observation and meteorological forecasting capabilities. / इसरो ने 2026 के अंत में निर्धारित आगामी वैज्ञानिक मिशनों और उपग्रह प्रक्षेपणों के बारे में अपडेट की घोषणा की, जिसका उद्देश्य पृथ्वी अवलोकन और मौसम संबंधी पूर्वानुमान क्षमताओं को बढ़ाना है।",
+    "3. The Reserve Bank of India (RBI) announced a scheduled review of liquidity management tools to support banking sector credit growth during the festive and upcoming winter season. / भारतीय रिजर्व बैंक (RBI) ने त्योहारी और आगामी सर्दियों के मौसम के दौरान बैंकिंग क्षेत्र के ऋण विकास का समर्थन करने के लिए तरलता प्रबंधन उपकरणों की निर्धारित समीक्षा की घोषणा की।",
 
-    "4. The Reserve Bank of India (RBI) released new guidelines on digital lending transparency, directing regulated entities to strengthen data protection and prevent unauthorized loan applications. / भारतीय रिजर्व बैंक (RBI) ने डिजिटल ऋण पारदर्शिता पर नए दिशानिर्देश जारी किए, जिसमें विनियमित संस्थाओं को डेटा सुरक्षा मजबूत करने और अनधिकृत ऋण आवेदनों को रोकने का निर्देश दिया गया है।",
+    "4. ISRO announced preparations for upcoming satellite tracking and Earth observation missions scheduled from its spaceports, focusing on disaster management support. / इसरो ने आपदा प्रबंधन सहायता पर ध्यान केंद्रित करते हुए अपने अंतरिक्ष केंद्रों से निर्धारित आगामी उपग्रह ट्रैकिंग और पृथ्वी अवलोकन मिशनों की तैयारियों की घोषणा की।",
 
-    "5. India’s renewable energy sector crossed significant installation milestones in solar capacity, driven by recent government incentives and private sector investments. / सरकारी प्रोत्साहन और निजी क्षेत्र के निवेश से प्रेरित होकर भारत के नवीकरणीय ऊर्जा क्षेत्र ने सौर क्षमता में महत्वपूर्ण स्थापना मील के पत्थर को पार कर लिया है।",
+    "5. The Union Ministry of Education launched a nationwide digital literacy initiative aimed at bridging the digital divide in rural schools and strengthening foundational learning. / केंद्रीय शिक्षा मंत्रालय ने ग्रामीण स्कूलों में डिजिटल विभाजन को पाटने और मूलभूत शिक्षण को मजबूत करने के उद्देश्य से एक राष्ट्रव्यापी डिजिटल साक्षरता पहल शुरू की।",
 
-    "6. The Ministry of Agriculture and Farmers Welfare launched a nationwide campaign to raise awareness about sustainable farming practices and soil health management among rural communities. / कृषि और किसान कल्याण मंत्रालय ने ग्रामीण समुदायों के बीच टिकाऊ खेती के तरीकों और मृदा स्वास्थ्य प्रबंधन के बारे में जागरूकता बढ़ाने के लिए एक राष्ट्रव्यापी अभियान शुरू किया।",
+    "6. India and global tech stakeholders held preliminary discussions on cybersecurity frameworks for emerging artificial intelligence applications, emphasizing safe digital infrastructure. / भारत और वैश्विक तकनीकी हितधारकों ने सुरक्षित डिजिटल बुनियादी ढाँचे पर जोर देते हुए उभरते कृत्रिम बुद्धिमत्ता अनुप्रयोगों के लिए साइबर सुरक्षा ढाँचों पर प्रारंभिक चर्चा की।",
 
-    "7. India and key international partners discussed cooperative frameworks for critical mineral supply chains, focusing on secure access to minerals essential for clean energy transitions. / भारत और प्रमुख अंतरराष्ट्रीय साझेदारों ने स्वच्छ ऊर्जा परिवर्तन के लिए आवश्यक खनिजों तक सुरक्षित पहुंच पर ध्यान केंद्रित करते हुए महत्वपूर्ण खनिज आपूर्ति श्रृंखलाओं के लिए सहकारी ढाँचों पर चर्चा की।",
+    "7. The Ministry of Railways introduced updated guidelines for passenger amenities and station redevelopment projects under the Amrit Bharat Station Scheme. / रेल मंत्रालय ने अमृत भारत स्टेशन योजना के तहत यात्री सुविधाओं और स्टेशन पुनर्विकास परियोजनाओं के लिए अद्यतन दिशानिर्देश पेश किए।",
 
-    "8. The Union Health Ministry reviewed public health preparedness across states, emphasizing seasonal disease surveillance and vector-borne illness prevention ahead of the winter season. / केंद्रीय स्वास्थ्य मंत्रालय ने सर्दियों के मौसम से पहले मौसमी बीमारी की निगरानी और वेक्टर जनित बीमारी की रोकथाम पर जोर देते हुए राज्यों में सार्वजनिक स्वास्थ्य तैयारियों की समीक्षा की।",
+    "8. The 2026 Men's Hockey Asian Champions Trophy developments and training camps were highlighted as national teams prepare for upcoming international tournaments. / राष्ट्रीय टीमों के आगामी अंतरराष्ट्रीय टूर्नामेंटों की तैयारी के रूप में 2026 पुरुष हॉकी एशियाई चैंपियंस ट्रॉफी के विकास और प्रशिक्षण शिविरों पर प्रकाश डाला गया।",
 
-    "9. Cultural ministries organized nationwide events under the 'Ek Bharat Shreshtha Bharat' initiative to celebrate regional art forms, linguistic diversity, and national heritage. / सांस्कृतिक मंत्रालयों ने क्षेत्रीय कला रूपों, भाषाई विविधता और राष्ट्रीय विरासत का जश्न मनाने के लिए 'एक भारत श्रेष्ठ भारत' पहल के तहत राष्ट्रव्यापी कार्यक्रमों का आयोजन किया।",
+    "9. The Ministry of Agriculture and Farmers Welfare initiated a special monitoring drive for Kharif crop harvesting yields and procurement preparations across major producing states. / कृषि और किसान कल्याण मंत्रालय ने प्रमुख उत्पादक राज्यों में खरीफ फसल कटाई की पैदावार और खरीद की तैयारियों के लिए एक विशेष निगरानी अभियान शुरू किया।",
 
-    "10. The Ministry of Electronics and Information Technology (MeitY) reported significant growth in UPI transactions, reinforcing India's position as a global leader in real-time digital payments. / इलेक्ट्रॉनिक्स और सूचना प्रौद्योगिकी मंत्रालय (MeitY) ने UPI लेनदेन में महत्वपूर्ण वृद्धि दर्ज की, जो वास्तविक समय के डिजिटल भुगतान में वैश्विक नेता के रूप में भारत की स्थिति को मजबूत करता है।"
+    "10. Renewable energy agencies reported a surge in rooftop solar installations under national rooftop solar subsidies, accelerating clean energy adoption in residential areas. / नवीकरणीय ऊर्जा एजेंसियों ने राष्ट्रीय छत सौर सब्सिडी के तहत छत पर सौर स्थापना में वृद्धि की सूचना दी, जिससे आवासीय क्षेत्रों में स्वच्छ ऊर्जा को बढ़ावा मिला।"
   ],
 
   quizList: [
     {
-      qEn: "1. National Unity Day is celebrated on 31 October to mark the birth anniversary of whom?",
-      qHi: "1. 31 अक्टूबर को राष्ट्रीय एकता दिवस किसकी जयंती के उपलक्ष्य में मनाया जाता है?",
+      qEn: "1. Which of the following states celebrate their formation day on 1 November?",
+      qHi: "1. निम्नलिखित में से कौन सा राज्य 1 नवंबर को अपना स्थापना दिवस मनाता है?",
       optionsEn: [
-        "Mahatma Gandhi",
-        "Sardar Vallabhbhai Patel",
-        "Subhas Chandra Bose",
-        "Jawaharlal Nehru"
+        "Madhya Pradesh and Karnataka",
+        "Gujarat and Maharashtra",
+        "Punjab and Tamil Nadu",
+        "Odisha and West Bengal"
       ],
       optionsHi: [
-        "महात्मा गांधी",
-        "सरदार वल्लभभाई पटेल",
-        "सुभाष चंद्र बोस",
-        "जवाहरलाल नेहरू"
+        "मध्य प्रदेश और कर्नाटक",
+        "गुजरात और महाराष्ट्र",
+        "पंजाब और तमिलनाडु",
+        "ओडिशा और पश्चिम बंगाल"
       ],
-      answer: 1,
-      expEn: "National Unity Day commemorates the birth anniversary of Sardar Vallabhbhai Patel.",
-      expHi: "राष्ट्रीय एकता दिवस सरदार वल्लभभाई पटेल की जयंती के उपलक्ष्य में मनाया जाता है।"
+      answer: 0,
+      expEn: "States like Madhya Pradesh, Karnataka, Kerala, Andhra Pradesh, Chhattisgarh, and Haryana celebrate foundation day on 1 November.",
+      expHi: "मध्य प्रदेश, कर्नाटक, केरल, आंध्र प्रदेश, छत्तीसगढ़ और हरियाणा जैसे राज्य 1 नवंबर को स्थापना दिवस मनाते हैं।"
     },
     {
-      qEn: "2. Which organization released new guidelines on digital lending transparency recently?",
-      qHi: "2. हाल ही में डिजिटल ऋण पारदर्शिता पर नए दिशानिर्देश किस संस्था ने जारी किए?",
+      qEn: "2. Under which scheme did the Ministry of Railways introduce updated guidelines for station redevelopment?",
+      qHi: "2. रेल मंत्रालय ने किस योजना के तहत स्टेशन पुनर्रविकास के लिए अद्यतन दिशानिर्देश पेश किए?",
+      optionsEn: [
+        "Vande Bharat Station Initiative",
+        "Amrit Bharat Station Scheme",
+        "Smart Railway Corridor Project",
+        "National Transit Modernization Plan"
+      ],
+      optionsHi: [
+        "वंदे भारत स्टेशन पहल",
+        "अमृत भारत स्टेशन योजना",
+        "स्मार्ट रेलवे कॉरिडोर प्रोजेक्ट",
+        "राष्ट्रीय पारगमन आधुनिकीकरण योजना"
+      ],
+      answer: 1,
+      expEn: "The guidelines were introduced under the Amrit Bharat Station Scheme.",
+      expHi: "ये दिशानिर्देश अमृत भारत स्टेशन योजना के तहत पेश किए गए थे।"
+    },
+    {
+      qEn: "3. Robust GST revenue collections for October 2026 were reported by which ministry?",
+      qHi: "3. अक्टूबर 2026 के लिए मजबूत जीएसटी राजस्व संग्रह की सूचना किस मंत्रालय ने दी?",
+      optionsEn: [
+        "Ministry of Commerce and Industry",
+        "Ministry of Finance",
+        "Ministry of Corporate Affairs",
+        "NITI Aayog"
+      ],
+      optionsHi: [
+        "वाणिज्य और उद्योग मंत्रालय",
+        "वित्त मंत्रालय",
+        "कॉर्पोरेट मामलों के मंत्रालय",
+        "नीति आयोग"
+      ],
+      answer: 1,
+      expEn: "The Ministry of Finance reported the robust GST revenue collections.",
+      expHi: "वित्त मंत्रालय ने मजबूत जीएसटी राजस्व संग्रह की सूचना दी।"
+    },
+    {
+      qEn: "4. What is the primary focus of the Union Ministry of Education's newly launched digital literacy initiative?",
+      qHi: "4. केंद्रीय शिक्षा मंत्रालय की नई डिजिटल साक्षरता पहल का मुख्य फोकस क्या है?",
+      optionsEn: [
+        "Coding education for corporate professionals",
+        "Bridging the digital divide in rural schools and strengthening foundational learning",
+        "Establishing online universities abroad",
+        "Replacing all textbooks with virtual reality headsets"
+      ],
+      optionsHi: [
+        "कॉर्पोरेट पेशेवरों के लिए कोडिंग शिक्षा",
+        "ग्रामीण स्कूलों में डिजिटल विभाजन को पाटना और मूलभूत शिक्षण को मजबूत करना",
+        "विदेशों में ऑनलाइन विश्वविद्यालय स्थापित करना",
+        "सभी पाठ्यपुस्तकों को वर्चुअल रियलिटी हेडसेट से बदलना"
+      ],
+      answer: 1,
+      expEn: "The initiative aims to bridge the digital divide in rural schools and strengthen foundational learning.",
+      expHi: "इस पहल का उद्देश्य ग्रामीण स्कूलों में डिजिटल विभाजन को पाटना और मूलभूत शिक्षण को मजबूत करना है।"
+    },
+    {
+      qEn: "5. Which organization announced a review of liquidity management tools for the festive and winter season?",
+      qHi: "5. त्योहारी और सर्दियों के मौसम के लिए तरलता प्रबंधन उपकरणों की समीक्षा की घोषणा किस संस्था ने की?",
       optionsEn: [
         "SEBI",
         "RBI",
-        "NABARD",
-        "IRDAI"
+        "SIDBI",
+        "NABARD"
       ],
       optionsHi: [
         "सेबी",
         "आरबीआई",
-        "नाबार्ड",
-        "इरडाई"
+        "सिडबी",
+        "नाबार्ड"
       ],
       answer: 1,
-      expEn: "The Reserve Bank of India (RBI) released guidelines on digital lending transparency.",
-      expHi: "भारतीय रिजर्व बैंक (RBI) ने डिजिटल ऋण पारदर्शिता पर दिशानिर्देश जारी किए।"
+      expEn: "The Reserve Bank of India (RBI) announced the review.",
+      expHi: "भारतीय रिजर्व बैंक (RBI) ने समीक्षा की घोषणा की।"
     },
     {
-      qEn: "3. 'Ek Bharat Shreshtha Bharat' initiative focuses on celebrating what?",
-      qHi: "3. 'एक भारत श्रेष्ठ भारत' पहल किस बात का जश्न मनाने पर केंद्रित है?",
+      qEn: "6. A surge in rooftop solar installations was reported under which national initiative/subsidy?",
+      qHi: "6. किस राष्ट्रीय पहल/सब्सिडी के तहत रूफटॉप सोलर इंस्टॉलेशन में वृद्धि दर्ज की गई?",
       optionsEn: [
-        "Regional art forms and cultural diversity",
-        "Space exploration achievements",
-        "Industrial manufacturing milestones",
-        "Agricultural export targets"
+        "National Solar Mission",
+        "National Rooftop Solar Subsidies",
+        "PM Surya Ghar Yojana framework",
+        "Green Grid Infrastructure Fund"
       ],
       optionsHi: [
-        "क्षेत्रीय कला रूपों और सांस्कृतिक विविधता",
-        "अंतरिक्ष अन्वेषण उपलब्धियों",
-        "औद्योगिक विनिर्माण मील के पत्थर",
-        "कृषि निर्यात लक्ष्य"
+        "राष्ट्रीय सौर मिशन",
+        "राष्ट्रीय रूफटॉप सोलर सब्सिडी",
+        "पीएम सूर्य घर योजना ढांचा",
+        "ग्रीन ग्रिड इंफ्रास्ट्रक्चर फंड"
+      ],
+      answer: 1,
+      expEn: "The surge was reported under national rooftop solar subsidies.",
+      expHi: "यह वृद्धि राष्ट्रीय रूफटॉप सोलर सब्सिडी के तहत दर्ज की गई।"
+    },
+    {
+      qEn: "7. ISRO's upcoming satellite tracking and Earth observation missions heavily focus on supporting what?",
+      qHi: "7. इसरो के आगामी उपग्रह ट्रैकिंग और पृथ्वी अवलोकन मिशन मुख्य रूप से किस सहायता पर केंद्रित हैं?",
+      optionsEn: [
+        "Deep-space asteroid mining",
+        "Disaster management support",
+        "Commercial telecommunications only",
+        "Interplanetary colonization trials"
+      ],
+      optionsHi: [
+        "गहरे अंतरिक्ष में क्षुद्रग्रह खनन",
+        "आपदा प्रबंधन सहायता",
+        "केवल व्यावसायिक दूर संचार",
+        "अंतरग्रहीय उपनिवेशीकरण परीक्षण"
+      ],
+      answer: 1,
+      expEn: "The missions focus on disaster management support.",
+      expHi: "मिशन आपदा प्रबंधन सहायता पर केंद्रित हैं।"
+    },
+    {
+      qEn: "8. The special monitoring drive initiated by the Ministry of Agriculture focuses on which crop season?",
+      qHi: "8. कृषि मंत्रालय द्वारा शुरू किया गया विशेष निगरानी अभियान किस फसल सीजन पर केंद्रित है?",
+      optionsEn: [
+        "Kharif crop harvesting yields and procurement preparations",
+        "Rabi sowing targets exclusively",
+        "Zaid horticulture expansion",
+        "Plantation crop export quotas"
+      ],
+      optionsHi: [
+        "खरीफ फसल की कटाई की पैदावार और खरीद की तैयारियां",
+        "विशेष रूप से रबी बुआई के लक्ष्य",
+        "जायद बागवानी विस्तार",
+        "रोपण फसल निर्यात कोटा"
       ],
       answer: 0,
-      expEn: "The initiative highlights regional art forms, linguistic diversity, and national heritage.",
-      expHi: "यह पहल क्षेत्रीय कला रूपों, भाषाई विविधता और राष्ट्रीय विरासत को उजागर करती है।"
+      expEn: "It focuses on Kharif crop harvesting yields and procurement preparations.",
+      expHi: "यह खरीफ फसल की कटाई की पैदावार और खरीद की तैयारियों पर केंद्रित है।"
     },
     {
-      qEn: "4. What is the primary focus of discussions regarding critical mineral supply chains?",
-      qHi: "4. महत्वपूर्ण खनिज आपूर्ति श्रृंखलाओं पर चर्चा का मुख्य फोकस क्या है?",
+      qEn: "9. Preliminary discussions between India and global tech stakeholders centered around cybersecurity frameworks for which emerging technology?",
+      qHi: "9. भारत और वैश्विक तकनीकी हितधारकों के बीच प्रारंभिक चर्चा किस उभरती हुई तकनीक के लिए साइबर सुरक्षा ढांचे पर केंद्रित थी?",
       optionsEn: [
-        "Traditional coal mining expansion",
-        "Secure access to minerals for clean energy transitions",
-        "Export restrictions on precious metals",
-        "Domestic gemstone pricing policies"
+        "Quantum computing hardware",
+        "Artificial Intelligence applications",
+        "Blockchain cryptocurrency mining",
+        "Autonomous drone navigation"
       ],
       optionsHi: [
-        "पारंपरिक कोयला खनन विस्तार",
-        "स्वच्छ ऊर्जा परिवर्तन के लिए खनिजों तक सुरक्षित पहुंच",
-        "कीमती धातुओं पर निर्यात प्रतिबंध",
-        "घरेलू रत्न मूल्य निर्धारण नीतियां"
+        "क्वांटम कंप्यूटिंग हार्डवेयर",
+        "आर्टिफिशियल इंटेलिजेंस (कृत्रिम बुद्धिमत्ता) अनुप्रयोग",
+        "ब्ॉकचेन क्रिप्टोकरेंसी माइनिंग",
+        "स्वायत्त ड्रोन नेविगेशन"
       ],
       answer: 1,
-      expEn: "Discussions focus on securing access to minerals essential for clean energy transitions.",
-      expHi: "चर्चा का केंद्र स्वच्छ ऊर्जा परिवर्तन के लिए आवश्यक खनिजों तक सुरक्षित पहुंच है।"
+      expEn: "Discussions centered on cybersecurity frameworks for emerging artificial intelligence applications.",
+      expHi: "चर्चा उभरते कृत्रिम बुद्धिमत्ता अनुप्रयोगों के लिए साइबर सुरक्षा ढाँचों पर केंद्रित थी।"
     },
     {
-      qEn: "5. Which ministry launched a nationwide campaign for sustainable farming and soil health?",
-      qHi: "5. टिकाऊ खेती और मृदा स्वास्थ्य के लिए राष्ट्रव्यापी अभियान किस मंत्रालय ने शुरू किया?",
+      qEn: "10. National hockey teams are currently preparing for tournaments including which major trophy context?",
+      qHi: "10. राष्ट्रीय हॉकी टीमें वर्तमान में किस प्रमुख ट्रॉफी संदर्भ वाले टूर्नामेंटों की तैयारी कर रही हैं?",
       optionsEn: [
-        "Ministry of Environment, Forest and Climate Change",
-        "Ministry of Agriculture and Farmers Welfare",
-        "Ministry of Rural Development",
-        "Ministry of Jal Shakti"
+        "Men's Hockey Asian Champions Trophy",
+        "World Cricket League Cup",
+        "Asian Football Confederation Cup",
+        "International Kabaddi Masters"
       ],
       optionsHi: [
-        "पर्यावरण, वन और जलवायु परिवर्तन मंत्रालय",
-        "कृषि और किसान कल्याण मंत्रालय",
-        "ग्रामीण विकास मंत्रालय",
-        "जल शक्ति मंत्रालय"
-      ],
-      answer: 1,
-      expEn: "The campaign was launched by the Ministry of Agriculture and Farmers Welfare.",
-      expHi: "यह अभियान कृषि और किसान कल्याण मंत्रालय द्वारा शुरू किया गया था।"
-    },
-    {
-      qEn: "6. India's real-time digital payments landscape has seen major growth driven largely by which platform?",
-      qHi: "6. भारत के वास्तविक समय के डिजिटल भुगतान परिदृश्य में मुख्य रूप से किस प्लेटफॉर्म द्वारा बड़ी वृद्धि देखी गई है?",
-      optionsEn: [
-        "NEFT",
-        "RTGS",
-        "UPI",
-        "IMPS"
-      ],
-      optionsHi: [
-        "NEFT",
-        "RTGS",
-        "UPI",
-        "IMPS"
-      ],
-      answer: 2,
-      expEn: "UPI transactions have shown significant growth, reinforcing India's digital payment leadership.",
-      expHi: "UPI लेनदेन में महत्वपूर्ण वृद्धि देखी गई है, जो भारत के डिजिटल भुगतान नेतृत्व को मजबूत करती है।"
-    },
-    {
-      qEn: "7. The Union Health Ministry recently emphasized surveillance for which type of illnesses ahead of winter?",
-      qHi: "7. केंद्रीय स्वास्थ्य मंत्रालय ने हाल ही में सर्दियों से पहले किस प्रकार की बीमारियों की निगरानी पर जोर दिया?",
-      optionsEn: [
-        "Genetic disorders",
-        "Seasonal diseases and vector-borne illnesses",
-        "Rare neurological conditions",
-        "Occupational hazards"
-      ],
-      optionsHi: [
-        "आनुवंशिक विकार",
-        "मौसमी बीमारियाँ और वेक्टर जनित बीमारियाँ",
-        "दुर्लभ तंत्रिका संबंधी स्थितियाँ",
-        "व्यावसायिक खतरे"
-      ],
-      answer: 1,
-      expEn: "The ministry emphasized seasonal disease surveillance and vector-borne illness prevention.",
-      expHi: "मंत्रालय ने मौसमी बीमारी की निगरानी और वेक्टर जनित बीमारी की रोकथाम पर जोर दिया।"
-    },
-    {
-      qEn: "8. The push for domestic defence manufacturing under Aatmanirbhar Bharat aims to increase what?",
-      qHi: "8. आत्मनिर्भर भारत के तहत घरेलू रक्षा विनिर्माण को बढ़ावा देने का उद्देश्य क्या बढ़ाना है?",
-      optionsEn: [
-        "Foreign military imports",
-        "Indigenous procurement targets for armed forces",
-        "International arms leasing",
-        "Overseas military bases"
-      ],
-      optionsHi: [
-        "विदेशी सैन्य आयात",
-        "सशस्त्र बलों के लिए स्वदेशी खरीद लक्ष्य",
-        "अंतरराष्ट्रीय हथियार पट्टा",
-        "विदेशी सैन्य अड्डे"
-      ],
-      answer: 1,
-      expEn: "It emphasizes increased indigenous procurement targets for India's armed forces.",
-      expHi: "यह भारतीय सशस्त्र बलों के लिए स्वदेशी खरीद लक्ष्यों को बढ़ाने पर जोर देता है।"
-    },
-    {
-      qEn: "9. ISRO's scientific missions and satellite launches in late 2026 primarily aim to enhance what?",
-      qHi: "9. 2026 के अंत में इसरो के वैज्ञानिक मिशनों और उपग्रह प्रक्षेपणों का मुख्य उद्देश्य क्या बढ़ाना है?",
-      optionsEn: [
-        "Deep space tourism",
-        "Earth observation and meteorological forecasting capabilities",
-        "Interplanetary navigation infrastructure",
-        "Commercial satellite television broadcasting"
-      ],
-      optionsHi: [
-        "गहरी अंतरिक्ष पर्यटन",
-        "पृथ्वी अवलोकन और मौसम संबंधी पूर्वानुमान क्षमताएं",
-        "अंतरग्रहीय नेविगेशन बुनियादी ढांचा",
-        "वाणिज्यिक उपग्रह टेलीविजन प्रसारण"
-      ],
-      answer: 1,
-      expEn: "The missions aim to enhance earth observation and meteorological forecasting capabilities.",
-      expHi: "इन मिशनों का उद्देश्य पृथ्वी अवलोकन और मौसम संबंधी पूर्वानुमान क्षमताओं को बढ़ाना है।"
-    },
-    {
-      qEn: "10. Which sector crossed significant installation milestones driven by government incentives and investments?",
-      qHi: "10. सरकारी प्रोत्साहन और निवेश से प्रेरित होकर किस सेक्टर ने महत्वपूर्ण स्थापना मील के पत्थर को पार किया है?",
-      optionsEn: [
-        "Solar energy sector",
-        "Thermal coal power sector",
-        "Traditional textile sector",
-        "Automobile manufacturing sector"
-      ],
-      optionsHi: [
-        "सौर ऊर्जा क्षेत्र",
-        "थर्मल कोयला ऊर्जा क्षेत्र",
-        "पारंपरिक कपड़ा क्षेत्र",
-        "ऑटोमोबाइल विनिर्माण क्षेत्र"
+        "पुरुष हॉकी एशियाई चैंपियंस ट्रॉफी",
+        "विश्व क्रिकेट लीग कप",
+        "एशियाई फुटबॉल परिसंघ कप",
+        "अंतर्राष्ट्रीय कबड्डी मास्टर्स"
       ],
       answer: 0,
-      expEn: "India’s renewable energy sector crossed significant installation milestones in solar capacity.",
-      expHi: "भारत के नवीकरणीय ऊर्जा क्षेत्र ने सौर क्षमता में महत्वपूर्ण मील के पत्थर पार किए हैं।"
+      expEn: "Developments highlighted the 2026 Men's Hockey Asian Champions Trophy preparation.",
+      expHi: "विकास 2026 पुरुष हॉकी एशियाई चैंपियंस ट्रॉफी की तैयारी पर प्रकाश डालते हैं।"
     }
   ]
 };
