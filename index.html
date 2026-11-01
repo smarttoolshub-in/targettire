@@ -42,6 +42,8 @@
 <script src="pyq-bihar.js"></script>
 <script src="mocks-data.js"></script>
 <script src="ca-data.js"></script>
+<script src="featured-updates.js"></script>
+<script src="featured-poster-slider.js"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
@@ -308,6 +310,200 @@ html { color-scheme: light; } html.dark { color-scheme: dark; }
 #tt-dashboard-groups{scroll-margin-top:80px}
 </style>
 
+<style id="targettire-featured-poster-styles">
+#targettire-featured-posters{padding:20px 16px 8px}.tt-poster-shell{max-width:1500px;margin:auto}
+.tt-poster-head{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:12px}
+.tt-poster-kicker{font-size:9px;font-weight:900;letter-spacing:.15em;color:#6366f1}
+.tt-poster-heading{font-size:20px;font-weight:900;color:#111827;margin-top:3px}.dark .tt-poster-heading{color:#f8fafc}
+.tt-poster-subtitle{font-size:11px;color:#64748b;margin-top:3px}.dark .tt-poster-subtitle{color:#94a3b8}
+.tt-poster-controls{display:flex;gap:7px}.tt-poster-arrow{width:34px;height:34px;border:1px solid #dbe3ef;border-radius:11px;background:white;color:#475569;cursor:pointer}.dark .tt-poster-arrow{background:#131b2e;color:#cbd5e1;border-color:#334155}
+.tt-poster-track{overflow:hidden;border-radius:21px}.tt-poster-slide{cursor:pointer}.tt-poster-slide:focus-visible{outline:3px solid #fbbf24;outline-offset:4px}.tt-poster-slide:hover .tt-poster-cta{transform:translateX(3px)}.tt-poster-slide{display:none;position:relative;min-height:218px;padding:25px 28px;color:white;border-radius:21px;overflow:hidden;isolation:isolate}
+.tt-poster-slide.is-active{display:flex;align-items:center;animation:ttPosterIn .35s ease}@keyframes ttPosterIn{from{opacity:.5;transform:translateX(9px)}to{opacity:1;transform:none}}
+.tt-poster-slide:before{content:"";position:absolute;z-index:-1;width:330px;height:330px;right:8%;top:-190px;border:1px solid #ffffff40;border-radius:50%;box-shadow:0 0 0 28px #ffffff09,0 0 0 58px #ffffff08}
+.tt-poster-slide.theme-blue{background:linear-gradient(115deg,#102d59,#1d4e89 60%,#087e8b)}.tt-poster-slide.theme-violet{background:linear-gradient(115deg,#34216d,#5542a7 60%,#9333a6)}.tt-poster-slide.theme-teal{background:linear-gradient(115deg,#064e50,#0f766e 60%,#155e9a)}.tt-poster-slide.theme-amber{background:linear-gradient(115deg,#713f12,#b45309 60%,#92400e)}.tt-poster-slide.theme-rose{background:linear-gradient(115deg,#701a35,#9f3157 60%,#4c1d95)}
+.tt-poster-copy{max-width:76%;position:relative;z-index:1}.tt-poster-badge{display:inline-block;padding:6px 10px;border:1px solid #ffffff55;background:#ffffff20;border-radius:99px;font-size:9px;font-weight:900;letter-spacing:.08em}
+.tt-poster-category{font-size:10px;font-weight:900;letter-spacing:.15em;color:#ffffffbd;margin-top:13px}.tt-poster-title{font-size:clamp(28px,4vw,43px);font-weight:950;line-height:1;margin-top:7px;letter-spacing:-.04em}
+.tt-poster-highlight{font-size:clamp(17px,2.4vw,25px);font-weight:900;color:#fde68a;margin-top:6px}.tt-poster-line{font-size:12px;font-weight:700;margin-top:8px}.tt-poster-description{font-size:11px;line-height:1.55;color:#ffffffd9;margin-top:5px}
+.tt-poster-cta{display:inline-flex;gap:8px;align-items:center;margin-top:13px;padding:10px 15px;border-radius:11px;background:white;color:#172554;font-size:10px;font-weight:900;cursor:pointer}
+.tt-poster-art{position:absolute;right:8%;top:50%;transform:translateY(-50%);width:150px;height:150px;border:1px solid #ffffff55;border-radius:32px;background:#ffffff20;display:flex;align-items:center;justify-content:center;font-size:65px;color:#ffffffed}
+.tt-poster-foot{display:flex;justify-content:space-between;align-items:center;padding:10px 3px 0}.tt-poster-dots{display:flex;gap:6px}.tt-poster-dot{width:7px;height:7px;border:0;border-radius:99px;background:#cbd5e1;padding:0;cursor:pointer}.tt-poster-dot.is-active{width:22px;background:#4f46e5}.tt-poster-count{font-size:10px;font-weight:800;color:#64748b}
+@media(max-width:767px){#targettire-featured-posters{padding:14px 11px 5px}.tt-poster-heading{font-size:17px}.tt-poster-slide{min-height:226px;padding:17px 15px;border-radius:18px}.tt-poster-track{border-radius:18px}.tt-poster-copy{max-width:100%;padding-right:48px}.tt-poster-title{font-size:28px}.tt-poster-highlight{font-size:16px}.tt-poster-line{font-size:10px}.tt-poster-description{font-size:10px}.tt-poster-art{width:72px;height:72px;right:12px;top:17px;transform:none;border-radius:18px;font-size:29px}.tt-poster-cta{font-size:9px;padding:9px 11px}}
+@media(prefers-reduced-motion:reduce){.tt-poster-slide.is-active{animation:none}}
+</style>
+
+<style id="targettire-header-poster-premium-v2">
+/* Keep the compact site header pinned at the top while scrolling. */
+#main-site-header{position:sticky!important;top:0!important;z-index:100!important;width:100%;box-shadow:0 5px 22px rgba(15,23,42,.09);border-bottom:1px solid rgba(148,163,184,.22)!important}
+#main-site-header .flex.items-center.justify-between.h-20{min-height:62px!important;height:62px!important}
+/* More polished featured exam poster area. */
+#targettire-featured-posters{padding:23px 16px 12px!important;background:radial-gradient(ellipse at 12% 0%,rgba(99,102,241,.10),transparent 38%),radial-gradient(ellipse at 90% 20%,rgba(20,184,166,.09),transparent 34%),linear-gradient(180deg,#f8faff,#f1f5fb)!important}
+.dark #targettire-featured-posters{background:radial-gradient(ellipse at 12% 0%,rgba(99,102,241,.16),transparent 38%),radial-gradient(ellipse at 90% 20%,rgba(20,184,166,.12),transparent 34%),linear-gradient(180deg,#0c1424,#101827)!important}
+.tt-poster-shell{max-width:1500px!important;padding:15px!important;border:1px solid rgba(148,163,184,.25);border-radius:25px;background:rgba(255,255,255,.72);box-shadow:0 14px 40px rgba(15,23,42,.07);backdrop-filter:blur(12px)}
+.dark .tt-poster-shell{background:rgba(15,23,42,.68);border-color:#29364a;box-shadow:0 16px 42px rgba(0,0,0,.22)}
+.tt-poster-head{align-items:center!important;margin-bottom:13px!important}
+.tt-poster-kicker{font-size:9px!important;font-weight:950!important;letter-spacing:.19em!important;color:#6366f1!important}
+.tt-poster-heading{font-size:clamp(19px,2vw,25px)!important;letter-spacing:-.035em!important}
+.tt-poster-subtitle{font-size:12px!important}
+.tt-poster-controls{gap:8px!important}
+.tt-poster-arrow{width:39px!important;height:39px!important;border-radius:13px!important;border:1px solid #dbe4f0!important;background:linear-gradient(145deg,#fff,#eef2ff)!important;color:#334155!important;box-shadow:0 5px 13px rgba(15,23,42,.07);transition:transform .2s,box-shadow .2s}
+.tt-poster-arrow:hover{transform:translateY(-2px);box-shadow:0 9px 18px rgba(79,70,229,.16);color:#4f46e5!important}
+.tt-poster-track{border-radius:24px!important;box-shadow:0 14px 28px rgba(15,23,42,.13)}
+.tt-poster-slide{min-height:258px!important;padding:30px 36px!important;border-radius:24px!important}
+.tt-poster-slide:before{width:390px!important;height:390px!important;right:10%!important;top:-220px!important;border:1px solid #ffffff55!important;box-shadow:0 0 0 22px #ffffff0c,0 0 0 50px #ffffff09,0 0 0 82px #ffffff07!important}
+.tt-poster-slide:after{content:"";position:absolute;z-index:-1;width:190px;height:190px;right:3%;bottom:-130px;border-radius:50%;background:#ffffff12;filter:blur(2px)}
+.tt-poster-copy{max-width:74%!important}
+.tt-poster-badge{padding:7px 12px!important;background:#ffffff24!important;border-color:#ffffff65!important;box-shadow:0 4px 15px #00000012}
+.tt-poster-category{margin-top:15px!important;font-size:10px!important;letter-spacing:.18em!important}
+.tt-poster-title{font-size:clamp(34px,4.2vw,51px)!important;line-height:1.02!important;text-shadow:0 4px 18px #00000025}
+.tt-poster-highlight{font-size:clamp(18px,2.5vw,27px)!important;text-shadow:0 2px 12px #00000020}
+.tt-poster-line{font-size:13px!important;margin-top:10px!important}
+.tt-poster-description{font-size:12px!important;max-width:650px;line-height:1.65!important}
+.tt-poster-cta{margin-top:16px!important;padding:11px 17px!important;border-radius:13px!important;font-size:11px!important;box-shadow:0 7px 18px #00000020;transition:transform .2s,box-shadow .2s}
+.tt-poster-cta:hover{transform:translateY(-2px);box-shadow:0 11px 22px #0000002c}
+.tt-poster-art{width:166px!important;height:166px!important;right:8%!important;border-radius:38px!important;border:1px solid #ffffff70!important;background:linear-gradient(145deg,#ffffff38,#ffffff12)!important;box-shadow:0 18px 38px #00000022,inset 0 1px 0 #ffffff55!important;font-size:72px!important;text-shadow:0 5px 18px #00000030;backdrop-filter:blur(8px)}
+.tt-poster-foot{padding:13px 4px 1px!important}
+.tt-poster-dot{width:8px!important;height:8px!important;background:#cbd5e1!important;transition:all .2s}
+.tt-poster-dot.is-active{width:27px!important;background:linear-gradient(90deg,#4f46e5,#0d9488)!important}
+.tt-poster-count{font-size:11px!important;letter-spacing:.08em}
+@media(max-width:767px){
+ #main-site-header .flex.items-center.justify-between.h-20{height:58px!important;min-height:58px!important}
+ #targettire-featured-posters{padding:13px 9px 8px!important}
+ .tt-poster-shell{padding:10px!important;border-radius:20px!important}
+ .tt-poster-head{gap:8px!important;margin-bottom:10px!important}
+ .tt-poster-heading{font-size:17px!important}
+ .tt-poster-subtitle{font-size:10px!important}
+ .tt-poster-arrow{width:33px!important;height:33px!important;border-radius:10px!important}
+ .tt-poster-track{border-radius:19px!important}
+ .tt-poster-slide{min-height:238px!important;padding:17px 15px!important;border-radius:19px!important}
+ .tt-poster-copy{max-width:100%!important;padding-right:49px!important}
+ .tt-poster-badge{font-size:8px!important;padding:5px 8px!important}
+ .tt-poster-category{font-size:8px!important;margin-top:11px!important}
+ .tt-poster-title{font-size:clamp(25px,8vw,34px)!important;overflow-wrap:anywhere}
+ .tt-poster-highlight{font-size:15px!important;line-height:1.2!important}
+ .tt-poster-line{font-size:9px!important;margin-top:7px!important}
+ .tt-poster-description{font-size:9px!important;line-height:1.45!important;max-width:100%}
+ .tt-poster-cta{font-size:9px!important;padding:9px 11px!important;margin-top:11px!important}
+ .tt-poster-art{width:65px!important;height:65px!important;right:10px!important;top:15px!important;transform:none!important;border-radius:17px!important;font-size:25px!important}
+ .tt-poster-foot{padding-top:9px!important}
+}
+@media(prefers-reduced-motion:reduce){.tt-poster-arrow,.tt-poster-cta,.tt-poster-dot{transition:none!important}}
+
+/* V3: bold editorial / cinematic exam-poster treatment */
+#targettire-featured-posters{padding:20px 14px 15px!important;background:linear-gradient(135deg,#eef2ff 0%,#f8fafc 48%,#ecfeff 100%)!important}
+.dark #targettire-featured-posters{background:linear-gradient(135deg,#080f20 0%,#111827 52%,#092326 100%)!important}
+.tt-poster-shell{max-width:1500px!important;padding:0!important;border:0!important;border-radius:0!important;background:transparent!important;box-shadow:none!important;backdrop-filter:none!important}
+.dark .tt-poster-shell{background:transparent!important;border:0!important;box-shadow:none!important}
+.tt-poster-head{padding:0 3px 12px!important;margin:0!important}
+.tt-poster-kicker{display:inline-flex;align-items:center;gap:7px;color:#4338ca!important;font-size:9px!important;letter-spacing:.2em!important}
+.tt-poster-kicker:before{content:"";display:inline-block;width:22px;height:3px;border-radius:9px;background:linear-gradient(90deg,#4f46e5,#06b6d4)}
+.tt-poster-heading{font-size:clamp(20px,2.3vw,27px)!important;font-weight:950!important;letter-spacing:-.045em!important}
+.tt-poster-subtitle{font-size:11px!important}
+.tt-poster-controls{gap:6px!important}
+.tt-poster-arrow{width:35px!important;height:35px!important;border-radius:50%!important;background:#fff!important;border:1px solid #dbe3f0!important;color:#334155!important;box-shadow:0 5px 15px #17255412!important}
+.tt-poster-track{border-radius:5px 26px 5px 26px!important;overflow:hidden!important;box-shadow:0 20px 45px rgba(15,23,42,.19)!important}
+.tt-poster-slide{min-height:285px!important;padding:34px 42px!important;border-radius:5px 26px 5px 26px!important;clip-path:inset(0 round 5px 26px 5px 26px)}
+.tt-poster-slide:before{z-index:0!important;width:410px!important;height:410px!important;right:7%!important;top:-240px!important;border:1px solid #ffffff55!important;box-shadow:0 0 0 30px #ffffff0b,0 0 0 65px #ffffff08,0 0 0 100px #ffffff06!important}
+.tt-poster-slide:after{content:"EXAM\A READY";white-space:pre;position:absolute;right:4%;bottom:-25px;color:#ffffff12;font-size:clamp(65px,10vw,130px);font-weight:1000;line-height:.76;letter-spacing:-.09em;text-align:right;z-index:0;pointer-events:none}
+.tt-poster-slide.theme-blue{background:linear-gradient(112deg,#071b3c 0%,#123e78 52%,#087e91 100%)!important}
+.tt-poster-slide.theme-violet{background:linear-gradient(112deg,#211047 0%,#5135a4 55%,#a12b83 100%)!important}
+.tt-poster-slide.theme-teal{background:linear-gradient(112deg,#032f35 0%,#087d76 54%,#155e9a 100%)!important}
+.tt-poster-slide.theme-amber{background:linear-gradient(112deg,#4a2509 0%,#a6530b 54%,#d97706 100%)!important}
+.tt-poster-slide.theme-rose{background:linear-gradient(112deg,#4a1028 0%,#9f2859 55%,#55228a 100%)!important}
+.tt-poster-copy{max-width:72%!important;z-index:2!important}
+.tt-poster-badge{border-radius:4px!important;padding:7px 11px!important;background:#ffffff18!important;border:1px solid #ffffff55!important;font-size:9px!important;letter-spacing:.16em!important}
+.tt-poster-category{margin-top:17px!important;font-size:9px!important;letter-spacing:.23em!important;color:#c7d2fe!important}
+.tt-poster-title{font-size:clamp(39px,5vw,62px)!important;line-height:.95!important;letter-spacing:-.065em!important;text-shadow:0 8px 25px #0005!important}
+.tt-poster-highlight{font-size:clamp(19px,2.6vw,29px)!important;color:#fef08a!important;letter-spacing:-.025em!important}
+.tt-poster-line{font-size:12px!important;letter-spacing:.025em!important}
+.tt-poster-description{max-width:580px!important;font-size:12px!important;line-height:1.65!important;color:#e2e8f0!important}
+.tt-poster-cta{border-radius:5px 14px 5px 14px!important;padding:12px 18px!important;background:#fff!important;color:#101d45!important;font-size:10px!important;letter-spacing:.04em!important;box-shadow:0 9px 22px #0003!important}
+.tt-poster-art{z-index:1!important;right:10%!important;width:205px!important;height:205px!important;border:0!important;border-radius:42% 58% 55% 45%!important;background:linear-gradient(145deg,#ffffff32,#ffffff08)!important;box-shadow:inset 0 0 0 1px #ffffff55,0 22px 50px #0003!important;font-size:94px!important;transform:translateY(-50%) rotate(-8deg)!important;backdrop-filter:blur(5px)!important}
+.tt-poster-art:after{content:"";position:absolute;inset:-13px;border:1px dashed #ffffff70;border-radius:45% 55% 50% 50%;animation:ttPosterOrbit 22s linear infinite}
+@keyframes ttPosterOrbit{to{transform:rotate(360deg)}}
+.tt-poster-foot{padding:13px 4px 0!important}
+.tt-poster-dot{width:18px!important;height:4px!important;border-radius:3px!important;background:#cbd5e1!important}
+.tt-poster-dot.is-active{width:38px!important;background:linear-gradient(90deg,#4f46e5,#06b6d4)!important}
+.tt-poster-count{font-size:10px!important;letter-spacing:.18em!important;color:#64748b!important}
+.dark .tt-poster-count{color:#94a3b8!important}
+@media(max-width:767px){
+ #targettire-featured-posters{padding:14px 9px 12px!important}
+ .tt-poster-head{padding:0 2px 10px!important}
+ .tt-poster-heading{font-size:18px!important}.tt-poster-subtitle{font-size:9px!important}
+ .tt-poster-arrow{width:31px!important;height:31px!important}
+ .tt-poster-track{border-radius:4px 20px 4px 20px!important}
+ .tt-poster-slide{min-height:254px!important;padding:20px 16px!important;border-radius:4px 20px 4px 20px!important;clip-path:inset(0 round 4px 20px 4px 20px)}
+ .tt-poster-slide:before{width:240px!important;height:240px!important;right:-20%!important;top:-105px!important}
+ .tt-poster-slide:after{font-size:60px!important;right:2%!important;bottom:-8px!important}
+ .tt-poster-copy{max-width:100%!important;padding-right:0!important}
+ .tt-poster-badge{font-size:7px!important;padding:5px 8px!important}
+ .tt-poster-category{font-size:7px!important;margin-top:13px!important;letter-spacing:.16em!important}
+ .tt-poster-title{font-size:clamp(32px,10vw,43px)!important;max-width:82%;overflow-wrap:anywhere}
+ .tt-poster-highlight{font-size:16px!important;max-width:85%;line-height:1.15!important}
+ .tt-poster-line{font-size:9px!important;margin-top:8px!important}
+ .tt-poster-description{font-size:9px!important;line-height:1.45!important;max-width:82%!important}
+ .tt-poster-cta{font-size:8px!important;padding:9px 12px!important;margin-top:11px!important}
+ .tt-poster-art{width:93px!important;height:93px!important;right:12px!important;top:19px!important;transform:rotate(-9deg)!important;font-size:39px!important;border-radius:40% 60% 55% 45%!important}
+ .tt-poster-art:after{inset:-7px}
+ .tt-poster-foot{padding-top:9px!important}
+}
+@media(prefers-reduced-motion:reduce){.tt-poster-art:after{animation:none!important}}
+
+</style>
+
+
+<style id="targettire-top-poster-responsive-v4">
+/* V4: poster carousel sits directly below the pinned header on every screen. */
+#main-site-header{position:sticky!important;top:0!important;z-index:1000!important}
+#targettire-featured-posters{position:relative!important;z-index:5!important;padding:12px clamp(8px,2vw,22px) 10px!important;margin:0!important;background:linear-gradient(110deg,#f1f5ff,#f8fafc 48%,#e9fbfa)!important}
+.dark #targettire-featured-posters{background:linear-gradient(110deg,#09152b,#101827 50%,#092b2b)!important}
+.tt-poster-shell{max-width:1500px!important}
+.tt-poster-head{display:flex!important;align-items:center!important;justify-content:space-between!important;padding:0 2px 8px!important;margin:0!important}
+.tt-poster-heading{font-size:clamp(16px,2vw,22px)!important}
+.tt-poster-track{border-radius:20px!important;box-shadow:0 12px 30px rgba(15,23,42,.14)!important}
+.tt-poster-slide{min-height:clamp(190px,22vw,250px)!important;padding:clamp(18px,3vw,30px)!important;border-radius:20px!important;clip-path:none!important}
+.tt-poster-copy{max-width:72%!important}
+.tt-poster-art{width:clamp(100px,15vw,170px)!important;height:clamp(100px,15vw,170px)!important;right:8%!important}
+/* Each exam has a deliberately different poster composition. */
+.tt-poster-slide.layout-split{border-radius:22px 5px 22px 5px!important}
+.tt-poster-slide.layout-split .tt-poster-art{border-radius:18px 48px 18px 48px!important;transform:translateY(-50%) rotate(7deg)!important;background:linear-gradient(145deg,#ffffff3d,#ffffff08)!important}
+.tt-poster-slide.layout-seal{background-image:radial-gradient(circle at 82% 50%,#ffffff20 0 16%,transparent 16.5%),linear-gradient(115deg,#713f12,#b45309 58%,#e58a16)!important}
+.tt-poster-slide.layout-seal .tt-poster-art{border:7px double #ffffff70!important;border-radius:50%!important;background:transparent!important;box-shadow:0 0 0 12px #ffffff12!important;transform:translateY(-50%)!important}
+.tt-poster-slide.layout-editorial{border-radius:5px!important;background:linear-gradient(105deg,#211047,#5135a4 66%,#922c88)!important}
+.tt-poster-slide.layout-editorial .tt-poster-title{font-family:Georgia,serif!important;font-style:italic!important;letter-spacing:-.04em!important}
+.tt-poster-slide.layout-editorial .tt-poster-art{border-radius:8px!important;border:1px solid #ffffff88!important;background:transparent!important;transform:translateY(-50%) rotate(0)!important}
+.tt-poster-slide.layout-grid{background-color:#064e50!important;background-image:linear-gradient(#ffffff12 1px,transparent 1px),linear-gradient(90deg,#ffffff12 1px,transparent 1px),linear-gradient(115deg,#064e50,#0f766e 65%,#155e9a)!important;background-size:26px 26px,26px 26px,auto!important}
+.tt-poster-slide.layout-grid .tt-poster-art{border-radius:12px!important;transform:translateY(-50%) rotate(45deg)!important;background:#ffffff16!important}
+.tt-poster-slide.layout-grid .tt-poster-art i{transform:rotate(-45deg)}
+.tt-poster-slide.layout-command{background:linear-gradient(115deg,#071b3c,#123e78 60%,#087e91)!important;border:1px solid #ffffff35!important}
+.tt-poster-slide.layout-command .tt-poster-badge{border-radius:4px!important;background:#facc1528!important;border-color:#facc1577!important;color:#fef3c7!important}
+.tt-poster-slide.layout-command .tt-poster-art{border-radius:50% 50% 12px 12px!important;background:linear-gradient(145deg,#fbbf2438,#ffffff0a)!important;transform:translateY(-50%)!important}
+.tt-poster-slide.layout-ribbon{background:linear-gradient(115deg,#4a1028,#9f2859 58%,#55228a)!important}
+.tt-poster-slide.layout-ribbon .tt-poster-badge{border-radius:3px!important;transform:skew(-8deg)!important}
+.tt-poster-slide.layout-ribbon .tt-poster-art{border-radius:28px 5px 28px 5px!important;transform:translateY(-50%) rotate(-8deg)!important;background:linear-gradient(145deg,#ffffff35,#ffffff0a)!important}
+@media(min-width:768px) and (max-width:1100px){#targettire-featured-posters{padding:10px 12px 8px!important}.tt-poster-slide{min-height:205px!important;padding:22px!important}.tt-poster-title{font-size:clamp(32px,4.7vw,48px)!important}.tt-poster-art{right:6%!important}}
+@media(max-width:767px){
+ #main-site-header .flex.items-center.justify-between.h-20{height:56px!important;min-height:56px!important}
+ #targettire-featured-posters{padding:8px 7px 7px!important}
+ .tt-poster-head{padding:0 2px 7px!important;gap:6px!important}
+ .tt-poster-heading{font-size:15px!important}.tt-poster-subtitle{font-size:8px!important}
+ .tt-poster-controls{gap:5px!important}.tt-poster-arrow{width:29px!important;height:29px!important}
+ .tt-poster-track{border-radius:15px!important}
+ .tt-poster-slide{min-height:178px!important;padding:14px 13px!important;border-radius:15px!important}
+ .tt-poster-copy{max-width:100%!important;padding-right:75px!important}
+ .tt-poster-badge{font-size:6px!important;padding:4px 7px!important}
+ .tt-poster-category{font-size:7px!important;margin-top:8px!important}
+ .tt-poster-title{font-size:clamp(25px,8vw,34px)!important;max-width:100%!important}
+ .tt-poster-highlight{font-size:13px!important;max-width:100%!important}
+ .tt-poster-line{font-size:8px!important;margin-top:5px!important}
+ .tt-poster-description{font-size:8px!important;line-height:1.35!important;max-width:100%!important}
+ .tt-poster-cta{font-size:8px!important;padding:7px 9px!important;margin-top:8px!important}
+ .tt-poster-art{width:62px!important;height:62px!important;right:9px!important;top:50%!important;transform:translateY(-50%)!important;font-size:25px!important}
+ .tt-poster-art:after{inset:-6px!important}
+ .tt-poster-foot{padding-top:6px!important}
+}
+@media(prefers-reduced-motion:reduce){.tt-poster-art:after{animation:none!important}}
+</style>
+
 </head>
 <body class="bg-slate-50 dark:bg-[#0b0f19] text-slate-800 dark:text-slate-300 min-h-screen flex flex-col transition-colors duration-300">
 <header id="main-site-header" class="bg-white/95 dark:bg-[#0b0f19]/95 backdrop-blur-xl border-b border-slate-200 dark:border-slate-800/80 sticky top-0 z-50 transition-colors duration-300">
@@ -380,6 +576,15 @@ html { color-scheme: light; } html.dark { color-scheme: dark; }
 </div>
 </div>
 </header>
+
+<section id="targettire-featured-posters" aria-label="Highlighted exam posters">
+<div class="tt-poster-shell">
+ <div class="tt-poster-head"><div><div class="tt-poster-kicker">TARGETTIRE · EXAM SPOTLIGHT</div><h2 class="tt-poster-heading">🔥 Highlighted Exam Updates</h2><p class="tt-poster-subtitle">SSC · Railway · Bihar · UPSC · All Government Exams</p></div>
+ <div class="tt-poster-controls"><button type="button" class="tt-poster-arrow" id="tt-poster-prev" aria-label="Previous poster"><i class="fa-solid fa-chevron-left"></i></button><button type="button" class="tt-poster-arrow" id="tt-poster-next" aria-label="Next poster"><i class="fa-solid fa-chevron-right"></i></button></div></div>
+ <div class="tt-poster-track" id="tt-poster-track"><div class="tt-poster-slide theme-blue is-active"><div class="tt-poster-copy"><span class="tt-poster-badge">EXAM SPOTLIGHT</span><div class="tt-poster-title">TARGETTIRE</div><div class="tt-poster-highlight">ALL GOVERNMENT EXAMS</div><div class="tt-poster-description">SSC, Railway, Bihar और UPSC की तैयारी सामग्री एक जगह।</div></div><div class="tt-poster-art"><i class="fa-solid fa-bullhorn"></i></div></div></div>
+ <div class="tt-poster-foot"><div class="tt-poster-dots" id="tt-poster-dots"></div><span class="tt-poster-count" id="tt-poster-count">01 / 01</span></div>
+</div></section>
+
 
 <div id="mobile-menu-drawer" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 hidden md:hidden flex">
 <div class="bg-white dark:bg-[#131b2e] w-72 h-full shadow-2xl border-r border-slate-200 dark:border-slate-800 p-6 flex flex-col justify-between">
@@ -533,6 +738,8 @@ TargetTire evaluates your speed, accuracy, and chapter-wise mastery in real-time
 </div>
 </div>
 </section>
+
+
 
 <!-- Merged dashboard enhancements: pinned exams, exam quick-launch catalog and Question of the Day -->
 <section class="py-6 px-4 sm:px-6 lg:px-8 border-b border-slate-200/70 dark:border-slate-800/70">
@@ -1492,12 +1699,10 @@ const res = document.getElementById(`ca-quiz-result-${qIndex}`);
 if (!res) return;
 const ca = window.TARGETTIRE_CA_DATABASE;
 const q = ca.quizList[qIndex];
-const lang = document.getElementById('lang-selector')?.value || 'en';
-const explanation = lang === 'hi' ? (q.expHi || q.expEn || q.exp || '') : (q.expEn || q.exp || q.expHi || '');
 if (selected === correct) {
-res.innerHTML = `<span class="text-teal-500 font-bold">✓ Correct! ${explanation}</span>`;
+res.innerHTML = `<span class="text-teal-500 font-bold">✓ Correct! ${q.exp}</span>`;
 } else {
-res.innerHTML = `<span class="text-rose-500 font-bold">✗ Incorrect. Correct option was: ${(q.optionsEn || [])[correct] || ''}. ${explanation}</span>`;
+res.innerHTML = `<span class="text-rose-500 font-bold">✗ Incorrect. Correct option was: ${q.optionsEn[correct]}. ${q.exp}</span>`;
 }
 }
 
@@ -4532,14 +4737,14 @@ window.playBrandNewErrorTune = function(){ __ttPlayTone(false); };
       const isAI = sender === 'ai';
       const msg = document.createElement('div');
       msg.className = `flex items-start gap-2.5 ${isAI ? '' : 'flex-row-reverse'}`;
-      const avatar = document.createElement('div');
-      avatar.className = `w-7 h-7 rounded-lg ${isAI ? 'bg-indigo-600' : 'bg-teal-600'} text-white flex items-center justify-center text-xs shrink-0 font-bold shadow-sm`;
-      avatar.textContent = isAI ? 'AI' : 'U';
-      const bubble = document.createElement('div');
-      bubble.className = `p-3 ${isAI ? 'bg-white dark:bg-[#131b2e] border border-slate-200 dark:border-slate-800 text-slate-800 dark:text-slate-200 rounded-tl-none' : 'bg-indigo-600 text-white rounded-tr-none'} rounded-2xl shadow-sm leading-relaxed whitespace-pre-wrap max-w-[85%]`;
-      bubble.textContent = String(text == null ? '' : text);
-      msg.appendChild(avatar);
-      msg.appendChild(bubble);
+      msg.innerHTML = `
+        <div class="w-7 h-7 rounded-lg ${isAI ? 'bg-indigo-600' : 'bg-teal-600'} text-white flex items-center justify-center text-xs shrink-0 font-bold shadow-sm">
+          ${isAI ? 'AI' : '<i class="fa-solid fa-user"></i>'}
+        </div>
+        <div class="p-3 ${isAI ? 'bg-white dark:bg-[#131b2e] border border-slate-200 dark:border-slate-800 text-slate-800 dark:text-slate-200 rounded-tl-none' : 'bg-indigo-600 text-white rounded-tr-none'} rounded-2xl shadow-sm leading-relaxed whitespace-pre-wrap max-w-[85%]">
+          ${text}
+        </div>
+      `;
       box.appendChild(msg);
       box.scrollTop = box.scrollHeight;
     }
@@ -4551,20 +4756,7 @@ window.playBrandNewErrorTune = function(){ __ttPlayTone(false); };
       if (!question) return;
       appendAIMessage('user', question);
       input.value = '';
-      appendAIMessage('ai', 'TargetTire के उपलब्ध डेटा में खोज रहा हूँ…');
-      const box = document.getElementById('ai-chat-messages');
-      const loading = box ? box.lastElementChild : null;
-      try {
-        const answer = (typeof window.targetTireAnswerQuestion === 'function')
-          ? window.targetTireAnswerQuestion(question)
-          : 'AI डेटा-सर्च मॉड्यूल लोड नहीं हुआ। कृपया ai-chat.js फाइल और उसका script path जाँचें।';
-        if (loading && loading.parentNode) loading.remove();
-        appendAIMessage('ai', answer);
-      } catch (err) {
-        if (loading && loading.parentNode) loading.remove();
-        appendAIMessage('ai', 'अभी वेबसाइट डेटा पढ़ने में समस्या आई। कृपया सवाल थोड़े स्पष्ट शब्दों में पूछें।');
-        console.error('TargetTire AI local search error:', err);
-      }
+      appendAIMessage('ai', 'AI chat का interface तैयार है। Live AI answers चालू करने के लिए सुरक्षित server-side Gemini/API endpoint जोड़ना होगा; API key को इस HTML में रखना सुरक्षित नहीं है। अभी आप Practice Hub, PYQ Hub और Current Affairs से पढ़ाई जारी रख सकते हैं।');
     }
 
     function sendAIQuickPrompt(promptText) {
