@@ -1,219 +1,219 @@
 window.TARGETTIRE_CA_DATABASE = {
-  date: "1 November 2026",
-  bulletinTitle: "Daily Current Affairs — 1 November 2026",
+  date: "2 November 2026",
+  bulletinTitle: "Daily Current Affairs — 2 November 2026",
 
   points: [
-    "1. Several Indian states, including Madhya Pradesh, Karnataka, Kerala, Andhra Pradesh, Chhattisgarh, and Haryana, celebrate their foundation day (Rajyotsava) on 1 November 2026. / मध्य प्रदेश, कर्नाटक, केरल, आंध्र प्रदेश, छत्तीसगढ़ और हरियाणा सहित कई भारतीय राज्य 1 नवंबर 2026 को अपना स्थापना दिवस (राज्योत्सव) मना रहे हैं।",
+    "1. India and several international maritime nations reviewed joint security frameworks in the Indian Ocean Region, emphasizing collaborative anti-piracy and disaster response operations on 2 November 2026. / भारत और कई अंतरराष्ट्रीय समुद्री देशों ने 2 November 2026 को हिंद महासागर क्षेत्र में संयुक्त सुरक्षा ढांचे की समीक्षा की, जिसमें सहयोगात्मक एंटी-पाइरेसी और आपदा प्रतिक्रिया संचालन पर जोर दिया गया।",
 
-    "2. The Ministry of Finance reported robust GST revenue collections for October 2026, reflecting continued economic momentum and enhanced compliance across sectors. / वित्त मंत्रालय ने अक्टूबर 2026 के लिए मजबूत जीएसटी राजस्व संग्रह की सूचना दी, जो निरंतर आर्थिक गति और सभी क्षेत्रों में बेहतर अनुपालन को दर्शाता है।",
+    "2. The Ministry of Commerce and Industry released export performance data for October 2026, highlighting steady growth in engineering goods, electronics, and agricultural commodities. / वाणिज्य और उद्योग मंत्रालय ने अक्टूबर 2026 के लिए निर्यात प्रदर्शन डेटा जारी किया, जिसमें इंजीनियरिंग सामान, इलेक्ट्रॉनिक्स और कृषि वस्तुओं में स्थिर वृद्धि को रेखांकित किया गया।",
 
-    "3. The Reserve Bank of India (RBI) announced a scheduled review of liquidity management tools to support banking sector credit growth during the festive and upcoming winter season. / भारतीय रिजर्व बैंक (RBI) ने त्योहारी और आगामी सर्दियों के मौसम के दौरान बैंकिंग क्षेत्र के ऋण विकास का समर्थन करने के लिए तरलता प्रबंधन उपकरणों की निर्धारित समीक्षा की घोषणा की।",
+    "3. The Reserve Bank of India (RBI) announced new operational frameworks for cooperative banks to enhance digital banking security and streamline customer grievance redressal mechanisms. / भारतीय रिजर्व बैंक (RBI) ने डिजिटल बैंकिंग सुरक्षा को बढ़ाने और ग्राहक शिकायत निवारण तंत्र को सुव्यवस्थित करने के लिए सहकारी बैंकों के लिए नए परिचालन ढांचे की घोषणा की।",
 
-    "4. ISRO announced preparations for upcoming satellite tracking and Earth observation missions scheduled from its spaceports, focusing on disaster management support. / इसरो ने आपदा प्रबंधन सहायता पर ध्यान केंद्रित करते हुए अपने अंतरिक्ष केंद्रों से निर्धारित आगामी उपग्रह ट्रैकिंग और पृथ्वी अवलोकन मिशनों की तैयारियों की घोषणा की।",
+    "4. ISRO successfully completed preliminary ground tests for advanced propulsion systems intended for upcoming interplanetary exploratory missions. / इसरो ने आगामी अंतरग्रहीय अन्वेषण मिशनों के लिए डिज़ाइन की गई उन्नत प्रणोदन प्रणालियों के लिए प्रारंभिक ग्राउंड टेस्ट सफलतापूर्वक पूरे किए।",
 
-    "5. The Union Ministry of Education launched a nationwide digital literacy initiative aimed at bridging the digital divide in rural schools and strengthening foundational learning. / केंद्रीय शिक्षा मंत्रालय ने ग्रामीण स्कूलों में डिजिटल विभाजन को पाटने और मूलभूत शिक्षण को मजबूत करने के उद्देश्य से एक राष्ट्रव्यापी डिजिटल साक्षरता पहल शुरू की।",
+    "5. The Ministry of Housing and Urban Affairs reviewed the progress of smart city transit corridors, focusing on last-mile connectivity and eco-friendly electric bus integration. / आवास और शहरी मामलों के मंत्रालय ने स्मार्ट सिटी ट्रांजिट कॉरिडोर की प्रगति की समीक्षा की, जिसमें अंतिम-मील कनेक्टिविटी और पर्यावरण अनुकूल इलेक्ट्रिक बस एकीकरण पर ध्यान केंद्रित किया गया।",
 
-    "6. India and global tech stakeholders held preliminary discussions on cybersecurity frameworks for emerging artificial intelligence applications, emphasizing safe digital infrastructure. / भारत और वैश्विक तकनीकी हितधारकों ने सुरक्षित डिजिटल बुनियादी ढाँचे पर जोर देते हुए उभरते कृत्रिम बुद्धिमत्ता अनुप्रयोगों के लिए साइबर सुरक्षा ढाँचों पर प्रारंभिक चर्चा की।",
+    "6. The Union Ministry of Agriculture launched a specialized portal for farmers to access real-time advisory on pest management and climate-resilient sowing techniques. / केंद्रीय कृषि मंत्रालय ने किसानों के लिए कीट प्रबंधन और जलवायु-लचीली बुवाई तकनीकों पर वास्तविक समय की सलाह प्राप्त करने के लिए एक विशेष पोर्टल लॉन्च किया।",
 
-    "7. The Ministry of Railways introduced updated guidelines for passenger amenities and station redevelopment projects under the Amrit Bharat Station Scheme. / रेल मंत्रालय ने अमृत भारत स्टेशन योजना के तहत यात्री सुविधाओं और स्टेशन पुनर्विकास परियोजनाओं के लिए अद्यतन दिशानिर्देश पेश किए।",
+    "7. India’s power sector achieved new milestones in peak power demand management, driven by improved grid synchronization and expanded renewable energy storage capacity. / बेहतर ग्रिड सिंक्रनाइज़ेशन और विस्तारित नवीकरणीय ऊर्जा भंडारण क्षमता से प्रेरित होकर भारत के पावर सेक्टर ने पीक पावर डिमांड मैनेजमेंट में नए मील के पत्थर हासिल किए।",
 
-    "8. The 2026 Men's Hockey Asian Champions Trophy developments and training camps were highlighted as national teams prepare for upcoming international tournaments. / राष्ट्रीय टीमों के आगामी अंतरराष्ट्रीय टूर्नामेंटों की तैयारी के रूप में 2026 पुरुष हॉकी एशियाई चैंपियंस ट्रॉफी के विकास और प्रशिक्षण शिविरों पर प्रकाश डाला गया।",
+    "8. The Ministry of Culture announced the commencement of a nationwide heritage documentation project utilizing 3D scanning and digital archiving technologies. / संस्कृति मंत्रालय ने 3डी स्कैनिंग और डिजिटल आर्काइविंग तकनीकों का उपयोग करके एक राष्ट्रव्यापी विरासत प्रलेखन परियोजना की शुरुआत की घोषणा की।",
 
-    "9. The Ministry of Agriculture and Farmers Welfare initiated a special monitoring drive for Kharif crop harvesting yields and procurement preparations across major producing states. / कृषि और किसान कल्याण मंत्रालय ने प्रमुख उत्पादक राज्यों में खरीफ फसल कटाई की पैदावार और खरीद की तैयारियों के लिए एक विशेष निगरानी अभियान शुरू किया।",
+    "9. National sports federations released updated training schedules and selection guidelines for athletes preparing for upcoming international multi-sport events. / राष्ट्रीय खेल महासंघों ने आगामी अंतरराष्ट्रीय बहु-खेल आयोजनों की तैयारी कर रहे एथलीटों के लिए अद्यतन प्रशिक्षण कार्यक्रम और चयन दिशानिर्देश जारी किए।",
 
-    "10. Renewable energy agencies reported a surge in rooftop solar installations under national rooftop solar subsidies, accelerating clean energy adoption in residential areas. / नवीकरणीय ऊर्जा एजेंसियों ने राष्ट्रीय छत सौर सब्सिडी के तहत छत पर सौर स्थापना में वृद्धि की सूचना दी, जिससे आवासीय क्षेत्रों में स्वच्छ ऊर्जा को बढ़ावा मिला।"
+    "10. The Bureau of Indian Standards (BIS) introduced stricter quality control norms for consumer electronics and battery manufacturing to align with global safety standards. / भारतीय मानक ब्यूरो (BIS) ने वैश्विक सुरक्षा मानकों के साथ तालमेल बिठाने के लिए उपभोक्ता इलेक्ट्रॉनिक्स और बैटरी निर्माण के लिए सख्त गुणवत्ता नियंत्रण मानदंड पेश किए।"
   ],
 
   quizList: [
     {
-      qEn: "1. Which of the following states celebrate their formation day on 1 November?",
-      qHi: "1. निम्नलिखित में से कौन सा राज्य 1 नवंबर को अपना स्थापना दिवस मनाता है?",
+      qEn: "1. Which ministry released the export performance data highlighting growth in engineering and electronics goods?",
+      qHi: "1. इंजीनियरिंग और इलेक्ट्रॉनिक्स सामानों में वृद्धि को उजागर करने वाले निर्यात प्रदर्शन डेटा को किस मंत्रालय ने जारी किया?",
       optionsEn: [
-        "Madhya Pradesh and Karnataka",
-        "Gujarat and Maharashtra",
-        "Punjab and Tamil Nadu",
-        "Odisha and West Bengal"
+        "Ministry of Finance",
+        "Ministry of Commerce and Industry",
+        "Ministry of MSME",
+        "Ministry of Corporate Affairs"
       ],
       optionsHi: [
-        "मध्य प्रदेश और कर्नाटक",
-        "गुजरात और महाराष्ट्र",
-        "पंजाब और तमिलनाडु",
-        "ओडिशा और पश्चिम बंगाल"
-      ],
-      answer: 0,
-      expEn: "States like Madhya Pradesh, Karnataka, Kerala, Andhra Pradesh, Chhattisgarh, and Haryana celebrate foundation day on 1 November.",
-      expHi: "मध्य प्रदेश, कर्नाटक, केरल, आंध्र प्रदेश, छत्तीसगढ़ और हरियाणा जैसे राज्य 1 नवंबर को स्थापना दिवस मनाते हैं।"
-    },
-    {
-      qEn: "2. Under which scheme did the Ministry of Railways introduce updated guidelines for station redevelopment?",
-      qHi: "2. रेल मंत्रालय ने किस योजना के तहत स्टेशन पुनर्रविकास के लिए अद्यतन दिशानिर्देश पेश किए?",
-      optionsEn: [
-        "Vande Bharat Station Initiative",
-        "Amrit Bharat Station Scheme",
-        "Smart Railway Corridor Project",
-        "National Transit Modernization Plan"
-      ],
-      optionsHi: [
-        "वंदे भारत स्टेशन पहल",
-        "अमृत भारत स्टेशन योजना",
-        "स्मार्ट रेलवे कॉरिडोर प्रोजेक्ट",
-        "राष्ट्रीय पारगमन आधुनिकीकरण योजना"
+        "वित्त मंत्रालय",
+        "वाणिज्य और उद्योग मंत्रालय",
+        "सूक्ष्म, लघु और मध्यम उद्यम मंत्रालय",
+        "कॉर्पोरेट मामलों के मंत्रालय"
       ],
       answer: 1,
-      expEn: "The guidelines were introduced under the Amrit Bharat Station Scheme.",
-      expHi: "ये दिशानिर्देश अमृत भारत स्टेशन योजना के तहत पेश किए गए थे।"
+      expEn: "The data was released by the Ministry of Commerce and Industry.",
+      expHi: "यह डेटा वाणिज्य और उद्योग मंत्रालय द्वारा जारी किया गया था।"
     },
     {
-      qEn: "3. Robust GST revenue collections for October 2026 were reported by which ministry?",
-      qHi: "3. अक्टूबर 2026 के लिए मजबूत जीएसटी राजस्व संग्रह की सूचना किस मंत्रालय ने दी?",
+      qEn: "2. The RBI announced new operational frameworks primarily aimed at which category of banks to enhance digital security?",
+      qHi: "2. डिजिटल सुरक्षा को बढ़ाने के लिए RBI ने मुख्य रूप से किस श्रेणी के बैंकों के लिए नए परिचालन ढांचे की घोषणा की?",
       optionsEn: [
-        "Ministry of Commerce and Industry",
-        "Ministry of Finance",
-        "Ministry of Corporate Affairs",
+        "Payment Banks",
+        "Cooperative Banks",
+        "Foreign Banks in India",
+        "Regional Rural Banks exclusively"
+      ],
+      optionsHi: [
+        "पेमेंट बैंक",
+        "सहकारी बैंक (Cooperative Banks)",
+        "भारत में विदेशी बैंक",
+        "विशेष रूप से क्षेत्रीय ग्रामीण बैंक"
+      ],
+      answer: 1,
+      expEn: "The new frameworks were announced for cooperative banks.",
+      expHi: "नए परिचालन ढांचे सहकारी बैंकों के लिए घोषित किए गए थे।"
+    },
+    {
+      qEn: "3. What was the focus of ISRO's recently completed preliminary ground tests?",
+      qHi: "3. इसरो द्वारा हाल ही में पूरे किए गए प्रारंभिक ग्राउंड टेस्ट का मुख्य फोकस क्या था?",
+      optionsEn: [
+        "Advanced propulsion systems for interplanetary missions",
+        "High-altitude balloon launch mechanisms",
+        "Sub-sea aquatic habitat simulation",
+        "Commercial satellite broadcasting antennas"
+      ],
+      optionsHi: [
+        "अंतरग्रहीय मिशनों के लिए उन्नत प्रणोदन प्रणालियाँ",
+        "उच्च ऊंचाई वाले गुब्बारे के प्रक्षेपण तंत्र",
+        "समुद्र के नीचे जलीय आवास सिमुलेशन",
+        "व्यावसायिक उपग्रह प्रसारण एंटेना"
+      ],
+      answer: 0,
+      expEn: "ISRO completed tests for advanced propulsion systems intended for interplanetary missions.",
+      expHi: "इसरो ने अंतरग्रहीय मिशनों के लिए उन्नत प्रणोदन प्रणालियों के परीक्षण पूरे किए।"
+    },
+    {
+      qEn: "4. The Ministry of Agriculture launched a specialized portal for what primary purpose?",
+      qHi: "4. कृषि मंत्रालय ने किस मुख्य उद्देश्य के लिए एक विशेष पोर्टल लॉन्च किया?",
+      optionsEn: [
+        "Submitting direct tax returns for farmers",
+        "Accessing real-time advisory on pest management and climate-resilient sowing",
+        "Exporting organic fertilizers overseas",
+        "Applying for heavy tractor loans"
+      ],
+      optionsHi: [
+        "किसानों के लिए प्रत्यक्ष कर रिटर्न दाखिल करना",
+        "कीट प्रबंधन और जलवायु-लचीली बुवाई पर वास्तविक समय की सलाह प्राप्त करना",
+        "विदेशी बाजारों में जैविक उर्वरक निर्यात करना",
+        "भारी ट्रैक्टर ऋण के लिए आवेदन करना"
+      ],
+      answer: 1,
+      expEn: "The portal helps farmers access real-time advisory on pest management and resilient sowing.",
+      expHi: "यह पोर्टल किसानों को कीट प्रबंधन और लचीली बुवाई पर वास्तविक समय की सलाह प्राप्त करने में मदद करता है।"
+    },
+    {
+      qEn: "5. Which organization introduced stricter quality control norms for consumer electronics and battery manufacturing?",
+      qHi: "5. उपभोक्ता इलेक्ट्रॉनिक्स और बैटरी निर्माण के लिए सख्त गुणवत्ता नियंत्रण मानदंड किस संस्था ने पेश किए?",
+      optionsEn: [
+        "TRAI",
+        "Bureau of Indian Standards (BIS)",
+        "FSSAI",
         "NITI Aayog"
       ],
       optionsHi: [
-        "वाणिज्य और उद्योग मंत्रालय",
-        "वित्त मंत्रालय",
-        "कॉर्पोरेट मामलों के मंत्रालय",
+        "ट्राई (TRAI)",
+        "भारतीय मानक ब्यूरो (BIS)",
+        "एफएसएसएआई (FSSAI)",
         "नीति आयोग"
       ],
       answer: 1,
-      expEn: "The Ministry of Finance reported the robust GST revenue collections.",
-      expHi: "वित्त मंत्रालय ने मजबूत जीएसटी राजस्व संग्रह की सूचना दी।"
+      expEn: "The Bureau of Indian Standards (BIS) introduced these stricter norms.",
+      expHi: "भारतीय मानक ब्यूरो (BIS) ने ये सख्त मानदंड पेश किए।"
     },
     {
-      qEn: "4. What is the primary focus of the Union Ministry of Education's newly launched digital literacy initiative?",
-      qHi: "4. केंद्रीय शिक्षा मंत्रालय की नई डिजिटल साक्षरता पहल का मुख्य फोकस क्या है?",
+      qEn: "6. Urban transit corridor reviews by the Ministry of Housing and Urban Affairs focused heavily on integrating what?",
+      qHi: "6. आवास और शहरी मामलों के मंत्रालय द्वारा शहरी पारगमन गलियारे की समीक्षा में किस पर अधिक ध्यान केंद्रित किया गया?",
       optionsEn: [
-        "Coding education for corporate professionals",
-        "Bridging the digital divide in rural schools and strengthening foundational learning",
-        "Establishing online universities abroad",
-        "Replacing all textbooks with virtual reality headsets"
+        "Underground freight pipelines",
+        "Eco-friendly electric bus integration and last-mile connectivity",
+        "High-speed bullet train stations",
+        "Private car toll lanes"
       ],
       optionsHi: [
-        "कॉर्पोरेट पेशेवरों के लिए कोडिंग शिक्षा",
-        "ग्रामीण स्कूलों में डिजिटल विभाजन को पाटना और मूलभूत शिक्षण को मजबूत करना",
-        "विदेशों में ऑनलाइन विश्वविद्यालय स्थापित करना",
-        "सभी पाठ्यपुस्तकों को वर्चुअल रियलिटी हेडसेट से बदलना"
+        "भूमिगत माल ढुलाई पाइपलाइन",
+        "पर्यावरण अनुकूल इलेक्ट्रिक बस एकीकरण और अंतिम-मील कनेक्टिविटी",
+        "हाई-स्पीड बुलेट ट्रेन स्टेशन",
+        "निजी कार टोल लेन"
       ],
       answer: 1,
-      expEn: "The initiative aims to bridge the digital divide in rural schools and strengthen foundational learning.",
-      expHi: "इस पहल का उद्देश्य ग्रामीण स्कूलों में डिजिटल विभाजन को पाटना और मूलभूत शिक्षण को मजबूत करना है।"
+      expEn: "The review focused on last-mile connectivity and eco-friendly electric bus integration.",
+      expHi: "समीक्षा अंतिम-मील कनेक्टिविटी और पर्यावरण अनुकूल इलेक्ट्रिक बस एकीकरण पर केंद्रित थी।"
     },
     {
-      qEn: "5. Which organization announced a review of liquidity management tools for the festive and winter season?",
-      qHi: "5. त्योहारी और सर्दियों के मौसम के लिए तरलता प्रबंधन उपकरणों की समीक्षा की घोषणा किस संस्था ने की?",
+      qEn: "7. India's power sector achieved milestones in peak power demand management due to what key improvements?",
+      qHi: "7. भारत के पावर सेक्टर ने किन प्रमुख सुधारों के कारण पीक पावर डिमांड मैनेजमेंट में मील के पत्थर हासिल किए?",
       optionsEn: [
-        "SEBI",
-        "RBI",
-        "SIDBI",
-        "NABARD"
+        "Total reliance on imported thermal coal",
+        "Improved grid synchronization and expanded renewable energy storage",
+        "Reduction in overall industrial production",
+        "Complete shutdown of residential grids during peak hours"
       ],
       optionsHi: [
-        "सेबी",
-        "आरबीआई",
-        "सिडबी",
-        "नाबार्ड"
+        "आयातित थर्मल कोयले पर कुल निर्भरता",
+        "बेहतर ग्रिड सिंक्रनाइज़ेशन और विस्तारित नवीकरणीय ऊर्जा भंडारण",
+        "समग्र औद्योगिक उत्पादन में कमी",
+        "पीक आवर्स के दौरान आवासीय ग्रिडों का पूर्ण शटडाउन"
       ],
       answer: 1,
-      expEn: "The Reserve Bank of India (RBI) announced the review.",
-      expHi: "भारतीय रिजर्व बैंक (RBI) ने समीक्षा की घोषणा की।"
+      expEn: "Improvements were driven by grid synchronization and expanded renewable energy storage capacity.",
+      expHi: "सुधार ग्रिड सिंक्रनाइज़ेशन और विस्तारित नवीकरणीय ऊर्जा भंडारण क्षमता से प्रेरित थे।"
     },
     {
-      qEn: "6. A surge in rooftop solar installations was reported under which national initiative/subsidy?",
-      qHi: "6. किस राष्ट्रीय पहल/सब्सिडी के तहत रूफटॉप सोलर इंस्टॉलेशन में वृद्धि दर्ज की गई?",
+      qEn: "8. What technology is the Ministry of Culture utilizing for its newly announced nationwide heritage documentation project?",
+      qHi: "8. संस्कृति मंत्रालय अपनी नई घोषित राष्ट्रव्यापी विरासत प्रलेखन परियोजना के लिए किस तकनीक का उपयोग कर रहा है?",
       optionsEn: [
-        "National Solar Mission",
-        "National Rooftop Solar Subsidies",
-        "PM Surya Ghar Yojana framework",
-        "Green Grid Infrastructure Fund"
+        "Virtual reality gaming engines only",
+        "3D scanning and digital archiving technologies",
+        "Satellite radar imaging exclusively",
+        "Manual sketching and blueprint restoration"
       ],
       optionsHi: [
-        "राष्ट्रीय सौर मिशन",
-        "राष्ट्रीय रूफटॉप सोलर सब्सिडी",
-        "पीएम सूर्य घर योजना ढांचा",
-        "ग्रीन ग्रिड इंफ्रास्ट्रक्चर फंड"
+        "केवल वर्चुअल रियलिटी गेमिंग इंजन",
+        "3D स्कैनिंग और डिजिटल आर्काइविंग तकनीक",
+        "विशेष रूप से उपग्रह रडार इमेजिंग",
+        "मैनुअल स्केचिंग और ब्लूप्रिंट बहाली"
       ],
       answer: 1,
-      expEn: "The surge was reported under national rooftop solar subsidies.",
-      expHi: "यह वृद्धि राष्ट्रीय रूफटॉप सोलर सब्सिडी के तहत दर्ज की गई।"
+      expEn: "The project utilizes 3D scanning and digital archiving technologies.",
+      expHi: "यह परियोजना 3D स्कैनिंग और डिजिटल आर्काइविंग तकनीकों का उपयोग करती है।"
     },
     {
-      qEn: "7. ISRO's upcoming satellite tracking and Earth observation missions heavily focus on supporting what?",
-      qHi: "7. इसरो के आगामी उपग्रह ट्रैकिंग और पृथ्वी अवलोकन मिशन मुख्य रूप से किस सहायता पर केंद्रित हैं?",
+      qEn: "9. International security frameworks reviewed in the Indian Ocean Region emphasized collaborative operations against what?",
+      qHi: "9. हिंद महासागर क्षेत्र में समीक्षा किए गए अंतरराष्ट्रीय सुरक्षा ढांचों में किसके खिलाफ सहयोगात्मक संचालन पर जोर दिया गया?",
       optionsEn: [
-        "Deep-space asteroid mining",
-        "Disaster management support",
-        "Commercial telecommunications only",
-        "Interplanetary colonization trials"
+        "Deep-sea fishing boats",
+        "Piracy and natural disasters (anti-piracy and disaster response)",
+        "Commercial cargo tariffs",
+        "Undersea internet cables"
       ],
       optionsHi: [
-        "गहरे अंतरिक्ष में क्षुद्रग्रह खनन",
-        "आपदा प्रबंधन सहायता",
-        "केवल व्यावसायिक दूर संचार",
-        "अंतरग्रहीय उपनिवेशीकरण परीक्षण"
+        "गहरे समुद्र में मछली पकड़ने वाली नावें",
+        "समुद्री डकैती और प्राकृतिक आपदाएँ (एंटी-पाइरेसी और आपदा प्रतिक्रिया)",
+        "वाणिज्यिक कार्गो टैरिफ",
+        "समुद्र के नीचे इंटरनेट केबल"
       ],
       answer: 1,
-      expEn: "The missions focus on disaster management support.",
-      expHi: "मिशन आपदा प्रबंधन सहायता पर केंद्रित हैं।"
+      expEn: "The review emphasized collaborative anti-piracy and disaster response operations.",
+      expHi: "समीक्षा में सहयोगात्मक एंटी-पाइरेसी और आपदा प्रतिक्रिया संचालन पर जोर दिया गया।"
     },
     {
-      qEn: "8. The special monitoring drive initiated by the Ministry of Agriculture focuses on which crop season?",
-      qHi: "8. कृषि मंत्रालय द्वारा शुरू किया गया विशेष निगरानी अभियान किस फसल सीजन पर केंद्रित है?",
+      qEn: "10. National sports federations released updated guidelines primarily for athletes preparing for what?",
+      qHi: "10. राष्ट्रीय खेल महासंघों ने मुख्य रूप से किनकी तैयारी कर रहे एथलीटों के लिए अद्यतन दिशानिर्देश जारी किए?",
       optionsEn: [
-        "Kharif crop harvesting yields and procurement preparations",
-        "Rabi sowing targets exclusively",
-        "Zaid horticulture expansion",
-        "Plantation crop export quotas"
+        "Upcoming international multi-sport events",
+        "Local district league championships",
+        "Corporate fitness challenges",
+        "Amateur club exhibitions"
       ],
       optionsHi: [
-        "खरीफ फसल की कटाई की पैदावार और खरीद की तैयारियां",
-        "विशेष रूप से रबी बुआई के लक्ष्य",
-        "जायद बागवानी विस्तार",
-        "रोपण फसल निर्यात कोटा"
+        "आगामी अंतरराष्ट्रीय बहु-खेल आयोजन",
+        "स्थानीय जिला लीग चैंपियनशिप",
+        "कॉर्पोरेट फिटनेस चुनौतियां",
+        "शौकिया क्लब प्रदर्शनियाँ"
       ],
       answer: 0,
-      expEn: "It focuses on Kharif crop harvesting yields and procurement preparations.",
-      expHi: "यह खरीफ फसल की कटाई की पैदावार और खरीद की तैयारियों पर केंद्रित है।"
-    },
-    {
-      qEn: "9. Preliminary discussions between India and global tech stakeholders centered around cybersecurity frameworks for which emerging technology?",
-      qHi: "9. भारत और वैश्विक तकनीकी हितधारकों के बीच प्रारंभिक चर्चा किस उभरती हुई तकनीक के लिए साइबर सुरक्षा ढांचे पर केंद्रित थी?",
-      optionsEn: [
-        "Quantum computing hardware",
-        "Artificial Intelligence applications",
-        "Blockchain cryptocurrency mining",
-        "Autonomous drone navigation"
-      ],
-      optionsHi: [
-        "क्वांटम कंप्यूटिंग हार्डवेयर",
-        "आर्टिफिशियल इंटेलिजेंस (कृत्रिम बुद्धिमत्ता) अनुप्रयोग",
-        "ब्ॉकचेन क्रिप्टोकरेंसी माइनिंग",
-        "स्वायत्त ड्रोन नेविगेशन"
-      ],
-      answer: 1,
-      expEn: "Discussions centered on cybersecurity frameworks for emerging artificial intelligence applications.",
-      expHi: "चर्चा उभरते कृत्रिम बुद्धिमत्ता अनुप्रयोगों के लिए साइबर सुरक्षा ढाँचों पर केंद्रित थी।"
-    },
-    {
-      qEn: "10. National hockey teams are currently preparing for tournaments including which major trophy context?",
-      qHi: "10. राष्ट्रीय हॉकी टीमें वर्तमान में किस प्रमुख ट्रॉफी संदर्भ वाले टूर्नामेंटों की तैयारी कर रही हैं?",
-      optionsEn: [
-        "Men's Hockey Asian Champions Trophy",
-        "World Cricket League Cup",
-        "Asian Football Confederation Cup",
-        "International Kabaddi Masters"
-      ],
-      optionsHi: [
-        "पुरुष हॉकी एशियाई चैंपियंस ट्रॉफी",
-        "विश्व क्रिकेट लीग कप",
-        "एशियाई फुटबॉल परिसंघ कप",
-        "अंतर्राष्ट्रीय कबड्डी मास्टर्स"
-      ],
-      answer: 0,
-      expEn: "Developments highlighted the 2026 Men's Hockey Asian Champions Trophy preparation.",
-      expHi: "विकास 2026 पुरुष हॉकी एशियाई चैंपियंस ट्रॉफी की तैयारी पर प्रकाश डालते हैं।"
+      expEn: "Guidelines were released for athletes preparing for upcoming international multi-sport events.",
+      expHi: "दिशानिर्देश आगामी अंतरराष्ट्रीय बहु-खेल आयोजनों की तैयारी कर रहे एथलीटों के लिए जारी किए गए थे।"
     }
   ]
 };
