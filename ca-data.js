@@ -1,219 +1,219 @@
 window.TARGETTIRE_CA_DATABASE = {
-  date: "2 November 2026",
-  bulletinTitle: "Daily Current Affairs — 2 November 2026",
+  date: "14 October 2026",
+  bulletinTitle: "Daily Current Affairs — 31 October 2026",
 
   points: [
-    "1. India and several international maritime nations reviewed joint security frameworks in the Indian Ocean Region, emphasizing collaborative anti-piracy and disaster response operations on 2 November 2026. / भारत और कई अंतरराष्ट्रीय समुद्री देशों ने 2 November 2026 को हिंद महासागर क्षेत्र में संयुक्त सुरक्षा ढांचे की समीक्षा की, जिसमें सहयोगात्मक एंटी-पाइरेसी और आपदा प्रतिक्रिया संचालन पर जोर दिया गया।",
+    "1. India observed the 151st birth anniversary of Sardar Vallabhbhai Patel as Rashtriya Ekta Diwas (National Unity Day) on 31 October 2026, commemorating his immense contribution to national integration. / भारत ने 31 अक्टूबर 2026 को सरदार वल्लभभाई पटेल की 151वीं जयंती राष्ट्रीय एकता दिवस (Rashtriya Ekta Diwas) के रूप में मनाई, जो राष्ट्र के एकीकरण में उनके अपूर्व योगदान को याद करती है।",
 
-    "2. The Ministry of Commerce and Industry released export performance data for October 2026, highlighting steady growth in engineering goods, electronics, and agricultural commodities. / वाणिज्य और उद्योग मंत्रालय ने अक्टूबर 2026 के लिए निर्यात प्रदर्शन डेटा जारी किया, जिसमें इंजीनियरिंग सामान, इलेक्ट्रॉनिक्स और कृषि वस्तुओं में स्थिर वृद्धि को रेखांकित किया गया।",
+    "2. The Union Cabinet approved the Pradhan Mantri Viksit Gram Swaraj Yojana (PM VGSY) with an outlay of Rs. 7,395.55 crore for a five-year period from FY27 to FY31. / केंद्रीय मंत्रिमंडल ने वित्त वर्ष 2027 से वित्त वर्ष 2031 तक की पांच साल की अवधि के लिए 7,395.55 करोड़ रुपये के परिव्यय के साथ प्रधानमंत्री विकसित ग्राम स्वराज योजना (PM VGSY) को मंजूरी दी।",
 
-    "3. The Reserve Bank of India (RBI) announced new operational frameworks for cooperative banks to enhance digital banking security and streamline customer grievance redressal mechanisms. / भारतीय रिजर्व बैंक (RBI) ने डिजिटल बैंकिंग सुरक्षा को बढ़ाने और ग्राहक शिकायत निवारण तंत्र को सुव्यवस्थित करने के लिए सहकारी बैंकों के लिए नए परिचालन ढांचे की घोषणा की।",
+    "3. The Ministry of Finance released the Monthly Economic Review for October 2026, projecting India's Gross Domestic Product (GDP) growth rate at 7.35% for the second quarter (Q2: July-September) of FY27. / वित्त मंत्रालय ने अक्टूबर 2026 की मासिक आर्थिक समीक्षा जारी की, जिसमें वित्त वर्ष 2027 की दूसरी तिमाही (जुलाई-सितंबर) के लिए भारत की सकल घरेलू उत्पाद (GDP) वृद्धि दर 7.35% रहने का अनुमान लगाया गया है।",
 
-    "4. ISRO successfully completed preliminary ground tests for advanced propulsion systems intended for upcoming interplanetary exploratory missions. / इसरो ने आगामी अंतरग्रहीय अन्वेषण मिशनों के लिए डिज़ाइन की गई उन्नत प्रणोदन प्रणालियों के लिए प्रारंभिक ग्राउंड टेस्ट सफलतापूर्वक पूरे किए।",
+    "4. World Savings Day (also known as World Thrift Day) was observed worldwide on 31 October 2026 with the theme “AI Advises, human decides” to promote the habit of saving and financial security. / बचत की आदत को बढ़ावा देने और वित्तीय सुरक्षा के प्रति जागरूकता बढ़ाने के लिए 31 अक्टूबर 2026 को “AI Advises, human decides” विषय के साथ विश्व बचत दिवस दुनिया भर में मनाया गया।",
 
-    "5. The Ministry of Housing and Urban Affairs reviewed the progress of smart city transit corridors, focusing on last-mile connectivity and eco-friendly electric bus integration. / आवास और शहरी मामलों के मंत्रालय ने स्मार्ट सिटी ट्रांजिट कॉरिडोर की प्रगति की समीक्षा की, जिसमें अंतिम-मील कनेक्टिविटी और पर्यावरण अनुकूल इलेक्ट्रिक बस एकीकरण पर ध्यान केंद्रित किया गया।",
+    "5. World Cities Day 2026 was observed globally on 31 October 2026 with the theme “Regenerating the City: Adequate Housing for All,” focusing on neighbourhood renewal and sustainable development. / विश्व शहर दिवस 2026, 31 अक्टूबर 2026 को “Regenerating the City: Adequate Housing for All” विषय के साथ मनाया गया, जो पड़ोस के नवीनीकरण और सतत विकास पर केंद्रित है।",
 
-    "6. The Union Ministry of Agriculture launched a specialized portal for farmers to access real-time advisory on pest management and climate-resilient sowing techniques. / केंद्रीय कृषि मंत्रालय ने किसानों के लिए कीट प्रबंधन और जलवायु-लचीली बुवाई तकनीकों पर वास्तविक समय की सलाह प्राप्त करने के लिए एक विशेष पोर्टल लॉन्च किया।",
+    "6. The Union Minister of Jal Shakti launched the 'Punah Bharan' Mobile Application to promote scientific groundwater recharge planning and sustainable water management across regions. / केंद्रीय जल शक्ति मंत्री ने क्षेत्रों में वैज्ञानिक भूजल पुनर्भरण योजना और टिकाऊ जल प्रबंधन को बढ़ावा देने के लिए 'पुनः भरन' मोबाइल एप्लीकेशन लॉन्च किया।",
 
-    "7. India’s power sector achieved new milestones in peak power demand management, driven by improved grid synchronization and expanded renewable energy storage capacity. / बेहतर ग्रिड सिंक्रनाइज़ेशन और विस्तारित नवीकरणीय ऊर्जा भंडारण क्षमता से प्रेरित होकर भारत के पावर सेक्टर ने पीक पावर डिमांड मैनेजमेंट में नए मील के पत्थर हासिल किए।",
+    "7. The Ministry of Labour and Employment officially notified the constitution of National Social Security Boards for Unorganised Workers and Gig and Platform Workers under the Code on Social Security. / श्रम और रोजगार मंत्रालय ने सामाजिक सुरक्षा संहिता के तहत असंगठित श्रमिकों तथा गिग और प्लेटफॉर्म श्रमिकों के लिए राष्ट्रीय सामाजिक सुरक्षा बोर्ड के गठन को आधिकारिक रूप से अधिसूचित किया।",
 
-    "8. The Ministry of Culture announced the commencement of a nationwide heritage documentation project utilizing 3D scanning and digital archiving technologies. / संस्कृति मंत्रालय ने 3डी स्कैनिंग और डिजिटल आर्काइविंग तकनीकों का उपयोग करके एक राष्ट्रव्यापी विरासत प्रलेखन परियोजना की शुरुआत की घोषणा की।",
+    "8. The Federation of Indian Chambers of Commerce and Industry (FICCI) appointed Vijay Sankar, Chairman of The Sanmar Group, as its President-Elect for the 2026–27 term. / फिक्की (FICCI) ने द सनमार ग्रुप के चेयरमैन विजय शंकर को 2026-27 कार्यकाल के लिए अपना अध्यक्ष-निर्वाचित (President-Elect) नियुक्त किया।",
 
-    "9. National sports federations released updated training schedules and selection guidelines for athletes preparing for upcoming international multi-sport events. / राष्ट्रीय खेल महासंघों ने आगामी अंतरराष्ट्रीय बहु-खेल आयोजनों की तैयारी कर रहे एथलीटों के लिए अद्यतन प्रशिक्षण कार्यक्रम और चयन दिशानिर्देश जारी किए।",
+    "9. Indian AI startup Sarvam AI signed a five-year MoU with Headquarters Integrated Defence Staff (HQ IDS) to develop and deploy artificial intelligence applications for the Indian Armed Forces. / भारतीय AI स्टार्टअप सर्वम AI ने भारतीय सशस्त्र बलों के लिए कृत्रिम बुद्धिमत्ता अनुप्रयोगों को विकसित करने और तैनात करने हेतु मुख्यालय एकीकृत रक्षा स्टाफ (HQ IDS) के साथ पांच साल के समझौता ज्ञापन पर हस्ताक्षर किए।",
 
-    "10. The Bureau of Indian Standards (BIS) introduced stricter quality control norms for consumer electronics and battery manufacturing to align with global safety standards. / भारतीय मानक ब्यूरो (BIS) ने वैश्विक सुरक्षा मानकों के साथ तालमेल बिठाने के लिए उपभोक्ता इलेक्ट्रॉनिक्स और बैटरी निर्माण के लिए सख्त गुणवत्ता नियंत्रण मानदंड पेश किए।"
+    "10. Scientists in Maharashtra discovered a new microscopic land snail species named Dicharax tilariensis in the Tilari region of Kolhapur within the Western Ghats. / महाराष्ट्र के वैज्ञानिकों ने पश्चिमी घाट में कोल्हापुर के तिलारी क्षेत्र में 'डिखारक्स तिलारिएन्सिस' (Dicharax tilariensis) नामक एक नई सूक्ष्म स्थलीय घोंघे की प्रजाति की खोज की।"
   ],
 
   quizList: [
     {
-      qEn: "1. Which ministry released the export performance data highlighting growth in engineering and electronics goods?",
-      qHi: "1. इंजीनियरिंग और इलेक्ट्रॉनिक्स सामानों में वृद्धि को उजागर करने वाले निर्यात प्रदर्शन डेटा को किस मंत्रालय ने जारी किया?",
+      qEn: "1. What is the theme for World Savings Day 2026, observed on October 31?",
+      qHi: "1. 31 अक्टूबर को मनाए जाने वाले विश्व बचत दिवस 2026 का विषय (Theme) क्या है?",
       optionsEn: [
-        "Ministry of Finance",
-        "Ministry of Commerce and Industry",
-        "Ministry of MSME",
-        "Ministry of Corporate Affairs"
+        "Regenerating the City: Adequate Housing for All",
+        "AI Advises, human decides",
+        "Save Today, Secure Tomorrow",
+        "Smart Financial Habits for Everyone"
       ],
       optionsHi: [
-        "वित्त मंत्रालय",
-        "वाणिज्य और उद्योग मंत्रालय",
-        "सूक्ष्म, लघु और मध्यम उद्यम मंत्रालय",
-        "कॉर्पोरेट मामलों के मंत्रालय"
+        "Regenerating the City: Adequate Housing for All",
+        "AI Advises, human decides",
+        "Save Today, Secure Tomorrow",
+        "Smart Financial Habits for Everyone"
       ],
       answer: 1,
-      expEn: "The data was released by the Ministry of Commerce and Industry.",
-      expHi: "यह डेटा वाणिज्य और उद्योग मंत्रालय द्वारा जारी किया गया था।"
+      expEn: "The theme for World Savings Day 2026 is “AI Advises, human decides.”",
+      expHi: "विश्व बचत दिवस 2026 का विषय “AI Advises, human decides” है।"
     },
     {
-      qEn: "2. The RBI announced new operational frameworks primarily aimed at which category of banks to enhance digital security?",
-      qHi: "2. डिजिटल सुरक्षा को बढ़ाने के लिए RBI ने मुख्य रूप से किस श्रेणी के बैंकों के लिए नए परिचालन ढांचे की घोषणा की?",
+      qEn: "2. The Union Cabinet approved the Pradhan Mantri Viksit Gram Swaraj Yojana (PM VGSY) with a total outlay of how much?",
+      qHi: "2. केंद्रीय मंत्रिमंडल ने प्रधानमंत्री विकसित ग्राम स्वराज योजना (PM VGSY) को कुल कितने परिव्यय के साथ मंजूरी दी है?",
       optionsEn: [
-        "Payment Banks",
-        "Cooperative Banks",
-        "Foreign Banks in India",
-        "Regional Rural Banks exclusively"
+        "Rs. 5,120.40 crore",
+        "Rs. 7,395.55 crore",
+        "Rs. 10,250.80 crore",
+        "Rs. 12,450.10 crore"
       ],
       optionsHi: [
-        "पेमेंट बैंक",
-        "सहकारी बैंक (Cooperative Banks)",
-        "भारत में विदेशी बैंक",
-        "विशेष रूप से क्षेत्रीय ग्रामीण बैंक"
+        "₹5,120.40 करोड़",
+        "₹7,395.55 करोड़",
+        "₹10,250.80 करोड़",
+        "₹12,450.10 करोड़"
       ],
       answer: 1,
-      expEn: "The new frameworks were announced for cooperative banks.",
-      expHi: "नए परिचालन ढांचे सहकारी बैंकों के लिए घोषित किए गए थे।"
+      expEn: "The PM VGSY was approved with an outlay of Rs. 7,395.55 crore for a five-year period.",
+      expHi: "PM VGSY को पांच साल की अवधि के लिए ₹7,395.55 करोड़ के परिव्यय के साथ मंजूरी दी गई।"
     },
     {
-      qEn: "3. What was the focus of ISRO's recently completed preliminary ground tests?",
-      qHi: "3. इसरो द्वारा हाल ही में पूरे किए गए प्रारंभिक ग्राउंड टेस्ट का मुख्य फोकस क्या था?",
+      qEn: "3. According to the Ministry of Finance's review released in October 2026, what is India's projected GDP growth rate for Q2 FY27?",
+      qHi: "3. अक्टूबर 2026 में जारी वित्त मंत्रालय की समीक्षा के अनुसार, वित्त वर्ष 2027 की दूसरी तिमाही (Q2) के लिए भारत की अनुमानित GDP विकास दर क्या है?",
       optionsEn: [
-        "Advanced propulsion systems for interplanetary missions",
-        "High-altitude balloon launch mechanisms",
-        "Sub-sea aquatic habitat simulation",
-        "Commercial satellite broadcasting antennas"
+        "6.85%",
+        "7.05%",
+        "7.35%",
+        "7.80%"
       ],
       optionsHi: [
-        "अंतरग्रहीय मिशनों के लिए उन्नत प्रणोदन प्रणालियाँ",
-        "उच्च ऊंचाई वाले गुब्बारे के प्रक्षेपण तंत्र",
-        "समुद्र के नीचे जलीय आवास सिमुलेशन",
-        "व्यावसायिक उपग्रह प्रसारण एंटेना"
+        "6.85%",
+        "7.05%",
+        "7.35%",
+        "7.80%"
+      ],
+      answer: 2,
+      expEn: "The Ministry of Finance projected India's GDP growth rate at 7.35% in Q2 FY27.",
+      expHi: "वित्त मंत्रालय ने वित्त वर्ष 2027 की Q2 में GDP वृद्धि दर 7.35% रहने का अनुमान लगाया है।"
+    },
+    {
+      qEn: "4. What is the theme for World Cities Day 2026 celebrated on 31 October?",
+      qHi: "4. 31 अक्टूबर को मनाए गए विश्व शहर दिवस 2026 का विषय क्या था?",
+      optionsEn: [
+        "Better City, Better Life",
+        "Financing sustainable urban future for all",
+        "Adapting Cities for Climate Resilience",
+        "Regenerating the City: Adequate Housing for All"
+      ],
+      optionsHi: [
+        "Better City, Better Life",
+        "Financing sustainable urban future for all",
+        "Adapting Cities for Climate Resilience",
+        "Regenerating the City: Adequate Housing for All"
+      ],
+      answer: 3,
+      expEn: "World Cities Day 2026 theme is “Regenerating the City: Adequate Housing for All.”",
+      expHi: "विश्व शहर दिवस 2026 का विषय “Regenerating the City: Adequate Housing for All” है।"
+    },
+    {
+      qEn: "5. Who was appointed as the President-Elect of FICCI for 2026–27?",
+      qHi: "5. 2026-27 के लिए FICCI के अध्यक्ष-निर्वाचित (President-Elect) के रूप में किसे नियुक्त किया गया है?",
+      optionsEn: [
+        "Vijay Sankar",
+        "Anish Shah",
+        "Sanjiv Mehta",
+        "Subhrakant Panda"
+      ],
+      optionsHi: [
+        "विजय शंकर",
+        "अनीश शाह",
+        "संजीव मेहता",
+        "सुभ्रकांत पांडा"
       ],
       answer: 0,
-      expEn: "ISRO completed tests for advanced propulsion systems intended for interplanetary missions.",
-      expHi: "इसरो ने अंतरग्रहीय मिशनों के लिए उन्नत प्रणोदन प्रणालियों के परीक्षण पूरे किए।"
+      expEn: "Vijay Sankar, Chairman of The Sanmar Group, was appointed as FICCI President-Elect for 2026–27.",
+      expHi: "द सनमार ग्रुप के चेयरमैन विजय शंकर को 2026-27 के लिए FICCI का अध्यक्ष-निर्वाचित नियुक्त किया गया।"
     },
     {
-      qEn: "4. The Ministry of Agriculture launched a specialized portal for what primary purpose?",
-      qHi: "4. कृषि मंत्रालय ने किस मुख्य उद्देश्य के लिए एक विशेष पोर्टल लॉन्च किया?",
+      qEn: "6. The newly launched 'Punah Bharan' Mobile Application is designed to promote what?",
+      qHi: "6. हाल ही में लॉन्च किया गया 'पुनः भरन' मोबाइल एप्लीकेशन किसे बढ़ावा देने के लिए डिज़ाइन किया गया है?",
       optionsEn: [
-        "Submitting direct tax returns for farmers",
-        "Accessing real-time advisory on pest management and climate-resilient sowing",
-        "Exporting organic fertilizers overseas",
-        "Applying for heavy tractor loans"
+        "Scientific groundwater recharge planning",
+        "Smart grid electricity tracking",
+        "Organic agricultural product certification",
+        "Rural road infrastructure monitoring"
       ],
       optionsHi: [
-        "किसानों के लिए प्रत्यक्ष कर रिटर्न दाखिल करना",
-        "कीट प्रबंधन और जलवायु-लचीली बुवाई पर वास्तविक समय की सलाह प्राप्त करना",
-        "विदेशी बाजारों में जैविक उर्वरक निर्यात करना",
-        "भारी ट्रैक्टर ऋण के लिए आवेदन करना"
-      ],
-      answer: 1,
-      expEn: "The portal helps farmers access real-time advisory on pest management and resilient sowing.",
-      expHi: "यह पोर्टल किसानों को कीट प्रबंधन और लचीली बुवाई पर वास्तविक समय की सलाह प्राप्त करने में मदद करता है।"
-    },
-    {
-      qEn: "5. Which organization introduced stricter quality control norms for consumer electronics and battery manufacturing?",
-      qHi: "5. उपभोक्ता इलेक्ट्रॉनिक्स और बैटरी निर्माण के लिए सख्त गुणवत्ता नियंत्रण मानदंड किस संस्था ने पेश किए?",
-      optionsEn: [
-        "TRAI",
-        "Bureau of Indian Standards (BIS)",
-        "FSSAI",
-        "NITI Aayog"
-      ],
-      optionsHi: [
-        "ट्राई (TRAI)",
-        "भारतीय मानक ब्यूरो (BIS)",
-        "एफएसएसएआई (FSSAI)",
-        "नीति आयोग"
-      ],
-      answer: 1,
-      expEn: "The Bureau of Indian Standards (BIS) introduced these stricter norms.",
-      expHi: "भारतीय मानक ब्यूरो (BIS) ने ये सख्त मानदंड पेश किए।"
-    },
-    {
-      qEn: "6. Urban transit corridor reviews by the Ministry of Housing and Urban Affairs focused heavily on integrating what?",
-      qHi: "6. आवास और शहरी मामलों के मंत्रालय द्वारा शहरी पारगमन गलियारे की समीक्षा में किस पर अधिक ध्यान केंद्रित किया गया?",
-      optionsEn: [
-        "Underground freight pipelines",
-        "Eco-friendly electric bus integration and last-mile connectivity",
-        "High-speed bullet train stations",
-        "Private car toll lanes"
-      ],
-      optionsHi: [
-        "भूमिगत माल ढुलाई पाइपलाइन",
-        "पर्यावरण अनुकूल इलेक्ट्रिक बस एकीकरण और अंतिम-मील कनेक्टिविटी",
-        "हाई-स्पीड बुलेट ट्रेन स्टेशन",
-        "निजी कार टोल लेन"
-      ],
-      answer: 1,
-      expEn: "The review focused on last-mile connectivity and eco-friendly electric bus integration.",
-      expHi: "समीक्षा अंतिम-मील कनेक्टिविटी और पर्यावरण अनुकूल इलेक्ट्रिक बस एकीकरण पर केंद्रित थी।"
-    },
-    {
-      qEn: "7. India's power sector achieved milestones in peak power demand management due to what key improvements?",
-      qHi: "7. भारत के पावर सेक्टर ने किन प्रमुख सुधारों के कारण पीक पावर डिमांड मैनेजमेंट में मील के पत्थर हासिल किए?",
-      optionsEn: [
-        "Total reliance on imported thermal coal",
-        "Improved grid synchronization and expanded renewable energy storage",
-        "Reduction in overall industrial production",
-        "Complete shutdown of residential grids during peak hours"
-      ],
-      optionsHi: [
-        "आयातित थर्मल कोयले पर कुल निर्भरता",
-        "बेहतर ग्रिड सिंक्रनाइज़ेशन और विस्तारित नवीकरणीय ऊर्जा भंडारण",
-        "समग्र औद्योगिक उत्पादन में कमी",
-        "पीक आवर्स के दौरान आवासीय ग्रिडों का पूर्ण शटडाउन"
-      ],
-      answer: 1,
-      expEn: "Improvements were driven by grid synchronization and expanded renewable energy storage capacity.",
-      expHi: "सुधार ग्रिड सिंक्रनाइज़ेशन और विस्तारित नवीकरणीय ऊर्जा भंडारण क्षमता से प्रेरित थे।"
-    },
-    {
-      qEn: "8. What technology is the Ministry of Culture utilizing for its newly announced nationwide heritage documentation project?",
-      qHi: "8. संस्कृति मंत्रालय अपनी नई घोषित राष्ट्रव्यापी विरासत प्रलेखन परियोजना के लिए किस तकनीक का उपयोग कर रहा है?",
-      optionsEn: [
-        "Virtual reality gaming engines only",
-        "3D scanning and digital archiving technologies",
-        "Satellite radar imaging exclusively",
-        "Manual sketching and blueprint restoration"
-      ],
-      optionsHi: [
-        "केवल वर्चुअल रियलिटी गेमिंग इंजन",
-        "3D स्कैनिंग और डिजिटल आर्काइविंग तकनीक",
-        "विशेष रूप से उपग्रह रडार इमेजिंग",
-        "मैनुअल स्केचिंग और ब्लूप्रिंट बहाली"
-      ],
-      answer: 1,
-      expEn: "The project utilizes 3D scanning and digital archiving technologies.",
-      expHi: "यह परियोजना 3D स्कैनिंग और डिजिटल आर्काइविंग तकनीकों का उपयोग करती है।"
-    },
-    {
-      qEn: "9. International security frameworks reviewed in the Indian Ocean Region emphasized collaborative operations against what?",
-      qHi: "9. हिंद महासागर क्षेत्र में समीक्षा किए गए अंतरराष्ट्रीय सुरक्षा ढांचों में किसके खिलाफ सहयोगात्मक संचालन पर जोर दिया गया?",
-      optionsEn: [
-        "Deep-sea fishing boats",
-        "Piracy and natural disasters (anti-piracy and disaster response)",
-        "Commercial cargo tariffs",
-        "Undersea internet cables"
-      ],
-      optionsHi: [
-        "गहरे समुद्र में मछली पकड़ने वाली नावें",
-        "समुद्री डकैती और प्राकृतिक आपदाएँ (एंटी-पाइरेसी और आपदा प्रतिक्रिया)",
-        "वाणिज्यिक कार्गो टैरिफ",
-        "समुद्र के नीचे इंटरनेट केबल"
-      ],
-      answer: 1,
-      expEn: "The review emphasized collaborative anti-piracy and disaster response operations.",
-      expHi: "समीक्षा में सहयोगात्मक एंटी-पाइरेसी और आपदा प्रतिक्रिया संचालन पर जोर दिया गया।"
-    },
-    {
-      qEn: "10. National sports federations released updated guidelines primarily for athletes preparing for what?",
-      qHi: "10. राष्ट्रीय खेल महासंघों ने मुख्य रूप से किनकी तैयारी कर रहे एथलीटों के लिए अद्यतन दिशानिर्देश जारी किए?",
-      optionsEn: [
-        "Upcoming international multi-sport events",
-        "Local district league championships",
-        "Corporate fitness challenges",
-        "Amateur club exhibitions"
-      ],
-      optionsHi: [
-        "आगामी अंतरराष्ट्रीय बहु-खेल आयोजन",
-        "स्थानीय जिला लीग चैंपियनशिप",
-        "कॉर्पोरेट फिटनेस चुनौतियां",
-        "शौकिया क्लब प्रदर्शनियाँ"
+        "वैज्ञानिक भूजल पुनर्भरण योजना (scientific groundwater recharge planning)",
+        "स्मार्ट ग्रिड बिजली ट्रैकिंग",
+        "जैविक कृषि उत्पाद प्रमाणन",
+        "ग्रामीण सड़क बुनियादी ढांचा निगरानी"
       ],
       answer: 0,
-      expEn: "Guidelines were released for athletes preparing for upcoming international multi-sport events.",
-      expHi: "दिशानिर्देश आगामी अंतरराष्ट्रीय बहु-खेल आयोजनों की तैयारी कर रहे एथलीटों के लिए जारी किए गए थे।"
+      expEn: "The Punah Bharan app promotes scientific groundwater recharge planning and sustainable water management.",
+      expHi: "पुनः भरन ऐप वैज्ञानिक भूजल पुनर्भरण योजना और टिकाऊ जल प्रबंधन को बढ़ावा देता है।"
+    },
+    {
+      qEn: "7. Which company signed a five-year MoU with Headquarters Integrated Defence Staff (HQ IDS) for AI solutions in defence?",
+      qHi: "7. रक्षा क्षेत्र में AI समाधानों के लिए किस कंपनी ने मुख्यालय एकीकृत रक्षा स्टाफ (HQ IDS) के साथ पांच साल के समझौता ज्ञापन पर हस्ताक्षर किए?",
+      optionsEn: [
+        "Garuda Aerospace",
+        "Sarvam AI",
+        "Tonbo Imaging",
+        "IdeaForge"
+      ],
+      optionsHi: [
+        "गरुड़ एयरोस्पेस",
+        "सर्वम AI",
+        "टोंबो इमेजिंग",
+        "आइडियाफोर्ज"
+      ],
+      answer: 1,
+      expEn: "Sarvam AI signed the 5-year MoU to deploy AI applications for the Indian Armed Forces.",
+      expHi: "सर्वम AI ने भारतीय सशस्त्र बलों के लिए AI अनुप्रयोगों को तैनात करने हेतु 5 साल के समझौता ज्ञापन पर हस्ताक्षर किए।"
+    },
+    {
+      qEn: "8. 'Dicharax tilariensis', which was discovered recently, belongs to which category of species?",
+      qHi: "8. हाल ही में खोजी गई 'डिखारक्स तिलारिएन्सिस' (Dicharax tilariensis) किस श्रेणी की प्रजाति से संबंधित है?",
+      optionsEn: [
+        "Freshwater fish",
+        "Microscopic land snail",
+        "Endemic butterfly",
+        "High-altitude frog"
+      ],
+      optionsHi: [
+        "मीठे पानी की मछली",
+        "सूक्ष्म स्थलीय घोंघा (Microscopic land snail)",
+        "स्थानिक तितली",
+        "उच्च ऊंचाई वाला मेंढक"
+      ],
+      answer: 1,
+      expEn: "Dicharax tilariensis is a new microscopic land snail species discovered in Kolhapur's Tilari region.",
+      expHi: "डिखारक्स तिलारिएन्सिस कोल्हापुर के तिलारी क्षेत्र में खोजी गई एक नई सूक्ष्म स्थलीय घोंघे की प्रजाति है।"
+    },
+    {
+      qEn: "9. India observed the birth anniversary of Sardar Vallabhbhai Patel on October 31, 2026, marking which anniversary?",
+      qHi: "9. भारत ने 31 अक्टूबर 2026 को सरदार वल्लभभाई पटेल की कौन सी जयंती मनाई?",
+      optionsEn: [
+        "150th",
+        "151st",
+        "152nd",
+        "155th"
+      ],
+      optionsHi: [
+        "150वीं",
+        "151वीं",
+        "152वीं",
+        "155वीं"
+      ],
+      answer: 1,
+      expEn: "October 31, 2026, marked the 151st birth anniversary of Sardar Vallabhbhai Patel.",
+      expHi: "31 अक्टूबर 2026 को सरदार वल्लभभाई पटेल की 151वीं जयंती मनाई गई।"
+    },
+    {
+      qEn: "10. Under which code did the Ministry of Labour and Employment notify National Social Security Boards for unorganised and gig workers?",
+      qHi: "10. श्रम और रोजगार मंत्रालय ने किस संहिता के तहत असंगठित और गिग श्रमिकों के लिए राष्ट्रीय सामाजिक सुरक्षा बोर्ड को अधिसूचित किया?",
+      optionsEn: [
+        "Code on Wages, 2019",
+        "Industrial Relations Code, 2020",
+        "Code on Social Security",
+        "Occupational Safety, Health and Working Conditions Code"
+      ],
+      optionsHi: [
+        "वेतन संहिता, 2019",
+        "औद्योगिक संबंध संहिता, 2020",
+        "सामाजिक सुरक्षा संहिता (Code on Social Security)",
+        "व्यावसायिक सुरक्षा, स्वास्थ्य और कार्य दशाएं संहिता"
+      ],
+      answer: 2,
+      expEn: "The boards were constituted under the provisions of the Code on Social Security.",
+      expHi: "इन बोर्डों का गठन सामाजिक सुरक्षा संहिता के प्रावधानों के तहत किया गया।"
     }
   ]
 };
